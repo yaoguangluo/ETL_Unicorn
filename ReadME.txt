@@ -12,7 +12,6 @@
 作者授权为BSD协议可自由集成到公司集团个人作品中，自有修改发布。
 
 实例：
-![image](https://github.com/872822645/danxuankuangDemo/blob/master/1.jpg)
 ![image](https://raw.githubusercontent.com/yaoguangluo/ETL-unicorn/master/6.png）
 
 
