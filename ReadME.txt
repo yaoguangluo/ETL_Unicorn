@@ -13,7 +13,7 @@
 
 实例：
 
-# ![Image text](https://raw.github.com/yaoguangluo/ETL-unicorn/blob/master/6.png）
+# ![Image text](https://raw.githubusercontent.com/yaoguangluo/ETL-unicorn/master/6.png）
 
 
 作者：罗瑶光
