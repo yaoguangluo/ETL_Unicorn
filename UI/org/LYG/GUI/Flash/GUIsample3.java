@@ -46,8 +46,7 @@ import org.LYG.GUI.nodeProject.nodeProject;
 import org.LYG.GUI.nodeView.cacuString;
 import org.LYG.GUI.nodeView.nodeShow;
 import org.LYG.GUI.platForm.unicornJSplitPane;
-public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable
-{	
+public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable{	
 	private static final long serialVersionUID = 5270675501794340912L;
 	public GUIsample3() {
 		//getContentPane().setBackground(new Color(218,112,214));
@@ -80,7 +79,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	MenuItem menuItem1;
 	MenuItem configre,run,show,dnode,dline;
 	Thread thread,thread1; 
-	@Override
+
 	public void run() {
 		try {
 			Thread.sleep(100);
@@ -137,26 +136,25 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
             }  
         });  
 		righttopscrollPane.addComponentListener(new ComponentListener(){
-			@Override
+
 			public void componentHidden(ComponentEvent arg0) {}
-			@Override
+
 			public void componentMoved(ComponentEvent arg0) {}
-			@Override
+
 			public void componentResized(ComponentEvent arg0) {
 				righttopscrollPane.validate();
 				}
-			@Override
+
 			public void componentShown(ComponentEvent arg0) {}
 			
 			
 		});
-		getContentPane().addComponentListener(new ComponentListener()
-		{
-			@Override
+		getContentPane().addComponentListener(new ComponentListener(){
+
 			public void componentHidden(ComponentEvent arg0) {}
-			@Override
+
 			public void componentMoved(ComponentEvent arg0) {}
-			@Override
+
 			public void componentResized(ComponentEvent arg0) {
 				// TODO Auto-generated method stub
 				w=getContentPane().getWidth();
@@ -175,7 +173,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				mainsplitPane.validate();
 				System.out.println(w+"<>"+h);
 			}
-			@Override
 			public void componentShown(ComponentEvent arg0) {
 				// TODO Auto-generated method stub	
 			}	
@@ -461,7 +458,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
             this.setOpaque(false);
         }  
     	@SuppressWarnings("deprecation")
-		@Override
+
     	public void run() {
     		   while(true)
     		   {   
@@ -487,17 +484,17 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		public void stop() {
     		thread1.destroy();
     	}
-		@Override
+
 		public void actionPerformed(ActionEvent arg0) {}
-		@Override
+
 		public void itemStateChanged(ItemEvent arg0) {}
-		@Override
+
 		public void mouseClicked(MouseEvent arg0) {}
-		@Override
+
 		public void mouseEntered(MouseEvent arg0) {}
-		@Override
+
 		public void mouseExited(MouseEvent arg0) {}
-		@Override
+
 		public void mousePressed(MouseEvent arg0) {
 			System.out.println(arg0.getX()+"|"+arg0.getY());
 			oldx = arg0.getX();
@@ -508,7 +505,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		    currentNodeID=new chooseCheck().chooseCheckid(first,arg0);
 		}
 
-		@Override
 		public void mouseReleased(MouseEvent arg0){
 			currentx=arg0.getX();
 			currenty=arg0.getY();
@@ -591,7 +587,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				g.dispose();
 			}
 		}
-		@Override
 		public void mouseMoved(MouseEvent arg0) {
 			// TODO Auto-generated method stub
 		}
@@ -824,19 +819,19 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		getContentPane().add(nodeMenu);
 		getContentPane().setVisible(true);
 	}
-	@Override
+
 	public void actionPerformed(ActionEvent arg0) {}
-	@Override
+
 	public void itemStateChanged(ItemEvent arg0) {}
-	@Override
+
 	public void mouseClicked(MouseEvent arg0) {}
-	@Override
+
 	public void mouseEntered(MouseEvent arg0) {}
-	@Override
+
 	public void mouseExited(MouseEvent arg0) {}
-	@Override
+
 	public void mousePressed(MouseEvent arg0) {}
-	@Override
+
 	public void mouseReleased(MouseEvent arg0) {
 		TreePath path = nodeview.tree.getPathForLocation(arg0.getX(), arg0.getY());
 	 	if (path != null)
@@ -847,8 +842,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		 	}
 	 	}	
 	}
-	@Override
+
 	public void mouseDragged(MouseEvent arg0) {}
-	@Override
+
 	public void mouseMoved(MouseEvent arg0) {}
 }

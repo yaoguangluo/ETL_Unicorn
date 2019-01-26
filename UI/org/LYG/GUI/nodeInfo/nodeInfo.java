@@ -1,14 +1,11 @@
 package org.LYG.GUI.nodeInfo;
-
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import java.awt.*;
 import javax.swing.*;
- 
-
+@SuppressWarnings({"unchecked","rawtypes"})
 public class nodeInfo extends JScrollPane {
 	private static final long serialVersionUID = 866589699634559456L;
 	String[] petStrings = {"china", "ca", "denmark", "fr", "genmany","india","norway","uk","us"};
