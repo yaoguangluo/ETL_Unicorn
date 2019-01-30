@@ -34,16 +34,12 @@ public class LinkList{
 	}
 	public linkNode addNode(linkNode first2, String treeNodeName,int x,int y,nodeOSGI nOSGI ) throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
 		nodeOSGI currentOSGI=nOSGI;
-		while(currentOSGI!=null&&currentOSGI.pre!=null)
-		{
+		while(currentOSGI!=null&&currentOSGI.pre!=null){
 			currentOSGI=currentOSGI.pre;
 		}
-		if(first2==null)
-		{			
-			if(currentOSGI!=null)
-			{
-				if(currentOSGI.thisname.equals(treeNodeName))
-				{
+		if(first2==null){			
+			if(currentOSGI!=null){
+				if(currentOSGI.thisname.equals(treeNodeName)){
 					first2=new linkNode();
 					first2.addName(treeNodeName,x,y,++index);
 					first2.thisface=currentOSGI.currentFace.luoyaoguang();
@@ -52,11 +48,9 @@ public class LinkList{
 					sum_of_nude++;
 					return first2;
 				}
-				while(currentOSGI.next!=null)
-				{
+				while(currentOSGI.next!=null){
 					currentOSGI=currentOSGI.next;
-					if(currentOSGI.thisname.equals(treeNodeName))
-					{
+					if(currentOSGI.thisname.equals(treeNodeName)){
 						first2=new linkNode();
 						first2.addName(treeNodeName,x,y,++index);
 						first2.thisface=currentOSGI.currentFace.luoyaoguang();
@@ -69,30 +63,24 @@ public class LinkList{
 			}
 
 		}
-		while(first2.next != null)
-		{
+		while(first2.next != null){
 			first2 = first2.next;
 		}
 		
-		if(currentOSGI!=null)
-		{
-			if(currentOSGI.thisname.equals(treeNodeName))
-			{
+		if(currentOSGI!=null){
+			if(currentOSGI.thisname.equals(treeNodeName)){
 				//first2=new linkNode();
 				linkNode node = new linkNode();
 				node.addName(treeNodeName,x,y,++index);
 				node.thisface=currentOSGI.currentFace.luoyaoguang();
-
 				node.pre=first2;
 				first2.next=node;
 				sum_of_nude++;
 				return first2;
 			}
-			while(currentOSGI.next!=null)
-			{
+			while(currentOSGI.next!=null){
 				currentOSGI=currentOSGI.next;
-				if(currentOSGI.thisname.equals(treeNodeName))
-				{
+				if(currentOSGI.thisname.equals(treeNodeName)){
 					linkNode node = new linkNode();
 					node.addName(treeNodeName,x,y,++index);
 					node.thisface=currentOSGI.currentFace.luoyaoguang();
@@ -110,14 +98,10 @@ public class LinkList{
 		sum_of_nude++;
 		return first2;
 	} 
-	public linkNode deletNode(linkNode first2, String name,int ID)
-	{
-		if(first2!=null)
-		{
-			if(first2.name.equals(name)&&first2.ID==ID)
-			{
-				if(first2.next!=null)
-				{
+	public linkNode deletNode(linkNode first2, String name,int ID){
+		if(first2!=null){
+			if(first2.name.equals(name)&&first2.ID==ID){
+				if(first2.next!=null){
 					first2=first2.next;
 					first2.pre=null;
 					return first2;	

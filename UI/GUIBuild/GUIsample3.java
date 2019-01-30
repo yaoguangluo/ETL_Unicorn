@@ -63,6 +63,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	int choose=0;
 	int oldx,oldy;
 	int newx,newy;
+	int isOperation = 0;
 	String treeNodeName;
 	nodeShow nodeview;
 	nodeProject nodeproject;
@@ -85,75 +86,65 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-	    nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-	    nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+		nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
+		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 		nodeproject.jPanel.update(getGraphics());
 		nodeproject.validate();
-		   while(true)
-		   {   
-		         try{
-		        	 Thread.sleep(1000);
-		        	 this.validate();
-		         	}catch (InterruptedException e) {}
-		         //repaint();
-		   }      
+		while(true){   
+			try{
+				Thread.sleep(1000);
+				this.validate();
+			}catch (InterruptedException e) {}
+			//repaint();
+		}      
 	}
-	public void start()
-	{
-		  if(thread == null)
-		  	  {
-		         thread =  new Thread(this);
-		         thread.start();
-		      }
+	public void start(){
+		if(thread == null){
+			thread =  new Thread(this);
+			thread.start();
+		}
 	}
 	public void stop() {
 	}
-	
+
 	public void Registrar() {
 		leftsplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
-	            public void propertyChange(java.beans.PropertyChangeEvent evt) {  
-	                if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
-	                    //action code 
-	                	nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-	                	nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
-	    				nodeproject.jPanel.repaint();
-	    				nodeproject.validate();
-	                
-	                }  
-	            }  
-	        });  
+			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
+				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
+					//action code 
+					nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeproject.jPanel.repaint();
+					nodeproject.validate();
+
+				}  
+			}  
+		});  
 		mainsplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {  
-                if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
-                    //action code 
-                	nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-                	nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
-    				nodeproject.jPanel.repaint();
-    				nodeproject.validate();
-                }  
-            }  
-        });  
+			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
+				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
+					//action code 
+					nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeproject.jPanel.repaint();
+					nodeproject.validate();
+				}  
+			}  
+		});  
 		righttopscrollPane.addComponentListener(new ComponentListener(){
-			
 			public void componentHidden(ComponentEvent arg0) {}
-			
 			public void componentMoved(ComponentEvent arg0) {}
-			
 			public void componentResized(ComponentEvent arg0) {
 				righttopscrollPane.validate();
-				}
-			
+			}
 			public void componentShown(ComponentEvent arg0) {}
-			
-			
 		});
-		getContentPane().addComponentListener(new ComponentListener()
-		{
-			
+		getContentPane().addComponentListener(new ComponentListener(){
+
 			public void componentHidden(ComponentEvent arg0) {}
-			
+
 			public void componentMoved(ComponentEvent arg0) {}
-			
+
 			public void componentResized(ComponentEvent arg0) {
 				// TODO Auto-generated method stub
 				w=getContentPane().getWidth();
@@ -163,16 +154,16 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				leftsplitPane.setDividerLocation(0.25);
 				rightsplitPane.setDividerLocation(0.85);
 				righttopsplitPane.setDividerLocation(0.9);
-				
+
 				nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-            	nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 				nodeproject.jPanel.repaint();
 				nodeproject.validate();
-			
+
 				mainsplitPane.validate();
 				System.out.println(w+"<>"+h);
 			}
-			
+
 			public void componentShown(ComponentEvent arg0) {
 				// TODO Auto-generated method stub	
 			}	
@@ -182,109 +173,114 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		nodeproject.addMouseListener(this);
 		nodeview.addMouseListener(this);
 		nodeview.tree.addMouseListener(this);
-		nodeview.tree.addTreeSelectionListener(new TreeSelectionListener() 
-		{
-            public void valueChanged(TreeSelectionEvent evt) 
-            {
-                 DefaultMutableTreeNode note=(DefaultMutableTreeNode) nodeview.tree.getLastSelectedPathComponent();
-                 String tr = null;
-                 if(note!=null)
-                 {
-                	 tr=new cacuString().cauString(note.toString());       
-                 }
-                 if(tr!=null)
-                 {
-                	 treeNodeName=new String(tr);
-                	 System.out.println(treeNodeName);
-                 }
-            }
-        });
-		 menuItem1.addActionListener(new java.awt.event.ActionListener() 
-		    {
-		    			public void actionPerformed(ActionEvent e) 
-		    			{
-		    				if(treeNodeName!=null)
-		    				{
-		    				try {
-								first = thislist.addNode(first,treeNodeName,100,50,nodeview.first);
-								righttopscrollPane.validate();
-							} catch (CloneNotSupportedException e1) {
-								e1.printStackTrace();
-							} catch (InstantiationException e1) {
-								e1.printStackTrace();
-							} catch (IllegalAccessException e1) {
-								e1.printStackTrace();
-							} catch (IOException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-		    				System.out.print(treeNodeName);
-		    				}
-		    			}
-		    });  
-		 configre.addActionListener(new java.awt.event.ActionListener() {
-		    	public void actionPerformed(ActionEvent e) 
-		    		{
-		    		linkNode node = new linkNode();
-	    			first = new Sort().sort(first);
-	    			node = first;
-	    			if(node != null)
-	    			{
-	    				if(node.name.equals(currentNodeName)&&node.ID == currentNodeID)
-	    				{
-  						       try {
+		nodeview.tree.addTreeSelectionListener(new TreeSelectionListener() {
+			public void valueChanged(TreeSelectionEvent evt) {
+				DefaultMutableTreeNode note=(DefaultMutableTreeNode) nodeview.tree.getLastSelectedPathComponent();
+				String tr = null;
+				if(note!=null){
+					tr=new cacuString().cauString(note.toString());       
+				}
+				if(tr!=null){
+					treeNodeName=new String(tr);
+					System.out.println(treeNodeName);
+				}
+			}
+		});
+		menuItem1.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(treeNodeName!=null){
+					try {
+						first = thislist.addNode(first,treeNodeName,100,50,nodeview.first);
+						righttopscrollPane.validate();
+					} catch (CloneNotSupportedException e1) {
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					System.out.print(treeNodeName);
+				}
+			}
+		});  
+		configre.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				linkNode node = new linkNode();
+				first = new Sort().sort(first);
+				node = first;
+				if(node != null){
+					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
+						try {
+							node.thisface.config();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} 
+						node.thisface.thispanel.setLocation(node.x, node.y);
+						node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+						node.thisface.thispanel.setResizable(true);
+						node.thisface.thispanel.setClosable(true);
+						node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+						node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
+						canvas.add(node.thisface.thispanel);
+						node.thisface.thispanel.setVisible(true);
+						node.thisface.thispanel.validate();
+						new OSGI_chansfer(node,first);
+					}
+					while(node.next!=null){
+						node=node.next;
+						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+							try {
 								node.thisface.config();
 							} catch (IOException e1) {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} 
-  						       node.thisface.thispanel.setLocation(node.x, node.y);
-  						       node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-  						       node.thisface.thispanel.setResizable(true);
-  						       node.thisface.thispanel.setClosable(true);
-  						       node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-	                           node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-	                           canvas.add(node.thisface.thispanel);
-	                           node.thisface.thispanel.setVisible(true);
-	                   	       node.thisface.thispanel.validate();
-		    				   new OSGI_chansfer(node,first);
-	    				}
-	    				while(node.next!=null)
-	    				{
-	    					node=node.next;
-	    					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    					{
-	    						   try {
-									node.thisface.config();
-								} catch (IOException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								} 
-	    						   node.thisface.thispanel.setLocation(node.x, node.y);
-	  						       node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-	  						       node.thisface.thispanel.setResizable(true);
-	  						       node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-		                           node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-		                           canvas.add(node.thisface.thispanel);
-		                           node.thisface.thispanel.setVisible(true);      
-		                           node.thisface.thispanel.validate();
-			    				   new OSGI_chansfer(node,first);
-	    					}
-	    				}
-	    			}	
-		    		}
-		    	}); 
-		 run.addActionListener(new java.awt.event.ActionListener() {
-		    	public void actionPerformed(ActionEvent e) 
-		    		{
-		    		linkNode node=new linkNode();
-	    			first=new Sort().sort(first);
-	    			node=first;
-	    			if(node!=null)
-	    			{
-	    				if(node.name.equals(currentNodeName)&&node.ID == currentNodeID)
-	    				{
-	                           try {
+							node.thisface.thispanel.setLocation(node.x, node.y);
+							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+							node.thisface.thispanel.setResizable(true);
+							node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
+							canvas.add(node.thisface.thispanel);
+							node.thisface.thispanel.setVisible(true);      
+							node.thisface.thispanel.validate();
+							new OSGI_chansfer(node,first);
+						}
+					}
+				}	
+			}
+		}); 
+		run.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				linkNode node=new linkNode();
+				first=new Sort().sort(first);
+				node=first;
+				if(node!=null){
+					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
+						try {
+							node.thisface.execute();
+						} catch (FileNotFoundException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (UnsupportedAudioFileException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						} catch (InterruptedException e3) {
+							// TODO Auto-generated catch block
+							e3.printStackTrace();
+						}     
+
+					}
+					while(node.next!=null){
+						node=node.next;
+						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+							try {
 								node.thisface.execute();
 							} catch (FileNotFoundException e1) {
 								// TODO Auto-generated catch block
@@ -298,246 +294,196 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							} catch (InterruptedException e3) {
 								// TODO Auto-generated catch block
 								e3.printStackTrace();
-							}     
-	                           
-	    				}
-	    				while(node.next!=null)
-	    				{
-	    					node=node.next;
-	    					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    					{
-	    						 try {
-									node.thisface.execute();
-								} catch (FileNotFoundException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								} catch (IOException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								} catch (UnsupportedAudioFileException e2) {
-									// TODO Auto-generated catch block
-									e2.printStackTrace();
-								} catch (InterruptedException e3) {
-									// TODO Auto-generated catch block
-									e3.printStackTrace();
-								} 
-	    					}
-	    					
-	    				}
-	    			}	
-		    		}
-		    	}); 
-		 show.addActionListener(new java.awt.event.ActionListener() {
-		    	public void actionPerformed(ActionEvent e) 
-		    		{
-		    		linkNode node=new linkNode();
-	    			first=new Sort().sort(first);
-	    			node=first;
-	    			if(node!=null)
-	    			{
-	    				if(node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    				{
-	    					   if(!node.thisface.showed)
-	    					   {
-	    						   try {
+							} 
+						}
+
+					}
+				}	
+			}
+		}); 
+		show.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				linkNode node = new linkNode();
+				first=new Sort().sort(first);
+				node=first;
+				if(node!=null){
+					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+						if(!node.thisface.showed){
+							try {
+								node.thisface.view();
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}  
+							node.thisface.thisview.setLocation(node.x, node.y);
+							node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+							node.thisface.thisview.setResizable(true);
+							node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
+							canvas.add(node.thisface.thisview);
+							node.thisface.thisview.setVisible(true);
+							node.thisface.thisview.validate();
+						}
+						else{
+							node.thisface.thisview.setVisible(true);  
+						}
+					}
+					while(node.next!=null){
+						node=node.next;
+						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+							if(!node.thisface.showed){
+								try {
 									node.thisface.view();
 								} catch (Exception e1) {
+									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}  
-	    						   node.thisface.thisview.setLocation(node.x, node.y);
-	  						       node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-	  						       node.thisface.thisview.setResizable(true);
-	  						       node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-	    						   node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-	    						   canvas.add(node.thisface.thisview);
-	    						   node.thisface.thisview.setVisible(true);
-	    						   node.thisface.thisview.validate();
-	    					   }
-	    					   else
-	    					   {
-	    						   node.thisface.thisview.setVisible(true);  
-	    					   }
-	    				}
-	    				while(node.next!=null)
-	    				{
-	    					node=node.next;
-	    					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    					{
-	    						 if(!node.thisface.showed)
-		    					   {
-		                   	       		try {
-											node.thisface.view();
-										} catch (Exception e1) {
-											// TODO Auto-generated catch block
-											e1.printStackTrace();
-										}  
-		                   	       	    node.thisface.thisview.setLocation(node.x, node.y);
-		  						        node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-		  						        node.thisface.thisview.setResizable(true);
-		  						        node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-		                   	       		node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-		                   	       		canvas.add(node.thisface.thisview);
-		                   	       		node.thisface.thisview.setVisible(true);
-		                   	       		node.thisface.thisview.validate();
-		    					   }
-		    					   else
-		    					   {
-		    						   node.thisface.thisview.setVisible(true);  
-		    					   }
-	    					}
-	    				}
-	    			}	
-		    		}
-		    	}); 
-		 dnode.addActionListener(new java.awt.event.ActionListener() {
-		    	public void actionPerformed(ActionEvent e) 
-		    	{
-	    			linkNode node=new linkNode();
-	    			first=new Sort().sort(first);
-	    			node=first;
-	    			if(node!=null)
-	    			{
-	    				if(node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    				{
-	    					first=thislist.deletNode(first, node.name,node.ID);
-	    					new updateRelatedLine(first,currentNodeName,currentNodeID);
-	    				}
-	    				while(node.next!=null)
-	    				{
-	    					node=node.next;
-	    					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    					{
-	    						first=thislist.deletNode(first, node.name,node.ID);
-	    						new updateRelatedLine(first,currentNodeName,currentNodeID);
-	    					}
-	    				}
-	    			}	
-	    			canvas.repaint();
-		    		}
-		    	}); 
-		 dline.addActionListener(new java.awt.event.ActionListener() {
-		    	public void actionPerformed(ActionEvent e) 
-		    		{
-		    		linkNode node=new linkNode();
-	    			first=new Sort().sort(first);
-	    			node=first;
-	    			if(node!=null)
-	    			{
-	    				if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-	    				{
-	    					node.beconnect=false;
-	    					node.tbeconnect=false;
-	    					node.mbeconnect=false;
-	    					node.dbeconnect=false;
-	    				}
-	    				while(node.next!=null)
-	    				{
-	    					node=node.next;
-	    					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID)
-		    				{
-	    						node.beconnect=false;
-		    					node.tbeconnect=false;
-		    					node.mbeconnect=false;
-		    					node.dbeconnect=false;
-		    				}
-	    				}
-	    			}
-	    			canvas.repaint();
-		    		}
-		    	}); 
+								node.thisface.thisview.setLocation(node.x, node.y);
+								node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+								node.thisface.thisview.setResizable(true);
+								node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
+								canvas.add(node.thisface.thisview);
+								node.thisface.thisview.setVisible(true);
+								node.thisface.thisview.validate();
+							}
+							else{
+								node.thisface.thisview.setVisible(true);  
+							}
+						}
+					}
+				}	
+			}
+		}); 
+		dnode.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				linkNode node=new linkNode();
+				first=new Sort().sort(first);
+				node=first;
+				if(node!=null){
+					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+						first=thislist.deletNode(first, node.name,node.ID);
+						new updateRelatedLine(first,currentNodeName,currentNodeID);
+					}
+					while(node.next!=null){
+						node=node.next;
+						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+							first=thislist.deletNode(first, node.name,node.ID);
+							new updateRelatedLine(first,currentNodeName,currentNodeID);
+						}
+					}
+				}	
+				canvas.repaint();
+			}
+		}); 
+		dline.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				linkNode node=new linkNode();
+				first=new Sort().sort(first);
+				node=first;
+				if(node!=null){
+					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+						node.beconnect=false;
+						node.tbeconnect=false;
+						node.mbeconnect=false;
+						node.dbeconnect=false;
+					}
+					while(node.next!=null){
+						node=node.next;
+						if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+							node.beconnect=false;
+							node.tbeconnect=false;
+							node.mbeconnect=false;
+							node.dbeconnect=false;
+						}
+					}
+				}
+				canvas.repaint();
+			}
+		}); 
 	}	
-	public class thisCanvas extends JPanel implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable
-	{
+	public class thisCanvas extends JPanel implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable{
 		private static final long serialVersionUID = 1L;
-        public thisCanvas()
-        {
-        	this.setLayout(null);
-        	this.addMouseListener(this);
-        	this.addMouseMotionListener(this);
-        	this.start();
-            this.setOpaque(false);
-        }  
-    	@SuppressWarnings("deprecation")
-		
-    	public void run() {
-    		   while(true)
-    		   {   
-    		         try{
-    		        	 Thread.sleep(1000);
-    		        	 this.updateUI();
-    		         	}catch (InterruptedException e) {
-    		         		thread1.destroy();
-    		         	}
-    		   }      
-    	}
-    	public void start()
-    	{
-    		
-    		  if(thread1 == null)
-    		  	  {
-    		         thread1 =  new Thread(this);
-    		         thread1.start();
-    		      }
-    		      
-    	}
-    	@SuppressWarnings("deprecation")
+		public thisCanvas(){
+			this.setLayout(null);
+			this.addMouseListener(this);
+			this.addMouseMotionListener(this);
+			this.start();
+			this.setOpaque(false);
+		}  
+		@SuppressWarnings("deprecation")
+
+		public void run() {
+			while(true){   
+				try{
+					Thread.sleep(1000);
+					this.updateUI();
+				}catch (InterruptedException e) {
+					thread1.destroy();
+				}
+			}      
+		}
+		public void start(){
+
+			if(thread1 == null){
+				thread1 =  new Thread(this);
+				thread1.start();
+			}
+
+		}
+		@SuppressWarnings("deprecation")
 		public void stop() {
-    		thread1.destroy();
-    	}
-		
-		public void actionPerformed(ActionEvent arg0) {}
-		
-		public void itemStateChanged(ItemEvent arg0) {}
-		
-		public void mouseClicked(MouseEvent arg0) {}
-		
-		public void mouseEntered(MouseEvent arg0) {}
-		
-		public void mouseExited(MouseEvent arg0) {}
-		
-		public void mousePressed(MouseEvent arg0) {
-			System.out.println(arg0.getX()+"|"+arg0.getY());
-			oldx = arg0.getX();
-		  	oldy = arg0.getY();
-		  	currentx=arg0.getX();
-			currenty=arg0.getY();
-		    currentNodeName=new chooseCheck().chooseCheckname(first,arg0);
-		    currentNodeID=new chooseCheck().chooseCheckid(first,arg0);
+			thread1.destroy();
 		}
 
-		
-		public void mouseReleased(MouseEvent arg0){
+		public void actionPerformed(ActionEvent arg0) {}
+
+		public void itemStateChanged(ItemEvent arg0) {}
+
+		public void mouseClicked(MouseEvent arg0) {}
+
+		public void mouseEntered(MouseEvent arg0) {}
+
+		public void mouseExited(MouseEvent arg0) {}
+
+		public void mousePressed(MouseEvent arg0) {
+			isOperation=1;
+			System.out.println(arg0.getX()+"|"+arg0.getY());
+			oldx = arg0.getX();
+			oldy = arg0.getY();
 			currentx=arg0.getX();
 			currenty=arg0.getY();
-		 	first=new Sort().sort(first);
+			currentNodeName=new chooseCheck().chooseCheckname(first,arg0);
+			currentNodeID=new chooseCheck().chooseCheckid(first,arg0);
+		}
+
+
+		public void mouseReleased(MouseEvent arg0){
+			isOperation=0;
+			currentx=arg0.getX();
+			currenty=arg0.getY();
+			first=new Sort().sort(first);
 			linkNode node=new linkNode();
-		    node=first;
-			if(node!=null)
-			{
-				if(node.rightchoose&&!node.leftchoose)
-				{
-					if(oldx==arg0.getX()&&oldy==arg0.getY())
-					{
+			node=first;
+			if(node!=null){
+				if(node.rightchoose&&!node.leftchoose){
+					if(oldx==arg0.getX()&&oldy==arg0.getY()){
 						nodeMenu.show(this, arg0.getX(), arg0.getY());
 					}
 					else{
-						 	new checkRange(first,node,arg0);
-					    }
+						new checkRange(first,node,arg0);
+					}
 				}
 				node.setchoose(false);
 				node.rightchoose=false;
-				while(node.next!=null)
-				{
+				while(node.next!=null){
 					node=node.next;
-					if(node.rightchoose&&!node.leftchoose)
-					{
-						if(oldx==arg0.getX()&&oldy==arg0.getY())
-						{
+					if(node.rightchoose&&!node.leftchoose){
+						if(oldx==arg0.getX()&&oldy==arg0.getY()){
 							nodeMenu.show(this, arg0.getX(), arg0.getY());
 						}
 						else{
-						    	new checkRange(first,node,arg0);
-						    }
+							new checkRange(first,node,arg0);
+						}
 					}
 					node.setchoose(false);
 					node.rightchoose=false;
@@ -546,58 +492,55 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}
 
 		public void mouseDragged(MouseEvent e) {
-			try 
-			{
+			isOperation=1;
+			try {
 				Thread.sleep(15);
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
 			currentx=e.getX();
-	        currenty=e.getY();
-	        linkNode node=new linkNode();
-	        first=new Sort().sort(first);
+			currenty=e.getY();
+			linkNode node=new linkNode();
+			first=new Sort().sort(first);
 			node=first;
-		 	Graphics g = getGraphics();
-		 	Graphics2D g2 = (Graphics2D)g;
-		 	g2.setColor(Color.black);
-			if(node!=null)
-			{
-					 if(node.leftchoose&&!node.rightchoose){
-							 node.setxy(e.getX(),e.getY());
-							 new dynamicLineUpdater().exec(first,node);
-							 this.update();
-					 	}
-					 if(!node.leftchoose&&node.rightchoose){	 
-						 new drawArrow(g2,oldx, oldy, e.getX(), e.getY());
-						 this.update(g);
-					     }	
-				while(node.next!=null)
-				{
+			Graphics g = getGraphics();
+			Graphics2D g2 = (Graphics2D)g;
+			g2.setColor(Color.black);
+			if(node!=null){
+				if(node.leftchoose&&!node.rightchoose){
+					node.setxy(e.getX(),e.getY());
+					new dynamicLineUpdater().exec(first,node);
+					this.update();
+				}
+				if(!node.leftchoose&&node.rightchoose){	 
+					new drawArrow(g2,oldx, oldy, e.getX(), e.getY());
+					this.update(g);
+				}	
+				while(node.next!=null){
 					node=node.next;
-					if(node.leftchoose&&!node.rightchoose)
-				 	{	
-							 node.setxy(e.getX(),e.getY());
-							 new dynamicLineUpdater().exec(first,node);
-							 this.update();
-				 	}
-					 if(!node.leftchoose&&node.rightchoose){	 
-						 new drawArrow(g2,oldx, oldy, e.getX(), e.getY());
-						 this.update(g);
-					     }	
+					if(node.leftchoose&&!node.rightchoose){	
+						node.setxy(e.getX(),e.getY());
+						new dynamicLineUpdater().exec(first,node);
+						this.update();
+					}
+					if(!node.leftchoose&&node.rightchoose){	 
+						new drawArrow(g2,oldx, oldy, e.getX(), e.getY());
+						this.update(g);
+					}	
 				}
 				g.dispose();
 			}
 		}
-		
+
 		public void mouseMoved(MouseEvent arg0) {
 			// TODO Auto-generated method stub
 		}
-		public void update()
-		{
+		public void update(){
 			Graphics g=getGraphics();
 			this.update(g);
 			g.dispose();		
 		}
+		@SuppressWarnings("unused")
 		public void paint(Graphics g){
 			nodeview.validate();
 			Graphics2D g2 = (Graphics2D)g;
@@ -607,147 +550,128 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			linkNode node=new linkNode();
 			first=new Sort().sort(first);
 			node=first;
-			if(node!=null)
-			{
-				        if(node.x<0)
-				        {
-				        	node.x=10;
-				        }
-				        if(node.x>(this.getWidth()-100))
-				        {
-				        	node.x=this.getWidth()-100; 	
-				        }
-				        if(node.y<0)
-				        {
-				        	node.y=10;
-				        }
-				        if(node.y>(this.getHeight()-100))
-				        {
-				        	node.y=this.getHeight()-100; 	
-				        }
-					 	g.drawImage(node.thisface.thisimage,node.x,node.y,this);
-	    				if(node.flash>100)
-	    				{
-	    					node.flash=0;
-	    				}
-					 	new drawFlashSide(g2,node.x,node.y,node.flash++%3);
-					 	g2.setColor(Color.black);
-					 	g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
-					 	g2.setColor(new	Color(25,25,112));
-					 	if(node.beconnect)
-					 	{
-					 		if(node.tbeconnect)
-					 		{
-					 			new drawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
-					 			if(!node.leftchoose&&node.rightchoose)
-					 			{
-					 				g2.setColor(Color.black);
-					 				new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 				g2.setColor(new	Color(25,25,112));	
-					 			}
-					 		}
-					 		if(node.mbeconnect)
-					 		{
-					 			new drawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
-					 			if(!node.leftchoose&&node.rightchoose)
-					 			{
-					 				g2.setColor(Color.black);
-					 				new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 				g2.setColor(new	Color(25,25,112));	
-					 			}
-					 		}
-					 		if(node.dbeconnect)
-					 		{
-					 			new drawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
-					 			if(!node.leftchoose&&node.rightchoose)
-					 			{
-					 				g2.setColor(Color.black);
-					 				new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 				g2.setColor(new	Color(25,25,112));	
-					 			}
-					 		}
-					 	}
-					 	else if(!node.leftchoose&&node.rightchoose)
-					 	{
-					 		g2.setColor(Color.black);
-					 		new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 		g2.setColor(new	Color(25,25,112));
-					 	}
-				while(node.next!=null)
-				{
-						node=node.next;
-						
-						if(node.x<0)
-				        {
-				        	node.x=10;
-				        }
-				        if(node.x>(this.getWidth()-100))
-				        {
-				        	node.x=this.getWidth()-100; 	
-				        }
-				        if(node.y<0)
-				        {
-				        	node.y=10;
-				        }
-				        if(node.y>(this.getHeight()-100))
-				        {
-				        	node.y=this.getHeight()-100; 
-				        }
-					 	g.drawImage(node.thisface.thisimage,node.x,node.y,this);
-					 	if(node.flash>100)
-	    				{
-	    					node.flash=0;
-	    				}
-					 	new drawFlashSide(g2,node.x,node.y,node.flash++%3);
-					 	g2.setColor(Color.BLACK);
-					 	g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
-					 	g2.setColor(new	Color(25,25,112));
-					 	if(node.beconnect)
-					 	{
-					 		if(node.tbeconnect)
-					 		{
-					 			new drawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
-					 			if(!node.leftchoose&&node.rightchoose)
-					 			{
-					 				g2.setColor(Color.black);
-					 				new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 				g2.setColor(new	Color(25,25,112));	
-					 			}
-					 		}
-					 		if(node.mbeconnect)
-					 		{
-					 			new drawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
-					 			if(!node.leftchoose&&node.rightchoose)
-					 			{
-					 				g2.setColor(Color.black);
-					 				new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 				g2.setColor(new	Color(25,25,112));	
-					 			}
-					 		}
-					 		if(node.dbeconnect)
-					 		{
-					 			new drawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
-					 			if(!node.leftchoose&&node.rightchoose)
-					 			{
-					 				g2.setColor(Color.black);
-					 				new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 				g2.setColor(new	Color(25,25,112));	
-					 			}
-					 		}
-					 	}
-					 	else if(!node.leftchoose&&node.rightchoose)
-					 	{
-					 		g2.setColor(Color.black);	
-					 		new drawArrow(g2, oldx, oldy, currentx, currenty);
-					 		g2.setColor(new	Color(25,25,112));
-					 	}
+			if(node!=null){
+				if(node.x<0){
+					node.x=10;
 				}
+				if(node.x>(this.getWidth()-100)){
+					node.x=this.getWidth()-100; 	
+				}
+				if(node.y<0){
+					node.y=10;
+				}
+				if(node.y>(this.getHeight()-100)){
+					node.y=this.getHeight()-100; 	
+				}
+				g.drawImage(node.thisface.thisimage,node.x,node.y,this);
+				if(node.flash>100){
+					node.flash=0;
+				}
+				if(0 == isOperation) {
+					new drawFlashSide(g2, node.x, node.y, node.flash++%3);
+				}else {
+					new drawFlashSide(g2, node.x, node.y, node.flash);
+				}
+				g2.setColor(Color.black);
+				g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
+				g2.setColor(new	Color(25,25,112));
+				if(node.beconnect){
+					if(node.tbeconnect){
+						new drawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
+						if(!node.leftchoose&&node.rightchoose){
+							g2.setColor(Color.black);
+							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							g2.setColor(new	Color(25,25,112));	
+						}
+					}
+					if(node.mbeconnect){
+						new drawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
+						if(!node.leftchoose&&node.rightchoose){
+							g2.setColor(Color.black);
+							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							g2.setColor(new	Color(25,25,112));	
+						}
+					}
+					if(node.dbeconnect){
+						new drawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
+						if(!node.leftchoose&&node.rightchoose){
+							g2.setColor(Color.black);
+							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							g2.setColor(new	Color(25,25,112));	
+						}
+					}
+				}
+				else if(!node.leftchoose&&node.rightchoose){
+					g2.setColor(Color.black);
+					new drawArrow(g2, oldx, oldy, currentx, currenty);
+					g2.setColor(new	Color(25,25,112));
+				}
+				Next:
+					while(node.next != null){
+						//不是选中节点 跳出
+						node = node.next;
+						if(node.x < 0){
+							node.x=10;
+						}
+						if(node.x>(this.getWidth()-100)){
+							node.x=this.getWidth()-100; 	
+						}
+						if(node.y<0){
+							node.y=10;
+						}
+						if(node.y>(this.getHeight()-100)){
+							node.y=this.getHeight()-100; 
+						}
+						g.drawImage(node.thisface.thisimage,node.x,node.y,this);
+						if(node.flash>100){
+							node.flash=0;
+						}
+						if(0 == isOperation) {
+							new drawFlashSide(g2, node.x, node.y, node.flash++%3);
+						}else {
+							new drawFlashSide(g2, node.x, node.y, node.flash);
+						}
+						g2.setColor(Color.BLACK);
+						g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
+						g2.setColor(new	Color(25,25,112));
+						if(node.beconnect){
+							if(node.tbeconnect){
+								new drawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
+								if(!node.leftchoose&&node.rightchoose){
+									g2.setColor(Color.black);
+									new drawArrow(g2, oldx, oldy, currentx, currenty);
+									g2.setColor(new	Color(25,25,112));	
+								}
+							}
+							if(node.mbeconnect){
+								new drawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
+								if(!node.leftchoose&&node.rightchoose){
+									g2.setColor(Color.black);
+									new drawArrow(g2, oldx, oldy, currentx, currenty);
+									g2.setColor(new	Color(25,25,112));	
+								}
+							}
+							if(node.dbeconnect){
+								new drawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
+								if(!node.leftchoose&&node.rightchoose)
+								{
+									g2.setColor(Color.black);
+									new drawArrow(g2, oldx, oldy, currentx, currenty);
+									g2.setColor(new	Color(25,25,112));	
+								}
+							}
+						}
+						else if(!node.leftchoose&&node.rightchoose){
+							g2.setColor(Color.black);	
+							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							g2.setColor(new	Color(25,25,112));
+						}
+					}
 			}
 		}	
 	}
-	public void init()
-	{
-        try {
+	public void init(){
+		try {
 			CreatMap();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -821,31 +745,22 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		getContentPane().add(nodeMenu);
 		getContentPane().setVisible(true);
 	}
-	
+
 	public void actionPerformed(ActionEvent arg0) {}
-	
 	public void itemStateChanged(ItemEvent arg0) {}
-	
 	public void mouseClicked(MouseEvent arg0) {}
-	
 	public void mouseEntered(MouseEvent arg0) {}
-	
 	public void mouseExited(MouseEvent arg0) {}
-	
 	public void mousePressed(MouseEvent arg0) {}
-	
 	public void mouseReleased(MouseEvent arg0) {
 		TreePath path = nodeview.tree.getPathForLocation(arg0.getX(), arg0.getY());
-	 	if (path != null)
-	 	{
-	 		nodeview.tree.setSelectionPath(path);
-		 	if (arg0.getButton() == 3){
-		 		popupMenu1.show(nodeview.tree, arg0.getX(), arg0.getY());
-		 	}
-	 	}	
+		if (path != null){
+			nodeview.tree.setSelectionPath(path);
+			if (arg0.getButton() == 3){
+				popupMenu1.show(nodeview.tree, arg0.getX(), arg0.getY());
+			}
+		}	
 	}
-	
 	public void mouseDragged(MouseEvent arg0) {}
-	
 	public void mouseMoved(MouseEvent arg0) {}
 }
