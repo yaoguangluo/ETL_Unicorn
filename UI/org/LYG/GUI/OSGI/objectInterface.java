@@ -5,8 +5,7 @@ import java.io.IOException;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
-public class objectInterface implements Cloneable
-{
+public class objectInterface implements Cloneable{
 	public ImageIcon thisicon;
 	public Image thisimage;
 	public String thisname;
@@ -16,12 +15,10 @@ public class objectInterface implements Cloneable
 	public objectView thisview;
 	public objectInterface stu;
 	public boolean showed=false;
-	 public objectInterface luoyaoguang() throws CloneNotSupportedException, IOException 
-	    {
-			return stu;   
-	    }
-	public objectInterface()
-	{
+	public objectInterface luoyaoguang() throws CloneNotSupportedException, IOException  {
+		return stu;   
+	}
+	public objectInterface(){
 		thisicon=null;
 		thisimage=null;
 		thisname=null;
@@ -29,13 +26,10 @@ public class objectInterface implements Cloneable
 		thisrun=new objectRun();
 		thisview=new objectView();	
 	}
-	public void config() throws IOException
-	{
+	public void config() throws IOException{
 	}
-	public void execute() throws FileNotFoundException, IOException, UnsupportedAudioFileException, InterruptedException
-	{
+	public void execute() throws FileNotFoundException, IOException, UnsupportedAudioFileException, InterruptedException{
 	}
-	public void view() throws Exception
-	{
+	public void view() throws Exception{
 	}
 }

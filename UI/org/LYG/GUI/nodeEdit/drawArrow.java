@@ -2,7 +2,7 @@ package org.LYG.GUI.nodeEdit;
 import java.awt.*;
 public class drawArrow{
 	public drawArrow(Graphics2D g2, int x, int y, int connectx, int connecty) {
-	    g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
+		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
 		g2.drawLine(x,y,connectx,connecty);
 		g2.drawPolygon(getArrow(x, y, connectx, connecty, 18, 0,0.5)); 
 		g2.fillPolygon(getArrow(x, y, connectx, connecty, 18, 0,0.5));	
@@ -19,7 +19,7 @@ public class drawArrow{
 		head.addPoint(headbase[0], headbase[1]);
 		head.addPoint(x1, y1);
 		return head;
-		}
+	}
 	private int[] getArrowHeadCrossLine(int x1, int x2, int b1, int b2, double factor){
 		int [] crossline = new int[4];
 		int xdest = (int) (((b1 - x1)*factor) + x1);

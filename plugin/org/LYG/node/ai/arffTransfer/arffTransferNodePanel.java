@@ -10,12 +10,10 @@ import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.ScrollPane;
 import java.awt.Color;
-public class arffTransferNodePanel extends objectPanel
-{
+public class arffTransferNodePanel extends objectPanel{
 	private static final long serialVersionUID = 1L;
 	private FileDialog filedialog;
-	public arffTransferNodePanel(final arffTransferNodeRun thisrun)
-	{
+	public arffTransferNodePanel(final arffTransferNodeRun thisrun){
 		setLayout(null);
 		jsp = new ScrollPane();
 		add(jsp);
@@ -50,8 +48,7 @@ public class arffTransferNodePanel extends objectPanel
 		close=false;
 		this.setClosable(true);
  	}
-	public void config()
-	{    
+	public void config(){    
 		System.out.println("configued");      
 	}
 }

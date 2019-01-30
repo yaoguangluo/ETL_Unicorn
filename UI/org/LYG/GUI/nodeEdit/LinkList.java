@@ -8,27 +8,21 @@ public class LinkList{
 	linkNode first;
 	public int sum_of_nude=0;
 	public LinkList(){}
-	public boolean search(linkNode first2,String key)
-	{
-		if(first2==null)
-		{
+	public boolean search(linkNode first2,String key){
+		if(first2==null){
 			return false;
 		}
-		if(first2.name.equals(key))
-		{
+		if(first2.name.equals(key)){
 			return true;
 		}
-		while(first2.next!=null)
-		{
+		while(first2.next!=null){
 			first2=first2.next;
-			if(first2.name.equals(key))
-				{
-				     while(first2.pre!=null)
-				     {
-				    	 first2=first2.pre;
-				     }
-				     return true;
+			if(first2.name.equals(key)){
+				while(first2.pre!=null){
+					first2=first2.pre;
 				}
+				return true;
+			}
 		}
 		return false;
 	}
@@ -66,7 +60,7 @@ public class LinkList{
 		while(first2.next != null){
 			first2 = first2.next;
 		}
-		
+
 		if(currentOSGI!=null){
 			if(currentOSGI.thisname.equals(treeNodeName)){
 				//first2=new linkNode();
@@ -91,8 +85,7 @@ public class LinkList{
 				}
 			}
 		}
-		while(first2.pre != null)
-		{
+		while(first2.pre != null){
 			first2 = first2.pre;
 		}
 		sum_of_nude++;
@@ -106,34 +99,29 @@ public class LinkList{
 					first2.pre=null;
 					return first2;	
 				}
-				if(first2.next==null)
-				{
-					    first2=null;
-						return first2;	
+				if(first2.next==null){
+					first2=null;
+					return first2;	
 				}
 			}
-			while(first2.next!=null)
-			{
+			while(first2.next!=null){
 				first2 = first2.next;
-				if(first2.name.equals(name)&&first2.ID==ID)
-				{
-					if(first2.next!=null)
-					{
-						    @SuppressWarnings("unused")
-							linkNode node =first2;
-						    first2=first2.next;
-							first2.pre=first2.pre.pre;
-							first2.pre.next=first2;
-							node=null;
-							first2=new Sort().sort(first2);
-							return first2;		
+				if(first2.name.equals(name)&&first2.ID==ID){
+					if(first2.next!=null){
+						@SuppressWarnings("unused")
+						linkNode node =first2;
+						first2=first2.next;
+						first2.pre=first2.pre.pre;
+						first2.pre.next=first2;
+						node=null;
+						first2=new Sort().sort(first2);
+						return first2;		
 					}
-					if(first2.next==null)
-					{
-							first2=first2.pre;
-							first2.next=null;
-							first2=new Sort().sort(first2);
-							return first2;				
+					if(first2.next==null){
+						first2=first2.pre;
+						first2.next=null;
+						first2=new Sort().sort(first2);
+						return first2;				
 					}
 				}
 			}
@@ -142,8 +130,7 @@ public class LinkList{
 	}
 	public void print(linkNode first2) {
 		System.out.println(first2.name);
-		while(first2.next!=null)
-		{
+		while(first2.next!=null){
 			first2 = first2.next;
 			System.out.println(first2.name);
 		}
