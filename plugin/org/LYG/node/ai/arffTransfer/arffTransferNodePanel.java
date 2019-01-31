@@ -25,8 +25,7 @@ public class arffTransferNodePanel extends objectPanel{
 		JButton button = new JButton("Finish");
 		button.setBounds(0, 0, 100, 30);
 		button.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e){
             	System.out.println(e.getSource());
                 	close=true;
                 	thisrun.value=1;

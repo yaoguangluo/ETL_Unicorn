@@ -230,7 +230,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						node.thisface.thispanel.validate();
 						new OSGI_chansfer(node,first);
 					}
-					while(node.next!=null){
+					while(node.next != null){
 						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 							try {

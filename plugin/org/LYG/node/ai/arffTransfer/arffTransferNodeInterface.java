@@ -14,17 +14,17 @@ public class arffTransferNodeInterface extends objectInterface{
 		thisimage=img.getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH );
 		thisicon = new ImageIcon(newimg);
 	}
-	public void config(JTextPane jTextPane) throws IOException{
+	public void config() throws IOException{
 		thisview=new arffTransferNodeView();
 		thisrun=new arffTransferNodeRun();
 		thispanel=new arffTransferNodePanel((arffTransferNodeRun) thisrun);
 		thispanel.config();
 		showed=false;
 	}
-	public void execute(JTextPane jTextPane)  throws FileNotFoundException, IOException{
+	public void execute()  throws FileNotFoundException, IOException{
 		((arffTransferNodeRun) thisrun).run((arffTransferNodeView) thisview);
 	}
-	public void view(JTextPane jTextPane)  throws Exception{
+	public void view()  throws Exception{
 		thisview.view();
 		showed=true;
 	}
