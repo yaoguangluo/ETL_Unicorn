@@ -27,6 +27,19 @@ public class drawFlashSide{
 			g2.setColor(Color.RED);
 			drawFlashOutside(g2,x,y);		
 		}	
+		drawConnect(g2,x,y);	
+	}
+	private void drawConnect(Graphics2D g2, int x, int y) {
+		//top
+		g2.drawLine(x-10, y+8, x, y+8);
+		g2.drawOval(x-12, y+6, 4, 4);
+		//mid
+		g2.drawLine(x-10, y+25, x, y+25);
+		g2.drawOval(x-12, y+23, 4, 4);
+		//bot
+		g2.drawLine(x-10, y+40, x, y+40);
+		g2.drawOval(x-12, y+38, 4, 4);
+		
 	}
 	public void drawFlashInside(Graphics2D g2, int x, int y){
 		g2.drawLine(x-1, y-1, x+51, y-1);
