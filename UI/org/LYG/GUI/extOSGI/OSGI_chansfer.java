@@ -1,10 +1,10 @@
 package org.LYG.GUI.extOSGI;
 import org.LYG.GUI.nodeEdit.Sort;
-import org.LYG.GUI.nodeEdit.linkNode;
+import org.LYG.GUI.nodeEdit.LinkNode;
 public class OSGI_chansfer {
-	public OSGI_chansfer(linkNode node, linkNode first){
+	public OSGI_chansfer(LinkNode node, LinkNode first){
 		first=new Sort().sort(first);
-		linkNode node1=new linkNode();
+		LinkNode node1=new LinkNode();
 	    node1=first;
 	    if(node1!=null){
 			if(node.tbeconnect&&node.tbeconnectID==node1.ID&&node.tbeconnetName.equals(node1.name)){

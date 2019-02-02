@@ -1,8 +1,8 @@
 package org.LYG.GUI.nodeEdit;
 import java.awt.Color;
 import java.awt.Graphics2D;
-public class drawFlashSide{
-	public drawFlashSide(Graphics2D g2, int x, int y, int flash) {
+public class DrawFlashSide{
+	public DrawFlashSide(Graphics2D g2, int x, int y, int flash) {
 		if(flash<=0){
 			g2.setColor(Color.blue);
 			drawFlashInside(g2,x,y);

@@ -2,11 +2,11 @@ package org.LYG.GUI.nodeEdit;
 
 import java.awt.event.MouseEvent;
 
-public class chooseCheck{
-	public chooseCheck() 
+public class ChooseCheck{
+	public ChooseCheck() 
 	{}
-	public int chooseCheckid(linkNode first,MouseEvent arg0) {
-		linkNode node=new linkNode();
+	public int chooseCheckid(LinkNode first,MouseEvent arg0) {
+		LinkNode node=new LinkNode();
 		first=new Sort().sort(first);;
 		node=first;
 		int x,y;
@@ -43,8 +43,8 @@ public class chooseCheck{
 		}
 		return 0;
 	}
-	public String chooseCheckname(linkNode first,MouseEvent arg0) {
-		linkNode node=new linkNode();
+	public String chooseCheckname(LinkNode first,MouseEvent arg0) {
+		LinkNode node=new LinkNode();
 		first=new Sort().sort(first);
 		node=first;
 		int x,y;

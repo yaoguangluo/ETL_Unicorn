@@ -1,6 +1,6 @@
 package org.LYG.GUI.nodeEdit;
-public class updateRelatedLine{
-	public updateRelatedLine(linkNode first, String currentNodeName, int currentNodeID){
+public class UpdateRelatedLine{
+	public UpdateRelatedLine(LinkNode first, String currentNodeName, int currentNodeID){
 		first=new Sort().sort(first);
 		if(first!=null){
 			if(first.tbeconnect&&first.tbeconnetName.equals(currentNodeName)&&first.tbeconnectID==currentNodeID){

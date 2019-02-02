@@ -1,9 +1,9 @@
 package org.LYG.GUI.nodeEdit;
 import java.awt.event.MouseEvent;
-public class checkRange{
-	public checkRange(linkNode first,linkNode node, MouseEvent arg0) {
+public class CheckRange{
+	public CheckRange(LinkNode first,LinkNode node, MouseEvent arg0) {
 		first=new Sort().sort(first);
-		linkNode node1=new linkNode();
+		LinkNode node1=new LinkNode();
 		node1=first;
 		if(node1!=null){
 			int x,y;

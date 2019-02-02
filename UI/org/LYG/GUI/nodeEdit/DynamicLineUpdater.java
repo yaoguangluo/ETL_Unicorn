@@ -1,7 +1,7 @@
 package org.LYG.GUI.nodeEdit;
-public class dynamicLineUpdater{
-	public void exec(linkNode first,linkNode node){
-		linkNode node1=new linkNode();
+public class DynamicLineUpdater{
+	public void exec(LinkNode first,LinkNode node){
+		LinkNode node1=new LinkNode();
 		first=new Sort().sort(first);
 		node1=first;
 		if(node1!=null) {
@@ -65,7 +65,7 @@ public class dynamicLineUpdater{
 		}
 		node1=null;
 	}
-	public dynamicLineUpdater() {
+	public DynamicLineUpdater() {
 		// TODO Auto-generated constructor stub
 	}
 }

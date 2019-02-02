@@ -34,14 +34,14 @@ import javax.swing.tree.TreePath;
 import org.LYG.GUI.extOSGI.OSGI_chansfer;
 import org.LYG.GUI.nodeEdit.LinkList;
 import org.LYG.GUI.nodeEdit.Sort;
-import org.LYG.GUI.nodeEdit.checkRange;
-import org.LYG.GUI.nodeEdit.chooseCheck;
-import org.LYG.GUI.nodeEdit.drawArrow;
-import org.LYG.GUI.nodeEdit.drawFlashSide;
-import org.LYG.GUI.nodeEdit.dynamicLineUpdater;
-import org.LYG.GUI.nodeEdit.linkNode;
-import org.LYG.GUI.nodeEdit.updateRelatedLine;
-import org.LYG.GUI.nodeInfo.nodeInfo;
+import org.LYG.GUI.nodeEdit.CheckRange;
+import org.LYG.GUI.nodeEdit.ChooseCheck;
+import org.LYG.GUI.nodeEdit.DrawArrow;
+import org.LYG.GUI.nodeEdit.DrawFlashSide;
+import org.LYG.GUI.nodeEdit.DynamicLineUpdater;
+import org.LYG.GUI.nodeEdit.LinkNode;
+import org.LYG.GUI.nodeEdit.UpdateRelatedLine;
+import org.LYG.GUI.nodeInfo.NodeInfo;
 import org.LYG.GUI.nodeProject.nodeProject;
 import org.LYG.GUI.nodeView.cacuString;
 import org.LYG.GUI.nodeView.nodeShow;
@@ -58,7 +58,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	String currentNodeName;
 	int currentNodeID;
 	LinkList thislist;
-	linkNode first;
+	LinkNode first;
 	int currentx,currenty;
 	int choose=0;
 	int oldx,oldy;
@@ -66,7 +66,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	String treeNodeName;
 	nodeShow nodeview;
 	nodeProject nodeproject;
-	nodeInfo nodeinfo;
+	NodeInfo nodeinfo;
 	unicornJSplitPane mainsplitPane;
 	unicornJSplitPane leftsplitPane;
 	unicornJSplitPane rightsplitPane;
@@ -211,7 +211,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		});  
 		configre.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				linkNode node=new linkNode();
+				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
@@ -258,7 +258,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		run.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				linkNode node=new linkNode();
+				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
@@ -304,7 +304,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		show.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				linkNode node=new linkNode();
+				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
@@ -357,19 +357,19 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		dnode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				linkNode node=new linkNode();
+				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						first=thislist.deletNode(first, node.name,node.ID);
-						new updateRelatedLine(first,currentNodeName,currentNodeID);
+						new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 					}
 					while(node.next!=null){
 						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 							first=thislist.deletNode(first, node.name,node.ID);
-							new updateRelatedLine(first,currentNodeName,currentNodeID);
+							new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 						}
 					}
 				}	
@@ -378,7 +378,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		dline.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				linkNode node=new linkNode();
+				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
@@ -453,15 +453,15 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			oldy = arg0.getY();
 			currentx=arg0.getX();
 			currenty=arg0.getY();
-			currentNodeName=new chooseCheck().chooseCheckname(first,arg0);
-			currentNodeID=new chooseCheck().chooseCheckid(first,arg0);
+			currentNodeName=new ChooseCheck().chooseCheckname(first,arg0);
+			currentNodeID=new ChooseCheck().chooseCheckid(first,arg0);
 		}
 
 		public void mouseReleased(MouseEvent arg0){
 			currentx=arg0.getX();
 			currenty=arg0.getY();
 			first=new Sort().sort(first);
-			linkNode node=new linkNode();
+			LinkNode node=new LinkNode();
 			node=first;
 			if(node!=null){
 				if(node.rightchoose&&!node.leftchoose){
@@ -469,7 +469,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						nodeMenu.show(this, arg0.getX(), arg0.getY());
 					}
 					else{
-						new checkRange(first,node,arg0);
+						new CheckRange(first,node,arg0);
 					}
 				}
 				node.setchoose(false);
@@ -481,7 +481,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							nodeMenu.show(this, arg0.getX(), arg0.getY());
 						}
 						else{
-							new checkRange(first,node,arg0);
+							new CheckRange(first,node,arg0);
 						}
 					}
 					node.setchoose(false);
@@ -498,7 +498,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			}
 			currentx=e.getX();
 			currenty=e.getY();
-			linkNode node=new linkNode();
+			LinkNode node=new LinkNode();
 			first=new Sort().sort(first);
 			node=first;
 			Graphics g = getGraphics();
@@ -507,22 +507,22 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			if(node!=null){
 				if(node.leftchoose&&!node.rightchoose){
 					node.setxy(e.getX(),e.getY());
-					new dynamicLineUpdater().exec(first,node);
+					new DynamicLineUpdater().exec(first,node);
 					this.update();
 				}
 				if(!node.leftchoose&&node.rightchoose){	 
-					new drawArrow(g2,oldx, oldy, e.getX(), e.getY());
+					new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
 					this.update(g);
 				}	
 				while(node.next!=null){
 					node=node.next;
 					if(node.leftchoose&&!node.rightchoose){	
 						node.setxy(e.getX(),e.getY());
-						new dynamicLineUpdater().exec(first,node);
+						new DynamicLineUpdater().exec(first,node);
 						this.update();
 					}
 					if(!node.leftchoose&&node.rightchoose){	 
-						new drawArrow(g2,oldx, oldy, e.getX(), e.getY());
+						new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
 						this.update(g);
 					}	
 				}
@@ -543,7 +543,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			//g2.setColor(new Color(255,97,3));
 			g2.setColor(new Color(255,255,255));
 			g2.fillRect(0, 0, this.getWidth(), this.getHeight());
-			linkNode node=new linkNode();
+			LinkNode node=new LinkNode();
 			first=new Sort().sort(first);
 			node=first;
 			if(node!=null){
@@ -563,39 +563,39 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if(node.flash>100){
 					node.flash=0;
 				}
-				new drawFlashSide(g2,node.x,node.y,node.flash++%3);
+				new DrawFlashSide(g2,node.x,node.y,node.flash++%3);
 				g2.setColor(Color.black);
 				g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
 				g2.setColor(new	Color(25,25,112));
 				if(node.beconnect){
 					if(node.tbeconnect){
-						new drawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
+						new DrawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
-							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
 					if(node.mbeconnect){
-						new drawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
+						new DrawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
-							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
 					if(node.dbeconnect){
-						new drawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
+						new DrawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
-							new drawArrow(g2, oldx, oldy, currentx, currenty);
+							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
 				}
 				else if(!node.leftchoose&&node.rightchoose){
 					g2.setColor(Color.black);
-					new drawArrow(g2, oldx, oldy, currentx, currenty);
+					new DrawArrow(g2, oldx, oldy, currentx, currenty);
 					g2.setColor(new	Color(25,25,112));
 				}
 				while(node.next!=null){
@@ -616,39 +616,39 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					if(node.flash>100){
 						node.flash=0;
 					}
-					new drawFlashSide(g2,node.x,node.y,node.flash++%3);
+					new DrawFlashSide(g2,node.x,node.y,node.flash++%3);
 					g2.setColor(Color.BLACK);
 					g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
 					g2.setColor(new	Color(25,25,112));
 					if(node.beconnect){
 						if(node.tbeconnect){
-							new drawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
+							new DrawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
 							if(!node.leftchoose&&node.rightchoose){
 								g2.setColor(Color.black);
-								new drawArrow(g2, oldx, oldy, currentx, currenty);
+								new DrawArrow(g2, oldx, oldy, currentx, currenty);
 								g2.setColor(new	Color(25,25,112));	
 							}
 						}
 						if(node.mbeconnect){
-							new drawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
+							new DrawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
 							if(!node.leftchoose&&node.rightchoose){
 								g2.setColor(Color.black);
-								new drawArrow(g2, oldx, oldy, currentx, currenty);
+								new DrawArrow(g2, oldx, oldy, currentx, currenty);
 								g2.setColor(new	Color(25,25,112));	
 							}
 						}
 						if(node.dbeconnect){
-							new drawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
+							new DrawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
 							if(!node.leftchoose&&node.rightchoose){
 								g2.setColor(Color.black);
-								new drawArrow(g2, oldx, oldy, currentx, currenty);
+								new DrawArrow(g2, oldx, oldy, currentx, currenty);
 								g2.setColor(new	Color(25,25,112));	
 							}
 						}
 					}
 					else if(!node.leftchoose&&node.rightchoose){
 						g2.setColor(Color.black);	
-						new drawArrow(g2, oldx, oldy, currentx, currenty);
+						new DrawArrow(g2, oldx, oldy, currentx, currenty);
 						g2.setColor(new	Color(25,25,112));
 					}
 				}
@@ -674,7 +674,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		UIManager.put("TreeUI", "org.LYG.GUI.platForm.unicornTreeUI");
 		currentNodeName=new String("");
 		thislist=new LinkList();
-		nodeinfo= new nodeInfo();
+		nodeinfo= new NodeInfo();
 		nodeview= new nodeShow();
 		nodeview.tree.setBackground(Color.white);
 		nodeview.setBounds(10, 168, 137, 222);
