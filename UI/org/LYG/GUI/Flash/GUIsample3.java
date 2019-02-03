@@ -133,18 +133,12 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			}  
 		});  
 		righttopscrollPane.addComponentListener(new ComponentListener(){
-
 			public void componentHidden(ComponentEvent arg0) {}
-
 			public void componentMoved(ComponentEvent arg0) {}
-
 			public void componentResized(ComponentEvent arg0) {
 				righttopscrollPane.validate();
 			}
-
 			public void componentShown(ComponentEvent arg0) {}
-
-
 		});
 		getContentPane().addComponentListener(new ComponentListener(){
 			public void componentHidden(ComponentEvent arg0) {}
@@ -168,7 +162,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				System.out.println(w+"<>"+h);
 			}
 			public void componentShown(ComponentEvent arg0) {
-				// TODO Auto-generated method stub	
 			}	
 		});	
 		addMouseListener(this);
@@ -202,7 +195,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					} catch (IllegalAccessException e1) {
 						e1.printStackTrace();
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					System.out.print(treeNodeName);
@@ -219,7 +211,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						try {
 							node.thisface.config();
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
 						node.thisface.thispanel.setLocation(node.x, node.y);
@@ -239,7 +230,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							try {
 								node.thisface.config();
 							} catch (IOException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} 
 							node.thisface.thispanel.setLocation(node.x, node.y);
@@ -266,16 +256,12 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						try {
 							node.thisface.execute();
 						} catch (FileNotFoundException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} catch (UnsupportedAudioFileException e2) {
-							// TODO Auto-generated catch block
 							e2.printStackTrace();
 						} catch (InterruptedException e3) {
-							// TODO Auto-generated catch block
 							e3.printStackTrace();
 						}           
 					}
@@ -285,16 +271,12 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							try {
 								node.thisface.execute();
 							} catch (FileNotFoundException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} catch (IOException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} catch (UnsupportedAudioFileException e2) {
-								// TODO Auto-generated catch block
 								e2.printStackTrace();
 							} catch (InterruptedException e3) {
-								// TODO Auto-generated catch block
 								e3.printStackTrace();
 							} 
 						}	
@@ -335,7 +317,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 								try {
 									node.thisface.view();
 								} catch (Exception e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}  
 								node.thisface.thisview.setLocation(node.x, node.y);
@@ -357,18 +338,18 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		dnode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node=new LinkNode();
-				first=new Sort().sort(first);
-				node=first;
+				LinkNode node = new LinkNode();
+				first = new Sort().sort(first);
+				node = first;
 				if(node!=null){
-					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+					if(node.name.equals(currentNodeName) && node.ID == currentNodeID){
 						first=thislist.deletNode(first, node.name,node.ID);
 						new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 					}
-					while(node.next!=null){
-						node=node.next;
+					while(node.next != null){
+						node = node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							first=thislist.deletNode(first, node.name,node.ID);
+							first = thislist.deletNode(first, node.name,node.ID);
 							new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 						}
 					}
@@ -378,11 +359,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		dline.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node=new LinkNode();
+				LinkNode node = new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
-					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+					if(node.beconnect && node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						node.beconnect=false;
 						node.tbeconnect=false;
 						node.mbeconnect=false;
@@ -436,17 +417,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		public void stop() {
 			thread1.destroy();
 		}
-
 		public void actionPerformed(ActionEvent arg0) {}
-
 		public void itemStateChanged(ItemEvent arg0) {}
-
 		public void mouseClicked(MouseEvent arg0) {}
-
 		public void mouseEntered(MouseEvent arg0) {}
-
 		public void mouseExited(MouseEvent arg0) {}
-
 		public void mousePressed(MouseEvent arg0) {
 			System.out.println(arg0.getX()+"|"+arg0.getY());
 			oldx = arg0.getX();

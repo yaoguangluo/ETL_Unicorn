@@ -39,6 +39,9 @@ public class DrawFlashSide{
 		//bot
 		g2.drawLine(x-10, y+40, x, y+40);
 		g2.drawOval(x-12, y+38, 4, 4);
+		//out
+		g2.drawLine(x+50, y+25, x+60, y+25);
+		g2.drawOval(x+58, y+23, 4, 4);
 		
 	}
 	public void drawFlashInside(Graphics2D g2, int x, int y){

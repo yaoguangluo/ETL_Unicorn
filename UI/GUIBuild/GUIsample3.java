@@ -494,7 +494,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		public void mouseDragged(MouseEvent e) {
 			isOperation=1;
 			try {
-				Thread.sleep(15);
+				Thread.sleep(32);
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
@@ -547,33 +547,33 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			//g2.setColor(new Color(255,97,3));
 			g2.setColor(new Color(255,255,255));
 			g2.fillRect(0, 0, this.getWidth(), this.getHeight());
-			LinkNode node=new LinkNode();
-			first=new Sort().sort(first);
-			node=first;
-			if(node!=null){
-				if(node.x<0){
-					node.x=10;
+			LinkNode node = new LinkNode();
+			first = new Sort().sort(first);
+			node = first;
+			if(node != null){
+				if(node.x < 0){
+					node.x = 10;
 				}
-				if(node.x>(this.getWidth()-100)){
-					node.x=this.getWidth()-100; 	
+				if(node.x > (this.getWidth()-100)){
+					node.x = this.getWidth()-100; 	
 				}
-				if(node.y<0){
-					node.y=10;
+				if(node.y < 0){
+					node.y = 10;
 				}
-				if(node.y>(this.getHeight()-100)){
-					node.y=this.getHeight()-100; 	
+				if(node.y > (this.getHeight()-100)){
+					node.y = this.getHeight()-100; 	
 				}
 				g.drawImage(node.thisface.thisimage,node.x,node.y,this);
-				if(node.flash>100){
-					node.flash=0;
+				if(node.flash > 100){
+					node.flash = 0;
 				}
 				if(0 == isOperation) {
-					new DrawFlashSide(g2, node.x, node.y, node.flash++%3);
+					new DrawFlashSide(g2, node.x, node.y, node.flash++ % 3);
 				}else {
 					new DrawFlashSide(g2, node.x, node.y, node.flash);
 				}
 				g2.setColor(Color.black);
-				g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
+				g.drawString(node.name + "->" + node.ID,node.x-10, node.y-5);
 				g2.setColor(new	Color(25,25,112));
 				if(node.beconnect){
 					if(node.tbeconnect){
@@ -581,7 +581,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
-							g2.setColor(new	Color(25,25,112));	
+							g2.setColor(new	Color(25, 25, 112));	
 						}
 					}
 					if(node.mbeconnect){
@@ -589,7 +589,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
-							g2.setColor(new	Color(25,25,112));	
+							g2.setColor(new	Color(25, 25, 112));	
 						}
 					}
 					if(node.dbeconnect){
@@ -597,14 +597,14 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
-							g2.setColor(new	Color(25,25,112));	
+							g2.setColor(new	Color(25, 25, 112));	
 						}
 					}
 				}
 				else if(!node.leftchoose&&node.rightchoose){
 					g2.setColor(Color.black);
 					new DrawArrow(g2, oldx, oldy, currentx, currenty);
-					g2.setColor(new	Color(25,25,112));
+					g2.setColor(new	Color(25, 25, 112));
 				}
 				Next:
 					while(node.next != null){
