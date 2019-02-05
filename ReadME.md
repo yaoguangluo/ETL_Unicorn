@@ -20,6 +20,8 @@
 ##### 已完善功能 链接磁力效果 20190203 罗瑶光
 ##### 已完善功能 链接点提示 20190203 罗瑶光
 ##### 已完善功能 文件命名规范 20190203 罗瑶光
+##### 已完善功能 节点输入输出链接点提示 20190203 罗瑶光
+##### 已完善功能 将放映界面从70帧改成32帧，有效滤燥 20190203 罗瑶光
 
 ##### 正完善功能 规范编程变量名称。
 ##### 正完善功能 异常提示功能区
@@ -36,9 +38,9 @@
 
 
 ![实例](https://github.com/yaoguangluo/ETL-unicorn/blob/master/6.png)
-https://github.com/yaoguangluo/ETL_Unicorn/blob/master/2.jpg
-https://github.com/yaoguangluo/ETL_Unicorn/blob/master/3.jpg
-https://github.com/yaoguangluo/ETL_Unicorn/blob/master/nero.jpg
+![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/2.jpg)
+![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/3.jpg)
+![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/nero.jpg)
 
 作者：罗瑶光
 
