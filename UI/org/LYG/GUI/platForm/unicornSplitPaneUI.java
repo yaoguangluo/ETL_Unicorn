@@ -220,7 +220,6 @@ public class unicornSplitPaneUI extends BasicSplitPaneUI {
 				if (leftButton != null && rightButton != null) {   
 					if (splitPane.isOneTouchExpandable()) {   
 						Insets insets = getInsets();   
-
 						if (orientation == JSplitPane.VERTICAL_SPLIT) {   
 							int extraX = (insets != null) ? insets.left : 0;   
 							int blockSize = getHeight();   
@@ -230,9 +229,7 @@ public class unicornSplitPaneUI extends BasicSplitPaneUI {
 								blockSize = Math.max(blockSize, 0);   
 							}   
 							blockSize = Math.min(blockSize, oneTouchSize);   
-
 							int y = (c.getSize().height - blockSize) / 2;   
-
 							if (!centerOneTouchButtons) {   
 								y = (insets != null) ? insets.top : 0;   
 								extraX = 0;   

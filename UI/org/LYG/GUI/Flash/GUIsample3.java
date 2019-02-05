@@ -46,23 +46,23 @@ import org.LYG.GUI.nodeProject.nodeProject;
 import org.LYG.GUI.nodeView.cacuString;
 import org.LYG.GUI.nodeView.nodeShow;
 import org.LYG.GUI.platForm.unicornJSplitPane;
-public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable{	
+public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener, ItemListener, ActionListener, Runnable{	
 	private static final long serialVersionUID = 5270675501794340912L;
 	public GUIsample3() {
 		//getContentPane().setBackground(new Color(218,112,214));
 		getContentPane().setBackground(new Color(255,255,255));
 	}
-	public int w,h;
-	int flash=0;
-	int count=0;
+	public int w, h;
+	int flash = 0;
+	int count = 0;
 	String currentNodeName;
 	int currentNodeID;
 	LinkList thislist;
 	LinkNode first;
 	int currentx,currenty;
-	int choose=0;
-	int oldx,oldy;
-	int newx,newy;
+	int choose = 0;
+	int oldx, oldy;
+	int newx, newy;
 	String treeNodeName;
 	nodeShow nodeview;
 	nodeProject nodeproject;
@@ -86,8 +86,9 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+		nodeproject.setBounds(0, 0, leftsplitPane.getWidth(), leftsplitPane.getDividerLocation());
+		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+				, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 		nodeproject.jPanel.update(getGraphics());
 		nodeproject.validate();
 		while(true) {   
@@ -114,10 +115,9 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
 					nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH);
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
-
 				}  
 			}  
 		});  
