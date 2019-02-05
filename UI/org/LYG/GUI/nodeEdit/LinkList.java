@@ -26,7 +26,8 @@ public class LinkList{
 		}
 		return false;
 	}
-	public LinkNode addNode(LinkNode first2, String treeNodeName,int x,int y,nodeOSGI nOSGI ) throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
+	public LinkNode addNode(LinkNode first2, String treeNodeName,int x,int y,nodeOSGI nOSGI ) 
+			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
 		nodeOSGI currentOSGI=nOSGI;
 		while(currentOSGI!=null&&currentOSGI.pre!=null){
 			currentOSGI=currentOSGI.pre;
