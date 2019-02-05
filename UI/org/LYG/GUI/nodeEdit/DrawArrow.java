@@ -2,6 +2,8 @@ package org.LYG.GUI.nodeEdit;
 import java.awt.*;
 public class DrawArrow{
 	public DrawArrow(Graphics2D g2, int x, int y, int connectx, int connecty) {
+		x+=8;
+		connectx-=8;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
 		g2.drawLine(x,y,connectx,connecty);
 		g2.drawPolygon(getArrow(x, y, connectx, connecty, 18, 0,0.5)); 

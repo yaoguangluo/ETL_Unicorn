@@ -115,7 +115,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
 					nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH);
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+							, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH);
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
 				}  
@@ -126,7 +127,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
 					nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+							, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
 				}  
@@ -152,7 +154,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				rightsplitPane.setDividerLocation(0.85);
 				righttopsplitPane.setDividerLocation(0.9);
 				nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+						, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 				nodeproject.jPanel.repaint();
 				nodeproject.validate();
 				mainsplitPane.validate();
@@ -232,7 +235,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							node.thisface.thispanel.setLocation(node.x, node.y);
 							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 							node.thisface.thispanel.setResizable(true);
-							node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0
+									, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
 							canvas.add(node.thisface.thispanel);
 							node.thisface.thispanel.setVisible(true);      
@@ -297,7 +301,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							node.thisface.thisview.setLocation(node.x, node.y);
 							node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 							node.thisface.thisview.setResizable(true);
-							node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0
+									, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 							node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
 							canvas.add(node.thisface.thisview);
 							node.thisface.thisview.setVisible(true);
@@ -319,7 +324,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 								node.thisface.thisview.setLocation(node.x, node.y);
 								node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 								node.thisface.thisview.setResizable(true);
-								node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+								node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0
+										, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
 								canvas.add(node.thisface.thisview);
 								node.thisface.thisview.setVisible(true);
@@ -502,7 +508,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			}
 		}
 		public void mouseMoved(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 		}
 		public void update(){
 			Graphics g=getGraphics();
@@ -631,7 +636,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		try {
 			CreatMap();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Registrar();
