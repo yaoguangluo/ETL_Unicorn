@@ -2,7 +2,6 @@ package org.LYG.GUI.OSGI;
 import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 public class objectInterface implements Cloneable{

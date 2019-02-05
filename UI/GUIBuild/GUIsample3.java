@@ -46,23 +46,24 @@ import org.LYG.GUI.nodeProject.nodeProject;
 import org.LYG.GUI.nodeView.cacuString;
 import org.LYG.GUI.nodeView.nodeShow;
 import org.LYG.GUI.platForm.unicornJSplitPane;
-public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable{	
+public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener
+, ItemListener, ActionListener, Runnable{	
 	private static final long serialVersionUID = 5270675501794340912L;
 	public GUIsample3() {
 		//getContentPane().setBackground(new Color(218,112,214));
 		getContentPane().setBackground(new Color(255,255,255));
 	}
-	public int w,h;
-	int flash=0;
-	int count=0;
+	public int w, h;
+	int flash = 0;
+	int count = 0;
 	String currentNodeName;
 	int currentNodeID;
 	LinkList thislist;
 	LinkNode first;
-	int currentx,currenty;
-	int choose=0;
-	int oldx,oldy;
-	int newx,newy;
+	int currentx, currenty;
+	int choose = 0;
+	int oldx, oldy;
+	int newx, newy;
 	int isOperation = 0;
 	String treeNodeName;
 	nodeShow nodeview;
@@ -76,18 +77,19 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	JScrollPane rightdownscrollPane;
 	JScrollPane rightrightscrollPane;
 	thisCanvas canvas;
-	PopupMenu popupMenu1,nodeMenu,itemMenu;
+	PopupMenu popupMenu1, nodeMenu, itemMenu;
 	MenuItem menuItem1;
-	MenuItem configre,run,show,dnode,dline;
-	Thread thread,thread1; 
+	MenuItem configre, run, show, dnode, dline;
+	Thread thread, thread1; 
 	public void run() {
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+		nodeproject.setBounds(0, 0, leftsplitPane.getWidth(), leftsplitPane.getDividerLocation());
+		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+				, nodeproject.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		nodeproject.jPanel.update(getGraphics());
 		nodeproject.validate();
 		while(true){   
@@ -104,6 +106,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			thread.start();
 		}
 	}
+	
 	public void stop() {
 	}
 
@@ -113,24 +116,28 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
 					nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+							,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
 
 				}  
 			}  
 		});  
+		
 		mainsplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
 					nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+							,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
 				}  
 			}  
 		});  
+		
 		righttopscrollPane.addComponentListener(new ComponentListener(){
 			public void componentHidden(ComponentEvent arg0) {}
 			public void componentMoved(ComponentEvent arg0) {}
@@ -139,14 +146,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			}
 			public void componentShown(ComponentEvent arg0) {}
 		});
+		
 		getContentPane().addComponentListener(new ComponentListener(){
-
 			public void componentHidden(ComponentEvent arg0) {}
-
 			public void componentMoved(ComponentEvent arg0) {}
-
 			public void componentResized(ComponentEvent arg0) {
-				// TODO Auto-generated method stub
 				w=getContentPane().getWidth();
 				h=getContentPane().getHeight();
 				mainsplitPane.setBounds(10, 50, w-20, h-80);
@@ -156,16 +160,16 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				righttopsplitPane.setDividerLocation(0.9);
 
 				nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
+						,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 				nodeproject.jPanel.repaint();
 				nodeproject.validate();
 
 				mainsplitPane.validate();
-				System.out.println(w+"<>"+h);
+				System.out.println(w + "<>" + h);
 			}
 
 			public void componentShown(ComponentEvent arg0) {
-				// TODO Auto-generated method stub	
 			}	
 		});	
 		addMouseListener(this);
@@ -199,7 +203,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					} catch (IllegalAccessException e1) {
 						e1.printStackTrace();
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					System.out.print(treeNodeName);
@@ -216,14 +219,14 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						try {
 							node.thisface.config();
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} 
 						node.thisface.thispanel.setLocation(node.x, node.y);
 						node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 						node.thisface.thispanel.setResizable(true);
 						node.thisface.thispanel.setClosable(true);
-						node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+						node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth() - 10
+								, node.thisface.thispanel.getHeight() - 45);
 						node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
 						canvas.add(node.thisface.thispanel);
 						node.thisface.thispanel.setVisible(true);
@@ -231,18 +234,18 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						new OSGI_chansfer(node,first);
 					}
 					while(node.next != null){
-						node=node.next;
-						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+						node = node.next;
+						if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 							try {
 								node.thisface.config();
 							} catch (IOException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} 
 							node.thisface.thispanel.setLocation(node.x, node.y);
 							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 							node.thisface.thispanel.setResizable(true);
-							node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0
+									, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
 							canvas.add(node.thisface.thispanel);
 							node.thisface.thispanel.setVisible(true);      
@@ -263,36 +266,27 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						try {
 							node.thisface.execute();
 						} catch (FileNotFoundException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						} catch (UnsupportedAudioFileException e2) {
-							// TODO Auto-generated catch block
 							e2.printStackTrace();
 						} catch (InterruptedException e3) {
-							// TODO Auto-generated catch block
 							e3.printStackTrace();
 						}     
-
 					}
-					while(node.next!=null){
+					while(null != node.next){
 						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 							try {
 								node.thisface.execute();
 							} catch (FileNotFoundException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} catch (IOException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							} catch (UnsupportedAudioFileException e2) {
-								// TODO Auto-generated catch block
 								e2.printStackTrace();
 							} catch (InterruptedException e3) {
-								// TODO Auto-generated catch block
 								e3.printStackTrace();
 							} 
 						}
@@ -317,7 +311,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							node.thisface.thisview.setLocation(node.x, node.y);
 							node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 							node.thisface.thisview.setResizable(true);
-							node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0
+									, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 							node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
 							canvas.add(node.thisface.thisview);
 							node.thisface.thisview.setVisible(true);
@@ -334,13 +329,13 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 								try {
 									node.thisface.view();
 								} catch (Exception e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}  
 								node.thisface.thisview.setLocation(node.x, node.y);
 								node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 								node.thisface.thisview.setResizable(true);
-								node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+								node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0
+										, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
 								canvas.add(node.thisface.thisview);
 								node.thisface.thisview.setVisible(true);
@@ -533,7 +528,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}
 
 		public void mouseMoved(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 		}
 		public void update(){
 			Graphics g=getGraphics();
@@ -674,7 +668,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		try {
 			CreatMap();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Registrar();

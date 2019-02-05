@@ -144,7 +144,6 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			public void componentHidden(ComponentEvent arg0) {}
 			public void componentMoved(ComponentEvent arg0) {}
 			public void componentResized(ComponentEvent arg0) {
-				// TODO Auto-generated method stub
 				w=getContentPane().getWidth();
 				h=getContentPane().getHeight();
 				mainsplitPane.setBounds(10, 50, w-20, h-80);
@@ -152,12 +151,10 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				leftsplitPane.setDividerLocation(0.25);
 				rightsplitPane.setDividerLocation(0.85);
 				righttopsplitPane.setDividerLocation(0.9);
-
 				nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
 				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth(),nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 				nodeproject.jPanel.repaint();
 				nodeproject.validate();
-
 				mainsplitPane.validate();
 				System.out.println(w+"<>"+h);
 			}

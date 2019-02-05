@@ -12,12 +12,12 @@ public class nodeProject extends JScrollPane {
 	public MyPanel jPanel;
 	public Image img;
 	public nodeProject() {
-		 images =new ImageIcon(this.getClass().getResource("LUO.jpg"));
-		 img = images.getImage(); 
-		 jPanel=new MyPanel();
-		 jPanel.repaint();
+		images =new ImageIcon(this.getClass().getResource("LUO.jpg"));
+		img = images.getImage(); 
+		jPanel=new MyPanel();
+		jPanel.repaint();
 		// jPanel.setPreferredSize(new Dimension(200,200));
-		 this.setViewportView(jPanel);
+		this.setViewportView(jPanel);
 	}
 	public class MyPanel extends JPanel {	
 		/**
@@ -30,7 +30,7 @@ public class nodeProject extends JScrollPane {
 			//newimg= img.getScaledInstance(200,100,java.awt.Image.SCALE_SMOOTH );
 		}
 		public void paint(Graphics g) {
-		      ((Graphics2D) g).drawImage(newimg, 0, 0, this);
-		    }
-	  }
+			((Graphics2D) g).drawImage(newimg, 0, 0, this);
+		}
+	}
 }

@@ -6,9 +6,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import java.awt.event.*;
 import java.io.IOException;
-
 import javax.swing.tree.*;
-
 import org.LYG.GUI.OSGI.*;
 import org.LYG.GUI.extOSGI.*;
 import org.LYG.GUI.platForm.unicornTreeCellRenderer;
@@ -152,30 +150,23 @@ public class nodeShow extends JScrollPane implements MouseListener,ItemListener,
 		//add(tree);	
 	}	
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub	
 	}
 
 	public void itemStateChanged(ItemEvent arg0) {
-		// TODO Auto-generated method stu
 	}
 
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 	}
 
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 	}
 
 	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 	}
 
 	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
 	}
 }
