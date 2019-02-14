@@ -2,29 +2,29 @@
 
 作者解释：这个项目是当年用knime早期版本只能做表格操作的时候，作者很郁闷，所以2012花了1个月自己写了个可以处理各种object的etl软件，用在语音和图像的处理上。在这里表示感谢KNIME给作者数据挖掘的实战经验提供了入门基础。作者同时为现在KNIME的当前版本强大功能点赞。
 
-##### 已完善功能 可自由以applet形式发布到网页上。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 可自由设置节点的传递对象。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 可自由修改和引用任何api。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 可自由集成各种javaUI组件。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 可自由嵌入到各种java程序中。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点流序列化 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点流多样化 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点分级 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点终端处理 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点实例化 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点功能操作 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 osgi扩展 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点连线时进行去其他节点闪烁优化。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 规范了下编程结构。 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 链接自动校准 2012-2019 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 链接磁力效果 20190203 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 链接点提示 20190203 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 文件命名规范 20190203 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 节点输入输出链接点提示 20190203 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 将放映界面从70帧改成32帧，有效滤燥 20190203 罗瑶光![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 上中下的三种连接模式进行美观化。 20190205 罗瑶光， 简单实现而已，专业设计搁置![实例](http://progressed.io/bar/100?title=completed)
-##### 已完善功能 箭头校准。![实例](http://progressed.io/bar/100?title=completed)
-##### 正完善功能 箭头比例修正。链接修正。20190206 罗瑶光![实例](http://progressed.io/bar/90?title=completed)
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 可自由以applet形式发布到网页上。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 可自由设置节点的传递对象。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 可自由修改和引用任何api。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 可自由集成各种javaUI组件。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 可自由嵌入到各种java程序中。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点流序列化 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点流多样化 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点分级 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点终端处理 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点实例化 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点功能操作 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 osgi扩展 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点连线时进行去其他节点闪烁优化。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 规范了下编程结构。 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 链接自动校准 2012-2019 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 链接磁力效果 20190203 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 链接点提示 20190203 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 文件命名规范 20190203 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点输入输出链接点提示 20190203 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 将放映界面从70帧改成32帧，有效滤燥 20190203 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 上中下的三种连接模式进行美观化。 20190205 罗瑶光， 简单实现而已，专业设计搁置
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 箭头校准。
+##### 正完善功能 箭头比例修正。链接修正。20190206 罗瑶光
 
 
 
