@@ -66,22 +66,22 @@ public class LinkList{
 			if(currentOSGI.thisname.equals(treeNodeName)){
 				//first2=new linkNode();
 				LinkNode node = new LinkNode();
-				node.addName(treeNodeName,x,y,++index);
-				node.thisface=currentOSGI.currentFace.luoyaoguang();
-				node.pre=first2;
-				first2.next=node;
-				sum_of_nude++;
+				node.addName(treeNodeName, x, y, ++index);
+				node.thisface = currentOSGI.currentFace.luoyaoguang();
+				node.pre = first2;
+				first2.next = node;
+				sum_of_nude ++;
 				return first2;
 			}
-			while(currentOSGI.next!=null){
-				currentOSGI=currentOSGI.next;
+			while(currentOSGI.next != null){
+				currentOSGI = currentOSGI.next;
 				if(currentOSGI.thisname.equals(treeNodeName)){
 					LinkNode node = new LinkNode();
 					node.addName(treeNodeName,x,y,++index);
-					node.thisface=currentOSGI.currentFace.luoyaoguang();
-					node.pre=first2;
-					first2.next=node;
-					sum_of_nude++;
+					node.thisface = currentOSGI.currentFace.luoyaoguang();
+					node.pre = first2;
+					first2.next = node;
+					sum_of_nude ++;
 					return first2;
 				}
 			}

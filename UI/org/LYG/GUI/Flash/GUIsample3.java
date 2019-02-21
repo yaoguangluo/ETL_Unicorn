@@ -542,7 +542,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				}
 				new DrawFlashSide(g2,node.x,node.y,node.flash++%3);
 				g2.setColor(Color.black);
-				g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
+				g.drawString(node.name+"->"+node.ID,node.x-10, node.y-1);
 				g2.setColor(new	Color(25,25,112));
 				if(node.beconnect){
 					if(node.tbeconnect){
@@ -595,7 +595,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					}
 					new DrawFlashSide(g2,node.x,node.y,node.flash++%3);
 					g2.setColor(Color.BLACK);
-					g.drawString(node.name+"->"+node.ID,node.x-10, node.y-5);
+					g.drawString(node.name+"->"+node.ID,node.x-10, node.y-1);
 					g2.setColor(new	Color(25,25,112));
 					if(node.beconnect){
 						if(node.tbeconnect){

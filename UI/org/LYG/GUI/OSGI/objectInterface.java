@@ -13,17 +13,17 @@ public class objectInterface implements Cloneable{
 	public objectRun thisrun;
 	public objectView thisview;
 	public objectInterface stu;
-	public boolean showed=false;
+	public boolean showed = false;
 	public objectInterface luoyaoguang() throws CloneNotSupportedException, IOException  {
 		return stu;   
 	}
 	public objectInterface(){
-		thisicon=null;
-		thisimage=null;
-		thisname=null;
-		thispanel=new objectPanel();
-		thisrun=new objectRun();
-		thisview=new objectView();	
+		thisicon = null;
+		thisimage = null;
+		thisname = null;
+		thispanel = new objectPanel();
+		thisrun = new objectRun();
+		thisview = new objectView();	
 	}
 	public void config() throws IOException{
 	}

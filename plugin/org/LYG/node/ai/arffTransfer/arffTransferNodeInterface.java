@@ -11,7 +11,7 @@ public class arffTransferNodeInterface extends objectInterface{
 		position=new String("BI");
 		Image img = ((ImageIcon) thisicon).getImage();  
 		Image newimg = img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
-		thisimage=img.getScaledInstance(50,50,java.awt.Image.SCALE_SMOOTH );
+		thisimage=img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
 		thisicon = new ImageIcon(newimg);
 	}
 	public void config() throws IOException{

@@ -2,47 +2,37 @@ package org.LYG.GUI.nodeEdit;
 import java.awt.Color;
 import java.awt.Graphics2D;
 public class DrawFlashSide{
-	public DrawFlashSide(Graphics2D g2, int x, int y, int flash) {
-		if(flash<=0){
+	public DrawFlashSide(Graphics2D g2, int x, int y, int flash) {	
+		if(flash <= 0){
 			g2.setColor(Color.blue);
-			drawFlashInside(g2,x,y);
-			g2.setColor(Color.RED);
-			drawFlashMidside(g2,x,y); 
-			g2.setColor(Color.orange);
-			drawFlashOutside(g2,x,y);	
+			DrawSinLine.drawCosLine(x, y , g2);
 		}
-		if(flash==1){
+		if(flash == 1){
 			g2.setColor(Color.RED);
-			drawFlashInside(g2,x,y);
-			g2.setColor(Color.ORANGE);
-			drawFlashMidside(g2,x,y); 
-			g2.setColor(Color.BLUE);
-			drawFlashOutside(g2,x,y);		
+			DrawSinLine.drawCosLine(x, y , g2);
 		}
-		if(flash>=2){
+		if(flash >= 2){
 			g2.setColor(Color.ORANGE);
-			drawFlashInside(g2,x,y);
-			g2.setColor(Color.BLUE);
-			drawFlashMidside(g2,x,y); 
-			g2.setColor(Color.RED);
-			drawFlashOutside(g2,x,y);		
+			DrawSinLine.drawCosLine(x, y , g2);
 		}	
-		drawConnect(g2,x,y);	
+		drawConnect(g2, x, y);	
 	}
 	private void drawConnect(Graphics2D g2, int x, int y) {
 		//top
-		g2.drawLine(x-10, y+8, x, y+8);
-		g2.drawOval(x-12, y+6, 4, 4);
-		//mid
-		g2.drawLine(x-10, y+25, x, y+25);
-		g2.drawOval(x-12, y+23, 4, 4);
-		//bot
-		g2.drawLine(x-10, y+40, x, y+40);
-		g2.drawOval(x-12, y+38, 4, 4);
-		//out
-		g2.drawLine(x+50, y+25, x+60, y+25);
-		g2.drawOval(x+58, y+23, 4, 4);
+		//g2.drawLine(x-10, y+8, x, y+8);
+		g2.drawOval(x + 10, y - 8, 4, 4);
 		
+		//mid
+		//g2.drawLine(x-10, y+25, x, y+25);
+		g2.drawOval(x - 8, y + 22, 4, 4);
+		
+		//bot
+	//	g2.drawLine(x-10, y+40, x, y+40);
+		g2.drawOval(x + 2, y + 52, 4, 4);
+		
+		//out
+		//g2.drawLine(x+50, y+25, x+60, y+25);
+		g2.drawOval(x + 62, y + 26, 4, 4);	
 	}
 	public void drawFlashInside(Graphics2D g2, int x, int y){
 		g2.drawLine(x-1, y-1, x+51, y-1);

@@ -6,8 +6,8 @@ public class DrawArrow{
 		connectx -= 10;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
 		g2.drawLine(x, y, connectx, connecty);
-		g2.drawPolygon(getArrow(x, y, connectx, connecty, 10, 0,0.5)); 
-		g2.fillPolygon(getArrow(x, y, connectx, connecty, 10, 0,0.5));	
+		g2.drawPolygon(getArrow(x, y, connectx, connecty, 10, 0, 0.5)); 
+		g2.fillPolygon(getArrow(x, y, connectx, connecty, 10, 0, 0.5));	
 	}
 	
 	public Polygon getArrow(int x1, int y1, int x2, int y2, int headsize, int difference, double factor){

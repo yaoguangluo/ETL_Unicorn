@@ -5,17 +5,17 @@ public class ChooseCheck{
 	{}
 	public int chooseCheckid(LinkNode first, MouseEvent arg0) {
 		LinkNode node=new LinkNode();
-		first=new Sort().sort(first);;
-		node=first;
-		int x,y;
+		first = new Sort().sort(first);;
+		node = first;
+		int x, y;
 		x = arg0.getX();
 		y = arg0.getY();
 		if(node != null){
 			//x -= node.x;
 			//y -= node.y;
-			//x=Math.abs(x);
-			//y=Math.abs(y);
-			if((x > node.x) && (x < node.x + 50) && (y > node.y) && (y < node.y + 50)){
+			//x = Math.abs(x);
+			//y = Math.abs(y);
+			if((x > node.x) && (x < node.x + 50) && (y>node.y) && (y < node.y + 50)){
 				if(arg0.getButton() == 1){
 				  node.leftchoose = true;
 				}
@@ -28,7 +28,7 @@ public class ChooseCheck{
 				x = arg0.getX();
 				y = arg0.getY();
 				node = node.next;
-				if((x > node.x) && (x < node.x + 50) && (y > node.y) && (y < node.y + 50)){
+				if((x > node.x) && (x < node.x + 50) && (y>node.y) && (y < node.y + 50)){
 					if(arg0.getButton()==1){
 					    node.leftchoose=true;
 					}
