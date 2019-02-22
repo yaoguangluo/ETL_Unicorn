@@ -46,10 +46,10 @@ import org.LYG.GUI.nodeProject.nodeProject;
 import org.LYG.GUI.nodeView.cacuString;
 import org.LYG.GUI.nodeView.nodeShow;
 import org.LYG.GUI.platForm.unicornJSplitPane;
-public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener, ItemListener, ActionListener, Runnable{	
+public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener
+, ItemListener, ActionListener, Runnable{	
 	private static final long serialVersionUID = 5270675501794340912L;
 	public GUIsample3() {
-		//getContentPane().setBackground(new Color(218,112,214));
 		getContentPane().setBackground(new Color(255,255,255));
 	}
 	public int w, h;
@@ -59,10 +59,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	int currentNodeID;
 	LinkList thislist;
 	LinkNode first;
-	int currentx,currenty;
+	int currentx, currenty;
 	int choose = 0;
 	int oldx, oldy;
 	int newx, newy;
+	int isOperation = 0;
 	String treeNodeName;
 	nodeShow nodeview;
 	nodeProject nodeproject;
@@ -75,11 +76,10 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	JScrollPane rightdownscrollPane;
 	JScrollPane rightrightscrollPane;
 	thisCanvas canvas;
-	PopupMenu popupMenu1,nodeMenu,itemMenu;
+	PopupMenu popupMenu1, nodeMenu, itemMenu;
 	MenuItem menuItem1;
-	MenuItem configre,run,show,dnode,dline;
-	Thread thread,thread1; 
-
+	MenuItem configre, run, show, dnode, dline;
+	Thread thread, thread1; 
 	public void run() {
 		try {
 			Thread.sleep(100);
@@ -88,10 +88,10 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}
 		nodeproject.setBounds(0, 0, leftsplitPane.getWidth(), leftsplitPane.getDividerLocation());
 		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-				, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+				, nodeproject.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		nodeproject.jPanel.update(getGraphics());
 		nodeproject.validate();
-		while(true) {   
+		while(true){   
 			try{
 				Thread.sleep(1000);
 				this.validate();
@@ -99,13 +99,13 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			//repaint();
 		}      
 	}
-
 	public void start(){
 		if(thread == null){
 			thread =  new Thread(this);
 			thread.start();
 		}
 	}
+
 	public void stop() {
 	}
 
@@ -116,24 +116,27 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					//action code 
 					nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
 					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-							, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH);
+							,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
+
 				}  
 			}  
 		});  
+
 		mainsplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
 					nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
 					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-							, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+							,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeproject.jPanel.repaint();
 					nodeproject.validate();
 				}  
 			}  
 		});  
+
 		righttopscrollPane.addComponentListener(new ComponentListener(){
 			public void componentHidden(ComponentEvent arg0) {}
 			public void componentMoved(ComponentEvent arg0) {}
@@ -142,6 +145,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			}
 			public void componentShown(ComponentEvent arg0) {}
 		});
+
 		getContentPane().addComponentListener(new ComponentListener(){
 			public void componentHidden(ComponentEvent arg0) {}
 			public void componentMoved(ComponentEvent arg0) {}
@@ -153,14 +157,17 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				leftsplitPane.setDividerLocation(0.25);
 				rightsplitPane.setDividerLocation(0.85);
 				righttopsplitPane.setDividerLocation(0.9);
+
 				nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
 				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-						, nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+						,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 				nodeproject.jPanel.repaint();
 				nodeproject.validate();
+
 				mainsplitPane.validate();
-				System.out.println(w+"<>"+h);
+				System.out.println(w + "<>" + h);
 			}
+
 			public void componentShown(ComponentEvent arg0) {
 			}	
 		});	
@@ -170,23 +177,23 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		nodeview.addMouseListener(this);
 		nodeview.tree.addMouseListener(this);
 		nodeview.tree.addTreeSelectionListener(new TreeSelectionListener() {
-			public void valueChanged(TreeSelectionEvent evt)  {
+			public void valueChanged(TreeSelectionEvent evt) {
 				DefaultMutableTreeNode note=(DefaultMutableTreeNode) nodeview.tree.getLastSelectedPathComponent();
 				String tr = null;
 				if(note!=null){
 					tr=new cacuString().cauString(note.toString());       
 				}
-				if(tr!=null) {
+				if(tr!=null){
 					treeNodeName=new String(tr);
 					System.out.println(treeNodeName);
 				}
 			}
 		});
-		menuItem1.addActionListener(new java.awt.event.ActionListener()  {
+		menuItem1.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(treeNodeName!=null){
 					try {
-						first=thislist.addNode(first,treeNodeName,100,50,nodeview.first);
+						first = thislist.addNode(first,treeNodeName,100,50,nodeview.first);
 						righttopscrollPane.validate();
 					} catch (CloneNotSupportedException e1) {
 						e1.printStackTrace();
@@ -203,11 +210,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		});  
 		configre.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node=new LinkNode();
-				first=new Sort().sort(first);
-				node=first;
-				if(node!=null){
-					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+				LinkNode node = new LinkNode();
+				first = new Sort().sort(first);
+				node = first;
+				if(node != null){
+					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
 							node.thisface.config();
 						} catch (IOException e1) {
@@ -217,16 +224,17 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 						node.thisface.thispanel.setResizable(true);
 						node.thisface.thispanel.setClosable(true);
-						node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+						node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth() - 10
+								, node.thisface.thispanel.getHeight() - 45);
 						node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
 						canvas.add(node.thisface.thispanel);
 						node.thisface.thispanel.setVisible(true);
 						node.thisface.thispanel.validate();
 						new OSGI_chansfer(node,first);
 					}
-					while(node.next!=null){
-						node=node.next;
-						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+					while(node.next != null){
+						node = node.next;
+						if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 							try {
 								node.thisface.config();
 							} catch (IOException e1) {
@@ -264,9 +272,9 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							e2.printStackTrace();
 						} catch (InterruptedException e3) {
 							e3.printStackTrace();
-						}           
+						}     
 					}
-					while(node.next!=null){
+					while(null != node.next){
 						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 							try {
@@ -280,19 +288,20 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							} catch (InterruptedException e3) {
 								e3.printStackTrace();
 							} 
-						}	
+						}
+
 					}
 				}	
 			}
 		}); 
 		show.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node=new LinkNode();
+				LinkNode node = new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-						if(!node.thisface.showed) {
+						if(!node.thisface.showed){
 							try {
 								node.thisface.view();
 							} catch (Exception e1) {
@@ -308,14 +317,14 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							node.thisface.thisview.setVisible(true);
 							node.thisface.thisview.validate();
 						}
-						else {
+						else{
 							node.thisface.thisview.setVisible(true);  
 						}
 					}
 					while(node.next!=null){
 						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							if(!node.thisface.showed) {
+							if(!node.thisface.showed){
 								try {
 									node.thisface.view();
 								} catch (Exception e1) {
@@ -331,7 +340,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 								node.thisface.thisview.setVisible(true);
 								node.thisface.thisview.validate();
 							}
-							else {
+							else{
 								node.thisface.thisview.setVisible(true);  
 							}
 						}
@@ -341,18 +350,18 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		dnode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node = new LinkNode();
-				first = new Sort().sort(first);
-				node = first;
+				LinkNode node=new LinkNode();
+				first=new Sort().sort(first);
+				node=first;
 				if(node!=null){
-					if(node.name.equals(currentNodeName) && node.ID == currentNodeID){
+					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						first=thislist.deletNode(first, node.name,node.ID);
 						new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 					}
-					while(node.next != null){
-						node = node.next;
+					while(node.next!=null){
+						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							first = thislist.deletNode(first, node.name,node.ID);
+							first=thislist.deletNode(first, node.name,node.ID);
 							new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 						}
 					}
@@ -362,11 +371,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}); 
 		dline.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node = new LinkNode();
+				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
 				if(node!=null){
-					if(node.beconnect && node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						node.beconnect=false;
 						node.tbeconnect=false;
 						node.mbeconnect=false;
@@ -398,7 +407,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		@SuppressWarnings("deprecation")
 
 		public void run() {
-			while(true) {   
+			while(true){   
 				try{
 					Thread.sleep(1000);
 					this.updateUI();
@@ -408,9 +417,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			}      
 		}
 		public void start(){
-
-			if(thread1 == null)
-			{
+			if(thread1 == null){
 				thread1 =  new Thread(this);
 				thread1.start();
 			}
@@ -420,46 +427,53 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		public void stop() {
 			thread1.destroy();
 		}
+
 		public void actionPerformed(ActionEvent arg0) {}
+
 		public void itemStateChanged(ItemEvent arg0) {}
+
 		public void mouseClicked(MouseEvent arg0) {}
+
 		public void mouseEntered(MouseEvent arg0) {}
+
 		public void mouseExited(MouseEvent arg0) {}
+
 		public void mousePressed(MouseEvent arg0) {
-			System.out.println(arg0.getX()+"|"+arg0.getY());
+			isOperation = 1;
 			oldx = arg0.getX();
 			oldy = arg0.getY();
-			currentx=arg0.getX();
-			currenty=arg0.getY();
-			currentNodeName=new ChooseCheck().chooseCheckname(first,arg0);
-			currentNodeID=new ChooseCheck().chooseCheckid(first,arg0);
+			currentx = arg0.getX();
+			currenty = arg0.getY();
+			LinkNode node= new ChooseCheck().chooseCheckNode(first, arg0);
+			currentNodeName = node.name;
+			currentNodeID = node.ID;
 		}
 
+
 		public void mouseReleased(MouseEvent arg0){
-			currentx=arg0.getX();
-			currenty=arg0.getY();
-			first=new Sort().sort(first);
-			LinkNode node=new LinkNode();
-			node=first;
-			if(node!=null){
-				if(node.rightchoose&&!node.leftchoose){
-					if(oldx==arg0.getX()&&oldy==arg0.getY()){
+			isOperation = 0;
+			currentx = arg0.getX();
+			currenty = arg0.getY();
+			LinkNode node = first;
+			if(node != null){
+				if(node.rightchoose && !node.leftchoose){
+					if(oldx == arg0.getX()&&oldy == arg0.getY()){
 						nodeMenu.show(this, arg0.getX(), arg0.getY());
 					}
 					else{
-						new CheckRange(first,node,arg0);
+						new CheckRange(first, node,arg0);
 					}
 				}
 				node.setchoose(false);
-				node.rightchoose=false;
-				while(node.next!=null)	{
-					node=node.next;
-					if(node.rightchoose&&!node.leftchoose){
-						if(oldx==arg0.getX()&&oldy==arg0.getY()){
+				node.rightchoose = false;
+				while(node.next != null){
+					node = node.next;
+					if(node.rightchoose && !node.leftchoose){
+						if(oldx == arg0.getX() && oldy == arg0.getY()){
 							nodeMenu.show(this, arg0.getX(), arg0.getY());
 						}
 						else{
-							new CheckRange(first,node,arg0);
+							new CheckRange(first, node, arg0);
 						}
 					}
 					node.setchoose(false);
@@ -469,84 +483,79 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		}
 
 		public void mouseDragged(MouseEvent e) {
+			isOperation=1;
 			try {
-				Thread.sleep(15);
+				Thread.sleep(100);
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
 			currentx=e.getX();
 			currenty=e.getY();
-			LinkNode node=new LinkNode();
 			first=new Sort().sort(first);
-			node=first;
+			LinkNode node=first;
 			Graphics g = getGraphics();
 			Graphics2D g2 = (Graphics2D)g;
 			g2.setColor(Color.black);
-			if(node!=null){
+			if(null != node){
 				if(node.leftchoose&&!node.rightchoose){
 					node.setxy(e.getX(),e.getY());
 					new DynamicLineUpdater().exec(first,node);
-					this.update();
 				}
 				if(!node.leftchoose&&node.rightchoose){	 
 					new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
-					this.update(g);
 				}	
-				while(node.next!=null){
+				while(null != node.next){
 					node=node.next;
 					if(node.leftchoose&&!node.rightchoose){	
 						node.setxy(e.getX(),e.getY());
 						new DynamicLineUpdater().exec(first,node);
-						this.update();
 					}
 					if(!node.leftchoose&&node.rightchoose){	 
 						new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
-						this.update(g);
 					}	
 				}
+				this.update(g);
 				g.dispose();
 			}
 		}
+
 		public void mouseMoved(MouseEvent arg0) {
 		}
-		public void update(){
-			Graphics g=getGraphics();
-			this.update(g);
-			g.dispose();		
-		}
+	
 		public void paint(Graphics g){
 			nodeview.validate();
 			Graphics2D g2 = (Graphics2D)g;
-			//g2.setColor(new Color(255,97,3));
-			g2.setColor(new Color(255,255,255));
-			g2.fillRect(0, 0, this.getWidth(), this.getHeight());
-			LinkNode node=new LinkNode();
-			first=new Sort().sort(first);
-			node=first;
-			if(node!=null){
-				if(node.x<0){
-					node.x=10;
+			g2.clearRect(0, 0, this.getWidth(), this.getHeight());
+			first = new Sort().sort(first);
+			LinkNode node = first;
+			if(node != null){
+				if(node.x < 0){
+					node.x = 10;
 				}
-				if(node.x>(this.getWidth()-100)){
-					node.x=this.getWidth()-100; 	
+				if(node.x > (this.getWidth()-100)){
+					node.x = this.getWidth()-100; 	
 				}
-				if(node.y<0){
-					node.y=10;
+				if(node.y < 0){
+					node.y = 10;
 				}
-				if(node.y>(this.getHeight()-100)){
-					node.y=this.getHeight()-100; 	
+				if(node.y > (this.getHeight()-100)){
+					node.y = this.getHeight()-100; 	
 				}
-				g.drawImage(node.thisface.thisimage,node.x,node.y,this);
-				if(node.flash>100){
-					node.flash=0;
+				g.drawImage(node.thisface.thisimage,node.x+19,node.y+12,this);
+				if(node.flash > 100){
+					node.flash = 0;
 				}
-				new DrawFlashSide(g2,node.x,node.y,node.flash++%3);
+				if(0 == isOperation) {
+					new DrawFlashSide(g2, node.x, node.y, node.flash++ % 3);
+				}else {
+					new DrawFlashSide(g2, node.x, node.y, node.flash);
+				}
 				g2.setColor(Color.black);
-				g.drawString(node.name+"->"+node.ID,node.x-10, node.y-1);
-				g2.setColor(new	Color(25,25,112));
+				g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);
+				g2.setColor(new	Color(25, 25, 112));
 				if(node.beconnect){
 					if(node.tbeconnect){
-						new DrawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
+						new DrawArrow(g2, node.tbeconnectx+62, node.tbeconnecty+28, node.x+14, node.y-6);
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
@@ -554,7 +563,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						}
 					}
 					if(node.mbeconnect){
-						new DrawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
+						new DrawArrow(g2, node.mbeconnectx+62, node.mbeconnecty+28, node.x-4, node.y+25);
 						if(!node.leftchoose&&node.rightchoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
@@ -562,22 +571,23 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						}
 					}
 					if(node.dbeconnect){
-						new DrawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
-						if(!node.leftchoose&&node.rightchoose){
+						new DrawArrow(g2, node.dbeconnectx+62, node.dbeconnecty+28, node.x+6, node.y+55);
+						if(!node.leftchoose&&node.rightchoose)
+						{
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
-				}
-				else if(!node.leftchoose&&node.rightchoose){
+				}else if(!node.leftchoose&&node.rightchoose){
 					g2.setColor(Color.black);
 					new DrawArrow(g2, oldx, oldy, currentx, currenty);
-					g2.setColor(new	Color(25,25,112));
+					g2.setColor(new	Color(25, 25, 112));
 				}
-				while(node.next!=null){
-					node=node.next;
-					if(node.x<0){
+				while(node.next != null){
+					//不是选中节点 跳出
+					node = node.next;
+					if(node.x < 0){
 						node.x=10;
 					}
 					if(node.x>(this.getWidth()-100)){
@@ -586,20 +596,24 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					if(node.y<0){
 						node.y=10;
 					}
-					if(node.y>(this.getHeight()-100)) {
+					if(node.y>(this.getHeight()-100)){
 						node.y=this.getHeight()-100; 
 					}
-					g.drawImage(node.thisface.thisimage,node.x,node.y,this);
+					g.drawImage(node.thisface.thisimage,node.x+19,node.y+12,this);
 					if(node.flash>100){
 						node.flash=0;
 					}
-					new DrawFlashSide(g2,node.x,node.y,node.flash++%3);
+					if(0 == isOperation) {
+						new DrawFlashSide(g2, node.x, node.y, node.flash++%3);
+					}else {
+						new DrawFlashSide(g2, node.x, node.y, node.flash);
+					}
 					g2.setColor(Color.BLACK);
-					g.drawString(node.name+"->"+node.ID,node.x-10, node.y-1);
-					g2.setColor(new	Color(25,25,112));
+					g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);
+					g2.setColor(new	Color(25, 25, 112));
 					if(node.beconnect){
 						if(node.tbeconnect){
-							new DrawArrow(g2, node.tbeconnectx+55, node.tbeconnecty+25, node.x-5, node.y+8);
+							new DrawArrow(g2, node.tbeconnectx + 62, node.tbeconnecty + 28, node.x + 14, node.y - 6);
 							if(!node.leftchoose&&node.rightchoose){
 								g2.setColor(Color.black);
 								new DrawArrow(g2, oldx, oldy, currentx, currenty);
@@ -607,23 +621,23 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 							}
 						}
 						if(node.mbeconnect){
-							new DrawArrow(g2, node.mbeconnectx+55, node.mbeconnecty+25, node.x-5, node.y+25);
-							if(!node.leftchoose&&node.rightchoose){
+							new DrawArrow(g2, node.mbeconnectx + 62, node.mbeconnecty + 28, node.x - 4, node.y + 25);
+							if(!node.leftchoose && node.rightchoose){
 								g2.setColor(Color.black);
 								new DrawArrow(g2, oldx, oldy, currentx, currenty);
 								g2.setColor(new	Color(25,25,112));	
 							}
 						}
 						if(node.dbeconnect){
-							new DrawArrow(g2, node.dbeconnectx+55, node.dbeconnecty+25, node.x-5, node.y+41);
-							if(!node.leftchoose&&node.rightchoose){
+							new DrawArrow(g2, node.dbeconnectx + 62, node.dbeconnecty + 28, node.x + 6, node.y + 55);
+							if(!node.leftchoose && node.rightchoose){
 								g2.setColor(Color.black);
 								new DrawArrow(g2, oldx, oldy, currentx, currenty);
 								g2.setColor(new	Color(25,25,112));	
 							}
 						}
 					}
-					else if(!node.leftchoose&&node.rightchoose){
+					else if(!node.leftchoose && node.rightchoose){
 						g2.setColor(Color.black);	
 						new DrawArrow(g2, oldx, oldy, currentx, currenty);
 						g2.setColor(new	Color(25,25,112));
@@ -642,8 +656,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		this.resize(w,h);	
 	}
 	private void CreatMap() throws IOException {
-		w=800;
-		h=450;
+		w = 1600;
+		h = 1100;
 		getContentPane().setLayout(null);
 		UIManager.put("SplitPaneUI","org.LYG.GUI.platForm.unicornSplitPaneUI");
 		UIManager.put("ScrollBarUI", "org.LYG.GUI.platForm.unicornScrollBarUI");
@@ -708,17 +722,11 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	}
 
 	public void actionPerformed(ActionEvent arg0) {}
-
 	public void itemStateChanged(ItemEvent arg0) {}
-
 	public void mouseClicked(MouseEvent arg0) {}
-
 	public void mouseEntered(MouseEvent arg0) {}
-
 	public void mouseExited(MouseEvent arg0) {}
-
 	public void mousePressed(MouseEvent arg0) {}
-
 	public void mouseReleased(MouseEvent arg0) {
 		TreePath path = nodeview.tree.getPathForLocation(arg0.getX(), arg0.getY());
 		if (path != null){

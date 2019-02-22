@@ -5,11 +5,10 @@ public class DrawArrow{
 		x += 10;
 		connectx -= 10;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
-		g2.drawLine(x, y, connectx, connecty);
-		g2.drawPolygon(getArrow(x, y, connectx, connecty, 10, 0, 0.5)); 
-		g2.fillPolygon(getArrow(x, y, connectx, connecty, 10, 0, 0.5));	
+		g2.drawPolygon(getArrow(x, y, connectx, connecty, 7, 0, 0.5)); 
+		g2.fillPolygon(getArrow(x, y, connectx, connecty, 7, 0, 0.5));	
 	}
-	
+
 	public Polygon getArrow(int x1, int y1, int x2, int y2, int headsize, int difference, double factor){
 		int[] crosslinebase = getArrowHeadLine(x1, y1, x2, y2, headsize);
 		int[] headbase = getArrowHeadLine(x1, y1, x2, y2, headsize - difference);
@@ -23,7 +22,7 @@ public class DrawArrow{
 		head.addPoint(x1, y1);
 		return head;
 	}
-	
+
 	private int[] getArrowHeadCrossLine(int x1, int x2, int b1, int b2, double factor){
 		int [] crossline = new int[4];
 		int xdest = (int) (((b1 - x1)*factor) + x1);
@@ -34,7 +33,7 @@ public class DrawArrow{
 		crossline[3] = crossline[1] + (x2-crossline[1])*2;
 		return crossline;
 	}
-	
+
 	private int[] getArrowHeadLine(int xsource,int ysource,int xdest,int ydest, int distance){
 		int[] arrowhead = new int[2];
 		int headsize = distance;

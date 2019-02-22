@@ -10,8 +10,6 @@ public class Flash extends GUIsample3{
         frame.resize(800, 440);   
         frame.show();         
         frame.add(NE);   
-        //NE.add(frame);
-        
         NE.init();
 		NE.start();
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

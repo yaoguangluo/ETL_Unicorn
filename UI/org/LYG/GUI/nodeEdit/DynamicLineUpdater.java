@@ -1,69 +1,64 @@
 package org.LYG.GUI.nodeEdit;
 public class DynamicLineUpdater{
 	public void exec(LinkNode first,LinkNode node){
-		LinkNode node1=new LinkNode();
-		first=new Sort().sort(first);
-		node1=first;
-		if(node1!=null) {
-			if(node1.ID==node.tbeconnectID){
-				node.tbeconnectx=node1.x;
-				node.tbeconnecty=node1.y;
+		LinkNode linkNode = first;
+		if(null != linkNode) {
+			if(linkNode.ID==node.tbeconnectID){
+				node.tbeconnectx=linkNode.x;
+				node.tbeconnecty=linkNode.y;
 			}
-			if(node1.tbeconnectID==node.ID) {
-				node1.tbeconnectx=node.x;
-				node1.tbeconnecty=node.y;
+			if(linkNode.tbeconnectID==node.ID) {
+				linkNode.tbeconnectx=node.x;
+				linkNode.tbeconnecty=node.y;
 			}
-
-			if(node1.ID==node.mbeconnectID){
-				node.mbeconnectx=node1.x;
-				node.mbeconnecty=node1.y;
+			if(linkNode.ID==node.mbeconnectID){
+				node.mbeconnectx=linkNode.x;
+				node.mbeconnecty=linkNode.y;
 			}
-			if(node1.mbeconnectID==node.ID) {
-				node1.mbeconnectx=node.x;
-				node1.mbeconnecty=node.y;
+			if(linkNode.mbeconnectID==node.ID) {
+				linkNode.mbeconnectx=node.x;
+				linkNode.mbeconnecty=node.y;
 			}
 
-			if(node1.ID==node.dbeconnectID) {
-				node.dbeconnectx=node1.x;
-				node.dbeconnecty=node1.y;
+			if(linkNode.ID==node.dbeconnectID) {
+				node.dbeconnectx=linkNode.x;
+				node.dbeconnecty=linkNode.y;
 			}
-			if(node1.dbeconnectID==node.ID) {
-				node1.dbeconnectx=node.x;
-				node1.dbeconnecty=node.y;
+			if(linkNode.dbeconnectID==node.ID) {
+				linkNode.dbeconnectx=node.x;
+				linkNode.dbeconnecty=node.y;
 			}
-
-
-			while(node1.next!=null) {
-				node1=node1.next;
-				if(node1.ID==node.tbeconnectID) {
-					node.tbeconnectx=node1.x;
-					node.tbeconnecty=node1.y;
+			while(null != linkNode.next) {
+				linkNode=linkNode.next;
+				if(linkNode.ID==node.tbeconnectID) {
+					node.tbeconnectx=linkNode.x;
+					node.tbeconnecty=linkNode.y;
 				}
-				if(node1.tbeconnectID==node.ID){
-					node1.tbeconnectx=node.x;
-					node1.tbeconnecty=node.y;
+				if(linkNode.tbeconnectID==node.ID){
+					linkNode.tbeconnectx=node.x;
+					linkNode.tbeconnecty=node.y;
 				}
 
-				if(node1.ID==node.mbeconnectID){
-					node.mbeconnectx=node1.x;
-					node.mbeconnecty=node1.y;
+				if(linkNode.ID==node.mbeconnectID){
+					node.mbeconnectx=linkNode.x;
+					node.mbeconnecty=linkNode.y;
 				}
-				if(node1.mbeconnectID==node.ID){
-					node1.mbeconnectx=node.x;
-					node1.mbeconnecty=node.y;
+				if(linkNode.mbeconnectID==node.ID){
+					linkNode.mbeconnectx=node.x;
+					linkNode.mbeconnecty=node.y;
 				}
 
-				if(node1.ID==node.dbeconnectID) {
-					node.dbeconnectx=node1.x;
-					node.dbeconnecty=node1.y;
+				if(linkNode.ID==node.dbeconnectID) {
+					node.dbeconnectx=linkNode.x;
+					node.dbeconnecty=linkNode.y;
 				}
-				if(node1.dbeconnectID==node.ID) {
-					node1.dbeconnectx=node.x;
-					node1.dbeconnecty=node.y;
+				if(linkNode.dbeconnectID==node.ID) {
+					linkNode.dbeconnectx=node.x;
+					linkNode.dbeconnecty=node.y;
 				}   
 			} 
 		}
-		node1=null;
+		linkNode = null;
 	}
 	public DynamicLineUpdater() {
 		// TODO Auto-generated constructor stub

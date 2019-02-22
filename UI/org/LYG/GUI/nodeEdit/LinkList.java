@@ -8,70 +8,70 @@ public class LinkList{
 	LinkNode first;
 	public int sum_of_nude=0;
 	public LinkList(){}
-	public boolean search(LinkNode first2,String key){
-		if(first2==null){
+	public boolean search(LinkNode linkNode,String key){
+		if(linkNode==null){
 			return false;
 		}
-		if(first2.name.equals(key)){
+		if(linkNode.name.equals(key)){
 			return true;
 		}
-		while(first2.next!=null){
-			first2=first2.next;
-			if(first2.name.equals(key)){
-				while(first2.pre!=null){
-					first2=first2.pre;
+		while(linkNode.next!=null){
+			linkNode=linkNode.next;
+			if(linkNode.name.equals(key)){
+				while(linkNode.pre!=null){
+					linkNode=linkNode.pre;
 				}
 				return true;
 			}
 		}
 		return false;
 	}
-	public LinkNode addNode(LinkNode first2, String treeNodeName,int x,int y,nodeOSGI nOSGI ) 
+	public LinkNode addNode(LinkNode linkNode, String treeNodeName,int x,int y,nodeOSGI nOSGI ) 
 			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
 		nodeOSGI currentOSGI=nOSGI;
 		while(currentOSGI!=null&&currentOSGI.pre!=null){
 			currentOSGI=currentOSGI.pre;
 		}
-		if(first2==null){			
+		if(linkNode==null){			
 			if(currentOSGI!=null){
 				if(currentOSGI.thisname.equals(treeNodeName)){
-					first2=new LinkNode();
-					first2.addName(treeNodeName,x,y,++index);
-					first2.thisface=currentOSGI.currentFace.luoyaoguang();
-					first2.next=null;
-					first2.pre=null;
+					linkNode=new LinkNode();
+					linkNode.addName(treeNodeName,x,y,++index);
+					linkNode.thisface=currentOSGI.currentFace.luoyaoguang();
+					linkNode.next=null;
+					linkNode.pre=null;
 					sum_of_nude++;
-					return first2;
+					return linkNode;
 				}
 				while(currentOSGI.next!=null){
 					currentOSGI=currentOSGI.next;
 					if(currentOSGI.thisname.equals(treeNodeName)){
-						first2=new LinkNode();
-						first2.addName(treeNodeName,x,y,++index);
-						first2.thisface=currentOSGI.currentFace.luoyaoguang();
-						first2.next=null;
-						first2.pre=null;
+						linkNode=new LinkNode();
+						linkNode.addName(treeNodeName,x,y,++index);
+						linkNode.thisface=currentOSGI.currentFace.luoyaoguang();
+						linkNode.next=null;
+						linkNode.pre=null;
 						sum_of_nude++;
-						return first2;
+						return linkNode;
 					}
 				}
 			}
 
 		}
-		while(first2.next != null){
-			first2 = first2.next;
+		while(linkNode.next != null){
+			linkNode = linkNode.next;
 		}
 
 		if(currentOSGI!=null){
 			if(currentOSGI.thisname.equals(treeNodeName)){
-				//first2=new linkNode();
+				//linkNode=new linkNode();
 				LinkNode node = new LinkNode();
 				node.addName(treeNodeName, x, y, ++index);
 				node.thisface = currentOSGI.currentFace.luoyaoguang();
-				node.pre = first2;
-				first2.next = node;
+				node.pre = linkNode;
+				linkNode.next = node;
 				sum_of_nude ++;
-				return first2;
+				return linkNode;
 			}
 			while(currentOSGI.next != null){
 				currentOSGI = currentOSGI.next;
@@ -79,61 +79,54 @@ public class LinkList{
 					LinkNode node = new LinkNode();
 					node.addName(treeNodeName,x,y,++index);
 					node.thisface = currentOSGI.currentFace.luoyaoguang();
-					node.pre = first2;
-					first2.next = node;
+					node.pre = linkNode;
+					linkNode.next = node;
 					sum_of_nude ++;
-					return first2;
+					return linkNode;
 				}
 			}
 		}
-		while(first2.pre != null){
-			first2 = first2.pre;
+		while(linkNode.pre != null){
+			linkNode = linkNode.pre;
 		}
 		sum_of_nude++;
-		return first2;
+		return linkNode;
 	} 
-	public LinkNode deletNode(LinkNode first2, String name,int ID){
-		if(first2!=null){
-			if(first2.name.equals(name)&&first2.ID==ID){
-				if(first2.next!=null){
-					first2=first2.next;
-					first2.pre=null;
-					return first2;	
+	public LinkNode deletNode(LinkNode linkNode, String name,int ID){
+		if(linkNode!=null){
+			if(linkNode.name.equals(name)&&linkNode.ID==ID){
+				if(linkNode.next!=null){
+					linkNode=linkNode.next;
+					linkNode.pre=null;
+					return linkNode;	
 				}
-				if(first2.next==null){
-					first2=null;
-					return first2;	
+				if(linkNode.next==null){
+					linkNode=null;
+					return linkNode;	
 				}
 			}
-			while(first2.next!=null){
-				first2 = first2.next;
-				if(first2.name.equals(name)&&first2.ID==ID){
-					if(first2.next!=null){
+			while(linkNode.next!=null){
+				linkNode = linkNode.next;
+				if(linkNode.name.equals(name)&&linkNode.ID==ID){
+					if(linkNode.next!=null){
 						@SuppressWarnings("unused")
-						LinkNode node =first2;
-						first2=first2.next;
-						first2.pre=first2.pre.pre;
-						first2.pre.next=first2;
+						LinkNode node =linkNode;
+						linkNode=linkNode.next;
+						linkNode.pre=linkNode.pre.pre;
+						linkNode.pre.next=linkNode;
 						node=null;
-						first2=new Sort().sort(first2);
-						return first2;		
+						linkNode=new Sort().sort(linkNode);
+						return linkNode;		
 					}
-					if(first2.next==null){
-						first2=first2.pre;
-						first2.next=null;
-						first2=new Sort().sort(first2);
-						return first2;				
+					if(linkNode.next==null){
+						linkNode=linkNode.pre;
+						linkNode.next=null;
+						linkNode=new Sort().sort(linkNode);
+						return linkNode;				
 					}
 				}
 			}
 		}
-		return first2;	
-	}
-	public void print(LinkNode first2) {
-		System.out.println(first2.name);
-		while(first2.next!=null){
-			first2 = first2.next;
-			System.out.println(first2.name);
-		}
+		return linkNode;	
 	}
 }

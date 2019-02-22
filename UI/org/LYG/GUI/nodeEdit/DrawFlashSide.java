@@ -3,53 +3,31 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 public class DrawFlashSide{
 	public DrawFlashSide(Graphics2D g2, int x, int y, int flash) {	
-		if(flash <= 0){
+		if(0 >= flash){
 			g2.setColor(Color.blue);
 			DrawSinLine.drawCosLine(x, y , g2);
+			g2.setColor(Color.pink);
+			DrawSinLine.drawSinLine(x, y , g2);
 		}
-		if(flash == 1){
-			g2.setColor(Color.RED);
-			DrawSinLine.drawCosLine(x, y , g2);
-		}
-		if(flash >= 2){
+		if(1 == flash){
 			g2.setColor(Color.ORANGE);
 			DrawSinLine.drawCosLine(x, y , g2);
+			g2.setColor(Color.blue);
+			DrawSinLine.drawSinLine(x, y , g2);
+		}
+		if(2 <= flash){
+			g2.setColor(Color.ORANGE);
+			DrawSinLine.drawCosLine(x, y , g2);
+			g2.setColor(Color.RED);
+			DrawSinLine.drawSinLine(x, y , g2);
 		}	
 		drawConnect(g2, x, y);	
 	}
+	//for cell postfix 
 	private void drawConnect(Graphics2D g2, int x, int y) {
-		//top
-		//g2.drawLine(x-10, y+8, x, y+8);
 		g2.drawOval(x + 10, y - 8, 4, 4);
-		
-		//mid
-		//g2.drawLine(x-10, y+25, x, y+25);
 		g2.drawOval(x - 8, y + 22, 4, 4);
-		
-		//bot
-	//	g2.drawLine(x-10, y+40, x, y+40);
 		g2.drawOval(x + 2, y + 52, 4, 4);
-		
-		//out
-		//g2.drawLine(x+50, y+25, x+60, y+25);
 		g2.drawOval(x + 62, y + 26, 4, 4);	
-	}
-	public void drawFlashInside(Graphics2D g2, int x, int y){
-		g2.drawLine(x-1, y-1, x+51, y-1);
-		g2.drawLine(x-1, y+51, x+51, y+51);
-		g2.drawLine(x-1, y-1, x-1, y+51);
-		g2.drawLine(x+51, y-1, x+51, y+51);
-	}
-	public void drawFlashMidside(Graphics2D g2, int x, int y){
-		g2.drawLine(x-3, y-3, x+53, y-3);
-		g2.drawLine(x-3, y+53, x+53, y+53);
-		g2.drawLine(x-3, y-3, x-3, y+53);
-		g2.drawLine(x+53, y-3, x+53, y+53);
-	}
-	public void drawFlashOutside(Graphics2D g2, int x, int y){
-		g2.drawLine(x-5, y-5, x+55, y-5);
-		g2.drawLine(x-5, y+55, x+55, y+55);
-		g2.drawLine(x-5, y-5, x-5, y+55);
-		g2.drawLine(x+55, y-5, x+55, y+55);
 	}
 }

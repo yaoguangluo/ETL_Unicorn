@@ -42,12 +42,13 @@ public class LinkNode extends Thread{
 		mbeconnectID = 0;
 		dbeconnectID = 0;
 	}
+	
 	public void setxy(int x1,int y1){
 		x=x1;
 		y=y1;
 	}
+	
 	public void setchoose(Boolean choose1){
 		leftchoose=choose1;
 	}
-
 }
