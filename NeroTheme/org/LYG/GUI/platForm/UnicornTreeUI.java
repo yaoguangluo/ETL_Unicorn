@@ -47,7 +47,7 @@ import javax.swing.plaf.basic.*;
  * <p>
  * The default is <code>Angled</code>.
  */
-public class unicornTreeUI extends BasicTreeUI {
+public class UnicornTreeUI extends BasicTreeUI {
 	private static Color lineColor;
 	private static final String LINE_STYLE = "JTree.lineStyle";
 	private static final String LEG_LINE_STYLE_STRING = "Angled";
@@ -60,9 +60,9 @@ public class unicornTreeUI extends BasicTreeUI {
 	private PropertyChangeListener lineStyleListener = new LineListener();
 	// Boilerplate
 	public static ComponentUI createUI(JComponent x) {
-		return new unicornTreeUI();
+		return new UnicornTreeUI();
 	}
-	public unicornTreeUI(){
+	public UnicornTreeUI(){
 		super();
 	}
 

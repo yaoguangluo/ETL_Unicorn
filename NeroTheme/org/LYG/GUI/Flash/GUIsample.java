@@ -13,6 +13,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JApplet;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
@@ -45,11 +46,11 @@ import org.LYG.GUI.nodeInfo.NodeInfo;
 import org.LYG.GUI.nodeProject.nodeProject;
 import org.LYG.GUI.nodeView.cacuString;
 import org.LYG.GUI.nodeView.nodeShow;
-import org.LYG.GUI.platForm.unicornJSplitPane;
-public class GUIsample3 extends JApplet implements MouseMotionListener, MouseListener
+import org.LYG.GUI.platForm.UnicornJSplitPane;
+public class GUIsample extends JApplet implements MouseMotionListener, MouseListener
 , ItemListener, ActionListener, Runnable{	
 	private static final long serialVersionUID = 5270675501794340912L;
-	public GUIsample3() {
+	public GUIsample() {
 		getContentPane().setBackground(new Color(255,255,255));
 	}
 	public int w, h;
@@ -68,18 +69,21 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 	nodeShow nodeview;
 	nodeProject nodeproject;
 	NodeInfo nodeinfo;
-	unicornJSplitPane mainsplitPane;
-	unicornJSplitPane leftsplitPane;
-	unicornJSplitPane rightsplitPane;
-	unicornJSplitPane righttopsplitPane;
+	UnicornJSplitPane mainsplitPane;
+	UnicornJSplitPane leftsplitPane;
+	UnicornJSplitPane rightsplitPane;
+	UnicornJSplitPane righttopsplitPane;
 	JScrollPane righttopscrollPane;
 	JScrollPane rightdownscrollPane;
 	JScrollPane rightrightscrollPane;
+	JTextPane rightBotJTextPane;
 	thisCanvas canvas;
 	PopupMenu popupMenu1, nodeMenu, itemMenu;
 	MenuItem menuItem1;
 	MenuItem configre, run, show, dnode, dline;
 	Thread thread, thread1; 
+	private JTextPane text;
+	private Object[][] tableData_old; 
 	public void run() {
 		try {
 			Thread.sleep(100);
@@ -185,7 +189,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				}
 				if(tr!=null){
 					treeNodeName=new String(tr);
-					System.out.println(treeNodeName);
+					rightBotJTextPane.setText("节点名："+treeNodeName);
+					rightBotJTextPane.validate();
 				}
 			}
 		});
@@ -193,18 +198,23 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			public void actionPerformed(ActionEvent e) {
 				if(treeNodeName!=null){
 					try {
-						first = thislist.addNode(first,treeNodeName,100,50,nodeview.first);
+						first=thislist.addNode(first,treeNodeName,100,50,nodeview.first);
 						righttopscrollPane.validate();
 					} catch (CloneNotSupportedException e1) {
-						e1.printStackTrace();
+						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.validate();
 					} catch (InstantiationException e1) {
-						e1.printStackTrace();
+						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.validate();
 					} catch (IllegalAccessException e1) {
-						e1.printStackTrace();
+						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.validate();
 					} catch (IOException e1) {
-						e1.printStackTrace();
+						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.validate();
 					}
-					System.out.print(treeNodeName);
+					rightBotJTextPane.setText("节点名："+"treeNodeName");
+					rightBotJTextPane.validate();
 				}
 			}
 		});  
@@ -216,43 +226,46 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if(node != null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
-							node.thisface.config();
+							node.thisface.config(rightBotJTextPane);
+							node.thisface.thispanel.setLocation(node.x, node.y);
+							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+							node.thisface.thispanel.setResizable(true);
+							node.thisface.thispanel.setClosable(true);
+							node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
+							canvas.add(node.thisface.thispanel);
+							node.thisface.thispanel.setVisible(true);
+							node.thisface.thispanel.validate();
+							new OSGI_chansfer(node,first);
 						} catch (IOException e1) {
-							e1.printStackTrace();
+							rightBotJTextPane.setText("节点配置失败~请重试。");
+							rightBotJTextPane.validate();
 						} 
-						node.thisface.thispanel.setLocation(node.x, node.y);
-						node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-						node.thisface.thispanel.setResizable(true);
-						node.thisface.thispanel.setClosable(true);
-						node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth() - 10
-								, node.thisface.thispanel.getHeight() - 45);
-						node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-						canvas.add(node.thisface.thispanel);
-						node.thisface.thispanel.setVisible(true);
-						node.thisface.thispanel.validate();
-						new OSGI_chansfer(node,first);
 					}
 					while(node.next != null){
 						node = node.next;
 						if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 							try {
-								node.thisface.config();
+								node.thisface.config(rightBotJTextPane);
+								node.thisface.thispanel.setLocation(node.x, node.y);
+								node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+								node.thisface.thispanel.setResizable(true);
+								node.thisface.thispanel.setClosable(true);
+								node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+								node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
+								canvas.add(node.thisface.thispanel);
+								node.thisface.thispanel.setVisible(true);      
+								node.thisface.thispanel.validate();
+								new OSGI_chansfer(node,first);
 							} catch (IOException e1) {
-								e1.printStackTrace();
+								rightBotJTextPane.setText("节点配置失败~请重试。");
+								rightBotJTextPane.validate();
 							} 
-							node.thisface.thispanel.setLocation(node.x, node.y);
-							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-							node.thisface.thispanel.setResizable(true);
-							node.thisface.thispanel.setClosable(true);node.thisface.thispanel.jsp.setBounds(0, 0
-									, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-							canvas.add(node.thisface.thispanel);
-							node.thisface.thispanel.setVisible(true);      
-							node.thisface.thispanel.validate();
-							new OSGI_chansfer(node,first);
 						}
 					}
 				}	
+				rightBotJTextPane.setText("配置成功~");
+				rightBotJTextPane.validate();
 			}
 		}); 
 		run.addActionListener(new java.awt.event.ActionListener() {
@@ -263,35 +276,45 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 				if(node!=null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
-							node.thisface.execute();
+							node.thisface.execute(rightBotJTextPane);
 						} catch (FileNotFoundException e1) {
-							e1.printStackTrace();
+							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.validate();
 						} catch (IOException e1) {
-							e1.printStackTrace();
+							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.validate();
 						} catch (UnsupportedAudioFileException e2) {
-							e2.printStackTrace();
+							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.validate();
 						} catch (InterruptedException e3) {
-							e3.printStackTrace();
-						}     
+							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.validate();
+						}
 					}
 					while(null != node.next){
 						node=node.next;
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 							try {
-								node.thisface.execute();
+								node.thisface.execute(rightBotJTextPane);
 							} catch (FileNotFoundException e1) {
-								e1.printStackTrace();
+								rightBotJTextPane.setText("节点运行失败~请重试。");
+								rightBotJTextPane.validate();
 							} catch (IOException e1) {
-								e1.printStackTrace();
+								rightBotJTextPane.setText("节点运行失败~请重试。");
+								rightBotJTextPane.validate();
 							} catch (UnsupportedAudioFileException e2) {
-								e2.printStackTrace();
+								rightBotJTextPane.setText("节点运行失败~请重试。");
+								rightBotJTextPane.validate();
 							} catch (InterruptedException e3) {
-								e3.printStackTrace();
-							} 
+								rightBotJTextPane.setText("节点运行失败~请重试。");
+								rightBotJTextPane.validate();
+							}
 						}
 
 					}
 				}	
+				rightBotJTextPane.setText("运行成功~");
+				rightBotJTextPane.validate();
 			}
 		}); 
 		show.addActionListener(new java.awt.event.ActionListener() {
@@ -303,21 +326,22 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						if(!node.thisface.showed){
 							try {
-								node.thisface.view();
+								node.thisface.view(rightBotJTextPane);
+								node.thisface.thisview.setLocation(node.x, node.y);
+								node.thisface.thisview.setSize(500, 500);//setBounds(0, 0, node.x+300,node.y+200);
+								node.thisface.thisview.setResizable(true);
+								node.thisface.thisview.setClosable(true);
+								node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
+								canvas.add(node.thisface.thisview);
+								node.thisface.thisview.setVisible(true);
+								node.thisface.thisview.validate();
 							} catch (Exception e1) {
-								e1.printStackTrace();
+								//e1.printStackTrace();
+								rightBotJTextPane.setText("节点查看失败，请重试~");
+								rightBotJTextPane.validate();
 							}  
-							node.thisface.thisview.setLocation(node.x, node.y);
-							node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-							node.thisface.thisview.setResizable(true);
-							node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0
-									, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-							node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-							canvas.add(node.thisface.thisview);
-							node.thisface.thisview.setVisible(true);
-							node.thisface.thisview.validate();
-						}
-						else{
+						}else{
 							node.thisface.thisview.setVisible(true);  
 						}
 					}
@@ -326,26 +350,27 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 							if(!node.thisface.showed){
 								try {
-									node.thisface.view();
+									node.thisface.view(rightBotJTextPane);
+									node.thisface.thisview.setLocation(node.x, node.y);
+									node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+									node.thisface.thisview.setResizable(true);
+									node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
+									node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
+									canvas.add(node.thisface.thisview);
+									node.thisface.thisview.setVisible(true);
+									node.thisface.thisview.validate();
 								} catch (Exception e1) {
-									e1.printStackTrace();
-								}  
-								node.thisface.thisview.setLocation(node.x, node.y);
-								node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-								node.thisface.thisview.setResizable(true);
-								node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0
-										, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-								canvas.add(node.thisface.thisview);
-								node.thisface.thisview.setVisible(true);
-								node.thisface.thisview.validate();
-							}
-							else{
+									rightBotJTextPane.setText("节点查看失败，请重试~");
+									rightBotJTextPane.validate();
+								} 
+							}else{
 								node.thisface.thisview.setVisible(true);  
 							}
 						}
 					}
 				}	
+				rightBotJTextPane.setText("显示成功~");
+				rightBotJTextPane.validate();
 			}
 		}); 
 		dnode.addActionListener(new java.awt.event.ActionListener() {
@@ -447,6 +472,8 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 			LinkNode node= new ChooseCheck().chooseCheckNode(first, arg0);
 			currentNodeName = node.name;
 			currentNodeID = node.ID;
+			rightBotJTextPane.setText("坐标位："+arg0.getX()+"|"+arg0.getY());
+			rightBotJTextPane.validate();
 		}
 
 
@@ -521,7 +548,7 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 
 		public void mouseMoved(MouseEvent arg0) {
 		}
-	
+
 		public void paint(Graphics g){
 			nodeview.validate();
 			Graphics2D g2 = (Graphics2D)g;
@@ -655,36 +682,49 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		Registrar();
 		this.resize(w,h);	
 	}
+
+	public void init(Object[][] tableData_old,JTextPane text){
+		try {
+			this.text = text;
+			this.tableData_old = tableData_old;
+			CreatMap();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Registrar();
+		this.resize(w,h);	
+	}
+
 	private void CreatMap() throws IOException {
-		w = 1600;
-		h = 1100;
+		w=1446-130;
+		h=820-110;
 		getContentPane().setLayout(null);
-		UIManager.put("SplitPaneUI","org.LYG.GUI.platForm.unicornSplitPaneUI");
-		UIManager.put("ScrollBarUI", "org.LYG.GUI.platForm.unicornScrollBarUI");
-		UIManager.put("TreeUI", "org.LYG.GUI.platForm.unicornTreeUI");
+		UIManager.put("SplitPaneUI","org.LYG.GUI.platForm.UnicornSplitPaneUI");
+		UIManager.put("ScrollBarUI", "org.LYG.GUI.platForm.UnicornScrollBarUI");
+		UIManager.put("TreeUI", "org.LYG.GUI.platForm.UnicornTreeUI");
 		currentNodeName=new String("");
 		thislist=new LinkList();
 		nodeinfo= new NodeInfo();
-		nodeview= new nodeShow();
+		nodeview= new nodeShow(this.tableData_old, this.text);
 		nodeview.tree.setBackground(Color.white);
 		nodeview.setBounds(10, 168, 137, 222);
 		nodeproject=new nodeProject();
 		nodeproject.setBounds(10, 38, 137, 124);	
-		mainsplitPane = new unicornJSplitPane();
+		mainsplitPane = new UnicornJSplitPane();
 		mainsplitPane.setAutoscrolls(true);
 		//mainsplitPane.setEnabled(false);//
 		mainsplitPane.setBounds(10, 50, w-20, h-80);
 		mainsplitPane.setVisible(true);
 		getContentPane().add(mainsplitPane);
-		leftsplitPane = new unicornJSplitPane();
+		leftsplitPane = new UnicornJSplitPane();
 		leftsplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		mainsplitPane.setLeftComponent(leftsplitPane);
 		leftsplitPane.setLeftComponent(nodeproject);
 		leftsplitPane.setRightComponent(nodeview);
-		rightsplitPane = new unicornJSplitPane();
+		rightsplitPane = new UnicornJSplitPane();
 		rightsplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		mainsplitPane.setRightComponent(rightsplitPane);
-		righttopsplitPane = new unicornJSplitPane();
+		righttopsplitPane = new UnicornJSplitPane();
 		rightsplitPane.setLeftComponent(righttopsplitPane);
 		righttopscrollPane = new JScrollPane();
 		canvas = new thisCanvas();
@@ -694,7 +734,9 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		righttopsplitPane.setLeftComponent(righttopscrollPane);
 		rightrightscrollPane = new JScrollPane();
 		righttopsplitPane.setRightComponent(nodeinfo);
-		rightdownscrollPane = new JScrollPane();
+		rightBotJTextPane = new JTextPane();
+		rightBotJTextPane.setText("你好，亲~");
+		rightdownscrollPane = new JScrollPane(rightBotJTextPane);
 		rightsplitPane.setRightComponent(rightdownscrollPane);
 		popupMenu1 = new PopupMenu();
 		menuItem1 = new MenuItem();
@@ -702,15 +744,15 @@ public class GUIsample3 extends JApplet implements MouseMotionListener, MouseLis
 		popupMenu1.add(menuItem1);
 		nodeMenu = new PopupMenu();
 		configre = new MenuItem();
-		configre.setLabel("configre");
+		configre.setLabel("配置");
 		run = new MenuItem();
-		run.setLabel("run");
+		run.setLabel("运行");
 		show = new MenuItem();
-		show.setLabel("show");
+		show.setLabel("显示");
 		dnode = new MenuItem();
-		dnode.setLabel("delete_node");
+		dnode.setLabel("删除该节");
 		dline = new MenuItem();
-		dline.setLabel("delete_line");
+		dline.setLabel("删除链接");
 		nodeMenu.add(configre);
 		nodeMenu.add(run);
 		nodeMenu.add(show);

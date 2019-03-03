@@ -3,13 +3,14 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 import javax.swing.JTree;
 import java.awt.event.*;
 import java.io.IOException;
 import javax.swing.tree.*;
 import org.LYG.GUI.OSGI.*;
 import org.LYG.GUI.extOSGI.*;
-import org.LYG.GUI.platForm.unicornTreeCellRenderer;
+import org.LYG.GUI.platForm.UnicornTreeCellRenderer;
 public class nodeShow extends JScrollPane implements MouseListener,ItemListener,ActionListener {
 	private static final long serialVersionUID = 1L;
 	public JTree tree;
@@ -19,9 +20,13 @@ public class nodeShow extends JScrollPane implements MouseListener,ItemListener,
 	DefaultMutableTreeNode root;
 	ImageIcon test;
 	public String labelname;
-	public nodeShow() throws IOException{	
+	JTextPane text;
+	Object[][] tableData_old;
+	public nodeShow(Object[][] tableData_old, JTextPane text) throws IOException{	
+		this.text=text;
+		this.tableData_old=tableData_old;
 		link = new linkOSGI();
-		first = new OSGI_rigester().Rigester(first,link);
+		first = new OSGI_rigester(this.tableData_old, this.text).Rigester(first,link);
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Node");
 		treeModel = new DefaultTreeModel(root);
 		tree = new JTree(treeModel);
@@ -29,7 +34,7 @@ public class nodeShow extends JScrollPane implements MouseListener,ItemListener,
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.putClientProperty("JTree.lineStyle" , "Horizontal");  
 		tree.setEditable(false);
-		unicornTreeCellRenderer myCellRenderer = new unicornTreeCellRenderer();  
+		UnicornTreeCellRenderer myCellRenderer = new UnicornTreeCellRenderer();  
 		myCellRenderer.setFont(new Font("Serif", Font.ITALIC, 12));
 		tree.setCellRenderer(myCellRenderer);
 

@@ -9,7 +9,7 @@ import javax.swing.JScrollBar;
 import javax.swing.plaf.ComponentUI ;
 import javax.swing.plaf.basic.BasicScrollBarUI ;
 
-public final class unicornScrollBarUI extends BasicScrollBarUI {
+public final class UnicornScrollBarUI extends BasicScrollBarUI {
 
 	public Dimension getPreferredSize(JComponent c) {
 		return (scrollbar.getOrientation() == JScrollBar.VERTICAL)
@@ -17,7 +17,7 @@ public final class unicornScrollBarUI extends BasicScrollBarUI {
 						: new Dimension(40,10);
 	}
 	public static ComponentUI  createUI(JComponent  c){
-		return new unicornScrollBarUI();
+		return new UnicornScrollBarUI();
 	}
 
 	protected void paintThumb(Graphics  g, JComponent  c, Rectangle  thumbBounds){ 

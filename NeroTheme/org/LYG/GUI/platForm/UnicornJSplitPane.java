@@ -3,11 +3,11 @@ import java.awt.Rectangle;
 import javax.swing.JSplitPane;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
-public class unicornJSplitPane extends JSplitPane {
+public class UnicornJSplitPane extends JSplitPane {
 	private static final long serialVersionUID = 1L;
 	private int dividerDragSize = 3;
 	private int dividerDragOffset = 3;
-	public unicornJSplitPane() {
+	public UnicornJSplitPane() {
 		setDividerSize( 0 );
 		setContinuousLayout( true );
 	}

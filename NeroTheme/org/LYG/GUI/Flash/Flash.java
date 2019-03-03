@@ -1,10 +1,10 @@
 package org.LYG.GUI.Flash;
 import javax.swing.JFrame;
-public class Flash extends GUIsample3{
+public class Flash extends GUIsample{
 	private static final long serialVersionUID = 1L;
 	@SuppressWarnings("deprecation")
 	public static void main(String args[]){
-		GUIsample3 NE=new GUIsample3();
+		GUIsample NE = new GUIsample();
 		JFrame frame = new JFrame("Moon Base Alpha");   
         frame.setLayout(null);   
         frame.resize(800, 440);   

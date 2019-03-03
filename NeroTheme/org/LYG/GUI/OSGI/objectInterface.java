@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
 public class objectInterface implements Cloneable{
 	public ImageIcon thisicon;
 	public Image thisimage;
@@ -25,10 +26,10 @@ public class objectInterface implements Cloneable{
 		thisrun = new objectRun();
 		thisview = new objectView();	
 	}
-	public void config() throws IOException{
+	public void config(JTextPane rightBotJTextPane) throws IOException{
 	}
-	public void execute() throws FileNotFoundException, IOException, UnsupportedAudioFileException, InterruptedException{
+	public void execute(JTextPane rightBotJTextPane) throws FileNotFoundException, IOException, UnsupportedAudioFileException, InterruptedException{
 	}
-	public void view() throws Exception{
+	public void view(JTextPane rightBotJTextPane) throws Exception{
 	}
 }

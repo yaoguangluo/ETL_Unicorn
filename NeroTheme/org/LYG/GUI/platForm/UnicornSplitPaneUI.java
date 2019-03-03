@@ -21,14 +21,14 @@ import javax.swing.plaf.basic.BasicSplitPaneUI;
  *  
  * @author lyg refer jdk arthors from sum tech£¬¡£
  */  
-public class unicornSplitPaneUI extends BasicSplitPaneUI {   
-	public unicornSplitPaneUI() {   
+public class UnicornSplitPaneUI extends BasicSplitPaneUI {   
+	public UnicornSplitPaneUI() {   
 		super();   
 	}   
 
 	public static ComponentUI createUI(JComponent c) {   
 
-		return new unicornSplitPaneUI();   
+		return new UnicornSplitPaneUI();   
 	}   
 
 	@Override  
@@ -58,7 +58,7 @@ public class unicornSplitPaneUI extends BasicSplitPaneUI {
 		boolean centerOneTouchButtons;   
 		//center¿Õ°×ÇøÓò   
 		private int x1,  y1;   
-		public MyBasicSplitPaneDivider(unicornSplitPaneUI ui) {   
+		public MyBasicSplitPaneDivider(UnicornSplitPaneUI ui) {   
 			super(ui);   
 			oneTouchSize = ONE_TOUCH_SIZE;   
 			oneTouchOffset = ONE_TOUCH_OFFSET;   
