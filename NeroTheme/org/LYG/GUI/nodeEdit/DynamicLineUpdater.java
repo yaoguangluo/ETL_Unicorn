@@ -61,6 +61,5 @@ public class DynamicLineUpdater{
 		linkNode = null;
 	}
 	public DynamicLineUpdater() {
-		// TODO Auto-generated constructor stub
 	}
 }

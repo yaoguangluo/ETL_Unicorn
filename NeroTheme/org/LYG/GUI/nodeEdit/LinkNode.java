@@ -48,7 +48,7 @@ public class LinkNode extends Thread{
 		y=y1;
 	}
 	
-	public void setchoose(Boolean choose1){
-		leftchoose=choose1;
+	public void setchoose(Boolean choose){
+		leftchoose=choose;
 	}
 }

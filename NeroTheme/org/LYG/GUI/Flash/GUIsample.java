@@ -223,7 +223,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node = new LinkNode();
 				first = new Sort().sort(first);
 				node = first;
-				if(node != null){
+				while(node != null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
 							node.thisface.config(rightBotJTextPane);
@@ -242,27 +242,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							rightBotJTextPane.validate();
 						} 
 					}
-					while(node.next != null){
-						node = node.next;
-						if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
-							try {
-								node.thisface.config(rightBotJTextPane);
-								node.thisface.thispanel.setLocation(node.x, node.y);
-								node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-								node.thisface.thispanel.setResizable(true);
-								node.thisface.thispanel.setClosable(true);
-								node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-								node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-								canvas.add(node.thisface.thispanel);
-								node.thisface.thispanel.setVisible(true);      
-								node.thisface.thispanel.validate();
-								new OSGI_chansfer(node,first);
-							} catch (IOException e1) {
-								rightBotJTextPane.setText("节点配置失败~请重试。");
-								rightBotJTextPane.validate();
-							} 
-						}
-					}
+					node = node.next;
 				}	
 				rightBotJTextPane.setText("配置成功~");
 				rightBotJTextPane.validate();
@@ -273,7 +253,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
-				if(node!=null){
+				while(node!=null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
 							node.thisface.execute(rightBotJTextPane);
@@ -291,27 +271,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							rightBotJTextPane.validate();
 						}
 					}
-					while(null != node.next){
-						node=node.next;
-						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							try {
-								node.thisface.execute(rightBotJTextPane);
-							} catch (FileNotFoundException e1) {
-								rightBotJTextPane.setText("节点运行失败~请重试。");
-								rightBotJTextPane.validate();
-							} catch (IOException e1) {
-								rightBotJTextPane.setText("节点运行失败~请重试。");
-								rightBotJTextPane.validate();
-							} catch (UnsupportedAudioFileException e2) {
-								rightBotJTextPane.setText("节点运行失败~请重试。");
-								rightBotJTextPane.validate();
-							} catch (InterruptedException e3) {
-								rightBotJTextPane.setText("节点运行失败~请重试。");
-								rightBotJTextPane.validate();
-							}
-						}
-
-					}
+					node=node.next;
 				}	
 				rightBotJTextPane.setText("运行成功~");
 				rightBotJTextPane.validate();
@@ -322,7 +282,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node = new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
-				if(node!=null){
+				while(node!=null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						if(!node.thisface.showed){
 							try {
@@ -345,29 +305,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							node.thisface.thisview.setVisible(true);  
 						}
 					}
-					while(node.next!=null){
-						node=node.next;
-						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							if(!node.thisface.showed){
-								try {
-									node.thisface.view(rightBotJTextPane);
-									node.thisface.thisview.setLocation(node.x, node.y);
-									node.thisface.thisview.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-									node.thisface.thisview.setResizable(true);
-									node.thisface.thisview.setClosable(true);node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-									node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-									canvas.add(node.thisface.thisview);
-									node.thisface.thisview.setVisible(true);
-									node.thisface.thisview.validate();
-								} catch (Exception e1) {
-									rightBotJTextPane.setText("节点查看失败，请重试~");
-									rightBotJTextPane.validate();
-								} 
-							}else{
-								node.thisface.thisview.setVisible(true);  
-							}
-						}
-					}
+					node=node.next;
 				}	
 				rightBotJTextPane.setText("显示成功~");
 				rightBotJTextPane.validate();
@@ -378,18 +316,12 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
-				if(node!=null){
+				while(node!=null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						first=thislist.deletNode(first, node.name,node.ID);
 						new UpdateRelatedLine(first,currentNodeName,currentNodeID);
 					}
-					while(node.next!=null){
-						node=node.next;
-						if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							first=thislist.deletNode(first, node.name,node.ID);
-							new UpdateRelatedLine(first,currentNodeName,currentNodeID);
-						}
-					}
+					node=node.next;
 				}	
 				canvas.repaint();
 			}
@@ -399,22 +331,14 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node=new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
-				if(node!=null){
+				while(node!=null){
 					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						node.beconnect=false;
 						node.tbeconnect=false;
 						node.mbeconnect=false;
 						node.dbeconnect=false;
 					}
-					while(node.next!=null){
-						node=node.next;
-						if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-							node.beconnect=false;
-							node.tbeconnect=false;
-							node.mbeconnect=false;
-							node.dbeconnect=false;
-						}
-					}
+					node=node.next;
 				}
 				canvas.repaint();
 			}
@@ -482,7 +406,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			currentx = arg0.getX();
 			currenty = arg0.getY();
 			LinkNode node = first;
-			if(node != null){
+			while(node != null){
 				if(node.rightchoose && !node.leftchoose){
 					if(oldx == arg0.getX()&&oldy == arg0.getY()){
 						nodeMenu.show(this, arg0.getX(), arg0.getY());
@@ -493,19 +417,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				}
 				node.setchoose(false);
 				node.rightchoose = false;
-				while(node.next != null){
-					node = node.next;
-					if(node.rightchoose && !node.leftchoose){
-						if(oldx == arg0.getX() && oldy == arg0.getY()){
-							nodeMenu.show(this, arg0.getX(), arg0.getY());
-						}
-						else{
-							new CheckRange(first, node, arg0);
-						}
-					}
-					node.setchoose(false);
-					node.rightchoose=false;
-				}
+				node = node.next;
 			}
 		}
 
@@ -523,7 +435,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			Graphics g = getGraphics();
 			Graphics2D g2 = (Graphics2D)g;
 			g2.setColor(Color.black);
-			if(null != node){
+			while(null != node){
 				if(node.leftchoose&&!node.rightchoose){
 					node.setxy(e.getX(),e.getY());
 					new DynamicLineUpdater().exec(first,node);
@@ -531,16 +443,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				if(!node.leftchoose&&node.rightchoose){	 
 					new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
 				}	
-				while(null != node.next){
-					node=node.next;
-					if(node.leftchoose&&!node.rightchoose){	
-						node.setxy(e.getX(),e.getY());
-						new DynamicLineUpdater().exec(first,node);
-					}
-					if(!node.leftchoose&&node.rightchoose){	 
-						new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
-					}	
-				}
+				node=node.next;
 				this.update(g);
 				g.dispose();
 			}
@@ -555,7 +458,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			g2.clearRect(0, 0, this.getWidth(), this.getHeight());
 			first = new Sort().sort(first);
 			LinkNode node = first;
-			if(node != null){
+			while(node != null){
 				if(node.x < 0){
 					node.x = 10;
 				}
@@ -611,65 +514,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					new DrawArrow(g2, oldx, oldy, currentx, currenty);
 					g2.setColor(new	Color(25, 25, 112));
 				}
-				while(node.next != null){
-					//不是选中节点 跳出
-					node = node.next;
-					if(node.x < 0){
-						node.x=10;
-					}
-					if(node.x>(this.getWidth()-100)){
-						node.x=this.getWidth()-100; 	
-					}
-					if(node.y<0){
-						node.y=10;
-					}
-					if(node.y>(this.getHeight()-100)){
-						node.y=this.getHeight()-100; 
-					}
-					g.drawImage(node.thisface.thisimage,node.x+19,node.y+12,this);
-					if(node.flash>100){
-						node.flash=0;
-					}
-					if(0 == isOperation) {
-						new DrawFlashSide(g2, node.x, node.y, node.flash++%3);
-					}else {
-						new DrawFlashSide(g2, node.x, node.y, node.flash);
-					}
-					g2.setColor(Color.BLACK);
-					g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);
-					g2.setColor(new	Color(25, 25, 112));
-					if(node.beconnect){
-						if(node.tbeconnect){
-							new DrawArrow(g2, node.tbeconnectx + 62, node.tbeconnecty + 28, node.x + 14, node.y - 6);
-							if(!node.leftchoose&&node.rightchoose){
-								g2.setColor(Color.black);
-								new DrawArrow(g2, oldx, oldy, currentx, currenty);
-								g2.setColor(new	Color(25,25,112));	
-							}
-						}
-						if(node.mbeconnect){
-							new DrawArrow(g2, node.mbeconnectx + 62, node.mbeconnecty + 28, node.x - 4, node.y + 25);
-							if(!node.leftchoose && node.rightchoose){
-								g2.setColor(Color.black);
-								new DrawArrow(g2, oldx, oldy, currentx, currenty);
-								g2.setColor(new	Color(25,25,112));	
-							}
-						}
-						if(node.dbeconnect){
-							new DrawArrow(g2, node.dbeconnectx + 62, node.dbeconnecty + 28, node.x + 6, node.y + 55);
-							if(!node.leftchoose && node.rightchoose){
-								g2.setColor(Color.black);
-								new DrawArrow(g2, oldx, oldy, currentx, currenty);
-								g2.setColor(new	Color(25,25,112));	
-							}
-						}
-					}
-					else if(!node.leftchoose && node.rightchoose){
-						g2.setColor(Color.black);	
-						new DrawArrow(g2, oldx, oldy, currentx, currenty);
-						g2.setColor(new	Color(25,25,112));
-					}
-				}
+				node = node.next;
 			}
 		}	
 	}

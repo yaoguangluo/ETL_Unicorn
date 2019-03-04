@@ -9,16 +9,16 @@ public class LinkList{
 	public int sum_of_nude=0;
 	public LinkList(){}
 	public boolean search(LinkNode linkNode,String key){
-		if(linkNode==null){
+		if(null == linkNode){
 			return false;
 		}
 		if(linkNode.name.equals(key)){
 			return true;
 		}
-		while(linkNode.next!=null){
+		while(null != linkNode.next){
 			linkNode=linkNode.next;
 			if(linkNode.name.equals(key)){
-				while(linkNode.pre!=null){
+				while(null != linkNode.pre){
 					linkNode=linkNode.pre;
 				}
 				return true;
@@ -29,11 +29,11 @@ public class LinkList{
 	public LinkNode addNode(LinkNode linkNode, String treeNodeName,int x,int y,nodeOSGI nOSGI ) 
 			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
 		nodeOSGI currentOSGI=nOSGI;
-		while(currentOSGI!=null&&currentOSGI.pre!=null){
+		while(null != currentOSGI && null != currentOSGI.pre){
 			currentOSGI=currentOSGI.pre;
 		}
-		if(linkNode==null){			
-			if(currentOSGI!=null){
+		if(null == linkNode){			
+			if(null != currentOSGI){
 				if(currentOSGI.thisname.equals(treeNodeName)){
 					linkNode=new LinkNode();
 					linkNode.addName(treeNodeName,x,y,++index);
@@ -43,7 +43,7 @@ public class LinkList{
 					sum_of_nude++;
 					return linkNode;
 				}
-				while(currentOSGI.next!=null){
+				while(null != currentOSGI.next){
 					currentOSGI=currentOSGI.next;
 					if(currentOSGI.thisname.equals(treeNodeName)){
 						linkNode=new LinkNode();
@@ -58,11 +58,11 @@ public class LinkList{
 			}
 
 		}
-		while(linkNode.next != null){
+		while(null != linkNode.next){
 			linkNode = linkNode.next;
 		}
 
-		if(currentOSGI!=null){
+		if(null != currentOSGI){
 			if(currentOSGI.thisname.equals(treeNodeName)){
 				//linkNode=new linkNode();
 				LinkNode node = new LinkNode();
@@ -73,7 +73,7 @@ public class LinkList{
 				sum_of_nude ++;
 				return linkNode;
 			}
-			while(currentOSGI.next != null){
+			while(null != currentOSGI.next){
 				currentOSGI = currentOSGI.next;
 				if(currentOSGI.thisname.equals(treeNodeName)){
 					LinkNode node = new LinkNode();
@@ -86,29 +86,29 @@ public class LinkList{
 				}
 			}
 		}
-		while(linkNode.pre != null){
+		while(null != linkNode.pre){
 			linkNode = linkNode.pre;
 		}
 		sum_of_nude++;
 		return linkNode;
 	} 
 	public LinkNode deletNode(LinkNode linkNode, String name,int ID){
-		if(linkNode!=null){
+		if(null != linkNode){
 			if(linkNode.name.equals(name)&&linkNode.ID==ID){
-				if(linkNode.next!=null){
+				if(null != linkNode.next){
 					linkNode=linkNode.next;
 					linkNode.pre=null;
 					return linkNode;	
 				}
-				if(linkNode.next==null){
+				if(null == linkNode.next){
 					linkNode=null;
 					return linkNode;	
 				}
 			}
-			while(linkNode.next!=null){
+			while(null != linkNode.next){
 				linkNode = linkNode.next;
 				if(linkNode.name.equals(name)&&linkNode.ID==ID){
-					if(linkNode.next!=null){
+					if(null != linkNode.next){
 						@SuppressWarnings("unused")
 						LinkNode node =linkNode;
 						linkNode=linkNode.next;
@@ -118,7 +118,7 @@ public class LinkList{
 						linkNode=new Sort().sort(linkNode);
 						return linkNode;		
 					}
-					if(linkNode.next==null){
+					if(null == linkNode.next){
 						linkNode=linkNode.pre;
 						linkNode.next=null;
 						linkNode=new Sort().sort(linkNode);

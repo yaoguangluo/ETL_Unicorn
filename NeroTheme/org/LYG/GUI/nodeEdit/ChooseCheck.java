@@ -10,7 +10,7 @@ public class ChooseCheck{
 		int x,y;
 		x = arg0.getX();
 		y = arg0.getY();
-		if(node != null){
+		if(null != node){
 			if((x > node.x) && (x < node.x + 50) && (y > node.y) && (y < node.y + 50)){
 				if(arg0.getButton() == 1){
 					node.leftchoose=true;
@@ -20,7 +20,7 @@ public class ChooseCheck{
 				}
 				return node;	
 			}
-			while(node.next != null){
+			while(null != node.next){
 				x = arg0.getX();
 				y = arg0.getY();
 				node = node.next;
