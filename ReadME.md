@@ -1,5 +1,7 @@
 # 这个工程用于节点数据工作流执行。该软件的亮点为：启动快，效率高，操作简单，结构轻，网页嵌入，执行快，二次开发简易，自由修改源码实现各种风格。
 
+
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 引擎 while loop 优化，大幅缩短延迟。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 汉化版本
 ![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/chinese.png)
 
