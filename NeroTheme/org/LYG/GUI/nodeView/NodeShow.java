@@ -11,21 +11,21 @@ import javax.swing.tree.*;
 import org.LYG.GUI.OSGI.*;
 import org.LYG.GUI.extOSGI.*;
 import org.LYG.GUI.platForm.UnicornTreeCellRenderer;
-public class nodeShow extends JScrollPane implements MouseListener,ItemListener,ActionListener {
+public class NodeShow extends JScrollPane implements MouseListener, ItemListener, ActionListener {
 	private static final long serialVersionUID = 1L;
 	public JTree tree;
-	public nodeOSGI first;
-	public linkOSGI link;
+	public NodeOSGI first;
+	public LinkOSGI link;
 	DefaultTreeModel treeModel;
 	DefaultMutableTreeNode root;
 	ImageIcon test;
 	public String labelname;
 	JTextPane text;
 	Object[][] tableData_old;
-	public nodeShow(Object[][] tableData_old, JTextPane text) throws IOException{	
+	public NodeShow(Object[][] tableData_old, JTextPane text) throws IOException{	
 		this.text=text;
 		this.tableData_old=tableData_old;
-		link = new linkOSGI();
+		link = new LinkOSGI();
 		first = new OSGI_rigester(this.tableData_old, this.text).Rigester(first,link);
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Node");
 		treeModel = new DefaultTreeModel(root);

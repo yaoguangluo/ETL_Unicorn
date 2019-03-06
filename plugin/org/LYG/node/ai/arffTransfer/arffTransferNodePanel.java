@@ -10,7 +10,7 @@ import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.ScrollPane;
 import java.awt.Color;
-public class arffTransferNodePanel extends objectPanel{
+public class arffTransferNodePanel extends ObjectPanel{
 	private static final long serialVersionUID = 1L;
 	private FileDialog filedialog;
 	public arffTransferNodePanel(final arffTransferNodeRun thisrun){

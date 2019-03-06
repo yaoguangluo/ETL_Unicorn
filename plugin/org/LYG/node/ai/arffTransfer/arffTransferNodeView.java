@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
 import org.LYG.GUI.OSGI.*;
-public class arffTransferNodeView extends objectView{
+public class arffTransferNodeView extends ObjectView{
 	private static final long serialVersionUID = 1L;
 	public JButton button;
 	public arffTransferNodeView(){
@@ -31,8 +31,8 @@ public class arffTransferNodeView extends objectView{
 		this.setClosable(true);	
 	}
 	@Override  
-	public objectView clone() {   
-		addr = (objectView)super.clone();  
+	public ObjectView clone() {   
+		addr = (ObjectView)super.clone();  
 		return addr;  
 	}  
 }

@@ -1,29 +1,29 @@
 package org.LYG.GUI.OSGI;
 import javax.swing.ImageIcon;
-public class nodeOSGI{ 
-	public nodeOSGI next;
-	public nodeOSGI pre;
-	public objectInterface currentFace;
+public class NodeOSGI{ 
+	public NodeOSGI next;
+	public NodeOSGI pre;
+	public ObjectInterface currentFace;
 	public ImageIcon thisicon;
 	public String thisname;
 	@Override  
 	public Object clone() {  
-		nodeOSGI obj = null;  
+		NodeOSGI obj = null;  
 		try{  
-			obj = (nodeOSGI)super.clone();  
+			obj = (NodeOSGI)super.clone();  
 		}catch(CloneNotSupportedException e) {  
 			e.printStackTrace();  
 		}  
 		return obj;  
 	}  
-	public nodeOSGI(){
+	public NodeOSGI(){
 		next=null;
 		pre=null;
 		currentFace=null;
 		thisicon=null;
 		thisname=null;
 	}
-	public void addName(objectInterface thisface){
+	public void addName(ObjectInterface thisface){
 		next=null;
 		pre=null;
 		currentFace=thisface;

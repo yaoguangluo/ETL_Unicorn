@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import org.LYG.GUI.OSGI.*;
-public class arffTransferNodeRun extends objectRun{
+public class arffTransferNodeRun extends ObjectRun{
 	private static final long serialVersionUID = 1L;
 	public int value = 0;
 	public String filepath;

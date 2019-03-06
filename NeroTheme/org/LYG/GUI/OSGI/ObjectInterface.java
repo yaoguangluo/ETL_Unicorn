@@ -5,26 +5,26 @@ import java.io.IOException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
-public class objectInterface implements Cloneable{
+public class ObjectInterface implements Cloneable{
 	public ImageIcon thisicon;
 	public Image thisimage;
 	public String thisname;
 	public String position; 
-	public objectPanel thispanel;
-	public objectRun thisrun;
-	public objectView thisview;
-	public objectInterface stu;
+	public ObjectPanel thispanel;
+	public ObjectRun thisrun;
+	public ObjectView thisview;
+	public ObjectInterface stu;
 	public boolean showed = false;
-	public objectInterface luoyaoguang() throws CloneNotSupportedException, IOException  {
+	public ObjectInterface luoyaoguang() throws CloneNotSupportedException, IOException  {
 		return stu;   
 	}
-	public objectInterface(){
+	public ObjectInterface(){
 		thisicon = null;
 		thisimage = null;
 		thisname = null;
-		thispanel = new objectPanel();
-		thisrun = new objectRun();
-		thisview = new objectView();	
+		thispanel = new ObjectPanel();
+		thisrun = new ObjectRun();
+		thisview = new ObjectView();	
 	}
 	public void config(JTextPane rightBotJTextPane) throws IOException{
 	}

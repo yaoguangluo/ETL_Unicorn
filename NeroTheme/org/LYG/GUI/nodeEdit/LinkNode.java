@@ -1,5 +1,5 @@
 package org.LYG.GUI.nodeEdit;
-import org.LYG.GUI.OSGI.objectInterface;
+import org.LYG.GUI.OSGI.ObjectInterface;
 public class LinkNode extends Thread{ 
 	public int flash=0;
 	public Boolean beconnect;
@@ -25,7 +25,7 @@ public class LinkNode extends Thread{
 	public LinkNode next;
 	public int ID;
 	public int x,y;
-	public objectInterface thisface; 
+	public ObjectInterface thisface; 
 	public LinkNode(){}
 	public void addName(String thisname, int x1,int y1,int id1){
 		beconnect = false;

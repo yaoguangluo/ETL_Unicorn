@@ -11,8 +11,8 @@ public class OSGI_rigester{
 		this.tableData_old = tableData_old;
 	}
 	
-	public nodeOSGI Rigester(nodeOSGI first, linkOSGI link) throws IOException{
-		objectInterface arffTransferNode = new arffTransferNodeInterface();
+	public NodeOSGI Rigester(NodeOSGI first, LinkOSGI link) throws IOException{
+		ObjectInterface arffTransferNode = new arffTransferNodeInterface();
 		first = link.addNode(first, arffTransferNode);
 		return first;	
 	}

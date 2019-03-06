@@ -26,14 +26,14 @@ public class LinkList{
 		}
 		return false;
 	}
-	public LinkNode addNode(LinkNode linkNode, String treeNodeName,int x,int y,nodeOSGI nOSGI ) 
+	public LinkNode addNode(LinkNode linkNode, String treeNodeName,int x,int y,NodeOSGI nOSGI ) 
 			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
-		nodeOSGI currentOSGI=nOSGI;
+		NodeOSGI currentOSGI=nOSGI;
 		while(null != currentOSGI && null != currentOSGI.pre){
 			currentOSGI=currentOSGI.pre;
 		}
 		if(null == linkNode){			
-			if(null != currentOSGI){
+			while(null != currentOSGI){
 				if(currentOSGI.thisname.equals(treeNodeName)){
 					linkNode=new LinkNode();
 					linkNode.addName(treeNodeName,x,y,++index);
@@ -43,18 +43,7 @@ public class LinkList{
 					sum_of_nude++;
 					return linkNode;
 				}
-				while(null != currentOSGI.next){
-					currentOSGI=currentOSGI.next;
-					if(currentOSGI.thisname.equals(treeNodeName)){
-						linkNode=new LinkNode();
-						linkNode.addName(treeNodeName,x,y,++index);
-						linkNode.thisface=currentOSGI.currentFace.luoyaoguang();
-						linkNode.next=null;
-						linkNode.pre=null;
-						sum_of_nude++;
-						return linkNode;
-					}
-				}
+				currentOSGI=currentOSGI.next;
 			}
 
 		}
@@ -62,7 +51,7 @@ public class LinkList{
 			linkNode = linkNode.next;
 		}
 
-		if(null != currentOSGI){
+		while(null != currentOSGI){
 			if(currentOSGI.thisname.equals(treeNodeName)){
 				//linkNode=new linkNode();
 				LinkNode node = new LinkNode();
@@ -73,18 +62,7 @@ public class LinkList{
 				sum_of_nude ++;
 				return linkNode;
 			}
-			while(null != currentOSGI.next){
-				currentOSGI = currentOSGI.next;
-				if(currentOSGI.thisname.equals(treeNodeName)){
-					LinkNode node = new LinkNode();
-					node.addName(treeNodeName,x,y,++index);
-					node.thisface = currentOSGI.currentFace.luoyaoguang();
-					node.pre = linkNode;
-					linkNode.next = node;
-					sum_of_nude ++;
-					return linkNode;
-				}
-			}
+			currentOSGI = currentOSGI.next;
 		}
 		while(null != linkNode.pre){
 			linkNode = linkNode.pre;
@@ -96,8 +74,8 @@ public class LinkList{
 		if(null != linkNode){
 			if(linkNode.name.equals(name)&&linkNode.ID==ID){
 				if(null != linkNode.next){
-					linkNode=linkNode.next;
-					linkNode.pre=null;
+					linkNode = linkNode.next;
+					linkNode.pre = null;
 					return linkNode;	
 				}
 				if(null == linkNode.next){

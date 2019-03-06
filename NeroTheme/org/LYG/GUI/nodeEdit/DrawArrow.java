@@ -5,8 +5,28 @@ public class DrawArrow{
 		x += 10;
 		connectx -= 10;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
-		g2.drawPolygon(getArrow(x, y, connectx, connecty, 7, 0, 0.5)); 
+		drawCurve(g2, x, y, connectx, connecty, 6);
 		g2.fillPolygon(getArrow(x, y, connectx, connecty, 7, 0, 0.5));	
+	}
+
+	private void drawCurve(Graphics2D g2, int x, int y, int connectx, int connecty, double scale) {
+			double distanceX = Math.abs(x - connectx);
+			double distanceY = Math.abs(y - connecty);		
+		    double signOfPointX = (x - connectx < 0)? 1: -1;
+			double signOfPointY = (y - connecty < 0)? 1: -1;
+			double averageOfDistanceY = (distanceX == 0)?0: distanceY/distanceX;		
+			if(signOfPointX == 1) {
+				for(int c = 0, i = x; i < connectx - 9; c++, i++) {
+					double registerY = y + averageOfDistanceY * c * signOfPointY + scale * Math.sin(averageOfDistanceY * c / 6);
+					g2.drawLine(i, (int)registerY , i, (int)registerY);
+				}
+			}	
+			if(signOfPointX == -1) {
+				for(int c = 0, i = x; i > connectx + 9; c++, i--) {
+					double registerY = y + averageOfDistanceY * c * signOfPointY + scale * Math.sin(averageOfDistanceY * c / 6 );
+					g2.drawLine(i, (int)registerY , i, (int)registerY);
+				}
+			}
 	}
 
 	public Polygon getArrow(int x1, int y1, int x2, int y2, int headsize, int difference, double factor){

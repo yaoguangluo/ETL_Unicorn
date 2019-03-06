@@ -1,8 +1,8 @@
 package org.LYG.GUI.OSGI;
-public class linkOSGI{
-	public nodeOSGI addNode(nodeOSGI currentnode, objectInterface currentface) {
+public class LinkOSGI{
+	public NodeOSGI addNode(NodeOSGI currentnode, ObjectInterface currentface) {
 		if(currentnode == null){
-			currentnode = new nodeOSGI();
+			currentnode = new NodeOSGI();
 			currentnode.addName(currentface);
 			currentnode.next = null;
 			currentnode.pre = null;
@@ -11,7 +11,7 @@ public class linkOSGI{
 		while(currentnode.next != null){
 			currentnode = currentnode.next;
 		}
-		nodeOSGI node = new nodeOSGI();
+		NodeOSGI node = new NodeOSGI();
 		node.addName(currentface);
 		node.pre = currentnode;
 		currentnode.next = node;

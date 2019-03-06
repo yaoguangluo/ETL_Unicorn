@@ -5,13 +5,13 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-public class nodeProject extends JScrollPane {
+public class NodeProject extends JScrollPane {
 	private static final long serialVersionUID = 866589699634559456L;
 	private ImageIcon images;
 	public Image newimg;
 	public MyPanel jPanel;
 	public Image img;
-	public nodeProject() {
+	public NodeProject() {
 		images =new ImageIcon(this.getClass().getResource("LUO.jpg"));
 		img = images.getImage(); 
 		jPanel=new MyPanel();

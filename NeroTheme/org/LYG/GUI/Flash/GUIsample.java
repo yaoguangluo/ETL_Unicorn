@@ -43,9 +43,9 @@ import org.LYG.GUI.nodeEdit.DynamicLineUpdater;
 import org.LYG.GUI.nodeEdit.LinkNode;
 import org.LYG.GUI.nodeEdit.UpdateRelatedLine;
 import org.LYG.GUI.nodeInfo.NodeInfo;
-import org.LYG.GUI.nodeProject.nodeProject;
-import org.LYG.GUI.nodeView.cacuString;
-import org.LYG.GUI.nodeView.nodeShow;
+import org.LYG.GUI.nodeProject.NodeProject;
+import org.LYG.GUI.nodeView.CacuString;
+import org.LYG.GUI.nodeView.NodeShow;
 import org.LYG.GUI.platForm.UnicornJSplitPane;
 public class GUIsample extends JApplet implements MouseMotionListener, MouseListener
 , ItemListener, ActionListener, Runnable{	
@@ -66,8 +66,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	int newx, newy;
 	int isOperation = 0;
 	String treeNodeName;
-	nodeShow nodeview;
-	nodeProject nodeproject;
+	NodeShow nodeview;
+	NodeProject nodeproject;
 	NodeInfo nodeinfo;
 	UnicornJSplitPane mainsplitPane;
 	UnicornJSplitPane leftsplitPane;
@@ -185,7 +185,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				DefaultMutableTreeNode note=(DefaultMutableTreeNode) nodeview.tree.getLastSelectedPathComponent();
 				String tr = null;
 				if(note!=null){
-					tr=new cacuString().cauString(note.toString());       
+					tr=new CacuString().cauString(note.toString());       
 				}
 				if(tr!=null){
 					treeNodeName=new String(tr);
@@ -550,10 +550,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		currentNodeName=new String("");
 		thislist=new LinkList();
 		nodeinfo= new NodeInfo();
-		nodeview= new nodeShow(this.tableData_old, this.text);
+		nodeview= new NodeShow(this.tableData_old, this.text);
 		nodeview.tree.setBackground(Color.white);
 		nodeview.setBounds(10, 168, 137, 222);
-		nodeproject=new nodeProject();
+		nodeproject=new NodeProject();
 		nodeproject.setBounds(10, 38, 137, 124);	
 		mainsplitPane = new UnicornJSplitPane();
 		mainsplitPane.setAutoscrolls(true);

@@ -8,9 +8,9 @@ import javax.swing.JInternalFrame;
 import javax.swing.JTable;
 
 //import movieProcessor.LYGFileIO;
-public class objectView extends JInternalFrame implements Cloneable{
+public class ObjectView extends JInternalFrame implements Cloneable{
 	private static final long serialVersionUID = 1L;
-	public objectView addr;
+	public ObjectView addr;
 	public ScrollPane jsp;
 	public Panel jp;
 	public int h;
@@ -23,11 +23,11 @@ public class objectView extends JInternalFrame implements Cloneable{
 	public AudioInputStream aiscurout;
 	//	public LYGFileIO lygout;
 	//public BufferedImage imageout;
-	public objectView() {
+	public ObjectView() {
 	}
 	public void view() throws Exception{
 	}
-	public objectView clone() {  	
+	public ObjectView clone() {  	
 		return addr;  
 	}  
 }

@@ -5,9 +5,9 @@ import javax.sound.sampled.AudioInputStream;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 //import movieProcessor.LYGFileIO;
-public class objectRun extends JPanel implements Cloneable{
+public class ObjectRun extends JPanel implements Cloneable{
 	private static final long serialVersionUID = 1L;
-	public objectRun addr;
+	public ObjectRun addr;
 	public JTable toptablein;
 	public Map<String, Integer> topMapIn;
 	public int[][] topgin;
@@ -24,10 +24,10 @@ public class objectRun extends JPanel implements Cloneable{
 	public int[][] downgin;
 	public AudioInputStream downaisin;
 	//	public LYGFileIO downlygin;
-	public objectRun(){
+	public ObjectRun(){
 	}
 	@Override  
-	public objectRun clone() {  
+	public ObjectRun clone() {  
 		return addr;  
 	}
 }
