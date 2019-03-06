@@ -1,7 +1,12 @@
-# 这个工程用于节点数据工作流执行。该软件的亮点为：作者定义为类似knime的轻量级插件应用版本（编译设计方法完全独立自主没有借鉴knime源码造成任何侵权）。 启动快，效率高，结构轻，网页嵌入，自由修改源码实现各种风格。
+# 这个工程用于节点数据工作流执行。该软件的亮点为：启动快，效率高，操作简单，结构轻，网页嵌入，执行快，二次开发简易，自由修改源码实现各种风格。
 
-作者解释：这个项目是2009年用knime早期版本基础下，后来作者2012年花了些时间自己写了个可以处理各种object的etl软件，用在语音和图像的处理上。在这里表示感谢KNIME给作者数据挖掘的实战经验提供了入门基础。作者同时为现在KNIME的当前版本强大功能点赞。
 
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 引擎 while loop 优化，大幅缩短延迟。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 汉化版本
+![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/chinese.png)
+
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 比较级优化，避免条件错误。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 引擎优化 一次操作500节点不卡。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 数据操作进行文字提示 20190304 Mr.Luo
 
 ##### ![实例](http://progressed.io/bar/90?title=completed)正完善功能 神经元细胞皮肤设计，灵感来自牛顿教授。, 1:1, 1:2, 2:1, 2:2, 3:1(已完成), 3:2, 3:3。 20190223 罗瑶光
