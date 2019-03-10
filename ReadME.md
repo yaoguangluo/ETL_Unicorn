@@ -1,5 +1,5 @@
-# 当前版本 2.0.1
-# 这个工程用于节点数据工作流执行。该软件的亮点为：启动快，效率高，操作简单，结构轻，网页嵌入，执行快，二次开发简易，自由修改源码实现各种风格。
+# Deta 可视化数据流分析软件 当前版本 2.0.1
+## 这个工程用于节点数据工作流执行。该软件的亮点为：启动快，效率高，操作简单，结构轻，网页嵌入，执行快，二次开发简易，自由修改源码实现各种风格。
 
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 快速链接弧线箭头带精度自适应未优化版。Mr.Yaoguang 20190306
 ![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/%E5%BF%AB%E9%80%9F%E6%9B%B2%E7%BA%BF%E7%AE%97%E6%B3%95.png)
@@ -54,6 +54,6 @@
 ![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/3.jpg)
 ![实例](https://github.com/yaoguangluo/ETL_Unicorn/blob/master/nero.jpg)
 
-作者：罗瑶光
+作者：罗瑶光 20190310
 
 
