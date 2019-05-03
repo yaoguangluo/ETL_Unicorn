@@ -32,13 +32,14 @@
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点输入输出链接点提示 20190203 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 将放映界面从70帧改成32帧，有效滤燥 20190203 罗瑶光
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 上中下的三种连接模式进行美观化。 20190205 罗瑶光， 简单实现而已，专业设计搁置
-##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 箭头校准。
-##### 正完善功能 箭头比例修正。链接修正。20190206 罗瑶光
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 箭头校准(箭头画采用bit map)。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 节点功能窗口显示放弃JInternalFrame 采用 JFrame,因为画版是自己手工的, 所以刷新针把窗体给透明了,造成关闭按钮动态显示需要鼠标移动右上角激活,现在已经修复.20190504
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 箭头比例修正。链接修正。20190206 罗瑶光
 
-##### 正完善功能 节点 神经元结构设计。
-##### 正完善功能 (图形加速算法正在设计)自适应操作速度开始优化20190503.
-##### 正完善功能 规范编程变量名称。
-##### 正完善功能 异常提示功能区
+##### ![实例](http://progressed.io/bar/70?title=completed)已完善功能  节点 神经元结构设计。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  (图形加速算法正在设计)自适应操作速度开始优化20190503.
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  规范编程变量名称。
+##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  异常提示功能区
 ##### 未完善功能 batch 批处理
 ##### 未完善功能 单例运行记录保存
 ##### 未完善功能 集成更多的weka 和 R 
