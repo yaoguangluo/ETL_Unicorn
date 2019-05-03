@@ -157,7 +157,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				w=getContentPane().getWidth();
 				h=getContentPane().getHeight();
 				mainsplitPane.setBounds(10, 50, w-20, h-80);
-				mainsplitPane.setDividerLocation(0.11);
+				mainsplitPane.setDividerLocation(0.15);
 				leftsplitPane.setDividerLocation(0.25);
 				rightsplitPane.setDividerLocation(0.85);
 				righttopsplitPane.setDividerLocation(0.9);

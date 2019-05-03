@@ -1,14 +1,11 @@
 package org.LYG.GUI.OSGI;
 import java.awt.Panel;
 import java.awt.ScrollPane;
-import java.awt.image.BufferedImage;
 import java.util.Map;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.swing.JInternalFrame;
 import javax.swing.JTable;
-
-//import movieProcessor.LYGFileIO;
 
 //import movieProcessor.LYGFileIO;
 public class ObjectView extends JInternalFrame implements Cloneable{
@@ -24,8 +21,8 @@ public class ObjectView extends JInternalFrame implements Cloneable{
 	public int[][] gout;
 	public AudioInputStream aisout;
 	public AudioInputStream aiscurout;
-//	public LYGFileIO lygout;
-	public BufferedImage imageout;
+	//	public LYGFileIO lygout;
+	//public BufferedImage imageout;
 	public ObjectView() {
 	}
 	public void view() throws Exception{
