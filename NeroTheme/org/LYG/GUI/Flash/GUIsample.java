@@ -230,10 +230,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							node.thisface.thispanel.setLocation(node.x, node.y);
 							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
 							node.thisface.thispanel.setResizable(true);
-							node.thisface.thispanel.setClosable(true);
 							node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-							canvas.add(node.thisface.thispanel);
+							node.thisface.thispanel.setBackground(Color.BLUE);
 							node.thisface.thispanel.setVisible(true);
 							node.thisface.thispanel.validate();
 							new OSGI_chansfer(node,first);
@@ -290,10 +289,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 								node.thisface.thisview.setLocation(node.x, node.y);
 								node.thisface.thisview.setSize(500, 500);//setBounds(0, 0, node.x+300,node.y+200);
 								node.thisface.thisview.setResizable(true);
-								node.thisface.thisview.setClosable(true);
 								node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
 								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-								canvas.add(node.thisface.thisview);
 								node.thisface.thisview.setVisible(true);
 								node.thisface.thisview.validate();
 							} catch (Exception e1) {

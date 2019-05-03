@@ -28,7 +28,6 @@ public class arffTransferNodeView extends ObjectView{
 		jsp.add(jp);
 		add(jsp);
 		close=false;
-		this.setClosable(true);	
 	}
 	@Override  
 	public ObjectView clone() {   

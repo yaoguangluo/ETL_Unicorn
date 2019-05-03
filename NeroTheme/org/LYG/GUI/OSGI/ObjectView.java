@@ -5,13 +5,13 @@ import java.awt.image.BufferedImage;
 import java.util.Map;
 
 import javax.sound.sampled.AudioInputStream;
-import javax.swing.JInternalFrame;
+import javax.swing.JFrame;
 import javax.swing.JTable;
 
 //import movieProcessor.LYGFileIO;
 
 //import movieProcessor.LYGFileIO;
-public class ObjectView extends JInternalFrame implements Cloneable{
+public class ObjectView extends JFrame implements Cloneable{
 	private static final long serialVersionUID = 1L;
 	public ObjectView addr;
 	public ScrollPane jsp;

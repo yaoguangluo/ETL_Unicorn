@@ -1,8 +1,9 @@
 package org.LYG.GUI.OSGI;
 import java.awt.Panel;
 import java.awt.ScrollPane;
-import javax.swing.JInternalFrame;
-public class ObjectPanel extends JInternalFrame implements Cloneable{
+
+import javax.swing.JFrame;
+public class ObjectPanel extends JFrame implements Cloneable{
 	private static final long serialVersionUID = 1L;
 	public boolean close = false;
 	public ObjectPanel addr;

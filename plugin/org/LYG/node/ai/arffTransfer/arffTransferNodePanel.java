@@ -45,7 +45,6 @@ public class arffTransferNodePanel extends ObjectPanel{
 		jp.add(readfile);
 		jsp.add(jp);
 		close=false;
-		this.setClosable(true);
  	}
 	public void config(){    
 		System.out.println("configued");      
