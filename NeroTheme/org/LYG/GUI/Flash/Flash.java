@@ -5,7 +5,7 @@ public class Flash extends GUIsample{
 	@SuppressWarnings("deprecation")
 	public static void main(String args[]){
 		GUIsample NE = new GUIsample();
-		JFrame frame = new JFrame("Moon Base Alpha");   
+		JFrame frame = new JFrame("Deta ETL 5.0");   
         frame.setLayout(null);   
         frame.resize(800, 440);   
         frame.show();         
