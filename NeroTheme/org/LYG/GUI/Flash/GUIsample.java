@@ -78,7 +78,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	JScrollPane rightrightscrollPane;
 	JTextPane rightBotJTextPane;
 	thisCanvas canvas;
-	PopupMenu popupMenu1, nodeMenu, itemMenu;
+	PopupMenu popupMenu1, nodeMenu, itemMenu, engineMenu;
+	MenuItem save, saveAs, delete, load;
 	MenuItem menuItem1;
 	MenuItem configre, run, show, dnode, dline;
 	Thread thread, thread1; 
@@ -602,6 +603,21 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		nodeMenu.add(dline);  
 		getContentPane().add(popupMenu1);
 		getContentPane().add(nodeMenu);
+		
+		engineMenu= new PopupMenu();
+		load= new MenuItem();
+		load.setLabel("载入已有ETL");
+		save= new MenuItem();
+		save.setLabel("保存当先ETL");
+		saveAs= new MenuItem();
+		saveAs.setLabel("创建一个新的文档并保存");
+		delete= new MenuItem();
+		delete.setLabel("删除当前ETL");
+		engineMenu.add(load);
+		engineMenu.add(save);
+		engineMenu.add(saveAs);
+		engineMenu.add(delete);
+		getContentPane().add(engineMenu);
 		getContentPane().setVisible(true);
 	}
 
@@ -618,6 +634,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			if (arg0.getButton() == 3){
 				popupMenu1.show(nodeview.tree, arg0.getX(), arg0.getY());
 			}
+		}else {
+			engineMenu.show(canvas, 0, 0);
 		}	
 	}
 	public void mouseDragged(MouseEvent arg0) {}
