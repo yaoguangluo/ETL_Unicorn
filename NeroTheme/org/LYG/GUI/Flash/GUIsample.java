@@ -54,35 +54,35 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		getContentPane().setBackground(new Color(255,255,255));
 	}
 	public int w, h;
-	int flash = 0;
-	int count = 0;
-	String currentNodeName;
-	int currentNodeID;
-	LinkList thislist;
-	LinkNode first;
-	int currentx, currenty;
-	int choose = 0;
-	int oldx, oldy;
-	int newx, newy;
-	int isOperation = 0;
-	String treeNodeName;
-	NodeShow nodeview;
-	NodeProject nodeproject;
-	NodeInfo nodeinfo;
-	UnicornJSplitPane mainsplitPane;
-	UnicornJSplitPane leftsplitPane;
-	UnicornJSplitPane rightsplitPane;
-	UnicornJSplitPane righttopsplitPane;
-	JScrollPane righttopscrollPane;
-	JScrollPane rightdownscrollPane;
-	JScrollPane rightrightscrollPane;
-	JTextPane rightBotJTextPane;
-	thisCanvas canvas;
-	PopupMenu popupMenu1, nodeMenu, itemMenu, engineMenu;
-	MenuItem save, saveAs, delete, load;
-	MenuItem menuItem1;
-	MenuItem configre, run, show, dnode, dline;
-	Thread thread, thread1; 
+	public int flash = 0;
+	public int count = 0;
+	public String currentNodeName;
+	public int currentNodeID;
+	public LinkList thislist;
+	public LinkNode first;
+	public int currentx, currenty;
+	public int choose = 0;
+	public int oldx, oldy;
+	public int newx, newy;
+	public int isOperation = 0;
+	public String treeNodeName;
+	public NodeShow nodeview;
+	public NodeProject nodeproject;
+	public NodeInfo nodeinfo;
+	public UnicornJSplitPane mainsplitPane;
+	public UnicornJSplitPane leftsplitPane;
+	public UnicornJSplitPane rightsplitPane;
+	public UnicornJSplitPane righttopsplitPane;
+	public JScrollPane righttopscrollPane;
+	public JScrollPane rightdownscrollPane;
+	public JScrollPane rightrightscrollPane;
+	public JTextPane rightBotJTextPane;
+	public 	thisCanvas canvas;
+	public 	PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
+	public 	MenuItem save, saveAs, delete, load;
+	public 	MenuItem menuItem;
+	public 	MenuItem configre, run, show, dnode, dline;
+	public 	Thread thread, threadApplet; 
 	private JTextPane text;
 	private Object[][] tableData_old; 
 	public void run() {
@@ -195,7 +195,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				}
 			}
 		});
-		menuItem1.addActionListener(new java.awt.event.ActionListener() {
+		menuItem.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(treeNodeName!=null){
 					try {
@@ -359,20 +359,20 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					Thread.sleep(1000);
 					this.updateUI();
 				}catch (InterruptedException e) {
-					thread1.destroy();
+					threadApplet.destroy();
 				}
 			}      
 		}
 		public void start(){
-			if(thread1 == null){
-				thread1 =  new Thread(this);
-				thread1.start();
+			if(threadApplet == null){
+				threadApplet =  new Thread(this);
+				threadApplet.start();
 			}
 
 		}
 		@SuppressWarnings("deprecation")
 		public void stop() {
-			thread1.destroy();
+			threadApplet.destroy();
 		}
 
 		public void actionPerformed(ActionEvent arg0) {}
@@ -581,10 +581,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		rightBotJTextPane.setText("ÄãºÃ£¬Ç×~");
 		rightdownscrollPane = new JScrollPane(rightBotJTextPane);
 		rightsplitPane.setRightComponent(rightdownscrollPane);
-		popupMenu1 = new PopupMenu();
-		menuItem1 = new MenuItem();
-		menuItem1.setLabel("add");
-		popupMenu1.add(menuItem1);
+		popupMenu = new PopupMenu();
+		menuItem = new MenuItem();
+		menuItem.setLabel("add");
+		popupMenu.add(menuItem);
 		nodeMenu = new PopupMenu();
 		configre = new MenuItem();
 		configre.setLabel("ÅäÖÃ");
@@ -601,7 +601,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		nodeMenu.add(show);
 		nodeMenu.add(dnode);
 		nodeMenu.add(dline);  
-		getContentPane().add(popupMenu1);
+		getContentPane().add(popupMenu);
 		getContentPane().add(nodeMenu);
 		
 		engineMenu= new PopupMenu();
@@ -632,7 +632,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		if (path != null){
 			nodeview.tree.setSelectionPath(path);
 			if (arg0.getButton() == 3){
-				popupMenu1.show(nodeview.tree, arg0.getX(), arg0.getY());
+				popupMenu.show(nodeview.tree, arg0.getX(), arg0.getY());
 			}
 		}else {
 			engineMenu.show(canvas, 0, 0);
