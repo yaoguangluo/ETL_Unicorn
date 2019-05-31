@@ -227,14 +227,14 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
 							node.thisface.config(rightBotJTextPane);
-							node.thisface.thispanel.setLocation(node.x, node.y);
-							node.thisface.thispanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-							node.thisface.thispanel.setResizable(true);
-							node.thisface.thispanel.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-							node.thisface.thispanel.jp.setPreferredSize(new Dimension(800,600));
-							node.thisface.thispanel.setBackground(Color.BLUE);
-							node.thisface.thispanel.setVisible(true);
-							node.thisface.thispanel.validate();
+							node.thisface.thisPanel.setLocation(node.x, node.y);
+							node.thisface.thisPanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+							node.thisface.thisPanel.setResizable(true);
+							node.thisface.thisPanel.jsp.setBounds(0, 0, node.thisface.thisPanel.getWidth()-10, node.thisface.thisPanel.getHeight()-45);
+							node.thisface.thisPanel.jp.setPreferredSize(new Dimension(800,600));
+							node.thisface.thisPanel.setBackground(Color.BLUE);
+							node.thisface.thisPanel.setVisible(true);
+							node.thisface.thisPanel.validate();
 							new OSGI_chansfer(node,first);
 						} catch (IOException e1) {
 							rightBotJTextPane.setText("节点配置失败~请重试。");
@@ -250,9 +250,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		run.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
-				first=new Sort().sort(first);
-				node=first;
-				while(node!=null){
+				first= new Sort().sort(first);
+				node= first;
+				while(node!= null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
 							node.thisface.execute(rightBotJTextPane);
@@ -281,25 +281,25 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node = new LinkNode();
 				first=new Sort().sort(first);
 				node=first;
-				while(node!=null){
+				while(node!= null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						if(!node.thisface.showed){
 							try {
 								node.thisface.view(rightBotJTextPane);
-								node.thisface.thisview.setLocation(node.x, node.y);
-								node.thisface.thisview.setSize(500, 500);//setBounds(0, 0, node.x+300,node.y+200);
-								node.thisface.thisview.setResizable(true);
-								node.thisface.thisview.jsp.setBounds(0, 0, node.thisface.thispanel.getWidth()-10, node.thisface.thispanel.getHeight()-45);
-								node.thisface.thisview.jp.setPreferredSize(new Dimension(800,600));
-								node.thisface.thisview.setVisible(true);
-								node.thisface.thisview.validate();
+								node.thisface.thisView.setLocation(node.x, node.y);
+								node.thisface.thisView.setSize(500, 500);//setBounds(0, 0, node.x+300,node.y+200);
+								node.thisface.thisView.setResizable(true);
+								node.thisface.thisView.jsp.setBounds(0, 0, node.thisface.thisPanel.getWidth()-10, node.thisface.thisPanel.getHeight()-45);
+								node.thisface.thisView.jp.setPreferredSize(new Dimension(800,600));
+								node.thisface.thisView.setVisible(true);
+								node.thisface.thisView.validate();
 							} catch (Exception e1) {
 								//e1.printStackTrace();
 								rightBotJTextPane.setText("节点查看失败，请重试~");
 								rightBotJTextPane.validate();
 							}  
 						}else{
-							node.thisface.thisview.setVisible(true);  
+							node.thisface.thisView.setVisible(true);  
 						}
 					}
 					node=node.next;
@@ -468,7 +468,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				if(node.y > (this.getHeight()-100)){
 					node.y = this.getHeight()-100; 	
 				}
-				g.drawImage(node.thisface.thisimage,node.x+19,node.y+12,this);
+				g.drawImage(node.thisface.thisImage,node.x+19,node.y+12,this);
 				if(node.flash > 100){
 					node.flash = 0;
 				}

@@ -27,7 +27,7 @@ public class NodeOSGI{
 		next=null;
 		pre=null;
 		currentFace=thisface;
-		thisicon=currentFace.thisicon;
-		thisname=new String(currentFace.thisname);
+		thisicon=currentFace.thisIcon;
+		thisname=new String(currentFace.thisName);
 	}
 }

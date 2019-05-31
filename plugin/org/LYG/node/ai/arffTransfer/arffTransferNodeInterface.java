@@ -6,30 +6,30 @@ import javax.swing.*;
 import org.LYG.GUI.OSGI.*;
 public class arffTransferNodeInterface extends ObjectInterface{	
 	public arffTransferNodeInterface() throws IOException{
-		thisicon=new ImageIcon(this.getClass().getResource("1.jpg"));
-		thisname=new String("arffTransfer");
+		thisIcon=new ImageIcon(this.getClass().getResource("1.jpg"));
+		thisName=new String("arffTransfer");
 		position=new String("BI");
-		Image img = ((ImageIcon) thisicon).getImage();  
+		Image img = ((ImageIcon) thisIcon).getImage();  
 		Image newimg = img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
-		thisimage=img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
-		thisicon = new ImageIcon(newimg);
+		thisImage=img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
+		thisIcon = new ImageIcon(newimg);
 	}
 	public void config(JTextPane jTextPane) throws IOException{
-		thisview=new arffTransferNodeView();
-		thisrun=new arffTransferNodeRun();
-		thispanel=new arffTransferNodePanel((arffTransferNodeRun) thisrun);
-		thispanel.config();
+		thisView=new arffTransferNodeView();
+		thisRun=new arffTransferNodeRun();
+		thisPanel=new arffTransferNodePanel((arffTransferNodeRun) thisRun);
+		thisPanel.config();
 		showed=false;
 	}
 	public void execute(JTextPane jTextPane)  throws FileNotFoundException, IOException{
-		((arffTransferNodeRun) thisrun).run((arffTransferNodeView) thisview);
+		((arffTransferNodeRun) thisRun).run((arffTransferNodeView) thisView);
 	}
 	public void view(JTextPane jTextPane)  throws Exception{
-		thisview.view();
+		thisView.view();
 		showed=true;
 	}
 	public ObjectInterface luoyaoguang() throws CloneNotSupportedException, IOException {
-		stu = new arffTransferNodeInterface();
-		return stu;  
+		thisInterface = new arffTransferNodeInterface();
+		return thisInterface;  
 	}
 }

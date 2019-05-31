@@ -8,35 +8,35 @@ public class OSGI_chansfer {
 		linkNode = first;
 		if(null != linkNode){
 			if(node.tbeconnect&&node.tbeconnectID == linkNode.ID&&node.tbeconnetName.equals(linkNode.name)){
-				node.thisface.thisrun.toptablein = linkNode.thisface.thisview.tableout;
-				node.thisface.thisrun.topgin = linkNode.thisface.thisview.gout;
+				node.thisface.thisRun.toptablein = linkNode.thisface.thisView.tableout;
+				node.thisface.thisRun.topgin = linkNode.thisface.thisView.gout;
 				return;
 			}
 			if(node.mbeconnect&&node.mbeconnectID == linkNode.ID&&node.mbeconnetName.equals(linkNode.name)){
-				node.thisface.thisrun.midtablein = linkNode.thisface.thisview.tableout;
-				node.thisface.thisrun.midgin = linkNode.thisface.thisview.gout;
+				node.thisface.thisRun.midtablein = linkNode.thisface.thisView.tableout;
+				node.thisface.thisRun.midgin = linkNode.thisface.thisView.gout;
 				return;
 			}	
 			if(node.dbeconnect&&node.dbeconnectID == linkNode.ID&&node.dbeconnetName.equals(linkNode.name)){
-				node.thisface.thisrun.downtablein = linkNode.thisface.thisview.tableout;
-				node.thisface.thisrun.downgin = linkNode.thisface.thisview.gout;
+				node.thisface.thisRun.downtablein = linkNode.thisface.thisView.tableout;
+				node.thisface.thisRun.downgin = linkNode.thisface.thisView.gout;
 				return;
 			}	
 			while(null != linkNode.next){
 				linkNode=linkNode.next;
 				if(node.tbeconnect&&node.tbeconnectID == linkNode.ID&&node.tbeconnetName.equals(linkNode.name)){
-					node.thisface.thisrun.toptablein = linkNode.thisface.thisview.tableout;
-					node.thisface.thisrun.topgin = linkNode.thisface.thisview.gout;
+					node.thisface.thisRun.toptablein = linkNode.thisface.thisView.tableout;
+					node.thisface.thisRun.topgin = linkNode.thisface.thisView.gout;
 					return;
 				}
 				if(node.mbeconnect&&node.mbeconnectID == linkNode.ID&&node.mbeconnetName.equals(linkNode.name)){
-					node.thisface.thisrun.midtablein = linkNode.thisface.thisview.tableout;
-					node.thisface.thisrun.midgin = linkNode.thisface.thisview.gout;
+					node.thisface.thisRun.midtablein = linkNode.thisface.thisView.tableout;
+					node.thisface.thisRun.midgin = linkNode.thisface.thisView.gout;
 					return;
 				}	
 				if(node.dbeconnect&&node.dbeconnectID == linkNode.ID&&node.dbeconnetName.equals(linkNode.name)){
-					node.thisface.thisrun.downtablein = linkNode.thisface.thisview.tableout;
-					node.thisface.thisrun.downgin = linkNode.thisface.thisview.gout;
+					node.thisface.thisRun.downtablein = linkNode.thisface.thisView.tableout;
+					node.thisface.thisRun.downgin = linkNode.thisface.thisView.gout;
 					return;
 				}
 			}
