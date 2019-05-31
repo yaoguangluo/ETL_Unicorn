@@ -66,9 +66,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public int newx, newy;
 	public int isOperation = 0;
 	public String treeNodeName;
-	public NodeShow nodeview;
-	public NodeProject nodeproject;
-	public NodeInfo nodeinfo;
+	public NodeShow nodeView;
+	public NodeProject nodeProject;
+	public NodeInfo nodeInfo;
 	public UnicornJSplitPane mainsplitPane;
 	public UnicornJSplitPane leftsplitPane;
 	public UnicornJSplitPane rightsplitPane;
@@ -91,11 +91,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		nodeproject.setBounds(0, 0, leftsplitPane.getWidth(), leftsplitPane.getDividerLocation());
-		nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-				, nodeproject.getHeight(), java.awt.Image.SCALE_SMOOTH);
-		nodeproject.jPanel.update(getGraphics());
-		nodeproject.validate();
+		nodeProject.setBounds(0, 0, leftsplitPane.getWidth(), leftsplitPane.getDividerLocation());
+		nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
+				, nodeProject.getHeight(), java.awt.Image.SCALE_SMOOTH);
+		nodeProject.jPanel.update(getGraphics());
+		nodeProject.validate();
 		while(true){   
 			try{
 				Thread.sleep(1000);
@@ -119,11 +119,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
-					nodeproject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-							,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
-					nodeproject.jPanel.repaint();
-					nodeproject.validate();
+					nodeProject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
+					nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
+							, nodeProject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeProject.jPanel.repaint();
+					nodeProject.validate();
 
 				}  
 			}  
@@ -133,11 +133,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
-					nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-					nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-							,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
-					nodeproject.jPanel.repaint();
-					nodeproject.validate();
+					nodeProject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
+					nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
+							, nodeProject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+					nodeProject.jPanel.repaint();
+					nodeProject.validate();
 				}  
 			}  
 		});  
@@ -162,12 +162,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				leftsplitPane.setDividerLocation(0.25);
 				rightsplitPane.setDividerLocation(0.85);
 				righttopsplitPane.setDividerLocation(0.9);
-
-				nodeproject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
-				nodeproject.jPanel.newimg = nodeproject.img.getScaledInstance(nodeproject.getWidth()
-						,nodeproject.getHeight(),java.awt.Image.SCALE_SMOOTH );
-				nodeproject.jPanel.repaint();
-				nodeproject.validate();
+				nodeProject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
+				nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
+						, nodeProject.getHeight(),java.awt.Image.SCALE_SMOOTH );
+				nodeProject.jPanel.repaint();
+				nodeProject.validate();
 
 				mainsplitPane.validate();
 				System.out.println(w + "<>" + h);
@@ -178,12 +177,12 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		});	
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		nodeproject.addMouseListener(this);
-		nodeview.addMouseListener(this);
-		nodeview.tree.addMouseListener(this);
-		nodeview.tree.addTreeSelectionListener(new TreeSelectionListener() {
+		nodeProject.addMouseListener(this);
+		nodeView.addMouseListener(this);
+		nodeView.tree.addMouseListener(this);
+		nodeView.tree.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent evt) {
-				DefaultMutableTreeNode note=(DefaultMutableTreeNode) nodeview.tree.getLastSelectedPathComponent();
+				DefaultMutableTreeNode note=(DefaultMutableTreeNode) nodeView.tree.getLastSelectedPathComponent();
 				String tr = null;
 				if(note!=null){
 					tr=new CacuString().cauString(note.toString());       
@@ -199,7 +198,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			public void actionPerformed(ActionEvent e) {
 				if(treeNodeName!=null){
 					try {
-						first=thislist.addNode(first,treeNodeName,100,50,nodeview.first);
+						first=thislist.addNode(first,treeNodeName,100,50,nodeView.first);
 						righttopscrollPane.validate();
 					} catch (CloneNotSupportedException e1) {
 						rightBotJTextPane.setText("节点添加失败~请重试。");
@@ -451,7 +450,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		}
 
 		public void paint(Graphics g){
-			nodeview.validate();
+			nodeView.validate();
 			Graphics2D g2 = (Graphics2D)g;
 			g2.clearRect(0, 0, this.getWidth(), this.getHeight());
 			first = new Sort().sort(first);
@@ -547,12 +546,12 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		UIManager.put("TreeUI", "org.LYG.GUI.platForm.UnicornTreeUI");
 		currentNodeName=new String("");
 		thislist=new LinkList();
-		nodeinfo= new NodeInfo();
-		nodeview= new NodeShow(this.tableData_old, this.text);
-		nodeview.tree.setBackground(Color.white);
-		nodeview.setBounds(10, 168, 137, 222);
-		nodeproject=new NodeProject();
-		nodeproject.setBounds(10, 38, 137, 124);	
+		nodeInfo= new NodeInfo();
+		nodeView= new NodeShow(this.tableData_old, this.text);
+		nodeView.tree.setBackground(Color.white);
+		nodeView.setBounds(10, 168, 137, 222);
+		nodeProject=new NodeProject();
+		nodeProject.setBounds(10, 38, 137, 124);	
 		mainsplitPane = new UnicornJSplitPane();
 		mainsplitPane.setAutoscrolls(true);
 		//mainsplitPane.setEnabled(false);//
@@ -562,8 +561,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		leftsplitPane = new UnicornJSplitPane();
 		leftsplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		mainsplitPane.setLeftComponent(leftsplitPane);
-		leftsplitPane.setLeftComponent(nodeproject);
-		leftsplitPane.setRightComponent(nodeview);
+		leftsplitPane.setLeftComponent(nodeProject);
+		leftsplitPane.setRightComponent(nodeView);
 		rightsplitPane = new UnicornJSplitPane();
 		rightsplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		mainsplitPane.setRightComponent(rightsplitPane);
@@ -576,7 +575,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		righttopscrollPane.setViewportView(canvas);
 		righttopsplitPane.setLeftComponent(righttopscrollPane);
 		rightrightscrollPane = new JScrollPane();
-		righttopsplitPane.setRightComponent(nodeinfo);
+		righttopsplitPane.setRightComponent(nodeInfo);
 		rightBotJTextPane = new JTextPane();
 		rightBotJTextPane.setText("你好，亲~");
 		rightdownscrollPane = new JScrollPane(rightBotJTextPane);
@@ -603,7 +602,6 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		nodeMenu.add(dline);  
 		getContentPane().add(popupMenu);
 		getContentPane().add(nodeMenu);
-		
 		engineMenu= new PopupMenu();
 		load= new MenuItem();
 		load.setLabel("载入已有ETL");
@@ -628,11 +626,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public void mouseExited(MouseEvent arg0) {}
 	public void mousePressed(MouseEvent arg0) {}
 	public void mouseReleased(MouseEvent arg0) {
-		TreePath path = nodeview.tree.getPathForLocation(arg0.getX(), arg0.getY());
+		TreePath path = nodeView.tree.getPathForLocation(arg0.getX(), arg0.getY());
 		if (path != null){
-			nodeview.tree.setSelectionPath(path);
+			nodeView.tree.setSelectionPath(path);
 			if (arg0.getButton() == 3){
-				popupMenu.show(nodeview.tree, arg0.getX(), arg0.getY());
+				popupMenu.show(nodeView.tree, arg0.getX(), arg0.getY());
 			}
 		}else {
 			engineMenu.show(canvas, 0, 0);
