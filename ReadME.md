@@ -41,7 +41,7 @@
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  规范编程变量名称。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  异常提示功能区
 ##### ![实例](http://progressed.io/bar/11?title=completed)正完善功能 带单例运行记录，保存，载入，刷新。删除
-##### ![实例](http://progressed.io/bar/18?title=completed)正完善功能 《码农的修养》格式化中。。。。
+##### ![实例](http://progressed.io/bar/52?title=completed)正完善功能 《码农的修养》格式化中。。。。
 ##### 未完善功能 batch 批处理
 ##### 未完善功能 集成更多的weka 和 R 
 ##### 未完善功能 删除功能进行美观化。
