@@ -8,9 +8,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
-//import movieProcessor.LYGFileIO;
-
-//import movieProcessor.LYGFileIO;
 public class ObjectView extends JFrame implements Cloneable{
 	private static final long serialVersionUID = 1L;
 	public ObjectView addr;

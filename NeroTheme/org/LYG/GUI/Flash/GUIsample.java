@@ -11,7 +11,6 @@ import java.awt.event.MouseMotionListener;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JApplet;
-import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;

@@ -6,8 +6,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-//import movieProcessor.LYGFileIO;
-//import movieProcessor.LYGFileIO;
 public class ObjectRun extends JPanel implements Cloneable{
 	private static final long serialVersionUID = 1L;
 	public ObjectRun addr;

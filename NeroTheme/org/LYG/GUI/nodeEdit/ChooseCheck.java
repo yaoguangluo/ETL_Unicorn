@@ -5,12 +5,12 @@ public class ChooseCheck{
 	{}
 
 	public LinkNode chooseCheckNode(LinkNode first, MouseEvent arg0) {
-		first = new Sort().sort(first);
+		//first = new Sort().sort(first);
 		LinkNode node = first;
 		int x,y;
-		x = arg0.getX();
-		y = arg0.getY();
-		if(null != node){
+		while(null != node){
+			x = arg0.getX();
+			y = arg0.getY();
 			if((x > node.x) && (x < node.x + 50) && (y > node.y) && (y < node.y + 50)){
 				if(arg0.getButton() == 1){
 					node.leftchoose=true;
@@ -20,20 +20,10 @@ public class ChooseCheck{
 				}
 				return node;	
 			}
-			while(null != node.next){
-				x = arg0.getX();
-				y = arg0.getY();
-				node = node.next;
-				if((x > node.x) && (x < node.x + 50) && (y>node.y) && (y < node.y + 50)){
-					if(arg0.getButton() == 1){
-						node.leftchoose = true;
-					}
-					if(arg0.getButton() == 3){
-						node.rightchoose = true;
-					}
-					return node;
-				}	
+			if(null== node.next) {
+				break;
 			}
+			node = node.next;
 		}
 		LinkNode emptyNode =new LinkNode();
 		emptyNode.name = "";

@@ -23,8 +23,8 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 	JTextPane text;
 	Object[][] tableData_old;
 	public NodeShow(Object[][] tableData_old, JTextPane text) throws IOException{	
-		this.text=text;
-		this.tableData_old=tableData_old;
+		this.text= text;
+		this.tableData_old= tableData_old;
 		link = new LinkOSGI();
 		first = new OSGI_rigester(this.tableData_old, this.text).Rigester(first,link);
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Node");
