@@ -11,6 +11,7 @@ import java.awt.event.MouseMotionListener;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JApplet;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
@@ -631,6 +632,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			nodeView.tree.setSelectionPath(path);
 			if (arg0.getButton() == 3){
 				popupMenu.show(nodeView.tree, arg0.getX(), arg0.getY());
+			}else {
+				engineMenu.show(canvas, 0, 0);
 			}
 		}else {
 			engineMenu.show(canvas, 0, 0);
