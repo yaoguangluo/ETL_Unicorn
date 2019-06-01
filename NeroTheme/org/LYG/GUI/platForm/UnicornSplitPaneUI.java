@@ -27,7 +27,6 @@ public class UnicornSplitPaneUI extends BasicSplitPaneUI {
 	}   
 
 	public static ComponentUI createUI(JComponent c) {   
-
 		return new UnicornSplitPaneUI();   
 	}   
 

@@ -34,7 +34,7 @@ public class LinkList{
 		}
 		if(null == linkNode){			
 			while(null != currentOSGI){
-				if(currentOSGI.thisname.equals(treeNodeName)){
+				if(currentOSGI.thisName.equals(treeNodeName)){
 					linkNode=new LinkNode();
 					linkNode.addName(treeNodeName,x,y,++index);
 					linkNode.thisFace=currentOSGI.currentFace.luoyaoguang();
@@ -52,7 +52,7 @@ public class LinkList{
 		}
 
 		while(null != currentOSGI){
-			if(currentOSGI.thisname.equals(treeNodeName)){
+			if(currentOSGI.thisName.equals(treeNodeName)){
 				//linkNode=new linkNode();
 				LinkNode node = new LinkNode();
 				node.addName(treeNodeName, x, y, ++index);

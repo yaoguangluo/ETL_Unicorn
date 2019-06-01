@@ -6,7 +6,7 @@ public class OSGI_chansfer {
 		first = new Sort().sort(first);
 		LinkNode linkNode = new LinkNode();
 		linkNode = first;
-		if(null != linkNode){
+		while(null != linkNode){
 			if(node.tBeconnect&&node.tBeconnectID == linkNode.ID&&node.tBeconnetName.equals(linkNode.name)){
 				node.thisFace.thisRun.toptablein = linkNode.thisFace.thisView.tableout;
 				node.thisFace.thisRun.topgin = linkNode.thisFace.thisView.gout;
@@ -22,24 +22,10 @@ public class OSGI_chansfer {
 				node.thisFace.thisRun.downgin = linkNode.thisFace.thisView.gout;
 				return;
 			}	
-			while(null != linkNode.next){
-				linkNode=linkNode.next;
-				if(node.tBeconnect&&node.tBeconnectID == linkNode.ID&&node.tBeconnetName.equals(linkNode.name)){
-					node.thisFace.thisRun.toptablein = linkNode.thisFace.thisView.tableout;
-					node.thisFace.thisRun.topgin = linkNode.thisFace.thisView.gout;
-					return;
-				}
-				if(node.mBeconnect&&node.mBeconnectID == linkNode.ID&&node.mBeconnetName.equals(linkNode.name)){
-					node.thisFace.thisRun.midtablein = linkNode.thisFace.thisView.tableout;
-					node.thisFace.thisRun.midgin = linkNode.thisFace.thisView.gout;
-					return;
-				}	
-				if(node.dBeconnect&&node.dBeconnectID == linkNode.ID&&node.dBeconnetName.equals(linkNode.name)){
-					node.thisFace.thisRun.downtablein = linkNode.thisFace.thisView.tableout;
-					node.thisFace.thisRun.downgin = linkNode.thisFace.thisView.gout;
-					return;
-				}
+			if(null != linkNode.next){
+				break;
 			}
+			linkNode=linkNode.next;
 		}
 	}
 }

@@ -52,48 +52,48 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 			if(first.currentFace.position == null){
 				JLabel label;
 				label = new JLabel();
-				label.setIcon(first.thisicon);
-				label.setText(first.thisname);
+				label.setIcon(first.thisIcon);
+				label.setText(first.thisName);
 				DefaultMutableTreeNode node = new DefaultMutableTreeNode(label);
 				root.add(node);
 			}
 			else if(first.currentFace.position.equals("BI")){
 				JLabel label;
 				label=new JLabel();
-				label.setIcon(first.thisicon);
-				label.setText(first.thisname);
+				label.setIcon(first.thisIcon);
+				label.setText(first.thisName);
 				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 				BI.add(node);
 			}
 			else if(first.currentFace.position.equals("SOUND")){
 				JLabel label;
 				label=new JLabel();
-				label.setIcon(first.thisicon);
-				label.setText(first.thisname);
+				label.setIcon(first.thisIcon);
+				label.setText(first.thisName);
 				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 				SOUND.add(node);
 			}
 			else if(first.currentFace.position.equals("IMAGE")){
 				JLabel label;
 				label=new JLabel();
-				label.setIcon(first.thisicon);
-				label.setText(first.thisname);
+				label.setIcon(first.thisIcon);
+				label.setText(first.thisName);
 				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 				IMAGE.add(node);
 			}
 			else if(first.currentFace.position.equals("MOVIE")){
 				JLabel label;
 				label=new JLabel();
-				label.setIcon(first.thisicon);
-				label.setText(first.thisname);
+				label.setIcon(first.thisIcon);
+				label.setText(first.thisName);
 				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 				MOVIE.add(node);
 			}
 			else{
 				JLabel label;
 				label=new JLabel();
-				label.setIcon(first.thisicon);
-				label.setText(first.thisname);
+				label.setIcon(first.thisIcon);
+				label.setText(first.thisName);
 				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 				root.add(node);
 			}
@@ -104,48 +104,48 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				if(first.currentFace.position==null){
 					JLabel label;
 					label=new JLabel();
-					label.setIcon(first.thisicon);
-					label.setText(first.thisname);
+					label.setIcon(first.thisIcon);
+					label.setText(first.thisName);
 					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 					root.add(node);
 				}
 				else if(first.currentFace.position.equals("BI")){
 					JLabel label;
 					label=new JLabel();
-					label.setIcon(first.thisicon);
-					label.setText(first.thisname);
+					label.setIcon(first.thisIcon);
+					label.setText(first.thisName);
 					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 					BI.add(node);
 				}
 				else if(first.currentFace.position.equals("SOUND")){
 					JLabel label;
 					label=new JLabel();
-					label.setIcon(first.thisicon);
-					label.setText(first.thisname);
+					label.setIcon(first.thisIcon);
+					label.setText(first.thisName);
 					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 					SOUND.add(node);
 				}
 				else if(first.currentFace.position.equals("MOVIE")){
 					JLabel label;
 					label=new JLabel();
-					label.setIcon(first.thisicon);
-					label.setText(first.thisname);
+					label.setIcon(first.thisIcon);
+					label.setText(first.thisName);
 					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 					MOVIE.add(node);
 				}
 				else if(first.currentFace.position.equals("IMAGE")){
 					JLabel label;
 					label=new JLabel();
-					label.setIcon(first.thisicon);
-					label.setText(first.thisname);
+					label.setIcon(first.thisIcon);
+					label.setText(first.thisName);
 					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 					IMAGE.add(node);
 				}
 				else{
 					JLabel label;
 					label=new JLabel();
-					label.setIcon(first.thisicon);
-					label.setText(first.thisname);
+					label.setIcon(first.thisIcon);
+					label.setText(first.thisName);
 					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 					root.add(node);
 				}

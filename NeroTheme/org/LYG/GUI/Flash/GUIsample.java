@@ -69,13 +69,13 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public NodeShow nodeView;
 	public NodeProject nodeProject;
 	public NodeInfo nodeInfo;
-	public UnicornJSplitPane mainsplitPane;
-	public UnicornJSplitPane leftsplitPane;
-	public UnicornJSplitPane rightsplitPane;
-	public UnicornJSplitPane righttopsplitPane;
-	public JScrollPane righttopscrollPane;
-	public JScrollPane rightdownscrollPane;
-	public JScrollPane rightrightscrollPane;
+	public UnicornJSplitPane mainSplitPane;
+	public UnicornJSplitPane leftSplitPane;
+	public UnicornJSplitPane rightSplitPane;
+	public UnicornJSplitPane righttopSplitPane;
+	public JScrollPane righttopScrollPane;
+	public JScrollPane rightdownScrollPane;
+	public JScrollPane rightrightScrollPane;
 	public JTextPane rightBotJTextPane;
 	public 	thisCanvas canvas;
 	public 	PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
@@ -91,7 +91,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		nodeProject.setBounds(0, 0, leftsplitPane.getWidth(), leftsplitPane.getDividerLocation());
+		nodeProject.setBounds(0, 0, leftSplitPane.getWidth(), leftSplitPane.getDividerLocation());
 		nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
 				, nodeProject.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		nodeProject.jPanel.update(getGraphics());
@@ -115,11 +115,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	}
 
 	public void Registrar() {
-		leftsplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
+		leftSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
-					nodeProject.setBounds(0, 0,leftsplitPane.getWidth(),leftsplitPane.getDividerLocation());
+					nodeProject.setBounds(0, 0,leftSplitPane.getWidth(),leftSplitPane.getDividerLocation());
 					nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
 							, nodeProject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeProject.jPanel.repaint();
@@ -129,11 +129,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			}  
 		});  
 
-		mainsplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
+		mainSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
 					//action code 
-					nodeProject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
+					nodeProject.setBounds(0, 0,mainSplitPane.getDividerLocation(),leftSplitPane.getDividerLocation());
 					nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
 							, nodeProject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 					nodeProject.jPanel.repaint();
@@ -142,11 +142,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			}  
 		});  
 
-		righttopscrollPane.addComponentListener(new ComponentListener(){
+		righttopScrollPane.addComponentListener(new ComponentListener(){
 			public void componentHidden(ComponentEvent arg0) {}
 			public void componentMoved(ComponentEvent arg0) {}
 			public void componentResized(ComponentEvent arg0) {
-				righttopscrollPane.validate();
+				righttopScrollPane.validate();
 			}
 			public void componentShown(ComponentEvent arg0) {}
 		});
@@ -157,18 +157,18 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			public void componentResized(ComponentEvent arg0) {
 				w=getContentPane().getWidth();
 				h=getContentPane().getHeight();
-				mainsplitPane.setBounds(10, 50, w-20, h-80);
-				mainsplitPane.setDividerLocation(0.11);
-				leftsplitPane.setDividerLocation(0.25);
-				rightsplitPane.setDividerLocation(0.85);
-				righttopsplitPane.setDividerLocation(0.9);
-				nodeProject.setBounds(0, 0,mainsplitPane.getDividerLocation(),leftsplitPane.getDividerLocation());
+				mainSplitPane.setBounds(10, 50, w-20, h-80);
+				mainSplitPane.setDividerLocation(0.11);
+				leftSplitPane.setDividerLocation(0.25);
+				rightSplitPane.setDividerLocation(0.85);
+				righttopSplitPane.setDividerLocation(0.9);
+				nodeProject.setBounds(0, 0,mainSplitPane.getDividerLocation(),leftSplitPane.getDividerLocation());
 				nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
 						, nodeProject.getHeight(),java.awt.Image.SCALE_SMOOTH );
 				nodeProject.jPanel.repaint();
 				nodeProject.validate();
 
-				mainsplitPane.validate();
+				mainSplitPane.validate();
 				System.out.println(w + "<>" + h);
 			}
 
@@ -199,7 +199,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				if(treeNodeName!=null){
 					try {
 						first=thislist.addNode(first,treeNodeName,100,50,nodeView.first);
-						righttopscrollPane.validate();
+						righttopScrollPane.validate();
 					} catch (CloneNotSupportedException e1) {
 						rightBotJTextPane.setText("节点添加失败~请重试。");
 						rightBotJTextPane.validate();
@@ -552,34 +552,34 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		nodeView.setBounds(10, 168, 137, 222);
 		nodeProject=new NodeProject();
 		nodeProject.setBounds(10, 38, 137, 124);	
-		mainsplitPane = new UnicornJSplitPane();
-		mainsplitPane.setAutoscrolls(true);
-		//mainsplitPane.setEnabled(false);//
-		mainsplitPane.setBounds(10, 50, w-20, h-80);
-		mainsplitPane.setVisible(true);
-		getContentPane().add(mainsplitPane);
-		leftsplitPane = new UnicornJSplitPane();
-		leftsplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		mainsplitPane.setLeftComponent(leftsplitPane);
-		leftsplitPane.setLeftComponent(nodeProject);
-		leftsplitPane.setRightComponent(nodeView);
-		rightsplitPane = new UnicornJSplitPane();
-		rightsplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		mainsplitPane.setRightComponent(rightsplitPane);
-		righttopsplitPane = new UnicornJSplitPane();
-		rightsplitPane.setLeftComponent(righttopsplitPane);
-		righttopscrollPane = new JScrollPane();
+		mainSplitPane = new UnicornJSplitPane();
+		mainSplitPane.setAutoscrolls(true);
+		//mainSplitPane.setEnabled(false);//
+		mainSplitPane.setBounds(10, 50, w-20, h-80);
+		mainSplitPane.setVisible(true);
+		getContentPane().add(mainSplitPane);
+		leftSplitPane = new UnicornJSplitPane();
+		leftSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		mainSplitPane.setLeftComponent(leftSplitPane);
+		leftSplitPane.setLeftComponent(nodeProject);
+		leftSplitPane.setRightComponent(nodeView);
+		rightSplitPane = new UnicornJSplitPane();
+		rightSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		mainSplitPane.setRightComponent(rightSplitPane);
+		righttopSplitPane = new UnicornJSplitPane();
+		rightSplitPane.setLeftComponent(righttopSplitPane);
+		righttopScrollPane = new JScrollPane();
 		canvas = new thisCanvas();
 		canvas.setPreferredSize(new Dimension(1500,1000));
 		canvas.setEnabled(true);
-		righttopscrollPane.setViewportView(canvas);
-		righttopsplitPane.setLeftComponent(righttopscrollPane);
-		rightrightscrollPane = new JScrollPane();
-		righttopsplitPane.setRightComponent(nodeInfo);
+		righttopScrollPane.setViewportView(canvas);
+		righttopSplitPane.setLeftComponent(righttopScrollPane);
+		rightrightScrollPane = new JScrollPane();
+		righttopSplitPane.setRightComponent(nodeInfo);
 		rightBotJTextPane = new JTextPane();
 		rightBotJTextPane.setText("你好，亲~");
-		rightdownscrollPane = new JScrollPane(rightBotJTextPane);
-		rightsplitPane.setRightComponent(rightdownscrollPane);
+		rightdownScrollPane = new JScrollPane(rightBotJTextPane);
+		rightSplitPane.setRightComponent(rightdownScrollPane);
 		popupMenu = new PopupMenu();
 		menuItem = new MenuItem();
 		menuItem.setLabel("add");

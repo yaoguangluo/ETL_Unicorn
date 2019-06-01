@@ -4,8 +4,8 @@ public class NodeOSGI{
 	public NodeOSGI next;
 	public NodeOSGI pre;
 	public ObjectInterface currentFace;
-	public ImageIcon thisicon;
-	public String thisname;
+	public ImageIcon thisIcon;
+	public String thisName;
 	@Override  
 	public Object clone() {  
 		NodeOSGI obj = null;  
@@ -20,14 +20,14 @@ public class NodeOSGI{
 		next=null;
 		pre=null;
 		currentFace=null;
-		thisicon=null;
-		thisname=null;
+		thisIcon=null;
+		thisName=null;
 	}
 	public void addName(ObjectInterface thisface){
 		next=null;
 		pre=null;
 		currentFace=thisface;
-		thisicon=currentFace.thisIcon;
-		thisname=new String(currentFace.thisName);
+		thisIcon=currentFace.thisIcon;
+		thisName=new String(currentFace.thisName);
 	}
 }
