@@ -3,44 +3,44 @@ import org.LYG.GUI.OSGI.ObjectInterface;
 public class LinkNode extends Thread{ 
 	public int flash=0;
 	public Boolean beconnect;
-	public Boolean leftchoose;
-	public Boolean rightchoose;
-	public Boolean tbeconnect;
-	public int tbeconnectx;
-	public int tbeconnecty;
-	public String tbeconnetName;
-	public int tbeconnectID;
-	public Boolean mbeconnect;
-	public int mbeconnectx;
-	public int mbeconnecty;
-	public String mbeconnetName;
-	public int mbeconnectID;
-	public Boolean dbeconnect;
-	public int dbeconnectx;
-	public int dbeconnecty;
-	public String dbeconnetName;
-	public int dbeconnectID;
+	public Boolean leftChoose;
+	public Boolean rightChoose;
+	public Boolean tBeconnect;
+	public int tBeconnectX;
+	public int tBeconnectY;
+	public String tBeconnetName;
+	public int tBeconnectID;
+	public Boolean mBeconnect;
+	public int mBeconnectX;
+	public int mBeconnectY;
+	public String mBeconnetName;
+	public int mBeconnectID;
+	public Boolean dBeconnect;
+	public int dBeconnectX;
+	public int dBeconnectY;
+	public String dBeconnetName;
+	public int dBeconnectID;
 	public String name;
 	public LinkNode pre;
 	public LinkNode next;
 	public int ID;
 	public int x,y;
-	public ObjectInterface thisface; 
+	public ObjectInterface thisFace; 
 	public LinkNode(){}
-	public void addName(String thisname, int x1,int y1,int id1){
+	public void addName(String thisName, int x1,int y1,int id1){
 		beconnect = false;
-		rightchoose = false;
-		leftchoose = false;
-		tbeconnect = false;
-		mbeconnect = false;
-		dbeconnect = false;
+		rightChoose = false;
+		leftChoose = false;
+		tBeconnect = false;
+		mBeconnect = false;
+		dBeconnect = false;
 		x = x1;
 		y = y1;
-		name = new String(thisname);
+		name = new String(thisName);
 		ID = id1;
-		tbeconnectID = 0;
-		mbeconnectID = 0;
-		dbeconnectID = 0;
+		tBeconnectID = 0;
+		mBeconnectID = 0;
+		dBeconnectID = 0;
 	}
 	
 	public void setxy(int x1,int y1){
@@ -49,6 +49,6 @@ public class LinkNode extends Thread{
 	}
 	
 	public void setchoose(Boolean choose){
-		leftchoose=choose;
+		leftChoose=choose;
 	}
 }

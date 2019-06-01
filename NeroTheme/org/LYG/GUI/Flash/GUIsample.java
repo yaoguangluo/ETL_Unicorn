@@ -226,15 +226,15 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				while(node != null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
-							node.thisface.config(rightBotJTextPane);
-							node.thisface.thisPanel.setLocation(node.x, node.y);
-							node.thisface.thisPanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
-							node.thisface.thisPanel.setResizable(true);
-							node.thisface.thisPanel.jsp.setBounds(0, 0, node.thisface.thisPanel.getWidth()-10, node.thisface.thisPanel.getHeight()-45);
-							node.thisface.thisPanel.jp.setPreferredSize(new Dimension(800,600));
-							node.thisface.thisPanel.setBackground(Color.BLUE);
-							node.thisface.thisPanel.setVisible(true);
-							node.thisface.thisPanel.validate();
+							node.thisFace.config(rightBotJTextPane);
+							node.thisFace.thisPanel.setLocation(node.x, node.y);
+							node.thisFace.thisPanel.setSize(300, 300);//setBounds(0, 0, node.x+300,node.y+200);
+							node.thisFace.thisPanel.setResizable(true);
+							node.thisFace.thisPanel.jsp.setBounds(0, 0, node.thisFace.thisPanel.getWidth()-10, node.thisFace.thisPanel.getHeight()-45);
+							node.thisFace.thisPanel.jp.setPreferredSize(new Dimension(800,600));
+							node.thisFace.thisPanel.setBackground(Color.BLUE);
+							node.thisFace.thisPanel.setVisible(true);
+							node.thisFace.thisPanel.validate();
 							new OSGI_chansfer(node,first);
 						} catch (IOException e1) {
 							rightBotJTextPane.setText("节点配置失败~请重试。");
@@ -255,7 +255,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				while(node!= null){
 					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
 						try {
-							node.thisface.execute(rightBotJTextPane);
+							node.thisFace.execute(rightBotJTextPane);
 						} catch (FileNotFoundException e1) {
 							rightBotJTextPane.setText("节点运行失败~请重试。");
 							rightBotJTextPane.validate();
@@ -283,23 +283,23 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				node=first;
 				while(node!= null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-						if(!node.thisface.showed){
+						if(!node.thisFace.showed){
 							try {
-								node.thisface.view(rightBotJTextPane);
-								node.thisface.thisView.setLocation(node.x, node.y);
-								node.thisface.thisView.setSize(500, 500);//setBounds(0, 0, node.x+300,node.y+200);
-								node.thisface.thisView.setResizable(true);
-								node.thisface.thisView.jsp.setBounds(0, 0, node.thisface.thisPanel.getWidth()-10, node.thisface.thisPanel.getHeight()-45);
-								node.thisface.thisView.jp.setPreferredSize(new Dimension(800,600));
-								node.thisface.thisView.setVisible(true);
-								node.thisface.thisView.validate();
+								node.thisFace.view(rightBotJTextPane);
+								node.thisFace.thisView.setLocation(node.x, node.y);
+								node.thisFace.thisView.setSize(500, 500);//setBounds(0, 0, node.x+300,node.y+200);
+								node.thisFace.thisView.setResizable(true);
+								node.thisFace.thisView.jsp.setBounds(0, 0, node.thisFace.thisPanel.getWidth()-10, node.thisFace.thisPanel.getHeight()-45);
+								node.thisFace.thisView.jp.setPreferredSize(new Dimension(800,600));
+								node.thisFace.thisView.setVisible(true);
+								node.thisFace.thisView.validate();
 							} catch (Exception e1) {
 								//e1.printStackTrace();
 								rightBotJTextPane.setText("节点查看失败，请重试~");
 								rightBotJTextPane.validate();
 							}  
 						}else{
-							node.thisface.thisView.setVisible(true);  
+							node.thisFace.thisView.setVisible(true);  
 						}
 					}
 					node=node.next;
@@ -331,9 +331,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				while(node!=null){
 					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						node.beconnect=false;
-						node.tbeconnect=false;
-						node.mbeconnect=false;
-						node.dbeconnect=false;
+						node.tBeconnect=false;
+						node.mBeconnect=false;
+						node.dBeconnect=false;
 					}
 					node=node.next;
 				}
@@ -404,7 +404,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			currenty = arg0.getY();
 			LinkNode node = first;
 			while(node != null){
-				if(node.rightchoose && !node.leftchoose){
+				if(node.rightChoose && !node.leftChoose){
 					if(oldx == arg0.getX()&&oldy == arg0.getY()){
 						nodeMenu.show(this, arg0.getX(), arg0.getY());
 					}
@@ -413,7 +413,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					}
 				}
 				node.setchoose(false);
-				node.rightchoose = false;
+				node.rightChoose = false;
 				node = node.next;
 			}
 		}
@@ -433,11 +433,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			Graphics2D g2 = (Graphics2D)g;
 			g2.setColor(Color.black);
 			while(null != node){
-				if(node.leftchoose&&!node.rightchoose){
+				if(node.leftChoose&&!node.rightChoose){
 					node.setxy(e.getX(),e.getY());
 					new DynamicLineUpdater().exec(first,node);
 				}
-				if(!node.leftchoose&&node.rightchoose){	 
+				if(!node.leftChoose&&node.rightChoose){	 
 					new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
 				}	
 				node=node.next;
@@ -468,7 +468,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				if(node.y > (this.getHeight()-100)){
 					node.y = this.getHeight()-100; 	
 				}
-				g.drawImage(node.thisface.thisImage,node.x+19,node.y+12,this);
+				g.drawImage(node.thisFace.thisImage,node.x+19,node.y+12,this);
 				if(node.flash > 100){
 					node.flash = 0;
 				}
@@ -481,32 +481,32 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);
 				g2.setColor(new	Color(25, 25, 112));
 				if(node.beconnect){
-					if(node.tbeconnect){
-						new DrawArrow(g2, node.tbeconnectx+62, node.tbeconnecty+28, node.x+14, node.y-6);
-						if(!node.leftchoose&&node.rightchoose){
+					if(node.tBeconnect){
+						new DrawArrow(g2, node.tBeconnectX+62, node.tBeconnectY+28, node.x+14, node.y-6);
+						if(!node.leftChoose&&node.rightChoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
-					if(node.mbeconnect){
-						new DrawArrow(g2, node.mbeconnectx+62, node.mbeconnecty+28, node.x-4, node.y+25);
-						if(!node.leftchoose&&node.rightchoose){
+					if(node.mBeconnect){
+						new DrawArrow(g2, node.mBeconnectX+62, node.mBeconnectY+28, node.x-4, node.y+25);
+						if(!node.leftChoose&&node.rightChoose){
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
-					if(node.dbeconnect){
-						new DrawArrow(g2, node.dbeconnectx+62, node.dbeconnecty+28, node.x+6, node.y+55);
-						if(!node.leftchoose&&node.rightchoose)
+					if(node.dBeconnect){
+						new DrawArrow(g2, node.dBeconnectX+62, node.dBeconnectY+28, node.x+6, node.y+55);
+						if(!node.leftChoose&&node.rightChoose)
 						{
 							g2.setColor(Color.black);
 							new DrawArrow(g2, oldx, oldy, currentx, currenty);
 							g2.setColor(new	Color(25,25,112));	
 						}
 					}
-				}else if(!node.leftchoose&&node.rightchoose){
+				}else if(!node.leftChoose&&node.rightChoose){
 					g2.setColor(Color.black);
 					new DrawArrow(g2, oldx, oldy, currentx, currenty);
 					g2.setColor(new	Color(25, 25, 112));

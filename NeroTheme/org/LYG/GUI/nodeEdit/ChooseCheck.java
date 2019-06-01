@@ -13,10 +13,10 @@ public class ChooseCheck{
 			y = arg0.getY();
 			if((x > node.x) && (x < node.x + 50) && (y > node.y) && (y < node.y + 50)){
 				if(arg0.getButton() == 1){
-					node.leftchoose=true;
+					node.leftChoose=true;
 				}
 				if(arg0.getButton() == 3){
-					node.rightchoose = true;
+					node.rightChoose = true;
 				}
 				return node;	
 			}
