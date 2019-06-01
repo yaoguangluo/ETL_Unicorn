@@ -16,16 +16,22 @@ public class DrawArrow{
 			double signOfPointY = (y - connecty < 0)? 1: -1;
 			double averageOfDistanceY = (distanceX == 0)?0: distanceY/distanceX;	
 			double signOfPointYWithaverageOfDistanceY= averageOfDistanceY*signOfPointY;
+			double oldRegisterY=0;
+			boolean firstTime= true;
 			if(signOfPointX == 1) {
-				for(int c = 0, i = x; i < connectx - 9; c++, i++) {
+				for(int c = 0, i = x; i < connectx - 16; c+= 8, i+= 8) {
 					double registerY = y + signOfPointYWithaverageOfDistanceY * c  + scale * Math.sin(averageOfDistanceY * c / 6);
-					g2.drawLine(i, (int)registerY , i, (int)registerY);
+					g2.drawLine(i, true== firstTime? (int)registerY: (int)oldRegisterY , i+8, (int)registerY);
+					oldRegisterY= registerY;
+					firstTime= false;
 				}
 			}	
 			if(signOfPointX == -1) {
-				for(int c = 0, i = x; i > connectx + 9; c++, i--) {
+				for(int c = 0, i = x; i > connectx + 2; c+= 8, i-= 8) {
 					double registerY = y + signOfPointYWithaverageOfDistanceY * c + scale * Math.sin(averageOfDistanceY * c / 6 );
-					g2.drawLine(i, (int)registerY , i, (int)registerY);
+					g2.drawLine(i, true== firstTime? (int)registerY: (int)oldRegisterY , i-8, (int)registerY);
+					oldRegisterY=registerY;
+					firstTime= false;
 				}
 			}
 	}
