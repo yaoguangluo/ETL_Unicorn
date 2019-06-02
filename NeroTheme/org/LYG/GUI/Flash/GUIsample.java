@@ -157,6 +157,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				fileSavepath= fileSavepath+ ".etl";
 				System.out.println(fileSavepath);
 				//create file and save
+				LinkNode node = first;
+				while(node!=null) {
+					//挨个取。没难度。逐个把信息写入文件。
+				}
+				
 			}
 		});
 		//delete
