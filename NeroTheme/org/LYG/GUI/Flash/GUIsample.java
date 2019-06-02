@@ -19,11 +19,13 @@ import javax.swing.UIManager;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FileDialog;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
-
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -47,12 +49,15 @@ import org.LYG.GUI.nodeProject.NodeProject;
 import org.LYG.GUI.nodeView.CacuString;
 import org.LYG.GUI.nodeView.NodeShow;
 import org.LYG.GUI.platForm.UnicornJSplitPane;
+
+import comp.filenameFilter.TXTFilter;
 public class GUIsample extends JApplet implements MouseMotionListener, MouseListener
 , ItemListener, ActionListener, Runnable{	
 	private static final long serialVersionUID = 5270675501794340912L;
 	public GUIsample() {
 		getContentPane().setBackground(new Color(255,255,255));
 	}
+	public String fileCurrentpath;
 	public int w, h;
 	public int flash = 0;
 	public int count = 0;
@@ -115,6 +120,51 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	}
 
 	public void Registrar() {
+		//load
+		load.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//get path
+				FileDialog filedialog= new FileDialog(new Frame(), "选择历史档案", FileDialog.LOAD);
+				filedialog.setFilenameFilter(new TXTFilter(".etl"));
+				filedialog.setVisible(true);
+				fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
+				System.out.println(fileCurrentpath);
+				//load file
+			}
+		});
+		//save
+		save.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(null== fileCurrentpath) {
+					System.out.println("没有选中文档。");
+					return;
+				}
+				//delete file and save
+			}
+		});
+		//saveAs
+		saveAs.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FileDialog filedialog= new FileDialog(new Frame(), "在当前文件夹下创建一个档案名", FileDialog.LOAD);
+				filedialog.setFilenameFilter(new TXTFilter(".etl"));
+				filedialog.setVisible(true);
+				String fileSavepath= filedialog.getDirectory() + filedialog.getFile();
+				System.out.println(fileSavepath);
+				if(new File(fileSavepath).exists()) {
+					System.out.println("文档已经存在。");
+					return;
+				}
+				fileSavepath= fileSavepath+ ".etl";
+				System.out.println(fileSavepath);
+				//create file and save
+			}
+		});
+		//delete
+		delete.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//delete current ETL and fresh
+			}
+		});
 		leftSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
@@ -606,7 +656,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		load= new MenuItem();
 		load.setLabel("载入已有ETL");
 		save= new MenuItem();
-		save.setLabel("保存当先ETL");
+		save.setLabel("保存当前ETL");
 		saveAs= new MenuItem();
 		saveAs.setLabel("创建一个新的文档并保存");
 		delete= new MenuItem();
