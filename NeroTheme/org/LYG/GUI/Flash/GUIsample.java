@@ -251,8 +251,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				try {
-					javax.swing.JOptionPane jOptionPane=new JOptionPane("再次确认要删除吗是否已经保存？");
-					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要删除吗是否已经保存？");
+					javax.swing.JOptionPane jOptionPane=new JOptionPane("再次确认要删除吗？是否已经保存？");
+					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要删除吗？是否已经保存？");
 					if(0!= confirm) {
 						rightBotJTextPane.setText("亲，您刚取消了当前操作~");
 						rightBotJTextPane.validate();
