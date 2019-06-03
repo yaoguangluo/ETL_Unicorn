@@ -11,6 +11,7 @@ import java.awt.event.MouseMotionListener;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JApplet;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
@@ -130,20 +131,71 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
 				System.out.println(fileCurrentpath);
 				//load file
+				if(null== fileCurrentpath||fileCurrentpath.isEmpty()||!fileCurrentpath.contains(".etl")) {
+					System.out.println("不是.etl格式文档，请重新选择。");
+					return;
+				}
+				//load
+				
 			}
 		});
 		//save
 		save.addActionListener(new java.awt.event.ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent e) {
 				if(null== fileCurrentpath) {
-					System.out.println("没有选中文档。");
+					System.out.println("当前没有选中文档。");
 					return;
 				}
-				//delete file and save
+				//delete file 
+				File file= new File(fileCurrentpath);
+				if(file.exists()&& file.isFile()) {
+					file.delete();
+				}
+				//save
+				String fileSavepath= fileCurrentpath;
+				System.out.println(fileSavepath);
+				//create file and save
+				LinkNode node = first;
+				while(node!=null) {
+					//挨个取。没难度。逐个把信息写入文件。
+					//节点坐标，节点名， 节点关联，节点配置信息。
+					String NodeCoordination=node.x+ ":"+ node.y;
+					String NodeName=node.name+":"+node.ID;
+					String flash= ""+ node.flash;
+					String beconnect= ""+ node.beconnect;
+					String leftChoose= ""+ node.leftChoose;
+					String rightChoose= ""+ node.rightChoose;
+					String tBeconnect= ""+ node.tBeconnect;
+					String tBeconnectX= ""+ node.tBeconnectX;
+					String tBeconnectY= ""+ node.tBeconnectY;
+					String tBeconnetName= ""+ node.tBeconnetName;
+					String tBeconnectID= ""+ node.tBeconnectID;
+					String mBeconnect= ""+ node.mBeconnect;
+					String mBeconnectX= ""+ node.mBeconnectX;
+					String mBeconnectY= ""+ node.mBeconnectY;
+					String mBeconnetName= ""+ node.mBeconnetName;
+					String mBeconnectID= ""+ node.mBeconnectID;
+					String dBeconnect= ""+ node.dBeconnect;
+					String dBeconnectX= ""+ node.dBeconnectX;
+					String dBeconnectY= ""+ node.dBeconnectY;
+					String dBeconnetName= ""+ node.dBeconnetName;
+					String dBeconnectID= ""+ node.dBeconnectID;
+					String NodeConfiguration="";
+					//配置
+					
+					//分割
+					String split="##############################";
+					if(null== node.next) {
+						break;
+					}
+					node=node.next;
+				}
 			}
 		});
 		//saveAs
 		saveAs.addActionListener(new java.awt.event.ActionListener() {
+			@SuppressWarnings("unused")
 			public void actionPerformed(ActionEvent e) {
 				FileDialog filedialog= new FileDialog(new Frame(), "在当前文件夹下创建一个档案名", FileDialog.LOAD);
 				filedialog.setFilenameFilter(new TXTFilter(".etl"));
@@ -160,16 +212,73 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				LinkNode node = first;
 				while(node!=null) {
 					//挨个取。没难度。逐个把信息写入文件。
-				}
-				
+					//节点坐标，节点名， 节点关联，
+					String NodeCoordination=node.x+ ":"+ node.y;
+					String NodeName=node.name+":"+node.ID;
+					String flash= ""+ node.flash;
+					String beconnect= ""+ node.beconnect;
+					String leftChoose= ""+ node.leftChoose;
+					String rightChoose= ""+ node.rightChoose;
+					String tBeconnect= ""+ node.tBeconnect;
+					String tBeconnectX= ""+ node.tBeconnectX;
+					String tBeconnectY= ""+ node.tBeconnectY;
+					String tBeconnetName= ""+ node.tBeconnetName;
+					String tBeconnectID= ""+ node.tBeconnectID;
+					String mBeconnect= ""+ node.mBeconnect;
+					String mBeconnectX= ""+ node.mBeconnectX;
+					String mBeconnectY= ""+ node.mBeconnectY;
+					String mBeconnetName= ""+ node.mBeconnetName;
+					String mBeconnectID= ""+ node.mBeconnectID;
+					String dBeconnect= ""+ node.dBeconnect;
+					String dBeconnectX= ""+ node.dBeconnectX;
+					String dBeconnectY= ""+ node.dBeconnectY;
+					String dBeconnetName= ""+ node.dBeconnetName;
+					String dBeconnectID= ""+ node.dBeconnectID;
+					String NodeConfiguration="";
+					//配置
+					
+					//分割
+					String split="##############################";
+					if(null== node.next) {
+						break;
+					}
+					node=node.next;
+				}	
 			}
 		});
 		//delete
 		delete.addActionListener(new java.awt.event.ActionListener() {
+			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
-				//delete current ETL and fresh
-			}
+				try {
+					javax.swing.JOptionPane jOptionPane=new JOptionPane("再次确认要删除吗是否已经保存？");
+					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要删除吗是否已经保存？");
+					if(0!= confirm) {
+						rightBotJTextPane.setText("亲，您刚取消了当前操作~");
+						rightBotJTextPane.validate();
+						return;
+					}
+					//delete current ETL and fresh
+					LinkNode node = first;
+					while(node!=null) {
+						//挨个删除；
+						first=thislist.deletNode(first, node.name,node.ID);
+						if(null== node.next) {
+							break;
+						}
+						node=node.next;
+					}
+					node= node.next;
+					//然后刷新。
+					canvas.repaint();			
+				}catch(Exception E) {
+					canvas.repaint();
+				}
+				rightBotJTextPane.setText("亲，当前ETL流删除的干干净净~");
+				rightBotJTextPane.validate();
+			}	
 		});
+		
 		leftSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
