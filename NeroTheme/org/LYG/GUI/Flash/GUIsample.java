@@ -28,6 +28,7 @@ import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.event.TreeSelectionEvent;
@@ -156,40 +157,92 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				String fileSavepath= fileCurrentpath;
 				System.out.println(fileSavepath);
 				//create file and save
-				LinkNode node = first;
-				while(node!=null) {
-					//挨个取。没难度。逐个把信息写入文件。
-					//节点坐标，节点名， 节点关联，节点配置信息。
-					String NodeCoordination=node.x+ ":"+ node.y;
-					String NodeName=node.name+":"+node.ID;
-					String flash= ""+ node.flash;
-					String beconnect= ""+ node.beconnect;
-					String leftChoose= ""+ node.leftChoose;
-					String rightChoose= ""+ node.rightChoose;
-					String tBeconnect= ""+ node.tBeconnect;
-					String tBeconnectX= ""+ node.tBeconnectX;
-					String tBeconnectY= ""+ node.tBeconnectY;
-					String tBeconnetName= ""+ node.tBeconnetName;
-					String tBeconnectID= ""+ node.tBeconnectID;
-					String mBeconnect= ""+ node.mBeconnect;
-					String mBeconnectX= ""+ node.mBeconnectX;
-					String mBeconnectY= ""+ node.mBeconnectY;
-					String mBeconnetName= ""+ node.mBeconnetName;
-					String mBeconnectID= ""+ node.mBeconnectID;
-					String dBeconnect= ""+ node.dBeconnect;
-					String dBeconnectX= ""+ node.dBeconnectX;
-					String dBeconnectY= ""+ node.dBeconnectY;
-					String dBeconnetName= ""+ node.dBeconnetName;
-					String dBeconnectID= ""+ node.dBeconnectID;
-					String NodeConfiguration="";
-					//配置
-					
-					//分割
-					String split="##############################";
-					if(null== node.next) {
-						break;
-					}
-					node=node.next;
+				try {
+					FileWriter fileWriter= new FileWriter(fileSavepath);
+					LinkNode node = first;
+					while(node!=null) {
+						//挨个取。没难度。逐个把信息写入文件。
+						//节点坐标，节点名， 节点关联，
+						String NodeCoordination= node.x+ ":"+ node.y;
+						String NodeName= node.name+":"+node.ID;
+						String flash= ""+ node.flash;
+						String beconnect= ""+ node.beconnect;
+						String leftChoose= ""+ node.leftChoose;
+						String rightChoose= ""+ node.rightChoose;
+						String tBeconnect= ""+ node.tBeconnect;
+						String tBeconnectX= ""+ node.tBeconnectX;
+						String tBeconnectY= ""+ node.tBeconnectY;
+						String tBeconnetName= ""+ node.tBeconnetName;
+						String tBeconnectID= ""+ node.tBeconnectID;
+						String mBeconnect= ""+ node.mBeconnect;
+						String mBeconnectX= ""+ node.mBeconnectX;
+						String mBeconnectY= ""+ node.mBeconnectY;
+						String mBeconnetName= ""+ node.mBeconnetName;
+						String mBeconnectID= ""+ node.mBeconnectID;
+						String dBeconnect= ""+ node.dBeconnect;
+						String dBeconnectX= ""+ node.dBeconnectX;
+						String dBeconnectY= ""+ node.dBeconnectY;
+						String dBeconnetName= ""+ node.dBeconnetName;
+						String dBeconnectID= ""+ node.dBeconnectID;
+						String NodeConfiguration= "";
+						//配置
+						fileWriter.write("NodeCoordination:"+NodeCoordination);
+						fileWriter.write("\r\n");
+						fileWriter.write("NodeName:"+NodeCoordination);
+						fileWriter.write("\r\n");
+						fileWriter.write("NodeName:"+NodeName);
+						fileWriter.write("\r\n");
+						fileWriter.write("beconnect:"+beconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("leftChoose:"+leftChoose);
+						fileWriter.write("\r\n");
+						fileWriter.write("rightChoose:"+rightChoose);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnect:"+tBeconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnectX:"+tBeconnectX);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnectY:"+tBeconnectY);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnetName:"+tBeconnetName);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnectID:"+tBeconnectID);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnect:"+mBeconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnectX:"+mBeconnectX);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnectY:"+mBeconnectY);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnetName:"+mBeconnetName);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnectID:"+mBeconnectID);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnect:"+dBeconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnectX:"+dBeconnectX);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnectY:"+dBeconnectY);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnetName:"+dBeconnetName);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnectID:"+dBeconnectID);
+						fileWriter.write("\r\n");
+						fileWriter.write("NodeConfiguration:"+NodeConfiguration);
+						fileWriter.write("\r\n");
+						//分割
+						String split="##############################";
+						fileWriter.write("\r\n");
+						fileWriter.write(split);
+						fileWriter.flush();
+						if(null== node.next) {
+							break;
+						}
+						node=node.next;
+					}	
+					fileWriter.close();
+				}catch(Exception saveFile) {
+
 				}
 			}
 		});
@@ -200,50 +253,102 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				FileDialog filedialog= new FileDialog(new Frame(), "在当前文件夹下创建一个档案名", FileDialog.LOAD);
 				filedialog.setFilenameFilter(new TXTFilter(".etl"));
 				filedialog.setVisible(true);
-				String fileSavepath= filedialog.getDirectory() + filedialog.getFile();
+				String fileSavepath= filedialog.getDirectory()+ filedialog.getFile();
 				System.out.println(fileSavepath);
-				if(new File(fileSavepath).exists()) {
+				if(new File(fileSavepath).isFile()&& fileSavepath.contains(".etl")) {
 					System.out.println("文档已经存在。");
 					return;
 				}
 				fileSavepath= fileSavepath+ ".etl";
 				System.out.println(fileSavepath);
 				//create file and save
-				LinkNode node = first;
-				while(node!=null) {
-					//挨个取。没难度。逐个把信息写入文件。
-					//节点坐标，节点名， 节点关联，
-					String NodeCoordination=node.x+ ":"+ node.y;
-					String NodeName=node.name+":"+node.ID;
-					String flash= ""+ node.flash;
-					String beconnect= ""+ node.beconnect;
-					String leftChoose= ""+ node.leftChoose;
-					String rightChoose= ""+ node.rightChoose;
-					String tBeconnect= ""+ node.tBeconnect;
-					String tBeconnectX= ""+ node.tBeconnectX;
-					String tBeconnectY= ""+ node.tBeconnectY;
-					String tBeconnetName= ""+ node.tBeconnetName;
-					String tBeconnectID= ""+ node.tBeconnectID;
-					String mBeconnect= ""+ node.mBeconnect;
-					String mBeconnectX= ""+ node.mBeconnectX;
-					String mBeconnectY= ""+ node.mBeconnectY;
-					String mBeconnetName= ""+ node.mBeconnetName;
-					String mBeconnectID= ""+ node.mBeconnectID;
-					String dBeconnect= ""+ node.dBeconnect;
-					String dBeconnectX= ""+ node.dBeconnectX;
-					String dBeconnectY= ""+ node.dBeconnectY;
-					String dBeconnetName= ""+ node.dBeconnetName;
-					String dBeconnectID= ""+ node.dBeconnectID;
-					String NodeConfiguration="";
-					//配置
-					
-					//分割
-					String split="##############################";
-					if(null== node.next) {
-						break;
-					}
-					node=node.next;
-				}	
+				try {
+					FileWriter fileWriter= new FileWriter(fileSavepath);
+					LinkNode node = first;
+					while(node!=null) {
+						//挨个取。没难度。逐个把信息写入文件。
+						//节点坐标，节点名， 节点关联，
+						String NodeCoordination= node.x+ ":"+ node.y;
+						String NodeName= node.name+":"+node.ID;
+						String flash= ""+ node.flash;
+						String beconnect= ""+ node.beconnect;
+						String leftChoose= ""+ node.leftChoose;
+						String rightChoose= ""+ node.rightChoose;
+						String tBeconnect= ""+ node.tBeconnect;
+						String tBeconnectX= ""+ node.tBeconnectX;
+						String tBeconnectY= ""+ node.tBeconnectY;
+						String tBeconnetName= ""+ node.tBeconnetName;
+						String tBeconnectID= ""+ node.tBeconnectID;
+						String mBeconnect= ""+ node.mBeconnect;
+						String mBeconnectX= ""+ node.mBeconnectX;
+						String mBeconnectY= ""+ node.mBeconnectY;
+						String mBeconnetName= ""+ node.mBeconnetName;
+						String mBeconnectID= ""+ node.mBeconnectID;
+						String dBeconnect= ""+ node.dBeconnect;
+						String dBeconnectX= ""+ node.dBeconnectX;
+						String dBeconnectY= ""+ node.dBeconnectY;
+						String dBeconnetName= ""+ node.dBeconnetName;
+						String dBeconnectID= ""+ node.dBeconnectID;
+						String NodeConfiguration= "";
+						//配置
+						fileWriter.write("NodeCoordination:"+NodeCoordination);
+						fileWriter.write("\r\n");
+						fileWriter.write("NodeName:"+NodeCoordination);
+						fileWriter.write("\r\n");
+						fileWriter.write("NodeName:"+NodeName);
+						fileWriter.write("\r\n");
+						fileWriter.write("beconnect:"+beconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("leftChoose:"+leftChoose);
+						fileWriter.write("\r\n");
+						fileWriter.write("rightChoose:"+rightChoose);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnect:"+tBeconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnectX:"+tBeconnectX);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnectY:"+tBeconnectY);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnetName:"+tBeconnetName);
+						fileWriter.write("\r\n");
+						fileWriter.write("tBeconnectID:"+tBeconnectID);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnect:"+mBeconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnectX:"+mBeconnectX);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnectY:"+mBeconnectY);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnetName:"+mBeconnetName);
+						fileWriter.write("\r\n");
+						fileWriter.write("mBeconnectID:"+mBeconnectID);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnect:"+dBeconnect);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnectX:"+dBeconnectX);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnectY:"+dBeconnectY);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnetName:"+dBeconnetName);
+						fileWriter.write("\r\n");
+						fileWriter.write("dBeconnectID:"+dBeconnectID);
+						fileWriter.write("\r\n");
+						fileWriter.write("NodeConfiguration:"+NodeConfiguration);
+						fileWriter.write("\r\n");
+						//分割
+						String split="##############################";
+						fileWriter.write("\r\n");
+						fileWriter.write(split);
+						fileWriter.flush();
+						if(null== node.next) {
+							break;
+						}
+						node=node.next;
+					}	
+					fileWriter.close();
+				}catch(Exception saveFile) {
+
+				}
 			}
 		});
 		//delete
@@ -251,7 +356,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				try {
-					javax.swing.JOptionPane jOptionPane=new JOptionPane("再次确认要删除吗？是否已经保存？");
+					javax.swing.JOptionPane jOptionPane= new JOptionPane("再次确认要删除吗？是否已经保存？");
 					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要删除吗？是否已经保存？");
 					if(0!= confirm) {
 						rightBotJTextPane.setText("亲，您刚取消了当前操作~");
@@ -259,10 +364,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 						return;
 					}
 					//delete current ETL and fresh
-					LinkNode node = first;
-					while(node!=null) {
+					LinkNode node= first;
+					while(node!= null) {
 						//挨个删除；
-						first=thislist.deletNode(first, node.name,node.ID);
+						first= thislist.deletNode(first, node.name,node.ID);
 						if(null== node.next) {
 							break;
 						}
@@ -770,7 +875,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		load= new MenuItem();
 		load.setLabel("载入已有ETL");
 		save= new MenuItem();
-		save.setLabel("保存当前ETL");
+		save.setLabel("保存并更新当前ETL");
 		saveAs= new MenuItem();
 		saveAs.setLabel("创建一个新的文档并保存");
 		delete= new MenuItem();
