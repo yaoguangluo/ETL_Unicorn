@@ -1,5 +1,6 @@
 package org.LYG.GUI.platForm;
 import java.awt.Rectangle;
+
 import javax.swing.JSplitPane;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
@@ -15,7 +16,6 @@ public class UnicornJSplitPane extends JSplitPane {
 	@Override
 	public void layout() {
 		super.layout();
-		// increase divider width or height
 		BasicSplitPaneDivider divider = ((BasicSplitPaneUI)getUI()).getDivider();
 		Rectangle bounds = divider.getBounds();
 		if( orientation == HORIZONTAL_SPLIT ) {
@@ -25,6 +25,6 @@ public class UnicornJSplitPane extends JSplitPane {
 			bounds.y -= dividerDragOffset;
 			bounds.height = dividerDragSize;
 		}
-		divider.setBounds( bounds );
+		divider.setBounds(bounds);
 	}
 }

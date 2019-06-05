@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.tree.*;
 public class UnicornTreeCellRenderer extends DefaultTreeCellRenderer {
 	private static final long serialVersionUID = 1L;
-	public Component getTreeCellRendererComponent(JTree tree, Object value,boolean selected, boolean expanded,boolean leaf, int row, boolean hasFocus) { 
+	public Component getTreeCellRendererComponent(JTree tree, Object value,boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) { 
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode)value;
 		Object obj = node.getUserObject();
 		if(obj instanceof JLabel) {

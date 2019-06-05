@@ -610,10 +610,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	}
 
 	private void CreatMap() throws IOException {
-		w=1446-130;
-		h=820-110;
+		w= 1446-130;
+		h= 820-110;
 		getContentPane().setLayout(null);
-		UIManager.put("SplitPaneUI","org.LYG.GUI.platForm.UnicornSplitPaneUI");
+		UIManager.put("SplitPaneUI", "org.LYG.GUI.platForm.UnicornSplitPaneUI");
 		UIManager.put("ScrollBarUI", "org.LYG.GUI.platForm.UnicornScrollBarUI");
 		UIManager.put("TreeUI", "org.LYG.GUI.platForm.UnicornTreeUI");
 		currentNodeName=new String("");

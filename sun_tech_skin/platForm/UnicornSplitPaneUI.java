@@ -1,6 +1,5 @@
 package org.LYG.GUI.platForm;
 import java.awt.Color;  
-
 import java.awt.Component;   
 import java.awt.Container;   
 import java.awt.Cursor;   
@@ -16,9 +15,7 @@ import javax.swing.border.Border;
 import javax.swing.plaf.ComponentUI;   
 import javax.swing.plaf.basic.BasicSplitPaneDivider;   
 import javax.swing.plaf.basic.BasicSplitPaneUI;    
-
 /**  
- *  
  * @author lyg refer jdk arthors from sum tech£¬¡£
  */  
 public class UnicornSplitPaneUI extends BasicSplitPaneUI {   
@@ -27,7 +24,6 @@ public class UnicornSplitPaneUI extends BasicSplitPaneUI {
 	}   
 
 	public static ComponentUI createUI(JComponent c) {   
-
 		return new UnicornSplitPaneUI();   
 	}   
 
