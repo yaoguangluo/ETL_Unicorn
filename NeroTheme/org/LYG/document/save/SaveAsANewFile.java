@@ -1,14 +1,10 @@
 package org.LYG.document.save;
-
 import java.awt.FileDialog;
 import java.awt.Frame;
 import java.io.File;
 import java.io.FileWriter;
-
 import org.LYG.GUI.nodeEdit.LinkNode;
-
 import comp.filenameFilter.TXTFilter;
-
 //准备把响应事件移植到这里。
 public class SaveAsANewFile{
 	public static void Save(LinkNode first) {
@@ -116,7 +112,6 @@ public class SaveAsANewFile{
 			}	
 			fileWriter.close();
 		}catch(Exception saveFile) {
-
 		}
 	}
 }

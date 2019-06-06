@@ -27,7 +27,7 @@ public class LinkList{
 		return false;
 	}
 	
-	public LinkNode addNodeOnlyWithFace(LinkNode linkNode, String treeNodeName, NodeOSGI nOSGI) 
+	public LinkNode addNodeOnlyWithFace(LinkNode linkNode, NodeOSGI nOSGI) 
 			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
 		NodeOSGI currentOSGI= nOSGI;
 		while(null!= currentOSGI && null!= currentOSGI.pre){
@@ -43,7 +43,6 @@ public class LinkList{
 				}
 				currentOSGI= currentOSGI.next;
 			}
-
 		}	
 		index++;
 		sum_of_nude++;
@@ -69,12 +68,10 @@ public class LinkList{
 				}
 				currentOSGI=currentOSGI.next;
 			}
-
 		}
 		while(null != linkNode.next){
 			linkNode = linkNode.next;
 		}
-
 		while(null != currentOSGI){
 			if(currentOSGI.thisName.equals(treeNodeName)){
 				//linkNode=new linkNode();
