@@ -26,8 +26,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -125,19 +132,96 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public void Registrar() {
 		//load
 		load.addActionListener(new java.awt.event.ActionListener() {
+			@SuppressWarnings("resource")
 			public void actionPerformed(ActionEvent e) {
 				//get path
-				FileDialog filedialog= new FileDialog(new Frame(), "选择历史档案", FileDialog.LOAD);
-				filedialog.setFilenameFilter(new TXTFilter(".etl"));
-				filedialog.setVisible(true);
-				fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
-				System.out.println(fileCurrentpath);
-				//load file
-				if(null== fileCurrentpath||fileCurrentpath.isEmpty()||!fileCurrentpath.contains(".etl")) {
-					System.out.println("不是.etl格式文档，请重新选择。");
-					return;
+				try {
+					FileDialog filedialog= new FileDialog(new Frame(), "选择历史档案", FileDialog.LOAD);
+					filedialog.setFilenameFilter(new TXTFilter(".etl"));
+					filedialog.setVisible(true);
+					fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
+					System.out.println(fileCurrentpath);
+					//load file
+					if(null== fileCurrentpath||fileCurrentpath.isEmpty()||!fileCurrentpath.contains(".etl")) {
+						System.out.println("不是.etl格式文档，请重新选择。");
+						return;
+					}
+					//load
+					File file= new File(fileCurrentpath);
+					if(!file.isFile()) {
+						System.out.println("不是.etl格式文档，请重新选择。");
+						return;
+					}
+					InputStream in= new FileInputStream(file);
+					BufferedReader cReader= new BufferedReader(new InputStreamReader(in));  
+					String ctempString= null; 
+					Map<String, String> currentNodeMap= new HashMap<>();
+					//delete current ETL and fresh
+					LinkNode needDeleteNode= first;
+					while(needDeleteNode!= null) {
+						//挨个删除；
+						first= thislist.deletNode(first, needDeleteNode.name, needDeleteNode.ID);
+						if(null== needDeleteNode.next) {
+							break;
+						}
+						needDeleteNode= needDeleteNode.next;
+					}
+					//然后刷新。
+					canvas.repaint();	
+					while ((ctempString= cReader.readLine())!= null) {  
+						if(!ctempString.contains("######################")) {
+							if(ctempString.contains(":")&& ctempString.split(":").length>1) {
+								currentNodeMap.put(ctempString.split(":")[0], ctempString.split(":")[1]);
+							}
+						}else {
+							LinkNode node= new LinkNode();
+							node.beconnect= currentNodeMap.containsKey("beconnect")? currentNodeMap.get("beconnect").contains("false")? false: true: false;
+							node.dBeconnect= currentNodeMap.containsKey("dBeconnect")? currentNodeMap.get("dBeconnect").contains("false")? false: true: false;
+							node.dBeconnectID= currentNodeMap.containsKey("dBeconnectID")?Integer.parseInt(currentNodeMap.get("dBeconnectID")):0;
+							node.dBeconnectX= currentNodeMap.containsKey("dBeconnectX")? Integer.parseInt(currentNodeMap.get("dBeconnectX")):0;
+							node.dBeconnectY= currentNodeMap.containsKey("dBeconnectY")? Integer.parseInt(currentNodeMap.get("dBeconnectY")):0;
+							node.dBeconnetName= currentNodeMap.containsKey("dBeconnetName")? currentNodeMap.get("dBeconnetName"):"null";
+							node.flash= currentNodeMap.containsKey("flash")? Integer.parseInt(currentNodeMap.get("flash")):0;
+							node.ID= currentNodeMap.containsKey("NodeID")? Integer.parseInt(currentNodeMap.get("NodeID")):0;
+							node.leftChoose= currentNodeMap.containsKey("leftChoose")? currentNodeMap.get("leftChoose").contains("false")? false: true: false;
+							node.mBeconnect= currentNodeMap.containsKey("mBeconnect")? currentNodeMap.get("mBeconnect").contains("false")? false: true: false;
+							node.mBeconnectID= currentNodeMap.containsKey("mBeconnectID")? Integer.parseInt(currentNodeMap.get("mBeconnectID")):0;
+							node.mBeconnectX= currentNodeMap.containsKey("mBeconnectX")? Integer.parseInt(currentNodeMap.get("mBeconnectX")):0;
+							node.mBeconnectY= currentNodeMap.containsKey("mBeconnectY")? Integer.parseInt(currentNodeMap.get("mBeconnectY")):0;
+							node.mBeconnetName= currentNodeMap.containsKey("mBeconnetName")?currentNodeMap.get("mBeconnetName"):"null";
+							node.name= currentNodeMap.containsKey("NodeName")?currentNodeMap.get("NodeName"):"null";
+							node.rightChoose= currentNodeMap.containsKey("rightChoose")? currentNodeMap.get("rightChoose").contains("false")? false: true: false;
+							node.tBeconnect= currentNodeMap.containsKey("tBeconnect")? currentNodeMap.get("tBeconnect").contains("false")? false: true: false;
+							node.tBeconnectID= currentNodeMap.containsKey("tBeconnectID")? Integer.parseInt(currentNodeMap.get("tBeconnectID")):0;
+							node.tBeconnectX= currentNodeMap.containsKey("tBeconnectX")? Integer.parseInt(currentNodeMap.get("tBeconnectX")):0;
+							node.tBeconnectY= currentNodeMap.containsKey("tBeconnectY")? Integer.parseInt(currentNodeMap.get("tBeconnectY")):0;
+							node.tBeconnetName= currentNodeMap.containsKey("tBeconnetName")? currentNodeMap.get("tBeconnetName"):"null";
+							node.x= currentNodeMap.containsKey("NodeCoordinationX")? Integer.parseInt(currentNodeMap.get("NodeCoordinationX")):0;
+							node.y= currentNodeMap.containsKey("NodeCoordinationY")? Integer.parseInt(currentNodeMap.get("NodeCoordinationY")):0;
+							
+							if(nodeView.first==null) {
+								nodeView= new NodeShow(tableData_old, text);
+							}
+							node= thislist.addNodeOnlyWithFace(node, treeNodeName, nodeView.first);
+							if(null== first) {
+								first=node;
+							}else {
+								first.next= node;
+								node.pre= first;
+								first= first.next;
+								
+							}
+							currentNodeMap.clear();
+						}
+					}
+					first = new Sort().sort(first);
+					righttopScrollPane.validate();
+				}catch(Exception loadE) {
+					loadE.printStackTrace();
 				}
-				//load
+				first = new Sort().sort(first);
+				canvas.repaint();	
+				righttopScrollPane.validate();
 			}
 		});
 		//save
@@ -170,11 +254,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					LinkNode node= first;
 					while(node!= null) {
 						//挨个删除；
-						first= thislist.deletNode(first, node.name,node.ID);
+						first= thislist.deletNode(first, node.name, node.ID);
 						if(null== node.next) {
 							break;
 						}
-						node=node.next;
+						node= node.next;
 					}
 					node= node.next;
 					//然后刷新。
@@ -321,7 +405,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		}); 
 		run.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node=new LinkNode();
+				LinkNode node= new LinkNode();
 				first= new Sort().sort(first);
 				node= first;
 				while(node!= null){
@@ -350,9 +434,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		}); 
 		show.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node = new LinkNode();
-				first=new Sort().sort(first);
-				node=first;
+				LinkNode node= new LinkNode();
+				first= new Sort().sort(first);
+				node= first;
 				while(node!= null){
 					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
 						if(!node.thisFace.showed){

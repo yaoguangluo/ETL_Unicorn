@@ -30,9 +30,11 @@ public class SaveAsANewFile{
 			while(node!=null) {
 				//挨个取。没难度。逐个把信息写入文件。
 				//节点坐标，节点名， 节点关联，
-				String NodeCoordination= node.x+ ":"+ node.y;
-				String NodeName= node.name+":"+node.ID;
-				String flash= ""+ node.flash;
+				String NodeCoordinationX= ""+ node.x;
+				String NodeCoordinationY= ""+ node.y;
+				String NodeName= ""+ node.name;
+				String NodeID=""+ node.ID;
+				String flash=""+ node.flash;
 				String beconnect= ""+ node.beconnect;
 				String leftChoose= ""+ node.leftChoose;
 				String rightChoose= ""+ node.rightChoose;
@@ -53,11 +55,16 @@ public class SaveAsANewFile{
 				String dBeconnectID= ""+ node.dBeconnectID;
 				String NodeConfiguration= "";
 				//配置
-				fileWriter.write("NodeCoordination:"+NodeCoordination);
 				fileWriter.write("\r\n");
-				fileWriter.write("NodeName:"+NodeName);
+				fileWriter.write("NodeCoordinationX:"+ NodeCoordinationX);
 				fileWriter.write("\r\n");
-				fileWriter.write("flash:"+flash);
+				fileWriter.write("NodeName:"+ NodeName);
+				fileWriter.write("\r\n");
+				fileWriter.write("NodeCoordinationY:"+ NodeCoordinationY);
+				fileWriter.write("\r\n");
+				fileWriter.write("NodeID:"+ NodeID);
+				fileWriter.write("\r\n");
+				fileWriter.write("flash:"+ flash);
 				fileWriter.write("\r\n");
 				fileWriter.write("beconnect:"+beconnect);
 				fileWriter.write("\r\n");

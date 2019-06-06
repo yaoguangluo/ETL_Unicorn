@@ -26,20 +26,44 @@ public class LinkList{
 		}
 		return false;
 	}
+	
+	public LinkNode addNodeOnlyWithFace(LinkNode linkNode, String treeNodeName, NodeOSGI nOSGI) 
+			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
+		NodeOSGI currentOSGI= nOSGI;
+		while(null!= currentOSGI && null!= currentOSGI.pre){
+			currentOSGI= currentOSGI.pre;
+		}
+		if(null!= linkNode){			
+			while(null!= currentOSGI){
+				if(currentOSGI.thisName.equals(linkNode.name)){
+					linkNode.thisFace= currentOSGI.currentFace.luoyaoguang();
+					sum_of_nude++;
+					index++;
+					return linkNode;
+				}
+				currentOSGI= currentOSGI.next;
+			}
+
+		}	
+		index++;
+		sum_of_nude++;
+		return linkNode;
+	}
+	
 	public LinkNode addNode(LinkNode linkNode, String treeNodeName,int x,int y,NodeOSGI nOSGI ) 
 			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
-		NodeOSGI currentOSGI=nOSGI;
-		while(null != currentOSGI && null != currentOSGI.pre){
-			currentOSGI=currentOSGI.pre;
+		NodeOSGI currentOSGI= nOSGI;
+		while(null!= currentOSGI && null!= currentOSGI.pre){
+			currentOSGI= currentOSGI.pre;
 		}
-		if(null == linkNode){			
-			while(null != currentOSGI){
+		if(null== linkNode){			
+			while(null!= currentOSGI){
 				if(currentOSGI.thisName.equals(treeNodeName)){
-					linkNode=new LinkNode();
+					linkNode= new LinkNode();
 					linkNode.addName(treeNodeName,x,y,++index);
-					linkNode.thisFace=currentOSGI.currentFace.luoyaoguang();
-					linkNode.next=null;
-					linkNode.pre=null;
+					linkNode.thisFace= currentOSGI.currentFace.luoyaoguang();
+					linkNode.next= null;
+					linkNode.pre= null;
 					sum_of_nude++;
 					return linkNode;
 				}
