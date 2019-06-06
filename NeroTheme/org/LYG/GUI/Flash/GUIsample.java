@@ -132,10 +132,17 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public void Registrar() {
 		//load
 		load.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings("resource")
+			@SuppressWarnings({"resource", "static-access"})
 			public void actionPerformed(ActionEvent e) {
 				//get path
 				try {
+					javax.swing.JOptionPane jOptionPane= new JOptionPane("再次确认要导入吗？当前已经保存？");
+					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要导入吗？当前已经保存？？");
+					if(0!= confirm) {
+						rightBotJTextPane.setText("亲，您刚取消了当前操作~");
+						rightBotJTextPane.validate();
+						return;
+					}
 					FileDialog filedialog= new FileDialog(new Frame(), "选择历史档案", FileDialog.LOAD);
 					filedialog.setFilenameFilter(new TXTFilter(".etl"));
 					filedialog.setVisible(true);
@@ -198,7 +205,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							node.tBeconnetName= currentNodeMap.containsKey("tBeconnetName")? currentNodeMap.get("tBeconnetName"):"null";
 							node.x= currentNodeMap.containsKey("NodeCoordinationX")? Integer.parseInt(currentNodeMap.get("NodeCoordinationX")):0;
 							node.y= currentNodeMap.containsKey("NodeCoordinationY")? Integer.parseInt(currentNodeMap.get("NodeCoordinationY")):0;
-							
+
 							if(nodeView.first==null) {
 								nodeView= new NodeShow(tableData_old, text);
 							}
@@ -209,7 +216,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 								first.next= node;
 								node.pre= first;
 								first= first.next;
-								
+
 							}
 							currentNodeMap.clear();
 						}
