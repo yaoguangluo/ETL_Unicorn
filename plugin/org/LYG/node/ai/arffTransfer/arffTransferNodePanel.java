@@ -13,7 +13,7 @@ import java.awt.Color;
 public class arffTransferNodePanel extends ObjectPanel{
 	private static final long serialVersionUID = 1L;
 	private FileDialog filedialog;
-	public arffTransferNodePanel(final arffTransferNodeRun thisrun){
+	public arffTransferNodePanel(final arffTransferNodeRun thisRun){
 		setLayout(null);
 		jsp = new ScrollPane();
 		add(jsp);
@@ -28,7 +28,7 @@ public class arffTransferNodePanel extends ObjectPanel{
             public void actionPerformed(ActionEvent e){
             	System.out.println(e.getSource());
                 	close=true;
-                	thisrun.value=1;
+                	thisRun.value=1;
             }
         });   
 		jp.add(button);
@@ -38,8 +38,8 @@ public class arffTransferNodePanel extends ObjectPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				 filedialog=new FileDialog(new Frame(),"filechoose",FileDialog.LOAD);
 				 filedialog.setVisible(true);
-				 thisrun.filepath=filedialog.getDirectory()+filedialog.getFile();
-			     System.out.println(thisrun.filepath);
+				 thisRun.filepath=filedialog.getDirectory()+filedialog.getFile();
+			     System.out.println(thisRun.filepath);
 				}
 			});
 		jp.add(readfile);

@@ -174,8 +174,20 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		});
 		//save
 		save.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings("unused")
+			@SuppressWarnings({ "unused", "static-access" })
 			public void actionPerformed(ActionEvent e) {
+				if(null== fileCurrentpath) {
+					System.out.println("当前没有选中文档。");
+					return;
+				}
+				
+				javax.swing.JOptionPane jOptionPane= new JOptionPane("确认更新在该文档"+ fileCurrentpath + "？");
+				int confirm= jOptionPane.showConfirmDialog(canvas, "确认更新在该文档"+ fileCurrentpath + "？");
+				if(0!= confirm) {
+					rightBotJTextPane.setText("亲，您刚取消了当前操作~");
+					rightBotJTextPane.validate();
+					return;
+				}
 				SaveAndUpdateFile.update(fileCurrentpath, first);
 			}
 		});

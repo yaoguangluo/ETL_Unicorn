@@ -1,17 +1,17 @@
 package org.LYG.node.ai.arffTransfer;
 public class arffNode{ 
-	public String thisname;
+	public String thisName;
 	public arffNode next;
 	public arffNode pre;
 	public arffNode(){
 		next=null;
 		pre=null;
-		thisname=null;
+		thisName=null;
 	}
 	public void addName(String name){
 		next=null;
 		pre=null;
-		thisname=name;
-		thisname=new String(name);
+		thisName=name;
+		thisName=new String(name);
 	}
 }

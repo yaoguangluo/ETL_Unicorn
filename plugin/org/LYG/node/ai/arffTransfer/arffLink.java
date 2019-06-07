@@ -4,15 +4,15 @@ public class arffLink{
 		while(first2 != null && first2.pre != null){
 			first2 = first2.pre;
 		}
-		if(first2 == null || first2.thisname == null){
+		if(first2 == null || first2.thisName == null){
 			return false;
 		}
-		if(first2.thisname.equals(key)){
+		if(first2.thisName.equals(key)){
 			return true;
 		}
 		while(first2.next != null){
 			first2 = first2.next;
-			if(first2.thisname.equals(key)){
+			if(first2.thisName.equals(key)){
 				while(first2.pre != null){
 					first2 = first2.pre;
 				}

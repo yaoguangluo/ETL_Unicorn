@@ -124,6 +124,7 @@ public class UnicornTreeUI extends BasicTreeUI {
 		}
 		return false;
 	}
+	
 	public void paint(Graphics g, JComponent c)  {
 		super.paint( g, c );
 		// Paint the lines
@@ -158,11 +159,13 @@ public class UnicornTreeUI extends BasicTreeUI {
 			}
 		}
 	}
+	
 	protected void paintVerticalPartOfLeg(Graphics g, Rectangle clipBounds,Insets insets, TreePath path)  {
 		if (lineStyle == LEG_LINE_STYLE) {
 			super.paintVerticalPartOfLeg(g, clipBounds, insets, path);
 		}
 	}
+	
 	protected void paintHorizontalPartOfLeg(Graphics g, Rectangle clipBounds,
 			Insets insets, Rectangle bounds,
 			TreePath path, int row,
@@ -175,6 +178,7 @@ public class UnicornTreeUI extends BasicTreeUI {
 					hasBeenExpanded, isLeaf);
 		}
 	}
+	
 	/** This class listens for changes in line style */
 	class LineListener implements PropertyChangeListener {
 		public void propertyChange(PropertyChangeEvent e) {

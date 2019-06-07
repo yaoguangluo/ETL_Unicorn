@@ -2,15 +2,10 @@ package org.LYG.document.save;
 
 import java.io.File;
 import java.io.FileWriter;
-
 import org.LYG.GUI.nodeEdit.LinkNode;
 
 public class SaveAndUpdateFile{
 	public static void update(String fileCurrentpath, LinkNode first) {
-		if(null== fileCurrentpath) {
-			System.out.println("当前没有选中文档。");
-			return;
-		}
 		//delete file 
 		File file= new File(fileCurrentpath);
 		if(file.exists()&& file.isFile()) {

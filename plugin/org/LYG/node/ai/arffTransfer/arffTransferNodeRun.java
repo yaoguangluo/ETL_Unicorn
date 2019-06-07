@@ -11,7 +11,7 @@ public class arffTransferNodeRun extends ObjectRun{
 	public String filepath;
 	public arffTransferNodeRun( ) throws IOException{	
 	}
-	public void run(final arffTransferNodeView thisview) throws IOException{
+	public void run(final arffTransferNodeView thisView) throws IOException{
 		System.out.println("runed" + value); 
 		System.out.println(toptablein.getModel().getValueAt(0, 0));
 		System.out.println("runed" + value);
@@ -71,7 +71,7 @@ public class arffTransferNodeRun extends ObjectRun{
 		System.out.println("畠何頼撹。。。。。。。。");  
 		wr.flush();  
 		wr.close(); 	  
-		thisview.tableout=toptablein;
-		//thisview.out=new JTable(content,spec); 	
+		thisView.tableout=toptablein;
+		//thisView.out=new JTable(content,spec); 	
 	}
 }
