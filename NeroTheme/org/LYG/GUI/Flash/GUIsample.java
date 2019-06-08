@@ -51,6 +51,7 @@ import org.LYG.GUI.platForm.UnicornJSplitPane;
 import org.LYG.document.load.LoadFile;
 import org.LYG.document.save.SaveAndUpdateFile;
 import org.LYG.document.save.SaveAsANewFile;
+import org.LYG.sets.stable.StableData;
 
 import comp.filenameFilter.TXTFilter;
 public class GUIsample extends JApplet implements MouseMotionListener, MouseListener
@@ -129,27 +130,27 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			public void actionPerformed(ActionEvent e) {
 				//get path
 				try {
-					javax.swing.JOptionPane jOptionPane= new JOptionPane("再次确认要导入吗？当前已经保存？");
-					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要导入吗？当前已经保存？？");
+					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
+					int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_LOAD_ENSURE);
 					if(0!= confirm) {
-						rightBotJTextPane.setText("亲，您刚取消了当前操作~");
+						rightBotJTextPane.setText(StableData.ATTENSION_CANCELLED_OPERATION);
 						rightBotJTextPane.validate();
 						return;
 					}
-					FileDialog filedialog= new FileDialog(new Frame(), "选择历史档案", FileDialog.LOAD);
-					filedialog.setFilenameFilter(new TXTFilter(".etl"));
+					FileDialog filedialog= new FileDialog(new Frame(), StableData.ATTENSION_LOAD_HISTORY, FileDialog.LOAD);
+					filedialog.setFilenameFilter(new TXTFilter(StableData.FILE_FORMAT_ETL));
 					filedialog.setVisible(true);
 					fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
 					System.out.println(fileCurrentpath);
 					//load file
-					if(null== fileCurrentpath||fileCurrentpath.isEmpty()||!fileCurrentpath.contains(".etl")) {
-						System.out.println("不是.etl格式文档，请重新选择。");
+					if(null== fileCurrentpath|| fileCurrentpath.isEmpty()|| !fileCurrentpath.contains(StableData.FILE_FORMAT_ETL)) {
+						System.out.println(StableData.ATTENSION_RECHOICE);
 						return;
 					}
 					//load
 					File file= new File(fileCurrentpath);
 					if(!file.isFile()) {
-						System.out.println("不是.etl格式文档，请重新选择。");
+						System.out.println(StableData.ATTENSION_RECHOICE);
 						return;
 					}
 					//delete current ETL and fresh
@@ -177,14 +178,13 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			@SuppressWarnings({ "unused", "static-access" })
 			public void actionPerformed(ActionEvent e) {
 				if(null== fileCurrentpath) {
-					System.out.println("当前没有选中文档。");
+					System.out.println(StableData.ATTENSION_UNCURRENT_CHOICE);
 					return;
 				}
-				
-				javax.swing.JOptionPane jOptionPane= new JOptionPane("确认更新在该文档"+ fileCurrentpath + "？");
-				int confirm= jOptionPane.showConfirmDialog(canvas, "确认更新在该文档"+ fileCurrentpath + "？");
+				javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_UPDATE_ENSURE+ fileCurrentpath + "？");
+				int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_UPDATE_ENSURE+ fileCurrentpath + "？");
 				if(0!= confirm) {
-					rightBotJTextPane.setText("亲，您刚取消了当前操作~");
+					rightBotJTextPane.setText(StableData.ATTENSION_CANCELLED_OPERATION);
 					rightBotJTextPane.validate();
 					return;
 				}
@@ -203,10 +203,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				try {
-					javax.swing.JOptionPane jOptionPane= new JOptionPane("再次确认要删除吗？是否已经保存？");
-					int confirm= jOptionPane.showConfirmDialog(canvas, "再次确认要删除吗？是否已经保存？");
+					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_CANCEL_ENSURE);
+					int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_CANCEL_ENSURE);
 					if(0!= confirm) {
-						rightBotJTextPane.setText("亲，您刚取消了当前操作~");
+						rightBotJTextPane.setText(StableData.ATTENSION_CANCELLED_OPERATION);
 						rightBotJTextPane.validate();
 						return;
 					}
@@ -226,7 +226,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				}catch(Exception E) {
 					canvas.repaint();
 				}
-				rightBotJTextPane.setText("亲，当前ETL流删除的干干净净~");
+				rightBotJTextPane.setText(StableData.ATTENSION_DELETE);
 				rightBotJTextPane.validate();
 			}	
 		});
@@ -317,16 +317,16 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 						first=thislist.addNode(first,treeNodeName,100,50,nodeView.first);
 						righttopScrollPane.validate();
 					} catch (CloneNotSupportedException e1) {
-						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.setText(StableData.NODE_ADD_ERROR);
 						rightBotJTextPane.validate();
 					} catch (InstantiationException e1) {
-						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.setText(StableData.NODE_ADD_ERROR);
 						rightBotJTextPane.validate();
 					} catch (IllegalAccessException e1) {
-						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.setText(StableData.NODE_ADD_ERROR);
 						rightBotJTextPane.validate();
 					} catch (IOException e1) {
-						rightBotJTextPane.setText("节点添加失败~请重试。");
+						rightBotJTextPane.setText(StableData.NODE_ADD_ERROR);
 						rightBotJTextPane.validate();
 					}
 					rightBotJTextPane.setText("节点名："+"treeNodeName");
@@ -353,13 +353,13 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							node.thisFace.thisPanel.validate();
 							new OSGI_chansfer(node,first);
 						} catch (IOException e1) {
-							rightBotJTextPane.setText("节点配置失败~请重试。");
+							rightBotJTextPane.setText(StableData.NODE_UPDATE_ERROR);
 							rightBotJTextPane.validate();
 						} 
 					}
 					node = node.next;
 				}	
-				rightBotJTextPane.setText("配置成功~");
+				rightBotJTextPane.setText(StableData.NODE_UPDATE_SUCCESS);
 				rightBotJTextPane.validate();
 			}
 		}); 
@@ -373,16 +373,16 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 						try {
 							node.thisFace.execute(rightBotJTextPane);
 						} catch (FileNotFoundException e1) {
-							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.setText(StableData.NODE_EXEC_ERROR);
 							rightBotJTextPane.validate();
 						} catch (IOException e1) {
-							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.setText(StableData.NODE_EXEC_ERROR);
 							rightBotJTextPane.validate();
 						} catch (UnsupportedAudioFileException e2) {
-							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.setText(StableData.NODE_EXEC_ERROR);
 							rightBotJTextPane.validate();
 						} catch (InterruptedException e3) {
-							rightBotJTextPane.setText("节点运行失败~请重试。");
+							rightBotJTextPane.setText(StableData.NODE_EXEC_ERROR);
 							rightBotJTextPane.validate();
 						}
 					}
@@ -411,7 +411,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 								node.thisFace.thisView.validate();
 							} catch (Exception e1) {
 								//e1.printStackTrace();
-								rightBotJTextPane.setText("节点查看失败，请重试~");
+								rightBotJTextPane.setText(StableData.NODE_INSPECT_ERROR);
 								rightBotJTextPane.validate();
 							}  
 						}else{
@@ -420,7 +420,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					}
 					node=node.next;
 				}	
-				rightBotJTextPane.setText("显示成功~");
+				rightBotJTextPane.setText(StableData.NODE_INDICATE_SUCCESS);
 				rightBotJTextPane.validate();
 			}
 		}); 
