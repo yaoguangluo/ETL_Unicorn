@@ -17,8 +17,8 @@ public class SaveAndUpdateFile{
 		//create file and save
 		try {
 			FileWriter fileWriter= new FileWriter(fileSavepath);
-			LinkNode node = first;
-			while(node!=null) {
+			LinkNode node= first;
+			while(null!= node) {
 				//挨个取。没难度。逐个把信息写入文件。
 				//节点坐标，节点名， 节点关联，
 				String NodeCoordinationX= ""+ node.x;

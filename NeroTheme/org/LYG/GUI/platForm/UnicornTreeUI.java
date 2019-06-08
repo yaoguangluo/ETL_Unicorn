@@ -11,12 +11,15 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-
 import javax.swing.JComponent;
 import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.*;
 import javax.swing.tree.TreePath;
+/**  
+ * jdk 开源插件作者进行2次修改。不在个人著作申请范围内。
+ * @author LYG refer JDK authors from SUN Tech，。
+ */
 /**
  * The metal look and feel implementation of <code>TreeUI</code>.
  * <p>

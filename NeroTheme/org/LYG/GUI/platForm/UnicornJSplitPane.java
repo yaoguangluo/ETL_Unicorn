@@ -1,9 +1,12 @@
 package org.LYG.GUI.platForm;
 import java.awt.Rectangle;
-
 import javax.swing.JSplitPane;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
+/**  
+ * jdk 开源插件作者进行2次修改。不在个人著作申请范围内。
+ * @author LYG refer JDK authors from SUN Tech，。
+ */
 public class UnicornJSplitPane extends JSplitPane {
 	private static final long serialVersionUID = 1L;
 	private int dividerDragSize = 3;

@@ -19,8 +19,9 @@ import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 /**  
- * @author lyg refer jdk arthors from sum tech，。
- */  
+ * jdk 开源插件作者进行2次修改。不在个人著作申请范围内。
+ * @author LYG refer JDK authors from SUN Tech，。
+ */ 
 public class UnicornSplitPaneUI extends BasicSplitPaneUI {   
 	public UnicornSplitPaneUI() {   
 		super();   

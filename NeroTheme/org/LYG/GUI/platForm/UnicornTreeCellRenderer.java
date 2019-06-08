@@ -2,6 +2,10 @@ package org.LYG.GUI.platForm;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.tree.*;
+/**  
+ * jdk 开源插件作者进行2次修改。不在个人著作申请范围内。
+ * @author LYG refer JDK authors from SUN Tech，。
+ */
 public class UnicornTreeCellRenderer extends DefaultTreeCellRenderer {
 	private static final long serialVersionUID = 1L;
 	public Component getTreeCellRendererComponent(JTree tree, Object value,boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) { 

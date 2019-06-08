@@ -99,7 +99,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			e1.printStackTrace();
 		}
 		nodeProject.setBounds(0, 0, leftSplitPane.getWidth(), leftSplitPane.getDividerLocation());
-		nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance(nodeProject.getWidth()
+		nodeProject.jPanel.newimg= nodeProject.img.getScaledInstance(nodeProject.getWidth()
 				, nodeProject.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		nodeProject.jPanel.update(getGraphics());
 		nodeProject.validate();

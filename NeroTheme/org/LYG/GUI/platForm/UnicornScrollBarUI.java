@@ -9,7 +9,10 @@ import javax.swing.JComponent;
 import javax.swing.JScrollBar;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicScrollBarUI ;
-
+/**  
+ * jdk 开源插件作者进行2次修改。不在个人著作申请范围内。
+ * @author LYG refer JDK authors from SUN Tech，。
+ */
 public final class UnicornScrollBarUI extends BasicScrollBarUI {
 		public Dimension getPreferredSize(JComponent c) {
 			return (scrollbar.getOrientation() == JScrollBar.VERTICAL)
