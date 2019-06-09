@@ -1,10 +1,10 @@
 # 🔥 Deta ETL AI workflow tool software for data mining piple line operations /德塔人工智能数据分析ETL可重用节点工作流处理软件引擎系统。 
-#  <<100%属于(首创)个人著作权 引擎系统>>
-# 皮肤系统 3%借鉴Sun Tech的开源组件皮肤实例(拖标样式，Jtree样式和分割板样式)。 
-# 皮肤系统 神经元皮肤 灵感思想来自牛顿教授linkedin发布的各种脑科图片。
-# 节点系统 的文件命名规则 采用 Knime的节点包命名规则(配置，执行，查看)), （该规则世界主流分析软件通用）。
-## Deta ETL AI workflow tool software for data mining piple line operations include theme system.  /德塔人工智能数据分析ETL 可重用节点工作流处理软件带皮肤系统。 
 ## 这个工程用于节点数据工作流执行。该软件的亮点为：启动快，效率高，操作简单，结构轻，网页嵌入，执行快，二次开发简易，自由修改源码实现各种风格。
+### <<100%属于(首创)个人著作权 引擎系统>>
+### 皮肤系统 3%借鉴Sun Tech的开源组件皮肤实例(拖标样式，Jtree样式和分割板样式)。 
+### 皮肤系统 神经元皮肤 灵感思想来自牛顿教授linkedin发布的各种脑科图片。
+### 节点系统 的文件命名规则 采用 Knime的节点包命名规则(配置，执行，查看)), （该规则世界主流分析软件通用）。
+
 ##### ![实例](http://progressed.io/bar/30)正完善功能  算法整体优化。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能 快速链接弧线箭头带精度自适应未优化版。Mr.Yaoguang 20190306
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025704_0b677f81_5008798.png)
