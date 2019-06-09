@@ -26,7 +26,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 		this.text= text;
 		this.tableData_old= tableData_old;
 		link = new LinkOSGI();
-		first = new OSGI_rigester(this.tableData_old, this.text).Rigester(first,link);
+		first = new OSGI_rigester(this.tableData_old, this.text).Rigester(first, link);
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Node");
 		treeModel = new DefaultTreeModel(root);
 		tree = new JTree(treeModel);
