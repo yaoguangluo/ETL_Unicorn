@@ -126,7 +126,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 
 	public void Registrar() {
 		load.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings({"resource", "static-access"})
+			@SuppressWarnings({"resource", StableData.TAG_STATIC_ACCESS})
 			public void actionPerformed(ActionEvent e) {
 				try {
 					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
@@ -419,11 +419,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				first=new Sort().sort(first);
 				node=first;
 				while(node!=null){
-					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID&& node.primaryKey.equalsIgnoreCase(currentNodePrimaryKey) ){
+					if(node.name.equals(currentNodeName)&&node.ID== currentNodeID&& node.primaryKey.equalsIgnoreCase(currentNodePrimaryKey) ){
 						first= thislist.deletNode(first, node.name, node.ID, node.primaryKey);
 						new UpdateRelatedLine(first, currentNodeName, currentNodeID, currentNodePrimaryKey);
 					}
-					node=node.next;
+					node= node.next;
 				}	
 				canvas.repaint();
 			}

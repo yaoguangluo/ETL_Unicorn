@@ -7,7 +7,8 @@ public class CheckRange{
 		x= arg0.getX();
 		y= arg0.getY();
 		while(null != linkNode){
-			if((x>linkNode.x-20)&&(x<linkNode.x+100)&&(y>linkNode.y-100)&&(y<linkNode.y+16)&&(node.ID!=linkNode.ID)){
+			if((x>linkNode.x-20)&& (x<linkNode.x+100)&& (y>linkNode.y-100)&& (y<linkNode.y+16)
+					&& (!node.primaryKey.equalsIgnoreCase(linkNode.primaryKey))){
 				linkNode.beconnect= true;
 				linkNode.tBeconnect= true;
 				linkNode.tBeconnectX= node.x;
@@ -17,7 +18,8 @@ public class CheckRange{
 				linkNode.tBeconnetName= new String(node.name);
 				return;
 			}
-			if((x>linkNode.x-20)&&(x<linkNode.x+50)&&(y>linkNode.y+16)&&(y<linkNode.y+32)&&(node.ID!=linkNode.ID)){
+			if((x>linkNode.x-20)&& (x<linkNode.x+50)&& (y>linkNode.y+16)&& (y<linkNode.y+32)
+					&& (!node.primaryKey.equalsIgnoreCase(linkNode.primaryKey))){
 				linkNode.beconnect= true;
 				linkNode.mBeconnect= true;
 				linkNode.mBeconnectX= node.x;
@@ -27,7 +29,8 @@ public class CheckRange{
 				linkNode.mBeconnetName= new String(node.name);
 				return;
 			}	
-			if((x>linkNode.x-20)&&(x<linkNode.x+50)&&(y>linkNode.y+32)&&(y<linkNode.y+100)&&(node.ID!=linkNode.ID)){
+			if((x>linkNode.x-20)&& (x<linkNode.x+50)&& (y>linkNode.y+32)&& (y<linkNode.y+100)
+					&& (!node.primaryKey.equalsIgnoreCase(linkNode.primaryKey))){
 				linkNode.beconnect= true;
 				linkNode.dBeconnect= true;
 				linkNode.dBeconnectX= node.x;
