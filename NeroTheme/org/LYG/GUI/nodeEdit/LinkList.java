@@ -3,13 +3,13 @@ import java.io.IOException;
 
 import org.LYG.GUI.OSGI.*;
 public class LinkList{
-	int index=0;
+	int index= 0;
 	String key;
 	LinkNode first;
-	public int sum_of_nude=0;
+	public int sum_of_nude= 0;
 	public LinkList(){}
 	public boolean search(LinkNode linkNode,String key){
-		if(null == linkNode){
+		if(null== linkNode){
 			return false;
 		}
 		if(linkNode.name.equals(key)){

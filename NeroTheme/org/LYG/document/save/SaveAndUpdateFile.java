@@ -34,16 +34,20 @@ public class SaveAndUpdateFile{
 				String tBeconnectY= ""+ node.tBeconnectY;
 				String tBeconnetName= ""+ node.tBeconnetName;
 				String tBeconnectID= ""+ node.tBeconnectID;
+				String tBeconnectPrimaryKey= ""+ node.dBeconnectPrimaryKey;
 				String mBeconnect= ""+ node.mBeconnect;
 				String mBeconnectX= ""+ node.mBeconnectX;
 				String mBeconnectY= ""+ node.mBeconnectY;
 				String mBeconnetName= ""+ node.mBeconnetName;
 				String mBeconnectID= ""+ node.mBeconnectID;
+				String mBeconnectPrimaryKey= ""+ node.mBeconnectPrimaryKey;
 				String dBeconnect= ""+ node.dBeconnect;
 				String dBeconnectX= ""+ node.dBeconnectX;
 				String dBeconnectY= ""+ node.dBeconnectY;
 				String dBeconnetName= ""+ node.dBeconnetName;
 				String dBeconnectID= ""+ node.dBeconnectID;
+				String dBeconnectPrimaryKey= ""+ node.dBeconnectPrimaryKey;
+				String primaryKey= ""+ node.primaryKey;
 				String NodeConfiguration= "";
 				//≈‰÷√
 				fileWriter.write("\r\n");
@@ -73,6 +77,8 @@ public class SaveAndUpdateFile{
 				fileWriter.write("\r\n");
 				fileWriter.write("tBeconnectID:"+ tBeconnectID);
 				fileWriter.write("\r\n");
+				fileWriter.write("tBeconnectPrimaryKey:"+ tBeconnectPrimaryKey);
+				fileWriter.write("\r\n");
 				fileWriter.write("mBeconnect:"+ mBeconnect);
 				fileWriter.write("\r\n");
 				fileWriter.write("mBeconnectX:"+ mBeconnectX);
@@ -83,6 +89,8 @@ public class SaveAndUpdateFile{
 				fileWriter.write("\r\n");
 				fileWriter.write("mBeconnectID:"+ mBeconnectID);
 				fileWriter.write("\r\n");
+				fileWriter.write("mBeconnectPrimaryKey:"+ mBeconnectPrimaryKey);
+				fileWriter.write("\r\n");
 				fileWriter.write("dBeconnect:"+ dBeconnect);
 				fileWriter.write("\r\n");
 				fileWriter.write("dBeconnectX:"+ dBeconnectX);
@@ -92,6 +100,10 @@ public class SaveAndUpdateFile{
 				fileWriter.write("dBeconnetName:"+ dBeconnetName);
 				fileWriter.write("\r\n");
 				fileWriter.write("dBeconnectID:"+ dBeconnectID);
+				fileWriter.write("\r\n");
+				fileWriter.write("dBeconnectPrimaryKey:"+ dBeconnectPrimaryKey);
+				fileWriter.write("\r\n");
+				fileWriter.write("primaryKey:"+ primaryKey);
 				fileWriter.write("\r\n");
 				fileWriter.write("NodeConfiguration:"+ NodeConfiguration);
 				fileWriter.write("\r\n");

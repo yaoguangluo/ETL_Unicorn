@@ -31,6 +31,7 @@ public class LoadFile{
 					node.beconnect= currentNodeMap.containsKey("beconnect")? currentNodeMap.get("beconnect").contains("false")? false: true: false;
 					node.dBeconnect= currentNodeMap.containsKey("dBeconnect")? currentNodeMap.get("dBeconnect").contains("false")? false: true: false;
 					node.dBeconnectID= currentNodeMap.containsKey("dBeconnectID")?Integer.parseInt(currentNodeMap.get("dBeconnectID")):0;
+					node.dBeconnectPrimaryKey= currentNodeMap.containsKey("dBeconnectPrimaryKey")?currentNodeMap.get("dBeconnectPrimaryKey"):"null";
 					node.dBeconnectX= currentNodeMap.containsKey("dBeconnectX")? Integer.parseInt(currentNodeMap.get("dBeconnectX")):0;
 					node.dBeconnectY= currentNodeMap.containsKey("dBeconnectY")? Integer.parseInt(currentNodeMap.get("dBeconnectY")):0;
 					node.dBeconnetName= currentNodeMap.containsKey("dBeconnetName")? currentNodeMap.get("dBeconnetName"):"null";
@@ -39,6 +40,7 @@ public class LoadFile{
 					node.leftChoose= currentNodeMap.containsKey("leftChoose")? currentNodeMap.get("leftChoose").contains("false")? false: true: false;
 					node.mBeconnect= currentNodeMap.containsKey("mBeconnect")? currentNodeMap.get("mBeconnect").contains("false")? false: true: false;
 					node.mBeconnectID= currentNodeMap.containsKey("mBeconnectID")? Integer.parseInt(currentNodeMap.get("mBeconnectID")):0;
+					node.mBeconnectPrimaryKey= currentNodeMap.containsKey("mBeconnectPrimaryKey")? currentNodeMap.get("mBeconnectPrimaryKey"):"null";
 					node.mBeconnectX= currentNodeMap.containsKey("mBeconnectX")? Integer.parseInt(currentNodeMap.get("mBeconnectX")):0;
 					node.mBeconnectY= currentNodeMap.containsKey("mBeconnectY")? Integer.parseInt(currentNodeMap.get("mBeconnectY")):0;
 					node.mBeconnetName= currentNodeMap.containsKey("mBeconnetName")?currentNodeMap.get("mBeconnetName"):"null";
@@ -46,6 +48,8 @@ public class LoadFile{
 					node.rightChoose= currentNodeMap.containsKey("rightChoose")? currentNodeMap.get("rightChoose").contains("false")? false: true: false;
 					node.tBeconnect= currentNodeMap.containsKey("tBeconnect")? currentNodeMap.get("tBeconnect").contains("false")? false: true: false;
 					node.tBeconnectID= currentNodeMap.containsKey("tBeconnectID")? Integer.parseInt(currentNodeMap.get("tBeconnectID")):0;
+					node.tBeconnectPrimaryKey= currentNodeMap.containsKey("tBeconnectPrimaryKey")? currentNodeMap.get("tBeconnectPrimaryKey"):"null";
+					node.primaryKey= currentNodeMap.containsKey("primaryKey")? currentNodeMap.get("primaryKey"):"null";
 					node.tBeconnectX= currentNodeMap.containsKey("tBeconnectX")? Integer.parseInt(currentNodeMap.get("tBeconnectX")):0;
 					node.tBeconnectY= currentNodeMap.containsKey("tBeconnectY")? Integer.parseInt(currentNodeMap.get("tBeconnectY")):0;
 					node.tBeconnetName= currentNodeMap.containsKey("tBeconnetName")? currentNodeMap.get("tBeconnetName"):"null";

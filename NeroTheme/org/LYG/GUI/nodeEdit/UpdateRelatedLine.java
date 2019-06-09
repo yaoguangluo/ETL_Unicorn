@@ -2,28 +2,20 @@ package org.LYG.GUI.nodeEdit;
 public class UpdateRelatedLine{
 	public UpdateRelatedLine(LinkNode first, String currentNodeName, int currentNodeID){
 		first = new Sort().sort(first);
-		if(null != first){
-			if(first.tBeconnect&&first.tBeconnetName.equals(currentNodeName)&&first.tBeconnectID==currentNodeID){
+		while(null!= first) {
+			if(first.tBeconnect&& first.tBeconnetName.equals(currentNodeName)&& first.tBeconnectID==currentNodeID){
 				first.tBeconnect=false;
 			}
-			if(first.mBeconnect&&first.mBeconnetName.equals(currentNodeName)&&first.mBeconnectID==currentNodeID){
+			if(first.mBeconnect&& first.mBeconnetName.equals(currentNodeName)&& first.mBeconnectID==currentNodeID){
 				first.mBeconnect=false;
 			}
-			if(first.dBeconnect&&first.dBeconnetName.equals(currentNodeName)&&first.dBeconnectID==currentNodeID){
+			if(first.dBeconnect&& first.dBeconnetName.equals(currentNodeName)&& first.dBeconnectID==currentNodeID){
 				first.dBeconnect=false;
 			}
-			while(null != first.next){
-				first=first.next;
-				if(first.tBeconnect&&first.tBeconnetName.equals(currentNodeName)&&first.tBeconnectID==currentNodeID){
-					first.tBeconnect=false;
-				}
-				if(first.mBeconnect&&first.mBeconnetName.equals(currentNodeName)&&first.mBeconnectID==currentNodeID){
-					first.mBeconnect=false;
-				}
-				if(first.dBeconnect&&first.dBeconnetName.equals(currentNodeName)&&first.dBeconnectID==currentNodeID){
-					first.dBeconnect=false;
-				}
+			if(null== first.next) {
+				break;
 			}
+			first= first.next;
 		}
 	}
 }
