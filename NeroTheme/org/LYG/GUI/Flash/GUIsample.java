@@ -66,6 +66,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public int count= 0;
 	public String currentNodeName;
 	public int currentNodeID;
+	public String currentNodePrimaryKey;
 	public LinkList thislist;
 	public LinkNode first;
 	public int currentx, currenty;
@@ -124,11 +125,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	}
 
 	public void Registrar() {
-		//load
 		load.addActionListener(new java.awt.event.ActionListener() {
 			@SuppressWarnings({"resource", "static-access"})
 			public void actionPerformed(ActionEvent e) {
-				//get path
 				try {
 					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
 					int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_LOAD_ENSURE);
@@ -142,28 +141,23 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					filedialog.setVisible(true);
 					fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
 					System.out.println(fileCurrentpath);
-					//load file
 					if(null== fileCurrentpath|| fileCurrentpath.isEmpty()|| !fileCurrentpath.contains(StableData.FILE_FORMAT_ETL)) {
 						System.out.println(StableData.ATTENSION_RECHOICE);
 						return;
 					}
-					//load
 					File file= new File(fileCurrentpath);
 					if(!file.isFile()) {
 						System.out.println(StableData.ATTENSION_RECHOICE);
 						return;
 					}
-					//delete current ETL and fresh
 					LinkNode needDeleteNode= first;
 					while(needDeleteNode!= null) {
-						//挨个删除；
-						first= thislist.deletNode(first, needDeleteNode.name, needDeleteNode.ID);
+						first= thislist.deletNode(first, needDeleteNode.name, needDeleteNode.ID, needDeleteNode.primaryKey);
 						if(null== needDeleteNode.next) {
 							break;
 						}
 						needDeleteNode= needDeleteNode.next;
 					}
-					//然后刷新。
 					canvas.repaint();	
 					first= LoadFile.Load(first, nodeView, file, thislist);
 				}catch(Exception loadE) {
@@ -173,16 +167,15 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				righttopScrollPane.validate();
 			}
 		});
-		//save
 		save.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings({ "unused", "static-access" })
+			@SuppressWarnings({StableData.TAG_UNUSED, StableData.TAG_STATIC_ACCESS})
 			public void actionPerformed(ActionEvent e) {
 				if(null== fileCurrentpath) {
 					System.out.println(StableData.ATTENSION_UNCURRENT_CHOICE);
 					return;
 				}
-				javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_UPDATE_ENSURE+ fileCurrentpath + "？");
-				int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_UPDATE_ENSURE+ fileCurrentpath + "？");
+				javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_UPDATE_ENSURE+ fileCurrentpath + StableData.MARK_QUESTION);
+				int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_UPDATE_ENSURE+ fileCurrentpath + StableData.MARK_QUESTION);
 				if(0!= confirm) {
 					rightBotJTextPane.setText(StableData.ATTENSION_CANCELLED_OPERATION);
 					rightBotJTextPane.validate();
@@ -191,16 +184,15 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				SaveAndUpdateFile.update(fileCurrentpath, first);
 			}
 		});
-		//saveAs
 		saveAs.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings("unused")
+			@SuppressWarnings(StableData.TAG_UNUSED)
 			public void actionPerformed(ActionEvent e) {
 				SaveAsANewFile.Save(first);
 			}
 		});
 		//delete
 		delete.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings("static-access")
+			@SuppressWarnings(StableData.TAG_STATIC_ACCESS)
 			public void actionPerformed(ActionEvent e) {
 				try {
 					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_CANCEL_ENSURE);
@@ -210,18 +202,15 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 						rightBotJTextPane.validate();
 						return;
 					}
-					//delete current ETL and fresh
 					LinkNode node= first;
 					while(node!= null) {
-						//挨个删除；
-						first= thislist.deletNode(first, node.name, node.ID);
+						first= thislist.deletNode(first, node.name, node.ID, node.primaryKey);
 						if(null== node.next) {
 							break;
 						}
 						node= node.next;
 					}
 					node= node.next;
-					//然后刷新。
 					canvas.repaint();			
 				}catch(Exception E) {
 					canvas.repaint();
@@ -336,11 +325,11 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		});  
 		configre.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LinkNode node = new LinkNode();
-				first = new Sort().sort(first);
-				node = first;
-				while(node != null){
-					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
+				LinkNode node= new LinkNode();
+				first= new Sort().sort(first);
+				node= first;
+				while(node!= null){
+					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
 						try {
 							node.thisFace.config(rightBotJTextPane);
 							node.thisFace.thisPanel.setLocation(node.x, node.y);
@@ -352,7 +341,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							node.thisFace.thisPanel.setVisible(true);
 							node.thisFace.thisPanel.validate();
 							new OSGI_chansfer(node,first);
-						} catch (IOException e1) {
+						} catch (IOException e1){
 							rightBotJTextPane.setText(StableData.NODE_UPDATE_ERROR);
 							rightBotJTextPane.validate();
 						} 
@@ -369,7 +358,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				first= new Sort().sort(first);
 				node= first;
 				while(node!= null){
-					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID){
+					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
 						try {
 							node.thisFace.execute(rightBotJTextPane);
 						} catch (FileNotFoundException e1) {
@@ -388,7 +377,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					}
 					node=node.next;
 				}	
-				rightBotJTextPane.setText("运行成功~");
+				rightBotJTextPane.setText(StableData.NODE_EXEC_SUCCESS);
 				rightBotJTextPane.validate();
 			}
 		}); 
@@ -398,7 +387,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				first= new Sort().sort(first);
 				node= first;
 				while(node!= null){
-					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
 						if(!node.thisFace.showed){
 							try {
 								node.thisFace.view(rightBotJTextPane);
@@ -430,9 +419,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				first=new Sort().sort(first);
 				node=first;
 				while(node!=null){
-					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID){
-						first=thislist.deletNode(first, node.name,node.ID);
-						new UpdateRelatedLine(first,currentNodeName,currentNodeID);
+					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID&& node.primaryKey.equalsIgnoreCase(currentNodePrimaryKey) ){
+						first= thislist.deletNode(first, node.name, node.ID, node.primaryKey);
+						new UpdateRelatedLine(first, currentNodeName, currentNodeID, currentNodePrimaryKey);
 					}
 					node=node.next;
 				}	
@@ -445,7 +434,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				first=new Sort().sort(first);
 				node=first;
 				while(node!=null){
-					if(node.beconnect&&node.name.equals(currentNodeName)&&node.ID==currentNodeID){
+					if(node.beconnect&&node.name.equals(currentNodeName)&& node.ID==currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
 						node.beconnect=false;
 						node.tBeconnect=false;
 						node.mBeconnect=false;
@@ -457,7 +446,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			}
 		}); 
 	}	
-	public class thisCanvas extends JPanel implements MouseMotionListener, MouseListener,ItemListener,ActionListener,Runnable{
+	public class thisCanvas extends JPanel implements MouseMotionListener, MouseListener, ItemListener, ActionListener, Runnable{
 		private static final long serialVersionUID = 1L;
 		public thisCanvas(){
 			this.setLayout(null);
@@ -466,8 +455,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			this.start();
 			this.setOpaque(false);
 		}  
-		@SuppressWarnings("deprecation")
-
+		@SuppressWarnings(StableData.TAG_DEPRECATION)
 		public void run() {
 			while(true){   
 				try{
@@ -509,6 +497,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			LinkNode node= new ChooseCheck().chooseCheckNode(first, arg0);
 			currentNodeName = node.name;
 			currentNodeID = node.ID;
+			currentNodePrimaryKey = node.primaryKey;
 			rightBotJTextPane.setText("坐标位："+arg0.getX()+"|"+arg0.getY());
 			rightBotJTextPane.validate();
 		}
@@ -584,7 +573,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 				if(node.y > (this.getHeight()-100)){
 					node.y = this.getHeight()-100; 	
 				}
-				g.drawImage(node.thisFace.thisImage,node.x+19,node.y+12,this);
+				g.drawImage(node.thisFace.thisImage, node.x+19, node.y+12, this);
 				if(node.flash > 100){
 					node.flash = 0;
 				}

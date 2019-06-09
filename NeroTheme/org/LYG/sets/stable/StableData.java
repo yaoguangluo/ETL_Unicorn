@@ -16,5 +16,10 @@ public interface StableData {
 	public static final String NODE_EXEC_ERROR=	"节点运行失败~请重试。";
 	public static final String NODE_INSPECT_ERROR=	"节点查看失败，请重试~";
 	public static final String NODE_INDICATE_SUCCESS= "显示成功~";
+	public static final String NODE_EXEC_SUCCESS= "运行成功~";
+	public static final String TAG_DEPRECATION= "deprecation";
+	public static final String TAG_STATIC_ACCESS= "static-access";
+	public static final String TAG_UNUSED= "unused";
+	public static final String MARK_QUESTION= "？";
 	//......
 }

@@ -91,22 +91,22 @@ public class LinkList{
 		sum_of_nude++;
 		return linkNode;
 	} 
-	public LinkNode deletNode(LinkNode linkNode, String name,int ID){
+	public LinkNode deletNode(LinkNode linkNode, String name, int ID, String primaryKey){
 		if(null != linkNode){
-			if(linkNode.name.equals(name)&&linkNode.ID==ID){
-				if(null != linkNode.next){
-					linkNode = linkNode.next;
-					linkNode.pre = null;
+			if(linkNode.name.equals(name)&& linkNode.ID==ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
+				if(null!= linkNode.next){
+					linkNode= linkNode.next;
+					linkNode.pre= null;
 					return linkNode;	
 				}
-				if(null == linkNode.next){
-					linkNode=null;
+				if(null== linkNode.next){
+					linkNode= null;
 					return linkNode;	
 				}
 			}
 			while(null != linkNode.next){
 				linkNode = linkNode.next;
-				if(linkNode.name.equals(name)&&linkNode.ID==ID){
+				if(linkNode.name.equals(name)&& linkNode.ID==ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
 					if(null != linkNode.next){
 						@SuppressWarnings("unused")
 						LinkNode node =linkNode;
