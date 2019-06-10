@@ -6,7 +6,7 @@
 https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platForm
 ### 皮肤系统 神经元皮肤 灵感思想来自牛顿教授linkedin发布的各种脑科图片 注 如图 右下角 红色部分 神经细胞。
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025722_0e7e9c78_5008798.jpeg)
-### 节点系统 的文件命名规则 采用 Knime的节点包命名规则(配置，执行，查看)), （该规则世界主流分析软件通用）。
+### 节点系统 的文件命名规则 采用 Knime的节点包文件命名规则(配置，执行，查看 3个词语)), （该规则世界主流分析软件通用）。
 
 
 ## 项目进展
