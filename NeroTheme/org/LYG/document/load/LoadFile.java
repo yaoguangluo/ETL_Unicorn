@@ -12,8 +12,9 @@ import org.LYG.GUI.nodeEdit.LinkNode;
 import org.LYG.GUI.nodeEdit.Sort;
 import org.LYG.GUI.nodeView.NodeShow;
 //准备把响应事件移植到这里。
+import org.LYG.sets.stable.StableData;
 public class LoadFile{
-	@SuppressWarnings({"static-access", "resource"})
+	@SuppressWarnings({StableData.TAG_STATIC_ACCESS, StableData.TAG_RESOURCE})
 	public static LinkNode Load(LinkNode first, NodeShow nodeView, File file, LinkList thislist) {
 		//get path
 		try {

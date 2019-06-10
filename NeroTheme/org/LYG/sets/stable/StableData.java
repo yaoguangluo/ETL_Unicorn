@@ -21,5 +21,6 @@ public interface StableData {
 	public static final String TAG_STATIC_ACCESS= "static-access";
 	public static final String TAG_UNUSED= "unused";
 	public static final String MARK_QUESTION= "£¿";
+	public static final String TAG_RESOURCE= "resource";
 	//......
 }

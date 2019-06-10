@@ -15,13 +15,13 @@ public class arffTransferNodeRun extends ObjectRun{
 		System.out.println("runed" + value); 
 		System.out.println(toptablein.getModel().getValueAt(0, 0));
 		System.out.println("runed" + value);
-		File file = new File(filepath);  
+		File file= new File(filepath);  
 		file.createNewFile();
 		BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),"GBK"));  
-		arffLink link=new arffLink();
-		arffNode node=new arffNode();
+		arffLink link= new arffLink();
+		arffNode node= new arffNode();
 		wr.write("@relation "+"'ARFF'"+"\n");  
-		for(int i=0;i<toptablein.getModel().getColumnCount();i++){
+		for(int i= 0;i< toptablein.getModel().getColumnCount(); i++){
 			if(toptablein.getModel().getColumnName(i).contains("String")){
 				wr.write("@attribute " + "'" + toptablein.getModel().getColumnName(i) + i + "'" + " {");
 				for(int j=0; j<toptablein.getModel().getRowCount(); j++){

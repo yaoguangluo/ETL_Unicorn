@@ -12,7 +12,6 @@ import java.awt.event.MouseMotionListener;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JApplet;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
@@ -22,8 +21,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FileDialog;
 import java.awt.Frame;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
 import java.io.File;
@@ -36,11 +33,6 @@ import javax.swing.tree.TreePath;
 import org.LYG.GUI.extOSGI.OSGI_chansfer;
 import org.LYG.GUI.nodeEdit.LinkList;
 import org.LYG.GUI.nodeEdit.Sort;
-import org.LYG.GUI.nodeEdit.CheckRange;
-import org.LYG.GUI.nodeEdit.ChooseCheck;
-import org.LYG.GUI.nodeEdit.DrawArrow;
-import org.LYG.GUI.nodeEdit.DrawFlashSide;
-import org.LYG.GUI.nodeEdit.DynamicLineUpdater;
 import org.LYG.GUI.nodeEdit.LinkNode;
 import org.LYG.GUI.nodeEdit.UpdateRelatedLine;
 import org.LYG.GUI.nodeInfo.NodeInfo;
@@ -67,8 +59,8 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public String currentNodeName;
 	public int currentNodeID;
 	public String currentNodePrimaryKey;
-	public LinkList thislist;
-	public LinkNode first;
+	public LinkList first;
+//	public LinkNode first;
 	public int currentx, currenty;
 	public int choose= 0;
 	public int oldx, oldy;
@@ -86,7 +78,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 	public JScrollPane rightdownScrollPane;
 	public JScrollPane rightrightScrollPane;
 	public JTextPane rightBotJTextPane;
-	public thisCanvas canvas;
+	public ThisCanvas canvas;
 	public PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
 	public MenuItem save, saveAs, delete, load;
 	public MenuItem menuItem;
@@ -126,7 +118,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 
 	public void Registrar() {
 		load.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings({"resource", StableData.TAG_STATIC_ACCESS})
+			@SuppressWarnings({StableData.TAG_RESOURCE, StableData.TAG_STATIC_ACCESS})
 			public void actionPerformed(ActionEvent e) {
 				try {
 					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
@@ -150,16 +142,16 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 						System.out.println(StableData.ATTENSION_RECHOICE);
 						return;
 					}
-					LinkNode needDeleteNode= first;
+					LinkNode needDeleteNode= first.first;
 					while(needDeleteNode!= null) {
-						first= thislist.deletNode(first, needDeleteNode.name, needDeleteNode.ID, needDeleteNode.primaryKey);
+						first.first= first.deletNode(first.first, needDeleteNode.name, needDeleteNode.ID, needDeleteNode.primaryKey);
 						if(null== needDeleteNode.next) {
 							break;
 						}
 						needDeleteNode= needDeleteNode.next;
 					}
 					canvas.repaint();	
-					first= LoadFile.Load(first, nodeView, file, thislist);
+					first.first= LoadFile.Load(first.first, nodeView, file, first);
 				}catch(Exception loadE) {
 					loadE.printStackTrace();
 				}
@@ -181,13 +173,13 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 					rightBotJTextPane.validate();
 					return;
 				}
-				SaveAndUpdateFile.update(fileCurrentpath, first);
+				SaveAndUpdateFile.update(fileCurrentpath, first.first);
 			}
 		});
 		saveAs.addActionListener(new java.awt.event.ActionListener() {
 			@SuppressWarnings(StableData.TAG_UNUSED)
 			public void actionPerformed(ActionEvent e) {
-				SaveAsANewFile.Save(first);
+				SaveAsANewFile.Save(first.first);
 			}
 		});
 		//delete
@@ -202,9 +194,9 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 						rightBotJTextPane.validate();
 						return;
 					}
-					LinkNode node= first;
+					LinkNode node= first.first;
 					while(node!= null) {
-						first= thislist.deletNode(first, node.name, node.ID, node.primaryKey);
+						first.first= first.deletNode(first.first, node.name, node.ID, node.primaryKey);
 						if(null== node.next) {
 							break;
 						}
@@ -303,7 +295,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 			public void actionPerformed(ActionEvent e) {
 				if(treeNodeName!=null){
 					try {
-						first=thislist.addNode(first,treeNodeName,100,50,nodeView.first);
+						first.first= first.addNode(first.first, treeNodeName, 100, 50, nodeView.first);
 						righttopScrollPane.validate();
 					} catch (CloneNotSupportedException e1) {
 						rightBotJTextPane.setText(StableData.NODE_ADD_ERROR);
@@ -326,10 +318,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		configre.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node= new LinkNode();
-				first= new Sort().sort(first);
-				node= first;
+				first.first= new Sort().sort(first.first);
+				node= first.first;
 				while(node!= null){
-					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
+					if(node.name.equals(canvas.currentNodeName)&&node.ID == canvas.currentNodeID&& node.primaryKey.equals(canvas.currentNodePrimaryKey)){
 						try {
 							node.thisFace.config(rightBotJTextPane);
 							node.thisFace.thisPanel.setLocation(node.x, node.y);
@@ -340,13 +332,13 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							node.thisFace.thisPanel.setBackground(Color.BLUE);
 							node.thisFace.thisPanel.setVisible(true);
 							node.thisFace.thisPanel.validate();
-							new OSGI_chansfer(node,first);
+							new OSGI_chansfer(node, first.first);
 						} catch (IOException e1){
 							rightBotJTextPane.setText(StableData.NODE_UPDATE_ERROR);
 							rightBotJTextPane.validate();
 						} 
 					}
-					node = node.next;
+					node= node.next;
 				}	
 				rightBotJTextPane.setText(StableData.NODE_UPDATE_SUCCESS);
 				rightBotJTextPane.validate();
@@ -355,10 +347,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		run.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node= new LinkNode();
-				first= new Sort().sort(first);
-				node= first;
+				first.first= new Sort().sort(first.first);
+				node= first.first;
 				while(node!= null){
-					if(node.name.equals(currentNodeName)&&node.ID == currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
+					if(node.name.equals(canvas.currentNodeName)&&node.ID == canvas.currentNodeID&& node.primaryKey.equals(canvas.currentNodePrimaryKey)){
 						try {
 							node.thisFace.execute(rightBotJTextPane);
 						} catch (FileNotFoundException e1) {
@@ -375,7 +367,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 							rightBotJTextPane.validate();
 						}
 					}
-					node=node.next;
+					node= node.next;
 				}	
 				rightBotJTextPane.setText(StableData.NODE_EXEC_SUCCESS);
 				rightBotJTextPane.validate();
@@ -384,10 +376,10 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		show.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node= new LinkNode();
-				first= new Sort().sort(first);
-				node= first;
+				first.first= new Sort().sort(first.first);
+				node= first.first;
 				while(node!= null){
-					if(node.name.equals(currentNodeName)&&node.ID==currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
+					if(node.name.equals(canvas.currentNodeName)&&node.ID==canvas.currentNodeID&& node.primaryKey.equals(canvas.currentNodePrimaryKey)){
 						if(!node.thisFace.showed){
 							try {
 								node.thisFace.view(rightBotJTextPane);
@@ -416,12 +408,12 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		dnode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
-				first=new Sort().sort(first);
-				node=first;
+				first.first=new Sort().sort(first.first);
+				node=first.first;
 				while(node!=null){
-					if(node.name.equals(currentNodeName)&&node.ID== currentNodeID&& node.primaryKey.equalsIgnoreCase(currentNodePrimaryKey) ){
-						first= thislist.deletNode(first, node.name, node.ID, node.primaryKey);
-						new UpdateRelatedLine(first, currentNodeName, currentNodeID, currentNodePrimaryKey);
+					if(node.name.equals(canvas.currentNodeName)&&node.ID== canvas.currentNodeID&& node.primaryKey.equalsIgnoreCase(canvas.currentNodePrimaryKey) ){
+						first.first= first.deletNode(first.first, node.name, node.ID, node.primaryKey);
+						new UpdateRelatedLine(first.first, canvas.currentNodeName, canvas.currentNodeID, canvas.currentNodePrimaryKey);
 					}
 					node= node.next;
 				}	
@@ -431,195 +423,22 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		dline.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
-				first=new Sort().sort(first);
-				node=first;
+				first.first=new Sort().sort(first.first);
+				node=first.first;
 				while(node!=null){
-					if(node.beconnect&&node.name.equals(currentNodeName)&& node.ID==currentNodeID&& node.primaryKey.equals(currentNodePrimaryKey)){
+					if(node.beconnect&&node.name.equals(canvas.currentNodeName)&& node.ID==canvas.currentNodeID&& node.primaryKey.equals(canvas.currentNodePrimaryKey)){
 						node.beconnect=false;
 						node.tBeconnect=false;
 						node.mBeconnect=false;
 						node.dBeconnect=false;
 					}
-					node=node.next;
+					node= node.next;
 				}
 				canvas.repaint();
 			}
 		}); 
 	}	
-	public class thisCanvas extends JPanel implements MouseMotionListener, MouseListener, ItemListener, ActionListener, Runnable{
-		private static final long serialVersionUID = 1L;
-		public thisCanvas(){
-			this.setLayout(null);
-			this.addMouseListener(this);
-			this.addMouseMotionListener(this);
-			this.start();
-			this.setOpaque(false);
-		}  
-		@SuppressWarnings(StableData.TAG_DEPRECATION)
-		public void run() {
-			while(true){   
-				try{
-					Thread.sleep(1000);
-					this.updateUI();
-				}catch (InterruptedException e) {
-					threadApplet.destroy();
-				}
-			}      
-		}
-		public void start(){
-			if(threadApplet == null){
-				threadApplet =  new Thread(this);
-				threadApplet.start();
-			}
 
-		}
-		@SuppressWarnings("deprecation")
-		public void stop() {
-			threadApplet.destroy();
-		}
-
-		public void actionPerformed(ActionEvent arg0) {}
-
-		public void itemStateChanged(ItemEvent arg0) {}
-
-		public void mouseClicked(MouseEvent arg0) {}
-
-		public void mouseEntered(MouseEvent arg0) {}
-
-		public void mouseExited(MouseEvent arg0) {}
-
-		public void mousePressed(MouseEvent arg0) {
-			isOperation = 1;
-			oldx = arg0.getX();
-			oldy = arg0.getY();
-			currentx = arg0.getX();
-			currenty = arg0.getY();
-			LinkNode node= new ChooseCheck().chooseCheckNode(first, arg0);
-			currentNodeName = node.name;
-			currentNodeID = node.ID;
-			currentNodePrimaryKey = node.primaryKey;
-			rightBotJTextPane.setText("×ø±êÎ»£º"+arg0.getX()+"|"+arg0.getY());
-			rightBotJTextPane.validate();
-		}
-
-
-		public void mouseReleased(MouseEvent arg0){
-			isOperation = 0;
-			currentx = arg0.getX();
-			currenty = arg0.getY();
-			LinkNode node = first;
-			while(node != null){
-				if(node.rightChoose && !node.leftChoose){
-					if(oldx == arg0.getX()&&oldy == arg0.getY()){
-						nodeMenu.show(this, arg0.getX(), arg0.getY());
-					}
-					else{
-						new CheckRange(first, node,arg0);
-					}
-				}
-				node.setchoose(false);
-				node.rightChoose = false;
-				node = node.next;
-			}
-		}
-
-		public void mouseDragged(MouseEvent e) {
-			isOperation=1;
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e1) {
-				e1.printStackTrace();
-			}
-			currentx=e.getX();
-			currenty=e.getY();
-			first=new Sort().sort(first);
-			LinkNode node=first;
-			Graphics g = getGraphics();
-			Graphics2D g2 = (Graphics2D)g;
-			g2.setColor(Color.black);
-			while(null != node){
-				if(node.leftChoose&&!node.rightChoose){
-					node.setxy(e.getX(),e.getY());
-					new DynamicLineUpdater().exec(first,node);
-				}
-				if(!node.leftChoose&&node.rightChoose){	 
-					new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
-				}	
-				node=node.next;
-				this.update(g);
-				g.dispose();
-			}
-		}
-
-		public void mouseMoved(MouseEvent arg0) {
-		}
-
-		public void paint(Graphics g){
-			nodeView.validate();
-			Graphics2D g2 = (Graphics2D)g;
-			g2.clearRect(0, 0, this.getWidth(), this.getHeight());
-			first = new Sort().sort(first);
-			LinkNode node = first;
-			while(node != null){
-				if(node.x < 0){
-					node.x = 10;
-				}
-				if(node.x > (this.getWidth()-100)){
-					node.x = this.getWidth()-100; 	
-				}
-				if(node.y < 0){
-					node.y = 10;
-				}
-				if(node.y > (this.getHeight()-100)){
-					node.y = this.getHeight()-100; 	
-				}
-				g.drawImage(node.thisFace.thisImage, node.x+19, node.y+12, this);
-				if(node.flash > 100){
-					node.flash = 0;
-				}
-				if(0 == isOperation) {
-					new DrawFlashSide(g2, node.x, node.y, node.flash++ % 3);
-				}else {
-					new DrawFlashSide(g2, node.x, node.y, node.flash);
-				}
-				g2.setColor(Color.black);
-				g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);
-				g2.setColor(new	Color(25, 25, 112));
-				if(node.beconnect){
-					if(node.tBeconnect){
-						new DrawArrow(g2, node.tBeconnectX+62, node.tBeconnectY+28, node.x+14, node.y-6);
-						if(!node.leftChoose&&node.rightChoose){
-							g2.setColor(Color.black);
-							new DrawArrow(g2, oldx, oldy, currentx, currenty);
-							g2.setColor(new	Color(25,25,112));	
-						}
-					}
-					if(node.mBeconnect){
-						new DrawArrow(g2, node.mBeconnectX+62, node.mBeconnectY+28, node.x-4, node.y+25);
-						if(!node.leftChoose&&node.rightChoose){
-							g2.setColor(Color.black);
-							new DrawArrow(g2, oldx, oldy, currentx, currenty);
-							g2.setColor(new	Color(25,25,112));	
-						}
-					}
-					if(node.dBeconnect){
-						new DrawArrow(g2, node.dBeconnectX+62, node.dBeconnectY+28, node.x+6, node.y+55);
-						if(!node.leftChoose&&node.rightChoose)
-						{
-							g2.setColor(Color.black);
-							new DrawArrow(g2, oldx, oldy, currentx, currenty);
-							g2.setColor(new	Color(25,25,112));	
-						}
-					}
-				}else if(!node.leftChoose&&node.rightChoose){
-					g2.setColor(Color.black);
-					new DrawArrow(g2, oldx, oldy, currentx, currenty);
-					g2.setColor(new	Color(25, 25, 112));
-				}
-				node = node.next;
-			}
-		}	
-	}
 	public void init(){
 		try {
 			CreatMap();
@@ -650,7 +469,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		UIManager.put("ScrollBarUI", "org.LYG.GUI.platForm.UnicornScrollBarUI");
 		UIManager.put("TreeUI", "org.LYG.GUI.platForm.UnicornTreeUI");
 		currentNodeName= new String("");
-		thislist= new LinkList();
+		first= new LinkList();
 		nodeInfo= new NodeInfo();
 		nodeView= new NodeShow(this.tableData_old, this.text);
 		nodeView.tree.setBackground(Color.white);
@@ -673,23 +492,23 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		mainSplitPane.setRightComponent(rightSplitPane);
 		righttopSplitPane= new UnicornJSplitPane();
 		rightSplitPane.setLeftComponent(righttopSplitPane);
-		righttopScrollPane= new JScrollPane();
-		canvas= new thisCanvas();
+		rightBotJTextPane= new JTextPane();
+		rightBotJTextPane.setText("ÄãºÃ£¬Ç×~");
+		nodeMenu= new PopupMenu();
+		canvas= new ThisCanvas(threadApplet, first, nodeView, nodeMenu, rightBotJTextPane);
 		canvas.setPreferredSize(new Dimension(1500,1000));
 		canvas.setEnabled(true);
+		righttopScrollPane= new JScrollPane();
 		righttopScrollPane.setViewportView(canvas);
 		righttopSplitPane.setLeftComponent(righttopScrollPane);
 		rightrightScrollPane= new JScrollPane();
 		righttopSplitPane.setRightComponent(nodeInfo);
-		rightBotJTextPane= new JTextPane();
-		rightBotJTextPane.setText("ÄãºÃ£¬Ç×~");
 		rightdownScrollPane= new JScrollPane(rightBotJTextPane);
 		rightSplitPane.setRightComponent(rightdownScrollPane);
 		popupMenu= new PopupMenu();
 		menuItem= new MenuItem();
 		menuItem.setLabel("add");
 		popupMenu.add(menuItem);
-		nodeMenu= new PopupMenu();
 		configre= new MenuItem();
 		configre.setLabel("ÅäÖÃ");
 		run= new MenuItem();
@@ -720,6 +539,7 @@ public class GUIsample extends JApplet implements MouseMotionListener, MouseList
 		engineMenu.add(save);
 		engineMenu.add(saveAs);
 		engineMenu.add(delete);
+		
 		getContentPane().add(engineMenu);
 		getContentPane().setVisible(true);
 	}

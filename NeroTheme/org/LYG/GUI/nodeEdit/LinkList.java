@@ -5,10 +5,10 @@ import org.LYG.GUI.OSGI.*;
 public class LinkList{
 	int index= 0;
 	String key;
-	LinkNode first;
+	public LinkNode first;
 	public int sum_of_nude= 0;
 	public LinkList(){}
-	public boolean search(LinkNode linkNode,String key){
+	public boolean search(LinkNode linkNode, String key){
 		if(null== linkNode){
 			return false;
 		}
@@ -77,9 +77,9 @@ public class LinkList{
 				//linkNode=new linkNode();
 				LinkNode node = new LinkNode();
 				node.addName(treeNodeName, x, y, ++index);
-				node.thisFace = currentOSGI.currentFace.luoyaoguang();
-				node.pre = linkNode;
-				linkNode.next = node;
+				node.thisFace= currentOSGI.currentFace.luoyaoguang();
+				node.pre= linkNode;
+				linkNode.next= node;
 				sum_of_nude ++;
 				return linkNode;
 			}
@@ -92,8 +92,8 @@ public class LinkList{
 		return linkNode;
 	} 
 	public LinkNode deletNode(LinkNode linkNode, String name, int ID, String primaryKey){
-		if(null != linkNode){
-			if(linkNode.name.equals(name)&& linkNode.ID==ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
+		if(null!= linkNode){
+			if(linkNode.name.equals(name)&& linkNode.ID== ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
 				if(null!= linkNode.next){
 					linkNode= linkNode.next;
 					linkNode.pre= null;
@@ -104,23 +104,23 @@ public class LinkList{
 					return linkNode;	
 				}
 			}
-			while(null != linkNode.next){
+			while(null!= linkNode.next){
 				linkNode = linkNode.next;
-				if(linkNode.name.equals(name)&& linkNode.ID==ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
-					if(null != linkNode.next){
+				if(linkNode.name.equals(name)&& linkNode.ID== ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
+					if(null!= linkNode.next){
 						@SuppressWarnings("unused")
-						LinkNode node =linkNode;
-						linkNode=linkNode.next;
-						linkNode.pre=linkNode.pre.pre;
-						linkNode.pre.next=linkNode;
-						node=null;
-						linkNode=new Sort().sort(linkNode);
+						LinkNode node= linkNode;
+						linkNode= linkNode.next;
+						linkNode.pre= linkNode.pre.pre;
+						linkNode.pre.next= linkNode;
+						node= null;
+						linkNode= new Sort().sort(linkNode);
 						return linkNode;		
 					}
-					if(null == linkNode.next){
-						linkNode=linkNode.pre;
-						linkNode.next=null;
-						linkNode=new Sort().sort(linkNode);
+					if(null== linkNode.next){
+						linkNode= linkNode.pre;
+						linkNode.next= null;
+						linkNode= new Sort().sort(linkNode);
 						return linkNode;				
 					}
 				}
