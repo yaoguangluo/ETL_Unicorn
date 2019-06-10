@@ -5,7 +5,6 @@ public class ChooseCheck{
 	{}
 
 	public LinkNode chooseCheckNode(LinkNode first, MouseEvent arg0) {
-		//first = new Sort().sort(first);
 		LinkNode node = first;
 		int x,y;
 		while(null != node){

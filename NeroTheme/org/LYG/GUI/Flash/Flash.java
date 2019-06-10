@@ -5,7 +5,7 @@ public class Flash extends GUIsample{
 	@SuppressWarnings("deprecation")
 	public static void main(String args[]){
 		GUIsample NE = new GUIsample();
-		JFrame frame = new JFrame("Deta ETL 5.0");   
+		JFrame frame = new JFrame("Deta ETL 1.0.1");   
         frame.setLayout(null);   
         frame.resize(800, 440);   
         frame.show();         

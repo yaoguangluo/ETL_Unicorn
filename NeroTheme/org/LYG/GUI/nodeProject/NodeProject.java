@@ -12,17 +12,14 @@ public class NodeProject extends JScrollPane {
 	public MyPanel jPanel;
 	public Image img;
 	public NodeProject() {
-		images =new ImageIcon(this.getClass().getResource("LUO.jpg"));
-		img = images.getImage(); 
-		jPanel=new MyPanel();
+		images= new ImageIcon(this.getClass().getResource("LUO.jpg"));
+		img= images.getImage(); 
+		jPanel= new MyPanel();
 		jPanel.repaint();
 		// jPanel.setPreferredSize(new Dimension(200,200));
 		this.setViewportView(jPanel);
 	}
 	public class MyPanel extends JPanel {	
-		/**
-		 * 
-		 */
 		public Image newimg;
 		private static final long serialVersionUID = 1L;
 		public MyPanel(){

@@ -29,11 +29,10 @@ import org.LYG.GUI.nodeView.NodeShow;
 import org.LYG.GUI.platForm.UnicornJSplitPane;
 import org.LYG.sets.stable.StableData;
 
-public class ThisCanvas extends JPanel implements MouseMotionListener, MouseListener, ItemListener, ActionListener, Runnable{
-
+public class ThisCanvas extends JPanel implements MouseMotionListener, MouseListener, ItemListener
+, ActionListener, Runnable{
 	private static final long serialVersionUID = 1L;
 	public Thread threadApplet;
-
 	public String fileCurrentpath;
 	public int w, h;
 	public int flash= 0;

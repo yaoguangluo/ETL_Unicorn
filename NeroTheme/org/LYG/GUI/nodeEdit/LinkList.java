@@ -69,10 +69,10 @@ public class LinkList{
 				currentOSGI=currentOSGI.next;
 			}
 		}
-		while(null != linkNode.next){
+		while(null!= linkNode.next){
 			linkNode = linkNode.next;
 		}
-		while(null != currentOSGI){
+		while(null!= currentOSGI){
 			if(currentOSGI.thisName.equals(treeNodeName)){
 				//linkNode=new linkNode();
 				LinkNode node = new LinkNode();

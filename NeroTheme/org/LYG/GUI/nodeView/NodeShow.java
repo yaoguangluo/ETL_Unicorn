@@ -25,11 +25,11 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 	public NodeShow(Object[][] tableData_old, JTextPane text) throws IOException{	
 		this.text= text;
 		this.tableData_old= tableData_old;
-		link = new LinkOSGI();
-		first = new OSGI_rigester(this.tableData_old, this.text).Rigester(first, link);
+		link= new LinkOSGI();
+		first= new OSGI_rigester(this.tableData_old, this.text).Rigester(first, link);
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Node");
-		treeModel = new DefaultTreeModel(root);
-		tree = new JTree(treeModel);
+		treeModel= new DefaultTreeModel(root);
+		tree= new JTree(treeModel);
 		tree.setExpandsSelectedPaths(true);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.putClientProperty("JTree.lineStyle" , "Horizontal");  

@@ -2,8 +2,8 @@ package org.LYG.GUI.nodeEdit;
 import java.awt.*;
 public class DrawArrow{
 	public DrawArrow(Graphics2D g2, int x, int y, int connectX, int connectY) {
-		x += 10;
-		connectX -= 10;
+		x+= 10;
+		connectX-= 10;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
 		drawCurve(g2, x, y, connectX, connectY, 6);
 		DrawSinLine.drawHead(connectX-8, connectY-3, g2);
@@ -20,7 +20,7 @@ public class DrawArrow{
 			boolean firstTime= true;
 			if(signOfPointX == 1) {
 				for(int c = 0, i = x; i < connectX - 16; c+= 8, i+= 8) {
-					double registerY = y + signOfPointYWithaverageOfDistanceY * c  + scale * Math.sin(averageOfDistanceY * c / 6);
+					double registerY = y + signOfPointYWithaverageOfDistanceY * c + scale * Math.sin(averageOfDistanceY * c / 6);
 					g2.drawLine(i, true== firstTime? (int)registerY: (int)oldRegisterY , i+8, (int)registerY);
 					oldRegisterY= registerY;
 					firstTime= false;
