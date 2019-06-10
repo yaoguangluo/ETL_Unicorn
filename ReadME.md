@@ -10,6 +10,7 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 
 ###### 作者感谢德国康斯坦茨大学 Knime 项目组。为作者提供了ETL知识 与其 年轻时启蒙基础。并永久承诺该项目的闭源商业应用10%的综合权益赠与 Knime 项目组。
 ###### 作者感谢英国牛津大学 牛顿霍华德教授。并永久承诺该项目的闭源商业应用3%的综合权益赠与牛顿霍华德教授。
+###### 作者感谢 Sun Tech (被甲骨文公司收购) JDK控件开发组。并永久承诺该项目的闭源商业应用1%的综合权益赠与JDK控件开发组。
 
 ## 项目进展
 ##### ![实例](http://progressed.io/bar/30)正完善功能  算法整体优化。
