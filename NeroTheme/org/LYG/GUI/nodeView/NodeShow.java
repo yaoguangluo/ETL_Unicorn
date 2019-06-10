@@ -37,19 +37,16 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 		UnicornTreeCellRenderer myCellRenderer = new UnicornTreeCellRenderer();  
 		myCellRenderer.setFont(new Font("Serif", Font.ITALIC, 12));
 		tree.setCellRenderer(myCellRenderer);
-
 		DefaultMutableTreeNode BI = new DefaultMutableTreeNode("BI");
 		DefaultMutableTreeNode SOUND = new DefaultMutableTreeNode("SOUND");
 		DefaultMutableTreeNode IMAGE = new DefaultMutableTreeNode("IMAGE");
 		DefaultMutableTreeNode MOVIE = new DefaultMutableTreeNode("MOVIE");
-
 		root.add(BI);
 		root.add(SOUND);	
 		root.add(IMAGE);	
 		root.add(MOVIE);
-
-		if(first!=null){
-			if(first.currentFace.position == null){
+		while(null!= first){
+			if(null== first.currentFace.position){
 				JLabel label;
 				label = new JLabel();
 				label.setIcon(first.thisIcon);
@@ -97,62 +94,12 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
 				root.add(node);
 			}
-
-			while(first.next!=null) {
-				first=first.next;
-
-				if(first.currentFace.position==null){
-					JLabel label;
-					label=new JLabel();
-					label.setIcon(first.thisIcon);
-					label.setText(first.thisName);
-					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
-					root.add(node);
-				}
-				else if(first.currentFace.position.equals("BI")){
-					JLabel label;
-					label=new JLabel();
-					label.setIcon(first.thisIcon);
-					label.setText(first.thisName);
-					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
-					BI.add(node);
-				}
-				else if(first.currentFace.position.equals("SOUND")){
-					JLabel label;
-					label=new JLabel();
-					label.setIcon(first.thisIcon);
-					label.setText(first.thisName);
-					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
-					SOUND.add(node);
-				}
-				else if(first.currentFace.position.equals("MOVIE")){
-					JLabel label;
-					label=new JLabel();
-					label.setIcon(first.thisIcon);
-					label.setText(first.thisName);
-					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
-					MOVIE.add(node);
-				}
-				else if(first.currentFace.position.equals("IMAGE")){
-					JLabel label;
-					label=new JLabel();
-					label.setIcon(first.thisIcon);
-					label.setText(first.thisName);
-					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
-					IMAGE.add(node);
-				}
-				else{
-					JLabel label;
-					label=new JLabel();
-					label.setIcon(first.thisIcon);
-					label.setText(first.thisName);
-					DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
-					root.add(node);
-				}
+			if(null== first.next) {
+				break;
 			}
+			first=first.next;
 		}	
-		this.setViewportView(tree);
-		//add(tree);	
+		this.setViewportView(tree);	
 	}	
 	public void actionPerformed(ActionEvent e) {
 	}

@@ -6,7 +6,7 @@ public class DrawArrow{
 		connectX-= 10;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
 		drawCurve(g2, x, y, connectX, connectY, 6);
-		DrawSinLine.drawHead(connectX-8, connectY-3, g2);
+		DrawSinLine.drawHead(connectX- 8, connectY- 3, g2);
 	}
 
 	private void drawCurve(Graphics2D g2, int x, int y, int connectX, int connectY, double scale) {

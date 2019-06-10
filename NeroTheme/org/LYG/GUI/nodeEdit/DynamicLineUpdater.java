@@ -2,7 +2,7 @@ package org.LYG.GUI.nodeEdit;
 public class DynamicLineUpdater{
 	public void exec(LinkNode first,LinkNode node){
 		LinkNode linkNode= first;
-		while(null != linkNode) {
+		while(null!= linkNode) {
 			if(linkNode.primaryKey.equalsIgnoreCase(node.tBeconnectPrimaryKey)){
 				node.tBeconnectX= linkNode.x;
 				node.tBeconnectY= linkNode.y;
@@ -29,7 +29,7 @@ public class DynamicLineUpdater{
 			}
 			linkNode= linkNode.next; 
 		}
-		linkNode = null;
+		linkNode= null;
 	}
 	public DynamicLineUpdater() {
 	}

@@ -71,7 +71,7 @@ public class arffTransferNodeRun extends ObjectRun{
 		System.out.println("畠何頼撹。。。。。。。。");  
 		wr.flush();  
 		wr.close(); 	  
-		thisView.tableout=toptablein;
+		thisView.tableout= toptablein;
 		//thisView.out=new JTable(content,spec); 	
 	}
 }

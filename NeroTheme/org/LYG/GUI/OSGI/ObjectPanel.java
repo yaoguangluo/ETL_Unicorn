@@ -4,8 +4,8 @@ import java.awt.ScrollPane;
 
 import javax.swing.JFrame;
 public class ObjectPanel extends JFrame implements Cloneable{
-	private static final long serialVersionUID = 1L;
-	public boolean close = false;
+	private static final long serialVersionUID= 1L;
+	public boolean close= false;
 	public ObjectPanel addr;
 	public ScrollPane jsp;
 	public String textPane;

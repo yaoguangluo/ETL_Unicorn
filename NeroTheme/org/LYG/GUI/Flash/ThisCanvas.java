@@ -111,16 +111,16 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public void mouseExited(MouseEvent arg0) {}
 
 	public void mousePressed(MouseEvent arg0) {
-		isOperation = 1;
-		oldx = arg0.getX();
-		oldy = arg0.getY();
-		currentx = arg0.getX();
-		currenty = arg0.getY();
+		isOperation= 1;
+		oldx= arg0.getX();
+		oldy= arg0.getY();
+		currentx= arg0.getX();
+		currenty= arg0.getY();
 		LinkNode node= new ChooseCheck().chooseCheckNode(first.first, arg0);
-		currentNodeName = node.name;
-		currentNodeID = node.ID;
-		currentNodePrimaryKey = node.primaryKey;
-		rightBotJTextPane.setText("坐标位："+arg0.getX()+"|"+arg0.getY());
+		currentNodeName= node.name;
+		currentNodeID= node.ID;
+		currentNodePrimaryKey= node.primaryKey;
+		rightBotJTextPane.setText("坐标位："+ arg0.getX()+ "|"+ arg0.getY());
 		rightBotJTextPane.validate();
 	}
 
@@ -237,7 +237,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 				new DrawArrow(g2, oldx, oldy, currentx, currenty);
 				g2.setColor(new	Color(25, 25, 112));
 			}
-			node = node.next;
+			node= node.next;
 		}
 	}	
 }

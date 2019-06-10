@@ -60,7 +60,6 @@ public class GUIsample extends JApplet implements MouseMotionListener
 	public int currentNodeID;
 	public String currentNodePrimaryKey;
 	public LinkList first;
-//	public LinkNode first;
 	public int currentx, currenty;
 	public int choose= 0;
 	public int oldx, oldy;

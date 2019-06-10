@@ -15,10 +15,10 @@ public class LinkList{
 		if(linkNode.name.equals(key)){
 			return true;
 		}
-		while(null != linkNode.next){
-			linkNode=linkNode.next;
+		while(null!= linkNode.next){
+			linkNode= linkNode.next;
 			if(linkNode.name.equals(key)){
-				while(null != linkNode.pre){
+				while(null!= linkNode.pre){
 					linkNode=linkNode.pre;
 				}
 				return true;

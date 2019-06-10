@@ -14,18 +14,18 @@ public class ObjectInterface implements Cloneable{
 	public ObjectRun thisRun;
 	public ObjectView thisView;
 	public ObjectInterface thisInterface;
-	public boolean showed = false;
+	public boolean showed= false;
 	public ObjectInterface luoyaoguang() throws CloneNotSupportedException
 	, IOException  {
 		return thisInterface;   
 	}
 	public ObjectInterface(){
-		thisIcon = null;
-		thisImage = null;
-		thisName = null;
-		thisPanel = new ObjectPanel();
-		thisRun = new ObjectRun();
-		thisView = new ObjectView();	
+		thisIcon= null;
+		thisImage= null;
+		thisName= null;
+		thisPanel= new ObjectPanel();
+		thisRun= new ObjectRun();
+		thisView= new ObjectView();	
 	}
 	public void config(JTextPane rightBotJTextPane) throws IOException{
 	}

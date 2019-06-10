@@ -1,7 +1,7 @@
 package org.LYG.GUI.nodeView;
 public class CacuString {
 	public String cauString(String tr){
-		String currentstr = new String("");
+		String currentString = new String("");
 		if(tr.equals("Node")){return null;}
 		char[] a = new char[tr.length()];
 		for(int i = 0;i < tr.length(); i++) {
@@ -10,11 +10,11 @@ public class CacuString {
 		for(int i = 0;i < tr.length(); i++){
 			if(a[i] == 't' && a[i + 1] == 'e' && a[i + 2] == 'x' && a[i + 3] == 't'){
 				for(int j = i + 5; a[j] != ','; j++){
-					currentstr = currentstr + a[j];   
+					currentString = currentString + a[j];   
 				}
-				return currentstr;
+				return currentString;
 			}
 		}
-		return currentstr;
+		return currentString;
 	}
 }
