@@ -29,8 +29,8 @@ import org.LYG.GUI.nodeView.NodeShow;
 import org.LYG.GUI.platForm.UnicornJSplitPane;
 import org.LYG.sets.stable.StableData;
 
-public class ThisCanvas extends JPanel implements MouseMotionListener, MouseListener, ItemListener
-, ActionListener, Runnable{
+public class ThisCanvas extends JPanel implements MouseMotionListener
+, MouseListener, ItemListener, ActionListener, Runnable{
 	private static final long serialVersionUID = 1L;
 	public Thread threadApplet;
 	public String fileCurrentpath;
@@ -63,7 +63,8 @@ public class ThisCanvas extends JPanel implements MouseMotionListener, MouseList
 	public MenuItem menuItem;
 	public MenuItem configre, run, show, dnode, dline;
 
-	public ThisCanvas(Thread threadApplet, LinkList first, NodeShow nodeView, PopupMenu nodeMenu, JTextPane rightBotJTextPane){
+	public ThisCanvas(Thread threadApplet, LinkList first, NodeShow nodeView
+			, PopupMenu nodeMenu, JTextPane rightBotJTextPane){
 		this.setLayout(null);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
@@ -225,8 +226,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener, MouseList
 				}
 				if(node.dBeconnect){
 					new DrawArrow(g2, node.dBeconnectX+ 62, node.dBeconnectY+ 28, node.x+ 6, node.y+ 55);
-					if(!node.leftChoose&& node.rightChoose)
-					{
+					if(!node.leftChoose&& node.rightChoose){
 						g2.setColor(Color.black);
 						new DrawArrow(g2, oldx, oldy, currentx, currenty);
 						g2.setColor(new	Color(25, 25, 112));	

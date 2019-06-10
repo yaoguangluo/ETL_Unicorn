@@ -26,9 +26,10 @@ public class LinkList{
 		}
 		return false;
 	}
-	
+
 	public LinkNode addNodeOnlyWithFace(LinkNode linkNode, NodeOSGI nOSGI) 
-			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
+			throws CloneNotSupportedException, InstantiationException
+			, IllegalAccessException, IOException {
 		NodeOSGI currentOSGI= nOSGI;
 		while(null!= currentOSGI && null!= currentOSGI.pre){
 			currentOSGI= currentOSGI.pre;
@@ -48,9 +49,10 @@ public class LinkList{
 		sum_of_nude++;
 		return linkNode;
 	}
-	
+
 	public LinkNode addNode(LinkNode linkNode, String treeNodeName,int x,int y,NodeOSGI nOSGI ) 
-			throws CloneNotSupportedException, InstantiationException, IllegalAccessException, IOException {
+			throws CloneNotSupportedException, InstantiationException, IllegalAccessException
+			, IOException {
 		NodeOSGI currentOSGI= nOSGI;
 		while(null!= currentOSGI && null!= currentOSGI.pre){
 			currentOSGI= currentOSGI.pre;
@@ -93,7 +95,8 @@ public class LinkList{
 	} 
 	public LinkNode deletNode(LinkNode linkNode, String name, int ID, String primaryKey){
 		if(null!= linkNode){
-			if(linkNode.name.equals(name)&& linkNode.ID== ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
+			if(linkNode.name.equals(name)&& linkNode.ID== ID
+					&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
 				if(null!= linkNode.next){
 					linkNode= linkNode.next;
 					linkNode.pre= null;
@@ -106,7 +109,8 @@ public class LinkList{
 			}
 			while(null!= linkNode.next){
 				linkNode = linkNode.next;
-				if(linkNode.name.equals(name)&& linkNode.ID== ID&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
+				if(linkNode.name.equals(name)&& linkNode.ID== ID
+						&& linkNode.primaryKey.equalsIgnoreCase(primaryKey)){
 					if(null!= linkNode.next){
 						@SuppressWarnings("unused")
 						LinkNode node= linkNode;

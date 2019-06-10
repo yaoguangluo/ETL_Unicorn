@@ -24,7 +24,6 @@ public class NodeProject extends JScrollPane {
 		private static final long serialVersionUID = 1L;
 		public MyPanel(){
 			setLayout(null);
-			//newimg= img.getScaledInstance(200,100,java.awt.Image.SCALE_SMOOTH );
 		}
 		public void paint(Graphics g) {
 			((Graphics2D) g).drawImage(newimg, 0, 0, this);

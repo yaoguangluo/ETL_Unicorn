@@ -15,7 +15,8 @@ public class ObjectInterface implements Cloneable{
 	public ObjectView thisView;
 	public ObjectInterface thisInterface;
 	public boolean showed = false;
-	public ObjectInterface luoyaoguang() throws CloneNotSupportedException, IOException  {
+	public ObjectInterface luoyaoguang() throws CloneNotSupportedException
+	, IOException  {
 		return thisInterface;   
 	}
 	public ObjectInterface(){
@@ -28,7 +29,8 @@ public class ObjectInterface implements Cloneable{
 	}
 	public void config(JTextPane rightBotJTextPane) throws IOException{
 	}
-	public void execute(JTextPane rightBotJTextPane) throws FileNotFoundException, IOException, UnsupportedAudioFileException, InterruptedException{
+	public void execute(JTextPane rightBotJTextPane) throws FileNotFoundException
+	, IOException, UnsupportedAudioFileException, InterruptedException{
 	}
 	public void view(JTextPane rightBotJTextPane) throws Exception{
 	}

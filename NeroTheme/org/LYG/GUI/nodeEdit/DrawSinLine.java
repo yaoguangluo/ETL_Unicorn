@@ -24,7 +24,7 @@ public class DrawSinLine{
 			}
 		}
 	}
-	
+
 	public static void drawHead(int x0, int y0, Graphics2D g2) {
 		for(int y = 0; y < DrawArrowHead.neroShape.length; y++) {
 			for(int x = 0; x < DrawArrowHead.neroShape[0].length; x++) {

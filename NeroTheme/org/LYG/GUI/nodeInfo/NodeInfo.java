@@ -6,7 +6,8 @@ import javax.swing.*;
 @SuppressWarnings({"unchecked","rawtypes"})
 public class NodeInfo extends JScrollPane {
 	private static final long serialVersionUID= 866589699634559456L;
-	String[] countryStrings= {"china", "ca", "denmark", "fr", "genmany","india","norway","uk","us"};
+	String[] countryStrings= {"china", "ca", "denmark", "fr", "genmany"
+			, "india", "norway", "uk", "us"};
 	private ImageIcon[] images= { 
 			new ImageIcon(this.getClass().getResource("china.gif")),
 			new ImageIcon(this.getClass().getResource("us.gif")),
@@ -25,7 +26,8 @@ public class NodeInfo extends JScrollPane {
 		for (int i= 0; i< countryStrings.length; i++) {
 			intArray[i]= new Integer(i);
 			if (images[i]!= null) {
-				images[i].setImage(images[i].getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+				images[i].setImage(images[i].getImage().getScaledInstance
+						(50, 50, Image.SCALE_DEFAULT));
 				images[i].setDescription(countryStrings[i]);
 			}
 		}

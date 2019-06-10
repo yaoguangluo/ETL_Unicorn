@@ -1,5 +1,4 @@
 package org.LYG.sets.stable;
-
 public interface StableData {
 	public static final String ATTENSION_UNCURRENT_CHOICE= "当前没有选中文档。";
 	public static final String ATTENSION_UPDATE_ENSURE= "确认更新在该文档:";
@@ -22,5 +21,9 @@ public interface StableData {
 	public static final String TAG_UNUSED= "unused";
 	public static final String MARK_QUESTION= "？";
 	public static final String TAG_RESOURCE= "resource";
+	public static final String CONFIG_LOAD= "载入已有ETL";
+	public static final String CONFIG_UPDATE= "保存并更新当前ETL";
+	public static final String CONFIG_SAVE= "创建一个新的文档并保存";
+	public static final String CONFIG_DELETE= "删除当前ETL";
 	//......
 }

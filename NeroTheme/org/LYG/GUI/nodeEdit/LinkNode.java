@@ -51,12 +51,12 @@ public class LinkNode extends Thread{
 		dBeconnectID= 0;
 		primaryKey=""+ Math.random();
 	}
-	
+
 	public void setxy(int x1,int y1){
 		x= x1;
 		y= y1;
 	}
-	
+
 	public void setchoose(Boolean choose){
 		leftChoose= choose;
 	}
