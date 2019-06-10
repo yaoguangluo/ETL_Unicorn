@@ -68,5 +68,7 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025717_3005a67f_5008798.jpeg)
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025718_2bc2fb0f_5008798.jpeg)
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025722_0e7e9c78_5008798.jpeg)
+![实例](https://github.com/yaoguangluo/Deta_Medicine/blob/master/DETA%20medcine%2020190411-unicorn.jpg)
+
 
 作者：罗瑶光 20190310
