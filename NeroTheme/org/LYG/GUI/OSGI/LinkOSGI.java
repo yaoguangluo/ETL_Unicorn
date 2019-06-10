@@ -8,14 +8,14 @@ public class LinkOSGI{
 			currentNode.pre= null;
 			return currentNode;
 		}
-		while(currentNode.next!= null){
+		while(null!= currentNode.next){
 			currentNode= currentNode.next;
 		}
 		NodeOSGI node= new NodeOSGI();
 		node.addName(currentFace);
 		node.pre= currentNode;
 		currentNode.next= node;
-		while(currentNode.pre!= null){
+		while(null!= currentNode.pre){
 			currentNode= currentNode.pre;
 		}
 		return currentNode;

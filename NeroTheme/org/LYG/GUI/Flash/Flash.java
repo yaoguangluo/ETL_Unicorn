@@ -1,8 +1,9 @@
 package org.LYG.GUI.Flash;
 import javax.swing.JFrame;
+import org.LYG.sets.stable.StableData;
 public class Flash extends GUIsample{
 	private static final long serialVersionUID = 1L;
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings(StableData.TAG_DEPRECATION)
 	public static void main(String args[]){
 		GUIsample NE = new GUIsample();
 		JFrame frame = new JFrame("Deta ETL 1.0.2");   

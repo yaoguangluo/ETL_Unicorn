@@ -1,9 +1,10 @@
 package org.LYG.GUI.nodeInfo;
-import javax.swing.ImageIcon;
-import javax.swing.JScrollPane;
 import java.awt.*;
 import javax.swing.*;
-@SuppressWarnings({"unchecked","rawtypes"})
+import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+import org.LYG.sets.stable.StableData;
+@SuppressWarnings({StableData.TAG_UNCHECKED, StableData.TAG_RAW_TYPES})
 public class NodeInfo extends JScrollPane {
 	private static final long serialVersionUID= 866589699634559456L;
 	String[] countryStrings= {"china", "ca", "denmark", "fr", "genmany"

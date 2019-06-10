@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 public class NodeProject extends JScrollPane {
-	private static final long serialVersionUID = 866589699634559456L;
+	private static final long serialVersionUID= 866589699634559456L;
 	private ImageIcon images;
 	public Image newimg;
 	public MyPanel jPanel;

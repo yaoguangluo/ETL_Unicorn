@@ -4,20 +4,22 @@ import java.awt.Frame;
 import java.io.File;
 import java.io.FileWriter;
 import org.LYG.GUI.nodeEdit.LinkNode;
+import org.LYG.sets.stable.StableData;
+
 import comp.filenameFilter.TXTFilter;
 //准备把响应事件移植到这里。
 public class SaveAsANewFile{
 	public static void Save(LinkNode first) {
-		FileDialog filedialog= new FileDialog(new Frame(), "在当前文件夹下创建一个档案名", FileDialog.LOAD);
-		filedialog.setFilenameFilter(new TXTFilter(".etl"));
+		FileDialog filedialog= new FileDialog(new Frame(), StableData.DOC_CREATE, FileDialog.LOAD);
+		filedialog.setFilenameFilter(new TXTFilter(StableData.FILE_FORMAT_ETL));
 		filedialog.setVisible(true);
 		String fileSavepath= filedialog.getDirectory()+ filedialog.getFile();
 		System.out.println(fileSavepath);
-		if(new File(fileSavepath).isFile()&& fileSavepath.contains(".etl")) {
-			System.out.println("文档已经存在。");
+		if(new File(fileSavepath).isFile()&& fileSavepath.contains(StableData.FILE_FORMAT_ETL)) {
+			System.out.println(StableData.DOC_EXIST);
 			return;
 		}
-		fileSavepath= fileSavepath+ ".etl";
+		fileSavepath= fileSavepath+ StableData.FILE_FORMAT_ETL;
 		System.out.println(fileSavepath);
 		//create file and save
 		try {

@@ -15,7 +15,7 @@ public class ObjectView extends JFrame implements Cloneable{
 	public Panel jp;
 	public int h;
 	public int w;
-	public boolean close=false;
+	public boolean close= false;
 	public JTable tableout;
 	public Map<String, Integer> topMapOut;
 	public int[][] gout;

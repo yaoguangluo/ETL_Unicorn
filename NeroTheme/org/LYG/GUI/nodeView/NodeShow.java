@@ -37,10 +37,10 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 		UnicornTreeCellRenderer myCellRenderer = new UnicornTreeCellRenderer();  
 		myCellRenderer.setFont(new Font("Serif", Font.ITALIC, 12));
 		tree.setCellRenderer(myCellRenderer);
-		DefaultMutableTreeNode BI = new DefaultMutableTreeNode("BI");
-		DefaultMutableTreeNode SOUND = new DefaultMutableTreeNode("SOUND");
-		DefaultMutableTreeNode IMAGE = new DefaultMutableTreeNode("IMAGE");
-		DefaultMutableTreeNode MOVIE = new DefaultMutableTreeNode("MOVIE");
+		DefaultMutableTreeNode BI= new DefaultMutableTreeNode("BI");
+		DefaultMutableTreeNode SOUND= new DefaultMutableTreeNode("SOUND");
+		DefaultMutableTreeNode IMAGE= new DefaultMutableTreeNode("IMAGE");
+		DefaultMutableTreeNode MOVIE= new DefaultMutableTreeNode("MOVIE");
 		root.add(BI);
 		root.add(SOUND);	
 		root.add(IMAGE);	
@@ -51,7 +51,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				label = new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
-				DefaultMutableTreeNode node = new DefaultMutableTreeNode(label);
+				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
 				root.add(node);
 			}
 			else if(first.currentFace.position.equals("BI")){
@@ -59,7 +59,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				label=new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
-				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
+				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
 				BI.add(node);
 			}
 			else if(first.currentFace.position.equals("SOUND")){
@@ -67,7 +67,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				label=new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
-				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
+				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
 				SOUND.add(node);
 			}
 			else if(first.currentFace.position.equals("IMAGE")){
@@ -75,7 +75,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				label=new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
-				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
+				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
 				IMAGE.add(node);
 			}
 			else if(first.currentFace.position.equals("MOVIE")){
@@ -83,7 +83,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				label=new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
-				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
+				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
 				MOVIE.add(node);
 			}
 			else{
@@ -91,13 +91,13 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 				label=new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
-				DefaultMutableTreeNode node=new DefaultMutableTreeNode(label);
+				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
 				root.add(node);
 			}
 			if(null== first.next) {
 				break;
 			}
-			first=first.next;
+			first= first.next;
 		}	
 		this.setViewportView(tree);	
 	}	
