@@ -3,7 +3,7 @@ import java.awt.event.MouseEvent;
 public class CheckRange{
 	public CheckRange(LinkNode first, LinkNode node, MouseEvent arg0) {
 		LinkNode linkNode= first;
-		int x,y;
+		int x, y;
 		x= arg0.getX();
 		y= arg0.getY();
 		while(null!= linkNode){

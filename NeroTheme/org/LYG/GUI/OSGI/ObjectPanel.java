@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 public class ObjectPanel extends JFrame implements Cloneable{
 	private static final long serialVersionUID= 1L;
 	public boolean close= false;
-	public ObjectPanel addr;
-	public ScrollPane jsp;
+	public ObjectPanel objectPanel;
+	public ScrollPane scrollPane;
 	public String textPane;
-	public Panel jp;
+	public Panel panel;
 	public int h;
 	public int w;
 	protected ObjectPanel(){	
@@ -17,6 +17,6 @@ public class ObjectPanel extends JFrame implements Cloneable{
 	public void config() {	
 	}
 	public ObjectPanel luoyaoguang() {  
-		return addr;
+		return objectPanel;
 	}
 }

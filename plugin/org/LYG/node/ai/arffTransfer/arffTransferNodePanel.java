@@ -15,11 +15,11 @@ public class arffTransferNodePanel extends ObjectPanel{
 	private FileDialog filedialog;
 	public arffTransferNodePanel(final arffTransferNodeRun thisRun){
 		setLayout(null);
-		jsp = new ScrollPane();
-		add(jsp);
-		jp=new Panel();
-		jp.setLayout(null);
-		jp.setBackground(Color.white);
+		scrollPane = new ScrollPane();
+		add(scrollPane);
+		panel=new Panel();
+		panel.setLayout(null);
+		panel.setBackground(Color.white);
 		JButton button = new JButton("Finish");
 		button.setBounds(0, 0, 100, 30);
 		button.addActionListener(new ActionListener(){
@@ -29,7 +29,7 @@ public class arffTransferNodePanel extends ObjectPanel{
                 	thisRun.value=1;
             }
         });   
-		jp.add(button);
+		panel.add(button);
 		JButton readfile= new JButton("Write File");
 		readfile.setBounds(0, 35, 100, 65);
 		readfile.addActionListener(new ActionListener(){
@@ -40,8 +40,8 @@ public class arffTransferNodePanel extends ObjectPanel{
 			     System.out.println(thisRun.filepath);
 				}
 			});
-		jp.add(readfile);
-		jsp.add(jp);
+		panel.add(readfile);
+		scrollPane.add(panel);
 		close=false;
  	}
 	public void config(){    

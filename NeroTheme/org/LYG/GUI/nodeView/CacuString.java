@@ -1,5 +1,6 @@
 package org.LYG.GUI.nodeView;
 public class CacuString {
+	//因未加速计算，所以算子名不进行码农的修养化
 	public String cauString(String tr){
 		String currentString = new String("");
 		if(tr.equals("Node")){return null;}

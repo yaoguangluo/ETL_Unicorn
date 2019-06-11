@@ -81,7 +81,7 @@ public class GUIsample extends JApplet implements MouseMotionListener
 	public PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
 	public MenuItem save, saveAs, delete, load;
 	public MenuItem menuItem;
-	public MenuItem configre, run, show, dnode, dline;
+	public MenuItem configre, run, show, dNode, dLine;
 	public Thread thread, threadApplet; 
 	private JTextPane text;
 	private Object[][] tableData_old; 
@@ -337,9 +337,9 @@ public class GUIsample extends JApplet implements MouseMotionListener
 							node.thisFace.thisPanel.setLocation(node.x, node.y);
 							node.thisFace.thisPanel.setSize(300, 300);
 							node.thisFace.thisPanel.setResizable(true);
-							node.thisFace.thisPanel.jsp.setBounds(0, 0, node.thisFace.thisPanel.getWidth()-10
+							node.thisFace.thisPanel.scrollPane.setBounds(0, 0, node.thisFace.thisPanel.getWidth()-10
 									, node.thisFace.thisPanel.getHeight()-45);
-							node.thisFace.thisPanel.jp.setPreferredSize(new Dimension(800,600));
+							node.thisFace.thisPanel.panel.setPreferredSize(new Dimension(800, 600));
 							node.thisFace.thisPanel.setBackground(Color.BLUE);
 							node.thisFace.thisPanel.setVisible(true);
 							node.thisFace.thisPanel.validate();
@@ -419,7 +419,7 @@ public class GUIsample extends JApplet implements MouseMotionListener
 				rightBotJTextPane.validate();
 			}
 		}); 
-		dnode.addActionListener(new java.awt.event.ActionListener() {
+		dNode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
 				first.first=new Sort().sort(first.first);
@@ -436,7 +436,7 @@ public class GUIsample extends JApplet implements MouseMotionListener
 				canvas.repaint();
 			}
 		}); 
-		dline.addActionListener(new java.awt.event.ActionListener() {
+		dLine.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
 				first.first=new Sort().sort(first.first);
@@ -532,15 +532,15 @@ public class GUIsample extends JApplet implements MouseMotionListener
 		run.setLabel("运行");
 		show= new MenuItem();
 		show.setLabel("显示");
-		dnode= new MenuItem();
-		dnode.setLabel("删除该节");
-		dline= new MenuItem();
-		dline.setLabel("删除链接");
+		dNode= new MenuItem();
+		dNode.setLabel("删除该节");
+		dLine= new MenuItem();
+		dLine.setLabel("删除链接");
 		nodeMenu.add(configre);
 		nodeMenu.add(run);
 		nodeMenu.add(show);
-		nodeMenu.add(dnode);
-		nodeMenu.add(dline);  
+		nodeMenu.add(dNode);
+		nodeMenu.add(dLine);  
 		getContentPane().add(popupMenu);
 		getContentPane().add(nodeMenu);
 		engineMenu= new PopupMenu();

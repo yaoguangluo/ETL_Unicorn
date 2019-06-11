@@ -61,7 +61,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
 	public MenuItem save, saveAs, delete, load;
 	public MenuItem menuItem;
-	public MenuItem configre, run, show, dnode, dline;
+	public MenuItem configre, run, show, dNode, dLine;
 
 	public ThisCanvas(Thread threadApplet, LinkList first, NodeShow nodeView
 			, PopupMenu nodeMenu, JTextPane rightBotJTextPane){
