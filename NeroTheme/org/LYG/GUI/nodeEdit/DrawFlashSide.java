@@ -3,19 +3,19 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 public class DrawFlashSide{
 	public DrawFlashSide(Graphics2D g2, int x, int y, int flash) {	
-		if(0 >= flash){
+		if(0>= flash){
 			g2.setColor(Color.blue);
 			DrawSinLine.drawCosLine(x, y , g2);
 			g2.setColor(Color.pink);
 			DrawSinLine.drawSinLine(x, y , g2);
 		}
-		if(1 == flash){
+		if(1== flash){
 			g2.setColor(Color.ORANGE);
 			DrawSinLine.drawCosLine(x, y , g2);
 			g2.setColor(Color.blue);
 			DrawSinLine.drawSinLine(x, y , g2);
 		}
-		if(2 <= flash){
+		if(2<= flash){
 			g2.setColor(Color.ORANGE);
 			DrawSinLine.drawCosLine(x, y , g2);
 			g2.setColor(Color.RED);

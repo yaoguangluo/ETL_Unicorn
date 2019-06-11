@@ -19,8 +19,6 @@ public class arffTransferNodePanel extends ObjectPanel{
 		add(jsp);
 		jp=new Panel();
 		jp.setLayout(null);
-		
-		
 		jp.setBackground(Color.white);
 		JButton button = new JButton("Finish");
 		button.setBounds(0, 0, 100, 30);

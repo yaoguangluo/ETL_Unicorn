@@ -163,7 +163,7 @@ public class GUIsample extends JApplet implements MouseMotionListener
 			}
 		});
 		save.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings({StableData.TAG_UNUSED, StableData.TAG_STATIC_ACCESS})
+			@SuppressWarnings({StableData.TAG_STATIC_ACCESS})
 			public void actionPerformed(ActionEvent e) {
 				if(null== fileCurrentpath) {
 					System.out.println(StableData.ATTENSION_UNCURRENT_CHOICE);
@@ -182,7 +182,6 @@ public class GUIsample extends JApplet implements MouseMotionListener
 			}
 		});
 		saveAs.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings(StableData.TAG_UNUSED)
 			public void actionPerformed(ActionEvent e) {
 				SaveAsANewFile.Save(first.first);
 			}
