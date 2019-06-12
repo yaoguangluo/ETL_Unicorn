@@ -55,7 +55,7 @@ public class SaveAsANewFile{
 				String dBeconnectID= ""+ node.dBeconnectID;
 				String dBeconnectPrimaryKey= ""+ node.dBeconnectPrimaryKey;
 				String primaryKey= ""+ node.primaryKey;
-				String NodeConfiguration= "";
+				String nodeConfiguration= ""+ node.nodeConfiguration;
 				//≈‰÷√
 				fileWriter.write("\r\n");
 				fileWriter.write("NodeCoordinationX:"+ NodeCoordinationX);
@@ -112,7 +112,7 @@ public class SaveAsANewFile{
 				fileWriter.write("\r\n");
 				fileWriter.write("primaryKey:"+ primaryKey);
 				fileWriter.write("\r\n");
-				fileWriter.write("NodeConfiguration:"+ NodeConfiguration);
+				fileWriter.write("nodeConfiguration:"+ nodeConfiguration);
 				fileWriter.write("\r\n");
 				//∑÷∏Ó
 				String split="##############################";

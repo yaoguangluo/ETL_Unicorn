@@ -102,10 +102,10 @@ public class GUISample extends JApplet implements MouseMotionListener
 				Thread.sleep(1000);
 				this.validate();
 			}catch (InterruptedException e) {}
-			//repaint();
+			this.validate();
 		}      
 	}
-	
+
 	public void start(){
 		if(thread == null){
 			thread =  new Thread(this);
@@ -259,21 +259,20 @@ public class GUISample extends JApplet implements MouseMotionListener
 			public void componentHidden(ComponentEvent arg0) {}
 			public void componentMoved(ComponentEvent arg0) {}
 			public void componentResized(ComponentEvent arg0) {
-				w=getContentPane().getWidth();
-				h=getContentPane().getHeight();
-				mainSplitPane.setBounds(10, 50, w-20, h-80);
+				w= getContentPane().getWidth();
+				h= getContentPane().getHeight();
+				mainSplitPane.setBounds(10, 50, w- 20, h- 80);
 				mainSplitPane.setDividerLocation(0.11);
 				leftSplitPane.setDividerLocation(0.25);
 				rightSplitPane.setDividerLocation(0.85);
 				righttopSplitPane.setDividerLocation(0.9);
-				nodeProject.setBounds(0, 0,mainSplitPane.getDividerLocation()
+				nodeProject.setBounds(0, 0, mainSplitPane.getDividerLocation()
 						, leftSplitPane.getDividerLocation());
 				nodeProject.jPanel.newimg = nodeProject.img.getScaledInstance
 						(nodeProject.getWidth(), nodeProject.getHeight()
 								, java.awt.Image.SCALE_SMOOTH );
 				nodeProject.jPanel.repaint();
 				nodeProject.validate();
-
 				mainSplitPane.validate();
 				System.out.println(w + "<>" + h);
 			}
@@ -391,7 +390,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 				first.first= new Sort().sort(first.first);
 				node= first.first;
 				while(node!= null){
-					if(node.name.equals(canvas.currentNodeName)&&node.ID==canvas.currentNodeID
+					if(node.name.equals(canvas.currentNodeName)&&node.ID== canvas.currentNodeID
 							&& node.primaryKey.equals(canvas.currentNodePrimaryKey)){
 						if(!node.thisFace.showed){
 							try {

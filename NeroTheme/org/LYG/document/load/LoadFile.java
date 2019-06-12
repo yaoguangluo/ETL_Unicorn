@@ -54,6 +54,7 @@ public class LoadFile{
 					node.tBeconnectX= currentNodeMap.containsKey("tBeconnectX")? Integer.parseInt(currentNodeMap.get("tBeconnectX")):0;
 					node.tBeconnectY= currentNodeMap.containsKey("tBeconnectY")? Integer.parseInt(currentNodeMap.get("tBeconnectY")):0;
 					node.tBeconnetName= currentNodeMap.containsKey("tBeconnetName")? currentNodeMap.get("tBeconnetName"):"null";
+					node.nodeConfiguration= currentNodeMap.containsKey("nodeConfiguration")? currentNodeMap.get("nodeConfiguration"):"null";
 					node.x= currentNodeMap.containsKey("NodeCoordinationX")? Integer.parseInt(currentNodeMap.get("NodeCoordinationX")):0;
 					node.y= currentNodeMap.containsKey("NodeCoordinationY")? Integer.parseInt(currentNodeMap.get("NodeCoordinationY")):0;
 					node= thislist.addNodeOnlyWithFace(node, nodeView.first);
