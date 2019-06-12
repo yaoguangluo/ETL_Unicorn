@@ -3,10 +3,10 @@ import org.LYG.GUI.nodeEdit.Sort;
 import org.LYG.GUI.nodeEdit.LinkNode;
 public class OSGI_chansfer {
 	public OSGI_chansfer(LinkNode node, LinkNode first){
-		first = new Sort().sort(first);
-		LinkNode linkNode = new LinkNode();
-		linkNode = first;
-		while(null != linkNode){
+		first= new Sort().sort(first);
+		LinkNode linkNode= new LinkNode();
+		linkNode= first;
+		while(null!= linkNode){
 			if(node.tBeconnect&&node.tBeconnectID== linkNode.ID&&node.tBeconnetName.equals(linkNode.name)
 					&& (node.tBeconnectPrimaryKey.equalsIgnoreCase(linkNode.primaryKey))){
 				node.thisFace.thisRun.toptablein = linkNode.thisFace.thisView.tableout;
@@ -25,7 +25,7 @@ public class OSGI_chansfer {
 				node.thisFace.thisRun.downgin = linkNode.thisFace.thisView.gout;
 				return;
 			}	
-			if(null != linkNode.next){
+			if(null!= linkNode.next){
 				break;
 			}
 			linkNode=linkNode.next;

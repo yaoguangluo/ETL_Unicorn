@@ -37,6 +37,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public int w, h;
 	public int flash= 0;
 	public int count= 0;
+	public int mouseDirection= 0;
 	public String currentNodeName;
 	public int currentNodeID;
 	public String currentNodePrimaryKey;
@@ -95,7 +96,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		}
 
 	}
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings(StableData.TAG_DEPRECATION)
 	public void stop() {
 		threadApplet.destroy();
 	}
@@ -126,13 +127,13 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 
 
 	public void mouseReleased(MouseEvent arg0){
-		isOperation = 0;
-		currentx = arg0.getX();
-		currenty = arg0.getY();
-		LinkNode node = first.first;
-		while(node != null){
+		isOperation= 0;
+		currentx= arg0.getX();
+		currenty= arg0.getY();
+		LinkNode node= first.first;
+		while(null!= node){
 			if(node.rightChoose && !node.leftChoose){
-				if(oldx == arg0.getX()&&oldy == arg0.getY()){
+				if(oldx== arg0.getX()&&oldy == arg0.getY()){
 					nodeMenu.show(this, arg0.getX(), arg0.getY());
 				}
 				else{
@@ -140,34 +141,42 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 				}
 			}
 			node.setchoose(false);
-			node.rightChoose = false;
-			node = node.next;
+			node.rightChoose= false;
+			node= node.next;
 		}
 	}
 
+	@SuppressWarnings(StableData.TAG_STATIC_ACCESS)
 	public void mouseDragged(MouseEvent e) {
-		isOperation=1;
+		isOperation= 1;
 		try {
-			Thread.sleep(100);
+			Thread.sleep(32);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
 		currentx= e.getX();
 		currenty= e.getY();
-		first.first= new Sort().sort(first.first);
 		LinkNode node= first.first;
 		Graphics g= getGraphics();
 		Graphics2D g2= (Graphics2D)g;
 		g2.setColor(Color.black);
-		while(null!= node){
-			if(node.leftChoose&& !node.rightChoose){
-				node.setxy(e.getX(), e.getY());
-				new DynamicLineUpdater().exec(first.first, node);
+		if(0!= (e.getModifiers() & e.BUTTON1_MASK)) { //这mask是jdk定理
+			mouseDirection= 0;
+			while(null!= node){
+				if(node.leftChoose&& !node.rightChoose){
+					node.setxy(e.getX(), e.getY());
+					new DynamicLineUpdater().exec(first.first, node);
+				}
+				node= node.next;
 			}
-			if(!node.leftChoose&&node.rightChoose){	 
-				new DrawArrow(g2,oldx, oldy, e.getX(), e.getY());
-			}	
-			node= node.next;
+			this.update(g);
+			g.dispose();
+		}
+		if(0!= (e.getModifiers() & e.BUTTON3_MASK)) {//这mask是jdk定理
+			mouseDirection= 1;
+			while(null!= node){
+				node= node.next;
+			}
 			this.update(g);
 			g.dispose();
 		}
@@ -179,7 +188,8 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public void paint(Graphics g){
 		nodeView.validate();
 		Graphics2D g2= (Graphics2D)g;
-		g2.clearRect(0, 0, this.getWidth(), this.getHeight());
+		g.clearRect(0, 0, this.getWidth(), this.getHeight());
+		//获取节点大小面
 		first.first = new Sort().sort(first.first);
 		LinkNode node= first.first;
 		while(node!= null){
@@ -192,17 +202,17 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 			if(node.y < 0){
 				node.y = 10;
 			}
-			if(node.y > (this.getHeight()-100)){
-				node.y = this.getHeight()-100; 	
-			}
+			if(node.y> (this.getHeight()-100)){
+				node.y= this.getHeight()-100; 	
+			}			
 			g.drawImage(node.thisFace.thisImage, node.x+19, node.y+12, this);
-			if(node.flash > 100){
+			if(node.flash> 100){
 				node.flash = 0;
 			}
 			if(0 == isOperation) {
-				new DrawFlashSide(g2, node.x, node.y, node.flash++ % 3);
+				new DrawFlashSide().drawFlashSide(g2, node.x, node.y, node.flash++ % 3);
 			}else {
-				new DrawFlashSide(g2, node.x, node.y, node.flash);
+				new DrawFlashSide().drawFlashSide(g2, node.x, node.y, node.flash);
 			}
 			g2.setColor(Color.black);
 			g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);

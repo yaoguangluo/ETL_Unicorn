@@ -46,10 +46,10 @@ import org.LYG.document.save.SaveAsANewFile;
 import org.LYG.sets.stable.StableData;
 
 import comp.filenameFilter.TXTFilter;
-public class GUIsample extends JApplet implements MouseMotionListener
+public class GUISample extends JApplet implements MouseMotionListener
 , MouseListener, ItemListener, ActionListener, Runnable{	
-	private static final long serialVersionUID = 5270675501794340912L;
-	public GUIsample() {
+	private static final long serialVersionUID= 5270675501794340912L;
+	public GUISample() {
 		getContentPane().setBackground(new Color(255,255,255));
 	}
 	public String fileCurrentpath;
@@ -118,7 +118,7 @@ public class GUIsample extends JApplet implements MouseMotionListener
 
 	public void Registrar() {
 		load.addActionListener(new java.awt.event.ActionListener() {
-			@SuppressWarnings({StableData.TAG_RESOURCE, StableData.TAG_STATIC_ACCESS})
+			@SuppressWarnings({StableData.TAG_STATIC_ACCESS})
 			public void actionPerformed(ActionEvent e) {
 				try {
 					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
