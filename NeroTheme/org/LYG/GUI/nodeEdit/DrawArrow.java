@@ -18,18 +18,22 @@ public class DrawArrow{
 		double signOfPointYWithaverageOfDistanceY= averageOfDistanceY* signOfPointY;
 		double oldRegisterY= 0;
 		boolean firstTime= true;
-		if(signOfPointX== 1) {
+		if(1== signOfPointX) {
+			double registerY = y;
+			int endX=x;
 			for(int c = 0, i = x; i < connectX- 16; c+= 8, i+= 8) {
-				double registerY= y+ signOfPointYWithaverageOfDistanceY* c+ scale 
+				registerY= y+ signOfPointYWithaverageOfDistanceY* c+ scale 
 						* Math.sin(averageOfDistanceY* c/ 6);
 				g2.drawLine(i, true== firstTime? (int)registerY: (int)oldRegisterY
 						, i+ 8, (int)registerY);
 				oldRegisterY= registerY;
+				endX= i+ 8;
 				firstTime= false;
 			}
+			g2.drawLine(endX, (int)registerY, connectX-8, connectY);
 			return;
 		}	
-		if(signOfPointX== -1) {
+		if(-1== signOfPointX) {
 			for(int c= 0, i= x; i> connectX+ 2; c+= 8, i-= 8) {
 				double registerY= y+ signOfPointYWithaverageOfDistanceY* c+ scale 
 						* Math.sin(averageOfDistanceY* c/ 6 );
