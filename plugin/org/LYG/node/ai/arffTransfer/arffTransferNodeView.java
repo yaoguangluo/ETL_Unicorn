@@ -14,9 +14,9 @@ public class arffTransferNodeView extends ObjectView{
 	public arffTransferNodeView(){
 	}
 	public void view(){
-		jsp = new ScrollPane();
-		jp=new Panel();
-		jp.setBackground(Color.yellow);	
+		scrollPane = new ScrollPane();
+		panel=new Panel();
+		panel.setBackground(Color.yellow);	
 		//
 		JScrollPane j=new JScrollPane();
 		tableout.setBackground(new Color(240, 128, 128));
@@ -24,14 +24,14 @@ public class arffTransferNodeView extends ObjectView{
 		tableout.setVisible(true);
 		j.setViewportView(tableout);
 		//
-		jp.add(j);
-		jsp.add(jp);
-		add(jsp);
+		panel.add(j);
+		scrollPane.add(panel);
+		add(scrollPane);
 		close=false;
 	}
 	@Override  
 	public ObjectView clone() {   
-		addr = (ObjectView)super.clone();  
-		return addr;  
+		objectView = (ObjectView)super.clone();  
+		return objectView;  
 	}  
 }

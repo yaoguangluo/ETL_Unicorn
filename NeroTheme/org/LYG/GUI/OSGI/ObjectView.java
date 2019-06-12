@@ -10,9 +10,9 @@ import javax.swing.JTable;
 
 public class ObjectView extends JFrame implements Cloneable{
 	private static final long serialVersionUID = 1L;
-	public ObjectView addr;
-	public ScrollPane jsp;
-	public Panel jp;
+	public ObjectView objectView;
+	public ScrollPane scrollPane;
+	public Panel panel;
 	public int h;
 	public int w;
 	public boolean close= false;
@@ -28,6 +28,6 @@ public class ObjectView extends JFrame implements Cloneable{
 	public void view() throws Exception{
 	}
 	public ObjectView clone() {  	
-		return addr;  
+		return objectView;  
 	}  
 }

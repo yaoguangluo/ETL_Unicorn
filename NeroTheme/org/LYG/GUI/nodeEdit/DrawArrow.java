@@ -20,7 +20,7 @@ public class DrawArrow{
 		boolean firstTime= true;
 		if(1== signOfPointX) {
 			double registerY = y;
-			int endX=x;
+			int endX= x;
 			for(int c = 0, i = x; i < connectX- 16; c+= 8, i+= 8) {
 				registerY= y+ signOfPointYWithaverageOfDistanceY* c+ scale 
 						* Math.sin(averageOfDistanceY* c/ 6);

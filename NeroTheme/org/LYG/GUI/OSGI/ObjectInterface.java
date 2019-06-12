@@ -10,6 +10,7 @@ public class ObjectInterface implements Cloneable{
 	public Image thisImage;
 	public String thisName;
 	public String position; 
+	public String nodeConfiguration;
 	public ObjectPanel thisPanel;
 	public ObjectRun thisRun;
 	public ObjectView thisView;
@@ -28,6 +29,10 @@ public class ObjectInterface implements Cloneable{
 		thisView= new ObjectView();	
 	}
 	public void config(JTextPane rightBotJTextPane) throws IOException{
+		//准备增加检查 nodeConfiguration 是否有配置
+		//如果有，就自动配置，没有就弹出面板来操作配置。
+		//写自动配置的 JSON String to MAP 函数 来取操作数 
+		//罗瑶光注释：20190612
 	}
 	public void execute(JTextPane rightBotJTextPane) throws FileNotFoundException
 	, IOException, UnsupportedAudioFileException, InterruptedException{

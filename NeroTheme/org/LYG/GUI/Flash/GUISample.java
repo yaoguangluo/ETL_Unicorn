@@ -215,7 +215,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 				rightBotJTextPane.validate();
 			}	
 		});
-		
+
 		leftSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
@@ -398,9 +398,9 @@ public class GUISample extends JApplet implements MouseMotionListener
 								node.thisFace.thisView.setLocation(node.x, node.y);
 								node.thisFace.thisView.setSize(500, 500);
 								node.thisFace.thisView.setResizable(true);
-								node.thisFace.thisView.jsp.setBounds(0, 0, node.thisFace.thisPanel.getWidth()-10
+								node.thisFace.thisView.scrollPane.setBounds(0, 0, node.thisFace.thisPanel.getWidth()-10
 										, node.thisFace.thisPanel.getHeight()-45);
-								node.thisFace.thisView.jp.setPreferredSize(new Dimension(800,600));
+								node.thisFace.thisView.panel.setPreferredSize(new Dimension(800,600));
 								node.thisFace.thisView.setVisible(true);
 								node.thisFace.thisView.validate();
 							} catch (Exception e1) {
