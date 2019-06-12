@@ -132,7 +132,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		currenty= arg0.getY();
 		LinkNode node= first.first;
 		while(null!= node){
-			if(node.rightChoose && !node.leftChoose){
+			if(node.rightChoose&& !node.leftChoose){
 				if(oldx== arg0.getX()&&oldy == arg0.getY()){
 					nodeMenu.show(this, arg0.getX(), arg0.getY());
 				}
@@ -177,7 +177,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		nodeView.validate();
 		Graphics2D g2= (Graphics2D)g;
 		g2.clearRect(0, 0, this.getWidth(), this.getHeight());
-		first.first = new Sort().sort(first.first);
+		first.first= new Sort().sort(first.first);
 		LinkNode node= first.first;
 		while(node!= null){
 			if(node.x< 0){
@@ -186,35 +186,35 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 			if(node.x> (this.getWidth()-100)){
 				node.x= this.getWidth()-100; 	
 			}
-			if(node.y < 0){
-				node.y = 10;
+			if(node.y< 0){
+				node.y= 10;
 			}
-			if(node.y> (this.getHeight()-100)){
-				node.y= this.getHeight()-100; 	
+			if(node.y> (this.getHeight()- 100)){
+				node.y= this.getHeight()- 100; 	
 			}			
 			g.drawImage(node.thisFace.thisImage, node.x+19, node.y+12, this);
 			if(node.flash> 100){
-				node.flash = 0;
+				node.flash= 0;
 			}
-			if(0 == isOperation) {
+			if(0== isOperation) {
 				new DrawFlashSide().drawFlashSide(g2, node.x, node.y, node.flash++ % 3);
 			}else {
 				new DrawFlashSide().drawFlashSide(g2, node.x, node.y, node.flash);
 			}
 			g2.setColor(Color.black);
-			g.drawString(node.name + "->" + node.ID,node.x - 5, node.y-20);
+			g.drawString(node.name+ "->" +node.ID, node.x- 5, node.y- 20);
 			g2.setColor(new	Color(25, 25, 112));
 			if(node.beconnect){
 				if(node.tBeconnect){
-					new DrawArrow(g2, node.tBeconnectX+62, node.tBeconnectY+28, node.x+14, node.y-6);
-					if(!node.leftChoose&&node.rightChoose){
+					new DrawArrow(g2, node.tBeconnectX+ 62, node.tBeconnectY+ 28, node.x+ 14, node.y- 6);
+					if(!node.leftChoose&& node.rightChoose){
 						g2.setColor(Color.black);
 						new DrawArrow(g2, oldx, oldy, currentx, currenty);
-						g2.setColor(new	Color(25,25,112));	
+						g2.setColor(new	Color(25, 25, 112));	
 					}
 				}
 				if(node.mBeconnect){
-					new DrawArrow(g2, node.mBeconnectX+62, node.mBeconnectY+28, node.x-4, node.y+25);
+					new DrawArrow(g2, node.mBeconnectX+ 62, node.mBeconnectY+ 28, node.x- 4, node.y+ 25);
 					if(!node.leftChoose&& node.rightChoose){
 						g2.setColor(Color.black);
 						new DrawArrow(g2, oldx, oldy, currentx, currenty);
