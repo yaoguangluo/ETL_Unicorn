@@ -54,7 +54,7 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  异常提示功能区
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  ETL 删除功能 实现。20190604
 ##### ![实例](http://progressed.io/bar/85?title=completed)正完善功能 带单例运行记录，保存，载入，刷新。删除, 其他的流整体档案操作ok了，只差配置执行数据了。 20190606
-##### ![实例](http://progressed.io/bar/66?title=completed)正完善功能 《码农的修养》格式化中。。。。
+##### ![实例](http://progressed.io/bar/67?title=completed)正完善功能 《码农的修养》格式化中。。。。
 ##### 未完善功能 batch 批处理
 ##### 未完善功能 集成更多的weka 和 R 
 ##### 未完善功能 删除功能进行美观化。
