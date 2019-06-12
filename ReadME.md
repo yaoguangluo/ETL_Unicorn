@@ -53,16 +53,16 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  规范编程变量名称。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  异常提示功能区
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  ETL 删除功能 实现。20190604
-##### ![实例](http://progressed.io/bar/85?title=completed)正完善功能 带单例运行记录，保存，载入，刷新。删除, 其他的流整体档案操作ok了，只差配置执行数据了。 20190606
-##### ![实例](http://progressed.io/bar/67?title=completed)正完善功能 《码农的修养》格式化中。。。。
-##### 未完善功能 batch 批处理
+##### ![实例](http://progressed.io/bar/88?title=completed)正完善功能 带单例运行记录，保存，载入，刷新。删除, 其他的流整体档案操作ok了，只差配置执行数据了。 20190606
+##### ![实例](http://progressed.io/bar/68?title=completed)正完善功能 《码农的修养》格式化中。。。。
+##### 未完善功能 batch 批处理（不再做这CMD功能， 以后做 TinShell）
+##### 未完善功能 一键执行功能
+##### 未完善功能 最近100次节点配置记录流程进行 时间操作。
 ##### 未完善功能 集成更多的weka 和 R 
 ##### 未完善功能 删除功能进行美观化。
 ##### 未完善功能 多国语言。
 ##### 未完善功能 基于这个etl 软件 开发商业版，把我的照片去掉，换成开源无版权的独角兽图片。
 ##### 未完善功能 osgi 注册模式修改为文件 扫描注册。
-##### 未完善功能 存档 取档
-
 
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025716_f7c52c54_5008798.png)
 ![实例](https://images.gitee.com/uploads/images/2019/0604/025717_3005a67f_5008798.jpeg)
