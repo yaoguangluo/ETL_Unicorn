@@ -146,7 +146,6 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		}
 	}
 
-	@SuppressWarnings(StableData.TAG_STATIC_ACCESS)
 	public void mouseDragged(MouseEvent e) {
 		isOperation= 1;
 		try {
@@ -160,26 +159,15 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		Graphics g= getGraphics();
 		Graphics2D g2= (Graphics2D)g;
 		g2.setColor(Color.black);
-		if(0!= (e.getModifiers() & e.BUTTON1_MASK)) { //这mask是jdk定理
-			mouseDirection= 0;
-			while(null!= node){
-				if(node.leftChoose&& !node.rightChoose){
-					node.setxy(e.getX(), e.getY());
-					new DynamicLineUpdater().exec(first.first, node);
-				}
-				node= node.next;
+		while(null!= node){
+			if(node.leftChoose&& !node.rightChoose){
+				node.setxy(e.getX(), e.getY());
+				new DynamicLineUpdater().exec(first.first, node);
 			}
-			this.update(g);
-			g.dispose();
+			node= node.next;
 		}
-		if(0!= (e.getModifiers() & e.BUTTON3_MASK)) {//这mask是jdk定理
-			mouseDirection= 1;
-			while(null!= node){
-				node= node.next;
-			}
-			this.update(g);
-			g.dispose();
-		}
+		this.update(g);
+		g.dispose();
 	}
 
 	public void mouseMoved(MouseEvent arg0) {
@@ -188,8 +176,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public void paint(Graphics g){
 		nodeView.validate();
 		Graphics2D g2= (Graphics2D)g;
-		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-		//获取节点大小面
+		g2.clearRect(0, 0, this.getWidth(), this.getHeight());
 		first.first = new Sort().sort(first.first);
 		LinkNode node= first.first;
 		while(node!= null){
