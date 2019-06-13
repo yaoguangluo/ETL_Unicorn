@@ -76,4 +76,10 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ![实例](https://github.com/yaoguangluo/Deta_Medicine/blob/master/DETA%20medcine%2020190411-unicorn.jpg)
 
 
+## 德塔数据分析怎么编译
+##### 该软件 只需要一个Java IDE（eclipse， idea 等）， 和utf8字符集，在任何支持JDK8+以上的操作系统都能跑。  
+##### 该软件引擎 作者纯手工，没有任何插件，可自由翻译成其他语言版本。
+
+
+
 作者：罗瑶光 20190310
