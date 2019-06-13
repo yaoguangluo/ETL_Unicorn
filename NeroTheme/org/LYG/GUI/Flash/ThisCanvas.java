@@ -159,15 +159,21 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		Graphics g= getGraphics();
 		Graphics2D g2= (Graphics2D)g;
 		g2.setColor(Color.black);
+		boolean needUpdate= false;
 		while(null!= node){
+			if(node.leftChoose|| node.rightChoose) {
+				needUpdate= true;
+			}
 			if(node.leftChoose&& !node.rightChoose){
 				node.setxy(e.getX(), e.getY());
 				new DynamicLineUpdater().exec(first.first, node);
 			}
 			node= node.next;
 		}
-		this.update(g);
-		g.dispose();
+		if(needUpdate) {
+			this.update(g);
+			g.dispose();
+		}
 	}
 
 	public void mouseMoved(MouseEvent arg0) {
