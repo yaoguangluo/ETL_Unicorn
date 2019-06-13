@@ -326,7 +326,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 		configre.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node= new LinkNode();
-				first.first= new Sort().sort(first.first);
+				first.first= Sort.sort(first.first);
 				node= first.first;
 				while(node!= null){
 					if(node.name.equals(canvas.currentNodeName)&&node.ID== canvas.currentNodeID
@@ -357,7 +357,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 		run.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node= new LinkNode();
-				first.first= new Sort().sort(first.first);
+				first.first= Sort.sort(first.first);
 				node= first.first;
 				while(node!= null){
 					if(node.name.equals(canvas.currentNodeName)&&node.ID == canvas.currentNodeID
@@ -387,7 +387,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 		show.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node= new LinkNode();
-				first.first= new Sort().sort(first.first);
+				first.first= Sort.sort(first.first);
 				node= first.first;
 				while(node!= null){
 					if(node.name.equals(canvas.currentNodeName)&&node.ID== canvas.currentNodeID
@@ -421,7 +421,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 		dNode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
-				first.first=new Sort().sort(first.first);
+				first.first= Sort.sort(first.first);
 				node=first.first;
 				while(node!=null){
 					if(node.name.equals(canvas.currentNodeName)&&node.ID== canvas.currentNodeID
@@ -438,7 +438,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 		dLine.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LinkNode node=new LinkNode();
-				first.first=new Sort().sort(first.first);
+				first.first= Sort.sort(first.first);
 				node=first.first;
 				while(node!=null){
 					if(node.beconnect&&node.name.equals(canvas.currentNodeName)&& node.ID==canvas.currentNodeID

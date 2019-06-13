@@ -3,7 +3,7 @@ import org.LYG.GUI.nodeEdit.Sort;
 import org.LYG.GUI.nodeEdit.LinkNode;
 public class OSGI_chansfer {
 	public OSGI_chansfer(LinkNode node, LinkNode first){
-		first= new Sort().sort(first);
+		first= Sort.sort(first);
 		LinkNode linkNode= new LinkNode();
 		linkNode= first;
 		while(null!= linkNode){

@@ -2,7 +2,7 @@ package org.LYG.GUI.nodeEdit;
 public class UpdateRelatedLine{
 	public UpdateRelatedLine(LinkNode first, String currentNodeName
 			, int currentNodeID, String currentNodePrimaryKey){
-		first = new Sort().sort(first);
+		first = Sort.sort(first);
 		while(null!= first) {
 			if(first.tBeconnect&& first.tBeconnetName.equals(currentNodeName)
 					&& first.tBeconnectID== currentNodeID

@@ -183,7 +183,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		nodeView.validate();
 		Graphics2D g2= (Graphics2D)g;
 		g2.clearRect(0, 0, this.getWidth(), this.getHeight());
-		first.first= new Sort().sort(first.first);
+		first.first= Sort.sort(first.first);
 		LinkNode node= first.first;
 		while(node!= null){
 			if(node.x< 0){

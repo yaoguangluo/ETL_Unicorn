@@ -118,13 +118,13 @@ public class LinkList{
 						linkNode.pre= linkNode.pre.pre;
 						linkNode.pre.next= linkNode;
 						node= null;
-						linkNode= new Sort().sort(linkNode);
+						linkNode= Sort.sort(linkNode);
 						return linkNode;		
 					}
 					if(null== linkNode.next){
 						linkNode= linkNode.pre;
 						linkNode.next= null;
-						linkNode= new Sort().sort(linkNode);
+						linkNode= Sort.sort(linkNode);
 						return linkNode;				
 					}
 				}
