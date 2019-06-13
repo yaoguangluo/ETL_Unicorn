@@ -54,9 +54,9 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  异常提示功能区。
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  节点连线完整性矫正。20190612
 ##### ![实例](http://progressed.io/bar/100?title=completed)已完善功能  ETL 删除功能 实现。20190604
-##### ![实例](http://progressed.io/bar/96?title=completed)正完善功能 带单例运行记录，保存，载入，刷新。删除, 其他的流整体档案操作ok了，只差配置执行数据了。 20190606
-##### ![实例](http://progressed.io/bar/70?title=completed)正完善功能 《码农的修养》格式化中。。。。
-##### ![实例](http://progressed.io/bar/18?title=completed)正完善功能 一键执行功能.
+##### ![实例](http://progressed.io/bar/98?title=completed)正完善功能 带单例运行记录，保存，载入，刷新。删除, 其他的流整体档案操作ok了，只差配置执行数据了。 20190606
+##### ![实例](http://progressed.io/bar/71?title=completed)正完善功能 《码农的修养》格式化中。。。。
+##### ![实例](http://progressed.io/bar/19?title=completed)正完善功能 一键执行功能.
 ##### 未完善功能 batch 批处理（不再做这CMD功能， 以后做 TinShell）
 ##### 未完善功能 最近100次节点配置记录流程进行 时间操作。
 ##### 未完善功能 集成更多的weka 和 R 
