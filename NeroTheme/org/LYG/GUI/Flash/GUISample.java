@@ -568,7 +568,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 		TreePath path = nodeView.tree.getPathForLocation(arg0.getX(), arg0.getY());
 		if (path != null){
 			nodeView.tree.setSelectionPath(path);
-			if (arg0.getButton() == 3){
+			if (3== arg0.getButton()){
 				popupMenu.show(nodeView.tree, arg0.getX(), arg0.getY());
 			}else {
 				engineMenu.show(canvas, 0, 0);
