@@ -208,7 +208,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 				new DrawFlashSide().drawFlashSide(graphics2D, node.x, node.y, node.flash);
 			}
 			graphics2D.setColor(Color.black);
-			g.drawString(node.name+ "->" +node.ID, node.x- 5, node.y- 20);
+			g.drawString(node.name+ "->"+ node.ID, node.x- 5, node.y- 20);
 			graphics2D.setColor(new	Color(25, 25, 112));
 			if(node.beconnect){
 				if(node.tBeconnect){
