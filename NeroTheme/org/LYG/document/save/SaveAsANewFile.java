@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import org.LYG.GUI.nodeEdit.LinkNode;
 import org.LYG.sets.stable.StableData;
-
 import comp.filenameFilter.TXTFilter;
 //准备把响应事件移植到这里。
 public class SaveAsANewFile{

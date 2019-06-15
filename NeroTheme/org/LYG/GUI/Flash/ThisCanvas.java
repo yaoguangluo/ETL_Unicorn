@@ -42,9 +42,9 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public int currentNodeID;
 	public String currentNodePrimaryKey;
 	public LinkList first;
-	public int currentx, currenty;
+	public int currentX, currentY;
 	public int choose= 0;
-	public int oldx, oldy;
+	public int oldX, oldY;
 	public int newx, newy;
 	public int isOperation= 0;
 	public String treeNodeName;
@@ -113,10 +113,10 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 
 	public void mousePressed(MouseEvent arg0) {
 		isOperation= 1;
-		oldx= arg0.getX();
-		oldy= arg0.getY();
-		currentx= arg0.getX();
-		currenty= arg0.getY();
+		oldX= arg0.getX();
+		oldY= arg0.getY();
+		currentX= arg0.getX();
+		currentY= arg0.getY();
 		LinkNode node= new ChooseCheck().chooseCheckNode(first.first, arg0);
 		currentNodeName= node.name;
 		currentNodeID= node.ID;
@@ -128,12 +128,12 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 
 	public void mouseReleased(MouseEvent arg0){
 		isOperation= 0;
-		currentx= arg0.getX();
-		currenty= arg0.getY();
+		currentX= arg0.getX();
+		currentY= arg0.getY();
 		LinkNode node= first.first;
 		while(null!= node){
 			if(node.rightChoose&& !node.leftChoose){
-				if(oldx== arg0.getX()&&oldy == arg0.getY()){
+				if(oldX== arg0.getX()&&oldY == arg0.getY()){
 					nodeMenu.show(this, arg0.getX(), arg0.getY());
 				}
 				else{
@@ -153,12 +153,12 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-		currentx= e.getX();
-		currenty= e.getY();
+		currentX= e.getX();
+		currentY= e.getY();
 		LinkNode node= first.first;
 		Graphics g= getGraphics();
-		Graphics2D g2= (Graphics2D)g;
-		g2.setColor(Color.black);
+		Graphics2D graphics2D= (Graphics2D)g;
+		graphics2D.setColor(Color.black);
 		boolean needUpdate= false;
 		while(null!= node){
 			if(node.leftChoose|| node.rightChoose) {
@@ -181,8 +181,8 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 
 	public void paint(Graphics g){
 		nodeView.validate();
-		Graphics2D g2= (Graphics2D)g;
-		g2.clearRect(0, 0, this.getWidth(), this.getHeight());
+		Graphics2D graphics2D= (Graphics2D)g;
+		graphics2D.clearRect(0, 0, this.getWidth(), this.getHeight());
 		first.first= Sort.sort(first.first);
 		LinkNode node= first.first;
 		while(node!= null){
@@ -203,42 +203,42 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 				node.flash= 0;
 			}
 			if(0== isOperation) {
-				new DrawFlashSide().drawFlashSide(g2, node.x, node.y, node.flash++ % 3);
+				new DrawFlashSide().drawFlashSide(graphics2D, node.x, node.y, node.flash++ % 3);
 			}else {
-				new DrawFlashSide().drawFlashSide(g2, node.x, node.y, node.flash);
+				new DrawFlashSide().drawFlashSide(graphics2D, node.x, node.y, node.flash);
 			}
-			g2.setColor(Color.black);
+			graphics2D.setColor(Color.black);
 			g.drawString(node.name+ "->" +node.ID, node.x- 5, node.y- 20);
-			g2.setColor(new	Color(25, 25, 112));
+			graphics2D.setColor(new	Color(25, 25, 112));
 			if(node.beconnect){
 				if(node.tBeconnect){
-					new DrawArrow(g2, node.tBeconnectX+ 62, node.tBeconnectY+ 28, node.x+ 14, node.y- 6);
+					new DrawArrow(graphics2D, node.tBeconnectX+ 62, node.tBeconnectY+ 28, node.x+ 14, node.y- 6);
 					if(!node.leftChoose&& node.rightChoose){
-						g2.setColor(Color.black);
-						new DrawArrow(g2, oldx, oldy, currentx, currenty);
-						g2.setColor(new	Color(25, 25, 112));	
+						graphics2D.setColor(Color.black);
+						new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+						graphics2D.setColor(new	Color(25, 25, 112));	
 					}
 				}
 				if(node.mBeconnect){
-					new DrawArrow(g2, node.mBeconnectX+ 62, node.mBeconnectY+ 28, node.x- 4, node.y+ 25);
+					new DrawArrow(graphics2D, node.mBeconnectX+ 62, node.mBeconnectY+ 28, node.x- 4, node.y+ 25);
 					if(!node.leftChoose&& node.rightChoose){
-						g2.setColor(Color.black);
-						new DrawArrow(g2, oldx, oldy, currentx, currenty);
-						g2.setColor(new	Color(25, 25, 112));	
+						graphics2D.setColor(Color.black);
+						new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+						graphics2D.setColor(new	Color(25, 25, 112));	
 					}
 				}
 				if(node.dBeconnect){
-					new DrawArrow(g2, node.dBeconnectX+ 62, node.dBeconnectY+ 28, node.x+ 6, node.y+ 55);
+					new DrawArrow(graphics2D, node.dBeconnectX+ 62, node.dBeconnectY+ 28, node.x+ 6, node.y+ 55);
 					if(!node.leftChoose&& node.rightChoose){
-						g2.setColor(Color.black);
-						new DrawArrow(g2, oldx, oldy, currentx, currenty);
-						g2.setColor(new	Color(25, 25, 112));	
+						graphics2D.setColor(Color.black);
+						new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+						graphics2D.setColor(new	Color(25, 25, 112));	
 					}
 				}
 			}else if(!node.leftChoose&& node.rightChoose){
-				g2.setColor(Color.black);
-				new DrawArrow(g2, oldx, oldy, currentx, currenty);
-				g2.setColor(new	Color(25, 25, 112));
+				graphics2D.setColor(Color.black);
+				new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+				graphics2D.setColor(new	Color(25, 25, 112));
 			}
 			node= node.next;
 		}
