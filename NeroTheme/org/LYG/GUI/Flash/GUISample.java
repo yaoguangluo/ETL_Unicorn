@@ -41,6 +41,7 @@ import org.LYG.GUI.nodeView.CacuString;
 import org.LYG.GUI.nodeView.NodeShow;
 import org.LYG.GUI.platForm.UnicornJSplitPane;
 import org.LYG.document.load.LoadFile;
+import org.LYG.document.neroCell.BootNeroCell;
 import org.LYG.document.save.SaveAndUpdateFile;
 import org.LYG.document.save.SaveAsANewFile;
 import org.LYG.sets.stable.StableData;
@@ -79,7 +80,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 	public JTextPane rightBotJTextPane;
 	public ThisCanvas canvas;
 	public PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
-	public MenuItem save, saveAs, delete, load;
+	public MenuItem save, saveAs, delete, load, boot;
 	public MenuItem menuItem;
 	public MenuItem configre, run, show, dNode, dLine;
 	public Thread thread, threadApplet; 
@@ -184,6 +185,11 @@ public class GUISample extends JApplet implements MouseMotionListener
 		saveAs.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SaveAsANewFile.Save(first.first);
+			}
+		});
+		boot.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BootNeroCell.bootCell(first.first);
 			}
 		});
 		//delete
@@ -551,10 +557,13 @@ public class GUISample extends JApplet implements MouseMotionListener
 		saveAs.setLabel(StableData.CONFIG_SAVE);
 		delete= new MenuItem();
 		delete.setLabel(StableData.CONFIG_DELETE);
+		boot= new MenuItem();
+		boot.setLabel(StableData.CONFIG_BOOT);
 		engineMenu.add(load);
 		engineMenu.add(save);
 		engineMenu.add(saveAs);
 		engineMenu.add(delete);
+		engineMenu.add(boot);
 		getContentPane().add(engineMenu);
 		getContentPane().setVisible(true);
 	}
