@@ -23,8 +23,8 @@ public class SaveAsANewFile{
 		//create file and save
 		try {
 			FileWriter fileWriter= new FileWriter(fileSavepath);
-			LinkNode node = first;
-			while(node!=null) {
+			LinkNode node= first;
+			while(null!= node) {
 				//挨个取。没难度。逐个把信息写入文件。
 				//节点坐标，节点名， 节点关联，
 				String NodeCoordinationX= ""+ node.x;
@@ -55,6 +55,8 @@ public class SaveAsANewFile{
 				String dBeconnectPrimaryKey= ""+ node.dBeconnectPrimaryKey;
 				String primaryKey= ""+ node.primaryKey;
 				String nodeConfiguration= ""+ node.thisFace.nodeConfiguration;
+				String isConfiged= ""+ node.thisFace.isConfiged;
+				String isExecuted= ""+ node.thisFace.isExecuted;
 				//配置
 				fileWriter.write("\r\n");
 				fileWriter.write("NodeCoordinationX:"+ NodeCoordinationX);
@@ -112,6 +114,10 @@ public class SaveAsANewFile{
 				fileWriter.write("primaryKey:"+ primaryKey);
 				fileWriter.write("\r\n");
 				fileWriter.write("nodeConfiguration:"+ nodeConfiguration);
+				fileWriter.write("\r\n");
+				fileWriter.write("isConfiged:"+ isConfiged);
+				fileWriter.write("\r\n");
+				fileWriter.write("isExecuted:"+ isExecuted);
 				fileWriter.write("\r\n");
 				//分割
 				String split="##############################";

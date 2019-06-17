@@ -23,6 +23,7 @@ public class arffTransferNodeInterface extends ObjectInterface{
 		memoryRecovery(jTextPane);//档案可以读
 		thisNodeConfig();
 		memoryRecord(jTextPane);//档案可以写
+		this.isConfiged= true;//这句话千万别删，这是档案神经流自动执行的重要观测关键字。
 	}
 
 	private void thisNodeConfig() throws IOException {
@@ -35,6 +36,7 @@ public class arffTransferNodeInterface extends ObjectInterface{
 	}
 	public void execute(JTextPane jTextPane) throws FileNotFoundException, IOException{
 		((arffTransferNodeRun) thisRun).run((arffTransferNodeView) thisView);
+		this.isExecuted= true;
 	}
 	public void view(JTextPane jTextPane) throws Exception{
 		thisView.view();

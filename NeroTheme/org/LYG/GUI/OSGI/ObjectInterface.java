@@ -13,6 +13,8 @@ public class ObjectInterface implements Cloneable{
 	public String thisName;
 	public String position; 
 	public String nodeConfiguration;
+	public boolean isConfiged;
+	public boolean isExecuted;
 	public HashMap<String, String> nodeConfigurationMap;
 	public ObjectPanel thisPanel;
 	public ObjectRun thisRun;

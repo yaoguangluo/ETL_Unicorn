@@ -58,6 +58,8 @@ public class LoadFile{
 					node.y= currentNodeMap.containsKey("NodeCoordinationY")? Integer.parseInt(currentNodeMap.get("NodeCoordinationY")):0;
 					node= thislist.addNodeOnlyWithFace(node, nodeView.first);
 					node.thisFace.nodeConfiguration= currentNodeMap.containsKey("nodeConfiguration")? currentNodeMap.get("nodeConfiguration"):"null";
+					node.thisFace.isConfiged= currentNodeMap.containsKey("isConfiged")? currentNodeMap.get("isConfiged").contains("false")? false: true: false;
+					node.thisFace.isExecuted= currentNodeMap.containsKey("isExecuted")? currentNodeMap.get("isExecuted").contains("false")? false: true: false;	
 					if(null== first) {
 						first= node;
 					}else {

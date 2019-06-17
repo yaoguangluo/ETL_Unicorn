@@ -49,6 +49,8 @@ public class SaveAndUpdateFile{
 				String dBeconnectPrimaryKey= ""+ node.dBeconnectPrimaryKey;
 				String primaryKey= ""+ node.primaryKey;
 				String nodeConfiguration= ""+ node.thisFace.nodeConfiguration;
+				String isConfiged= ""+ node.thisFace.isConfiged;
+				String isExecuted= ""+ node.thisFace.isExecuted;
 				//≈‰÷√
 				fileWriter.write("\r\n");
 				fileWriter.write("NodeCoordinationX:"+ NodeCoordinationX);
@@ -106,6 +108,10 @@ public class SaveAndUpdateFile{
 				fileWriter.write("primaryKey:"+ primaryKey);
 				fileWriter.write("\r\n");
 				fileWriter.write("nodeConfiguration:"+ nodeConfiguration);
+				fileWriter.write("\r\n");
+				fileWriter.write("isConfiged:"+ isConfiged);
+				fileWriter.write("\r\n");
+				fileWriter.write("isExecuted:"+ isExecuted);
 				fileWriter.write("\r\n");
 				//∑÷∏Ó
 				String split="##############################";
