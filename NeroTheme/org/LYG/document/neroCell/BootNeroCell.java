@@ -24,12 +24,15 @@ public class BootNeroCell{
 						currentNode= currentNode.next;
 					}
 					if(currentNode.tBeconnect&& !bootedMaps.containsKey(currentNode.tBeconnectPrimaryKey)) {
+						currentNode= currentNode.next;
 						continue Here;
 					}
 					if(currentNode.mBeconnect&& !bootedMaps.containsKey(currentNode.mBeconnectPrimaryKey)) {
+						currentNode= currentNode.next;
 						continue Here;
 					}
 					if(currentNode.dBeconnect&& !bootedMaps.containsKey(currentNode.dBeconnectPrimaryKey)) {
+						currentNode= currentNode.next;
 						continue Here;
 					}
 					bootCount+= 1;
