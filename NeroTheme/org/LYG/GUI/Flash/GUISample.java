@@ -196,6 +196,8 @@ public class GUISample extends JApplet implements MouseMotionListener
 				} catch (UnsupportedAudioFileException | InterruptedException e1) {
 					e1.printStackTrace();
 				}
+				rightBotJTextPane.setText(StableData.NODE_EXEC_SUCCESS);
+				rightBotJTextPane.validate();
 			}
 		});
 		bootETL.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +250,8 @@ public class GUISample extends JApplet implements MouseMotionListener
 				} catch (UnsupportedAudioFileException | InterruptedException e1) {
 					e1.printStackTrace();
 				}
+				rightBotJTextPane.setText(StableData.NODE_EXEC_SUCCESS);
+				rightBotJTextPane.validate();
 			}
 		});
 		//delete
