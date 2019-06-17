@@ -20,7 +20,7 @@ public class BootNeroCell{
 			LinkNode currentNode= linkNode;
 			Here:
 				while(null!= currentNode) {
-					if(currentNode.beconnect&& !bootedMaps.containsKey(currentNode.primaryKey)) {
+					if(!bootedMaps.containsKey(currentNode.primaryKey)) {
 						if(currentNode.tBeconnect&& !bootedMaps.containsKey(currentNode.tBeconnectPrimaryKey)) {
 							continue Here;
 						}
