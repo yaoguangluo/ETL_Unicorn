@@ -20,7 +20,6 @@ public class BootNeroCell{
 			currentNode= currentNode.next;
 		}
 		Map<String, Boolean> bootedMaps= new HashMap<>();
-		//先进行根节点处理，再深度处理
 		//准备写深度搜索来做神经流传导，先更新下版本 1.0.3_beta, 这几天完善。20190617 8：28 罗瑶光
 		Iterator<String> iterator;
 		while(0< bootMaps.size()) {
@@ -49,8 +48,7 @@ public class BootNeroCell{
 						currentNode.thisFace.execute(rightBotJTextPane);
 						bootedMaps.put(currentNode.primaryKey, true);
 					}else {
-						//报没有配置异常；
-						//弹出配置面板；
+						//报没有配置异常；弹出配置面板；
 					}
 					bootMaps.remove(currentNode.primaryKey);
 				}
