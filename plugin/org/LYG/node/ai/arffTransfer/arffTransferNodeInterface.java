@@ -16,7 +16,7 @@ public class arffTransferNodeInterface extends ObjectInterface{
 		Image img= ((ImageIcon) thisIcon).getImage();  
 		Image newimg= img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
 		thisImage= img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
-		thisIcon = new ImageIcon(newimg);
+		thisIcon= new ImageIcon(newimg);
 	}
 	public void config(JTextPane jTextPane) throws IOException{
 		//节点的逻辑大家自己写。如果配置数据带有 : 等符号就encode，decode一下，哥就不啰嗦了。
