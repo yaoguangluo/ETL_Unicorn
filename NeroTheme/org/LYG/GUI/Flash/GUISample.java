@@ -80,7 +80,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 	public JTextPane rightBotJTextPane;
 	public ThisCanvas canvas;
 	public PopupMenu popupMenu, nodeMenu, itemMenu, engineMenu;
-	public MenuItem save, saveAs, delete, load, boot;
+	public MenuItem save, saveAs, delete, load, boot, bootETL;
 	public MenuItem menuItem;
 	public MenuItem configre, run, show, dNode, dLine;
 	public Thread thread, threadApplet; 
@@ -189,6 +189,59 @@ public class GUISample extends JApplet implements MouseMotionListener
 		});
 		boot.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					BootNeroCell.bootCell(first.first, rightBotJTextPane);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (UnsupportedAudioFileException | InterruptedException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		bootETL.addActionListener(new java.awt.event.ActionListener() {
+			@SuppressWarnings(StableData.TAG_STATIC_ACCESS)
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
+					int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_LOAD_ENSURE);
+					if(0!= confirm) {
+						rightBotJTextPane.setText(StableData.ATTENSION_CANCELLED_OPERATION);
+						rightBotJTextPane.validate();
+						return;
+					}
+					FileDialog filedialog= new FileDialog(new Frame(), StableData.ATTENSION_LOAD_HISTORY
+							, FileDialog.LOAD);
+					filedialog.setFilenameFilter(new TXTFilter(StableData.FILE_FORMAT_ETL));
+					filedialog.setVisible(true);
+					fileCurrentpath= filedialog.getDirectory()+ filedialog.getFile();
+					System.out.println(fileCurrentpath);
+					if(null== fileCurrentpath|| fileCurrentpath.isEmpty()|| !fileCurrentpath.contains
+							(StableData.FILE_FORMAT_ETL)) {
+						System.out.println(StableData.ATTENSION_RECHOICE);
+						return;
+					}
+					File file= new File(fileCurrentpath);
+					if(!file.isFile()) {
+						System.out.println(StableData.ATTENSION_RECHOICE);
+						return;
+					}
+					LinkNode needDeleteNode= first.first;
+					while(needDeleteNode!= null) {
+						first.first= first.deletNode(first.first, needDeleteNode.name, needDeleteNode.ID
+								, needDeleteNode.primaryKey);
+						if(null== needDeleteNode.next) {
+							break;
+						}
+						needDeleteNode= needDeleteNode.next;
+					}
+					canvas.repaint();	
+					first.first= LoadFile.Load(first.first, nodeView, file, first);
+				}catch(Exception loadE) {
+					loadE.printStackTrace();
+				}
+				canvas.repaint();	
+				righttopScrollPane.validate();	
 				try {
 					BootNeroCell.bootCell(first.first, rightBotJTextPane);
 				} catch (IOException e1) {
@@ -565,11 +618,14 @@ public class GUISample extends JApplet implements MouseMotionListener
 		delete.setLabel(StableData.CONFIG_DELETE);
 		boot= new MenuItem();
 		boot.setLabel(StableData.CONFIG_BOOT);
+		bootETL= new MenuItem();
+		bootETL.setLabel(StableData.CONFIG_BOOT_ETL);
 		engineMenu.add(load);
 		engineMenu.add(save);
 		engineMenu.add(saveAs);
 		engineMenu.add(delete);
 		engineMenu.add(boot);
+		engineMenu.add(bootETL);
 		getContentPane().add(engineMenu);
 		getContentPane().setVisible(true);
 	}
