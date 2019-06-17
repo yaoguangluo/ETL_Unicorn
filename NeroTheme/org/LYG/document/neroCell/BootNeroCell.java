@@ -41,6 +41,9 @@ public class BootNeroCell{
 						//运行
 						currentNode.thisFace.execute(rightBotJTextPane);
 						bootedMaps.put(currentNode.primaryKey, true);
+					}else {
+						//报没有配置异常；
+						//弹出配置面板；
 					}
 					currentNode= currentNode.next;
 				}
