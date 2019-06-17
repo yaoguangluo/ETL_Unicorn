@@ -2,6 +2,7 @@ package org.LYG.document.neroCell;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -10,33 +11,35 @@ import javax.swing.JTextPane;
 import org.LYG.GUI.extOSGI.OSGI_chansfer;
 import org.LYG.GUI.nodeEdit.LinkNode;
 public class BootNeroCell{
-	public static void bootCell(LinkNode linkNode, JTextPane rightBotJTextPane) throws IOException, UnsupportedAudioFileException, InterruptedException {
-		int totalCount= getTotalNodeCount(linkNode);
+	public static void bootCell(LinkNode linkNode, JTextPane rightBotJTextPane) throws IOException
+	, UnsupportedAudioFileException, InterruptedException {
+		Map<String, LinkNode> bootMaps= new HashMap<>();
+		LinkNode currentNode= linkNode;
+		while(null!= currentNode) {
+			bootMaps.put(currentNode.primaryKey, currentNode);
+			currentNode= currentNode.next;
+		}
 		Map<String, Boolean> bootedMaps= new HashMap<>();
-		int bootCount= 0;
 		//先进行根节点处理，再深度处理
 		//准备写深度搜索来做神经流传导，先更新下版本 1.0.3_beta, 这几天完善。20190617 8：28 罗瑶光
-		while(bootCount< totalCount) {
-			LinkNode currentNode= linkNode;
+		Iterator<String> iterator;
+		while(0< bootMaps.size()) {
+			iterator= bootMaps.keySet().iterator();
 			Here:
-				while(null!= currentNode) {
+				while(iterator.hasNext()) {
+					currentNode= bootMaps.get(iterator.next());
 					if(bootedMaps.containsKey(currentNode.primaryKey)) {
-						currentNode= currentNode.next;
 						continue Here;
 					}
 					if(currentNode.tBeconnect&& !bootedMaps.containsKey(currentNode.tBeconnectPrimaryKey)) {
-						currentNode= currentNode.next;
 						continue Here;
 					}
 					if(currentNode.mBeconnect&& !bootedMaps.containsKey(currentNode.mBeconnectPrimaryKey)) {
-						currentNode= currentNode.next;
 						continue Here;
 					}
 					if(currentNode.dBeconnect&& !bootedMaps.containsKey(currentNode.dBeconnectPrimaryKey)) {
-						currentNode= currentNode.next;
 						continue Here;
 					}
-					bootCount+= 1;
 					if(null!= currentNode.thisFace&& currentNode.thisFace.isConfiged) {
 						//配置
 						currentNode.thisFace.config(rightBotJTextPane);
@@ -49,18 +52,8 @@ public class BootNeroCell{
 						//报没有配置异常；
 						//弹出配置面板；
 					}
-					currentNode= currentNode.next;
+					bootMaps.remove(currentNode.primaryKey);
 				}
 		}
-	}
-
-	private static int getTotalNodeCount(LinkNode linkNode) {
-		int nodeCount= 0;
-		LinkNode currentNode= linkNode;
-		while(null!= currentNode) {
-			nodeCount+= 1;
-			currentNode= currentNode.next;
-		}
-		return nodeCount;
 	}
 }
