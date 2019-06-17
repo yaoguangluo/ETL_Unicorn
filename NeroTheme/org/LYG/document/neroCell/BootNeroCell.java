@@ -42,7 +42,7 @@ public class BootNeroCell{
 						currentNode.thisFace.execute(rightBotJTextPane);
 						bootedMaps.put(currentNode.primaryKey, true);
 					}
-
+					currentNode= currentNode.next;
 				}
 		}
 	}
