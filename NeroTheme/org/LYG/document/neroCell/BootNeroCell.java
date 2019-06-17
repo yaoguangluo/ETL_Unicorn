@@ -22,6 +22,7 @@ public class BootNeroCell{
 				while(null!= currentNode) {
 					if(bootedMaps.containsKey(currentNode.primaryKey)) {
 						currentNode= currentNode.next;
+						continue Here;
 					}
 					if(currentNode.tBeconnect&& !bootedMaps.containsKey(currentNode.tBeconnectPrimaryKey)) {
 						currentNode= currentNode.next;
