@@ -20,27 +20,29 @@ public class BootNeroCell{
 			LinkNode currentNode= linkNode;
 			Here:
 				while(null!= currentNode) {
-					if(!bootedMaps.containsKey(currentNode.primaryKey)) {
-						if(currentNode.tBeconnect&& !bootedMaps.containsKey(currentNode.tBeconnectPrimaryKey)) {
-							continue Here;
-						}
-						if(currentNode.mBeconnect&& !bootedMaps.containsKey(currentNode.mBeconnectPrimaryKey)) {
-							continue Here;
-						}
-						if(currentNode.dBeconnect&& !bootedMaps.containsKey(currentNode.dBeconnectPrimaryKey)) {
-							continue Here;
-						}
-						bootCount+= 1;
-						if(null!= currentNode.thisFace&& currentNode.thisFace.isConfiged) {
-							//配置
-							currentNode.thisFace.config(rightBotJTextPane);
-							//取值
-							new OSGI_chansfer(currentNode, linkNode);
-							//运行
-							currentNode.thisFace.execute(rightBotJTextPane);
-							bootedMaps.put(currentNode.primaryKey, true);
-						}
+					if(bootedMaps.containsKey(currentNode.primaryKey)) {
+						currentNode= currentNode.next;
 					}
+					if(currentNode.tBeconnect&& !bootedMaps.containsKey(currentNode.tBeconnectPrimaryKey)) {
+						continue Here;
+					}
+					if(currentNode.mBeconnect&& !bootedMaps.containsKey(currentNode.mBeconnectPrimaryKey)) {
+						continue Here;
+					}
+					if(currentNode.dBeconnect&& !bootedMaps.containsKey(currentNode.dBeconnectPrimaryKey)) {
+						continue Here;
+					}
+					bootCount+= 1;
+					if(null!= currentNode.thisFace&& currentNode.thisFace.isConfiged) {
+						//配置
+						currentNode.thisFace.config(rightBotJTextPane);
+						//取值
+						new OSGI_chansfer(currentNode, linkNode);
+						//运行
+						currentNode.thisFace.execute(rightBotJTextPane);
+						bootedMaps.put(currentNode.primaryKey, true);
+					}
+
 				}
 		}
 	}

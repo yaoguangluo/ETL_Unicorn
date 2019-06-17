@@ -201,7 +201,6 @@ public class GUISample extends JApplet implements MouseMotionListener
 		bootETL.addActionListener(new java.awt.event.ActionListener() {
 			@SuppressWarnings(StableData.TAG_STATIC_ACCESS)
 			public void actionPerformed(ActionEvent e) {
-
 				try {
 					javax.swing.JOptionPane jOptionPane= new JOptionPane(StableData.ATTENSION_LOAD_ENSURE);
 					int confirm= jOptionPane.showConfirmDialog(canvas, StableData.ATTENSION_LOAD_ENSURE);
@@ -280,7 +279,6 @@ public class GUISample extends JApplet implements MouseMotionListener
 				rightBotJTextPane.validate();
 			}	
 		});
-
 		leftSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
@@ -296,7 +294,6 @@ public class GUISample extends JApplet implements MouseMotionListener
 				}  
 			}  
 		});  
-
 		mainSplitPane.addPropertyChangeListener(new java.beans.PropertyChangeListener() {  
 			public void propertyChange(java.beans.PropertyChangeEvent evt) {  
 				if (evt.getPropertyName().equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {  
