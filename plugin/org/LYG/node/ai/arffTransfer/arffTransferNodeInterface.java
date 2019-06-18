@@ -46,7 +46,7 @@ public class arffTransferNodeInterface extends ObjectInterface{
 		thisInterface= new arffTransferNodeInterface();
 		return thisInterface;  
 	}
-	private void memoryRecovery(JTextPane jTextPane) {
+	public void memoryRecovery(JTextPane jTextPane) {
 		//准备增加检查 nodeConfiguration 是否有配置
 		try {
 			if(null!= nodeConfiguration) {

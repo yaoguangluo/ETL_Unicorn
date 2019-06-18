@@ -1,5 +1,7 @@
 package org.LYG.document.neroCell;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -40,8 +42,8 @@ public class BootNeroCell{
 						continue Here;
 					}
 					if(null!= currentNode.thisFace&& currentNode.thisFace.isConfiged) {
-						//配置
-						currentNode.thisFace.config(rightBotJTextPane);
+						//配置回复
+						currentNode.thisFace.memoryRecovery(rightBotJTextPane);
 						//取值
 						new OSGI_chansfer(currentNode, linkNode);
 						//运行
@@ -49,6 +51,17 @@ public class BootNeroCell{
 						bootedMaps.put(currentNode.primaryKey, true);
 					}else {
 						//报没有配置异常；弹出配置面板；
+						currentNode.thisFace.config(rightBotJTextPane);
+						currentNode.thisFace.thisPanel.setLocation(currentNode.x, currentNode.y);
+						currentNode.thisFace.thisPanel.setSize(300, 300);
+						currentNode.thisFace.thisPanel.setResizable(true);
+						currentNode.thisFace.thisPanel.scrollPane.setBounds(0, 0, currentNode.thisFace.thisPanel.getWidth()-10
+								, currentNode.thisFace.thisPanel.getHeight()-45);
+						currentNode.thisFace.thisPanel.panel.setPreferredSize(new Dimension(800, 600));
+						currentNode.thisFace.thisPanel.setBackground(Color.BLUE);
+						currentNode.thisFace.thisPanel.setVisible(true);
+						currentNode.thisFace.thisPanel.validate();
+						new OSGI_chansfer(currentNode, linkNode);
 					}
 					bootMaps.remove(currentNode.primaryKey);
 				}

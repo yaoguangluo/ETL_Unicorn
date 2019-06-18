@@ -35,6 +35,10 @@ public class ObjectInterface implements Cloneable{
 	}
 	public void config(JTextPane rightBotJTextPane) throws IOException{
 	}
+	
+	public void memoryRecovery(JTextPane rightBotJTextPane) throws IOException{
+	}
+	
 	public void execute(JTextPane rightBotJTextPane) throws FileNotFoundException
 	, IOException, UnsupportedAudioFileException, InterruptedException{
 	}
