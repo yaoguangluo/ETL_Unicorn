@@ -127,7 +127,7 @@ public class SaveAsANewFile{
 				if(null== node.next) {
 					break;
 				}
-				node=node.next;
+				node= node.next;
 			}	
 			fileWriter.close();
 		}catch(Exception saveFile) {

@@ -48,7 +48,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 		while(null!= first){
 			if(null== first.currentFace.position){
 				JLabel label;
-				label = new JLabel();
+				label= new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
 				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
@@ -56,7 +56,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 			}
 			else if(first.currentFace.position.equals("BI")){
 				JLabel label;
-				label=new JLabel();
+				label= new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
 				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
@@ -64,7 +64,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 			}
 			else if(first.currentFace.position.equals("SOUND")){
 				JLabel label;
-				label=new JLabel();
+				label= new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
 				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
@@ -72,7 +72,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 			}
 			else if(first.currentFace.position.equals("IMAGE")){
 				JLabel label;
-				label=new JLabel();
+				label= new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
 				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
@@ -80,7 +80,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 			}
 			else if(first.currentFace.position.equals("MOVIE")){
 				JLabel label;
-				label=new JLabel();
+				label= new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
 				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);
@@ -88,7 +88,7 @@ public class NodeShow extends JScrollPane implements MouseListener, ItemListener
 			}
 			else{
 				JLabel label;
-				label=new JLabel();
+				label= new JLabel();
 				label.setIcon(first.thisIcon);
 				label.setText(first.thisName);
 				DefaultMutableTreeNode node= new DefaultMutableTreeNode(label);

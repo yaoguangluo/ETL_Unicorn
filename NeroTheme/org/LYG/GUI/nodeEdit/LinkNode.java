@@ -1,5 +1,4 @@
 package org.LYG.GUI.nodeEdit;
-
 import org.LYG.GUI.OSGI.ObjectInterface;
 public class LinkNode extends Thread{ 
 	public String nodeConfiguration= "";

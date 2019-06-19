@@ -5,31 +5,31 @@ import org.LYG.GUI.theme.neroCell.DrawNeroCellMask31;
 import org.LYG.GUI.theme.neroCell.DrawNeroCellMask32;
 import org.LYG.GUI.nodeEdit.controller.DrawSinLine;
 public class DrawSinLineVPS implements DrawSinLine{
-	public void drawCosLine(int x0, int y0, Graphics2D g2) {
+	public void drawCosLine(int x0, int y0, Graphics2D graphics2D) {
 		for(int y = 0; y < DrawNeroCellMask31.neroShape.length; y++) {
 			for(int x = 0; x < DrawNeroCellMask31.neroShape[0].length; x++) {
 				if(1 == DrawNeroCellMask31.neroShape[y][x]) {
-					g2.drawLine(x + x0, y + y0, x + x0, y + y0);
+					graphics2D.drawLine(x + x0, y + y0, x + x0, y + y0);
 				}
 			}
 		}
 	}
 
-	public void drawSinLine(int x0, int y0, Graphics2D g2) {
+	public void drawSinLine(int x0, int y0, Graphics2D graphics2D) {
 		for(int y = 0; y < DrawNeroCellMask32.neroShape.length; y++) {
 			for(int x = 0; x < DrawNeroCellMask32.neroShape[0].length; x++) {
 				if(1 == DrawNeroCellMask32.neroShape[y][x]) {
-					g2.drawLine(x + x0, y + y0, x + x0, y + y0);
+					graphics2D.drawLine(x + x0, y + y0, x + x0, y + y0);
 				}
 			}
 		}
 	}
 
-	public void drawHead(int x0, int y0, Graphics2D g2) {
+	public void drawHead(int x0, int y0, Graphics2D graphics2D) {
 		for(int y = 0; y < DrawArrowHead.neroShape.length; y++) {
 			for(int x = 0; x < DrawArrowHead.neroShape[0].length; x++) {
 				if(1 == DrawArrowHead.neroShape[y][x]) {
-					g2.drawLine(x + x0, y + y0, x + x0, y + y0);
+					graphics2D.drawLine(x + x0, y + y0, x + x0, y + y0);
 				}
 			}
 		}
