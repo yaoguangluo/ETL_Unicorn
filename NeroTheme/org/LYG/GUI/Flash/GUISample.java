@@ -192,13 +192,15 @@ public class GUISample extends JApplet implements MouseMotionListener
 			public void actionPerformed(ActionEvent e) {
 				try {
 					BootNeroCell.bootCell(first.first, rightBotJTextPane);
+					rightBotJTextPane.setText(StableData.NODE_EXEC_SUCCESS);
+					rightBotJTextPane.validate();
 				} catch (IOException e1) {
-					e1.printStackTrace();
+					rightBotJTextPane.setText(e1.getStackTrace().toString());
+					rightBotJTextPane.validate();
 				} catch (UnsupportedAudioFileException | InterruptedException e1) {
-					e1.printStackTrace();
+					rightBotJTextPane.setText(e1.getStackTrace().toString());
+					rightBotJTextPane.validate();
 				}
-				rightBotJTextPane.setText(StableData.NODE_EXEC_SUCCESS);
-				rightBotJTextPane.validate();
 			}
 		});
 		bootETL.addActionListener(new java.awt.event.ActionListener() {

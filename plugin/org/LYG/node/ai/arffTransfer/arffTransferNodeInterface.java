@@ -9,6 +9,7 @@ import javax.swing.*;
 import org.LYG.GUI.OSGI.*;
 import org.json.JSONObject;
 public class arffTransferNodeInterface extends ObjectInterface{	
+	//节点属性和图标等配置函数。
 	public arffTransferNodeInterface() throws IOException{
 		thisIcon= new ImageIcon(this.getClass().getResource("1.jpg"));
 		thisName= new String("arffTransfer");
@@ -18,14 +19,14 @@ public class arffTransferNodeInterface extends ObjectInterface{
 		thisImage= img.getScaledInstance(30,30,java.awt.Image.SCALE_SMOOTH );
 		thisIcon= new ImageIcon(newimg);
 	}
+	//节点计算数据配置函数。
 	public void config(JTextPane jTextPane) throws IOException{
-		//节点的逻辑大家自己写。如果配置数据带有 : 等符号就encode，decode一下，哥就不啰嗦了。
 		memoryRecovery(jTextPane);//档案可以读
 		thisNodeConfig();
 		memoryRecord(jTextPane);//档案可以写
 		this.isConfiged= true;//这句话千万别删，这是档案神经流自动执行的重要观测关键字。
 	}
-
+	//用户自定义功能配置函数。我这里把配置写在thisPanel.config();里面了
 	private void thisNodeConfig() throws IOException {
 		//节点的逻辑大家自己写。如果配置数据带有 : 等符号就encode，decode一下，哥就不啰嗦了。
 		thisView= new arffTransferNodeView();
@@ -34,18 +35,22 @@ public class arffTransferNodeInterface extends ObjectInterface{
 		thisPanel.config();
 		showed= false;
 	}
+	//用户自定义功能执行函数。我这里把执行逻辑写在arffTransferNodeView里面了
 	public void execute(JTextPane jTextPane) throws FileNotFoundException, IOException{
 		((arffTransferNodeRun) thisRun).run((arffTransferNodeView) thisView);
 		this.isExecuted= true;
 	}
+	//用户自定义执行后可观察结果输出函数。我这里把执行逻辑写在thisView.view()里面了
 	public void view(JTextPane jTextPane) throws Exception{
 		thisView.view();
 		showed= true;
 	}
+	//克隆与注册函数 不管它。
 	public ObjectInterface luoyaoguang() throws CloneNotSupportedException, IOException {
 		thisInterface= new arffTransferNodeInterface();
 		return thisInterface;  
 	}
+	//档案恢复函数
 	public void memoryRecovery(JTextPane jTextPane) {
 		//准备增加检查 nodeConfiguration 是否有配置
 		try {
@@ -61,12 +66,12 @@ public class arffTransferNodeInterface extends ObjectInterface{
 				}
 			}
 		}catch(Exception e) {
-			jTextPane.setText(e.getStackTrace().toString());
+			jTextPane.setText(e.getMessage());
 			jTextPane.validate();
 		}
 		//罗瑶光注释：20190612
 	}
-
+    //档案保存函数
 	private void memoryRecord(JTextPane jTextPane) {
 		try {
 			if(null== nodeConfigurationMap) {

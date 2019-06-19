@@ -44,6 +44,12 @@ public class BootNeroCell{
 					if(null!= currentNode.thisFace&& currentNode.thisFace.isConfiged) {
 						//配置回复
 						currentNode.thisFace.memoryRecovery(rightBotJTextPane);
+						//取值
+						new OSGI_chansfer(currentNode, linkNode);
+						//运行
+						currentNode.thisFace.execute(rightBotJTextPane);
+						bootedMaps.put(currentNode.primaryKey, true);
+						bootMaps.remove(currentNode.primaryKey);
 					}else {
 						//报没有配置异常；弹出配置面板；
 						currentNode.thisFace.config(rightBotJTextPane);
@@ -56,13 +62,8 @@ public class BootNeroCell{
 						currentNode.thisFace.thisPanel.setBackground(Color.BLUE);
 						currentNode.thisFace.thisPanel.setVisible(true);
 						currentNode.thisFace.thisPanel.validate();
+						return;
 					}
-					//取值
-					new OSGI_chansfer(currentNode, linkNode);
-					//运行
-					currentNode.thisFace.execute(rightBotJTextPane);
-					bootedMaps.put(currentNode.primaryKey, true);
-					bootMaps.remove(currentNode.primaryKey);
 				}
 		}
 	}

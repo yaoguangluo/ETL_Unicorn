@@ -17,10 +17,10 @@ public class arffTransferNodePanel extends ObjectPanel{
 		setLayout(null);
 		scrollPane = new ScrollPane();
 		add(scrollPane);
-		panel=new Panel();
+		panel= new Panel();
 		panel.setLayout(null);
 		panel.setBackground(Color.white);
-		JButton button = new JButton("Finish");
+		JButton button= new JButton("Finish");
 		button.setBounds(0, 0, 100, 30);
 		button.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
