@@ -9,6 +9,7 @@ import org.LYG.sets.stable.StableData;
 public class BootNeroDoc extends Thread implements Runnable{
 	private String fileCurrentpath;
 	private LinkList first;
+	private LinkNode currentNode;
 	private NodeShow nodeView;
 	private JTextPane rightBotJTextPane;
 	public BootNeroDoc(LinkList first, String fileCurrentpath, NodeShow nodeView
@@ -30,17 +31,8 @@ public class BootNeroDoc extends Thread implements Runnable{
 				System.out.println(StableData.ATTENSION_RECHOICE);
 				return;
 			}
-			LinkNode needDeleteNode= first.first;
-			while(needDeleteNode!= null) {
-				first.first= first.deletNode(first.first, needDeleteNode.name, needDeleteNode.ID
-						, needDeleteNode.primaryKey);
-				if(null== needDeleteNode.next) {
-					break;
-				}
-				needDeleteNode= needDeleteNode.next;
-			}	
-			first.first= LoadFile.Load(first.first, nodeView, file, first);
-			BootNeroCell.bootCell(first.first, rightBotJTextPane);
+			currentNode= LoadFile.Load(currentNode, nodeView, file, first);
+			BootNeroCell.bootCell(currentNode, rightBotJTextPane);
 		}catch(Exception loadE) {
 			loadE.printStackTrace();
 		}
