@@ -11,15 +11,14 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
-import org.LYG.GUI.nodeEdit.CheckRange;
-import org.LYG.GUI.nodeEdit.ChooseCheck;
-import org.LYG.GUI.nodeEdit.DrawArrow;
+import org.LYG.GUI.nodeEdit.CheckRangeVPS;
+import org.LYG.GUI.nodeEdit.ChooseCheckVPS;
+import org.LYG.GUI.nodeEdit.DrawArrowVPS;
 import org.LYG.GUI.nodeEdit.DrawFlashSide;
-import org.LYG.GUI.nodeEdit.DynamicLineUpdater;
+import org.LYG.GUI.nodeEdit.DynamicLineUpdaterVPS;
 import org.LYG.GUI.nodeEdit.LinkList;
 import org.LYG.GUI.nodeEdit.LinkNode;
 import org.LYG.GUI.nodeEdit.Sort;
@@ -63,7 +62,10 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 	public MenuItem save, saveAs, delete, load;
 	public MenuItem menuItem;
 	public MenuItem configre, run, show, dNode, dLine;
-
+	public ChooseCheckVPS chooseCheck;
+	public DynamicLineUpdaterVPS dynamicLineUpdater;
+	public DrawArrowVPS drawArrow;
+	public CheckRangeVPS checkRange;
 	public ThisCanvas(Thread threadApplet, LinkList first, NodeShow nodeView
 			, PopupMenu nodeMenu, JTextPane rightBotJTextPane){
 		this.setLayout(null);
@@ -76,6 +78,10 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		this.nodeView= nodeView;
 		this.nodeMenu= nodeMenu;
 		this.rightBotJTextPane= rightBotJTextPane;
+		chooseCheck= new ChooseCheckVPS();
+		dynamicLineUpdater= new DynamicLineUpdaterVPS();
+		drawArrow= new DrawArrowVPS();
+		checkRange= new CheckRangeVPS();
 	}  
 	@SuppressWarnings(StableData.TAG_DEPRECATION)
 	public void run() {
@@ -117,10 +123,10 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 		oldY= arg0.getY();
 		currentX= arg0.getX();
 		currentY= arg0.getY();
-		LinkNode node= new ChooseCheck().chooseCheckNode(first.first, arg0);
-		currentNodeName= node.name;
-		currentNodeID= node.ID;
-		currentNodePrimaryKey= node.primaryKey;
+		Object[] node= chooseCheck.chooseCheckNode(first.first, arg0);
+		currentNodeName= (String) node[0];
+		currentNodeID= (int) node[1];
+		currentNodePrimaryKey= (String) node[2];
 		rightBotJTextPane.setText("×ø±êÎ»£º"+ arg0.getX()+ "|"+ arg0.getY());
 		rightBotJTextPane.validate();
 	}
@@ -137,7 +143,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 					nodeMenu.show(this, arg0.getX(), arg0.getY());
 				}
 				else{
-					new CheckRange(first.first, node,arg0);
+					checkRange.doCheckRange(first.first, node,arg0);
 				}
 			}
 			node.setchoose(false);
@@ -166,7 +172,7 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 			}
 			if(node.leftChoose&& !node.rightChoose){
 				node.setxy(e.getX(), e.getY());
-				new DynamicLineUpdater().exec(first.first, node);
+				dynamicLineUpdater.exec(first.first, node);
 			}
 			node= node.next;
 		}
@@ -203,41 +209,41 @@ public class ThisCanvas extends JPanel implements MouseMotionListener
 				node.flash= 0;
 			}
 			if(0== isOperation) {
-				new DrawFlashSide().drawFlashSide(graphics2D, node.x, node.y, node.flash++ % 3);
+				DrawFlashSide.drawFlashSide(graphics2D, node.x, node.y, node.flash++ % 3);
 			}else {
-				new DrawFlashSide().drawFlashSide(graphics2D, node.x, node.y, node.flash);
+				DrawFlashSide.drawFlashSide(graphics2D, node.x, node.y, node.flash);
 			}
 			graphics2D.setColor(Color.black);
 			g.drawString(node.name+ "->"+ node.ID, node.x- 5, node.y- 20);
 			graphics2D.setColor(new	Color(25, 25, 112));
 			if(node.beconnect){
 				if(node.tBeconnect){
-					new DrawArrow(graphics2D, node.tBeconnectX+ 62, node.tBeconnectY+ 28, node.x+ 14, node.y- 6);
+					drawArrow.doDrawArrow(graphics2D, node.tBeconnectX+ 62, node.tBeconnectY+ 28, node.x+ 14, node.y- 6);
 					if(!node.leftChoose&& node.rightChoose){
 						graphics2D.setColor(Color.black);
-						new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+						drawArrow.doDrawArrow(graphics2D, oldX, oldY, currentX, currentY);
 						graphics2D.setColor(new	Color(25, 25, 112));	
 					}
 				}
 				if(node.mBeconnect){
-					new DrawArrow(graphics2D, node.mBeconnectX+ 62, node.mBeconnectY+ 28, node.x- 4, node.y+ 25);
+					drawArrow.doDrawArrow(graphics2D, node.mBeconnectX+ 62, node.mBeconnectY+ 28, node.x- 4, node.y+ 25);
 					if(!node.leftChoose&& node.rightChoose){
 						graphics2D.setColor(Color.black);
-						new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+						drawArrow.doDrawArrow(graphics2D, oldX, oldY, currentX, currentY);
 						graphics2D.setColor(new	Color(25, 25, 112));	
 					}
 				}
 				if(node.dBeconnect){
-					new DrawArrow(graphics2D, node.dBeconnectX+ 62, node.dBeconnectY+ 28, node.x+ 6, node.y+ 55);
+					drawArrow.doDrawArrow(graphics2D, node.dBeconnectX+ 62, node.dBeconnectY+ 28, node.x+ 6, node.y+ 55);
 					if(!node.leftChoose&& node.rightChoose){
 						graphics2D.setColor(Color.black);
-						new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+						drawArrow.doDrawArrow(graphics2D, oldX, oldY, currentX, currentY);
 						graphics2D.setColor(new	Color(25, 25, 112));	
 					}
 				}
 			}else if(!node.leftChoose&& node.rightChoose){
 				graphics2D.setColor(Color.black);
-				new DrawArrow(graphics2D, oldX, oldY, currentX, currentY);
+				drawArrow.doDrawArrow(graphics2D, oldX, oldY, currentX, currentY);
 				graphics2D.setColor(new	Color(25, 25, 112));
 			}
 			node= node.next;

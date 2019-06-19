@@ -6,7 +6,6 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
 public class ObjectInterface implements Cloneable{
 	public ImageIcon thisIcon;
 	public Image thisImage;

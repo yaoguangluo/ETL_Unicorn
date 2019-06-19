@@ -1,10 +1,8 @@
 package org.LYG.GUI.nodeEdit;
 import java.awt.event.MouseEvent;
-public class ChooseCheck{
-	public ChooseCheck() 
-	{}
-
-	public LinkNode chooseCheckNode(LinkNode first, MouseEvent arg0) {
+import org.LYG.GUI.nodeEdit.controller.ChooseCheck;;
+public class ChooseCheckVPS implements ChooseCheck {
+	public Object[] chooseCheckNode(LinkNode first, MouseEvent arg0) {
 		LinkNode node= first;
 		int x, y;
 		while(null!= node){
@@ -17,16 +15,21 @@ public class ChooseCheck{
 				if(3== arg0.getButton()){
 					node.rightChoose= true;
 				}
-				return node;	
+				Object[] object= new Object[3];
+				object[0]= node.name;
+				object[1]= node.ID;
+				object[2]= node.primaryKey;
+				return object;	
 			}
 			if(null== node.next) {
 				break;
 			}
 			node= node.next;
 		}
-		LinkNode emptyNode= new LinkNode();
-		emptyNode.name= "";
-		emptyNode.ID= 0;
-		return emptyNode;
+		Object[] object= new Object[3];
+		object[0]= "";
+		object[1]= 0;
+		object[2]= "";
+		return object;	
 	}	
 }

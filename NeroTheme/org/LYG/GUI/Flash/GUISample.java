@@ -34,7 +34,7 @@ import org.LYG.GUI.extOSGI.OSGI_chansfer;
 import org.LYG.GUI.nodeEdit.LinkList;
 import org.LYG.GUI.nodeEdit.Sort;
 import org.LYG.GUI.nodeEdit.LinkNode;
-import org.LYG.GUI.nodeEdit.UpdateRelatedLine;
+import org.LYG.GUI.nodeEdit.UpdateRelatedLineVPS;
 import org.LYG.GUI.nodeInfo.NodeInfo;
 import org.LYG.GUI.nodeProject.NodeProject;
 import org.LYG.GUI.nodeView.CacuString;
@@ -86,6 +86,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 	public Thread thread, threadApplet; 
 	private JTextPane text;
 	private Object[][] tableData_old; 
+	public UpdateRelatedLineVPS updateRelatedLine;
 	public void run() {
 		try {
 			Thread.sleep(100);
@@ -106,7 +107,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 			this.validate();
 		}      
 	}
-
+	
 	public void start(){
 		if(thread == null){
 			thread =  new Thread(this);
@@ -493,7 +494,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 					if(node.name.equals(canvas.currentNodeName)&&node.ID== canvas.currentNodeID
 							&& node.primaryKey.equalsIgnoreCase(canvas.currentNodePrimaryKey) ){
 						first.first= first.deletNode(first.first, node.name, node.ID, node.primaryKey);
-						new UpdateRelatedLine(first.first, canvas.currentNodeName, canvas.currentNodeID
+						updateRelatedLine.doUpdateRelatedLine(first.first, canvas.currentNodeName, canvas.currentNodeID
 								, canvas.currentNodePrimaryKey);
 					}
 					node= node.next;
@@ -546,6 +547,7 @@ public class GUISample extends JApplet implements MouseMotionListener
 	private void CreatMap() throws IOException {
 		w= 1446- 130;
 		h= 820- 110;
+		updateRelatedLine= new UpdateRelatedLineVPS();
 		getContentPane().setLayout(null);
 		UIManager.put("SplitPaneUI", "org.LYG.GUI.platForm.UnicornSplitPaneUI");
 		UIManager.put("ScrollBarUI", "org.LYG.GUI.platForm.UnicornScrollBarUI");

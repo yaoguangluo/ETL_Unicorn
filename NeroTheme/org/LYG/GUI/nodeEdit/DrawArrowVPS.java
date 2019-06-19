@@ -1,7 +1,8 @@
 package org.LYG.GUI.nodeEdit;
 import java.awt.*;
-public class DrawArrow{
-	public DrawArrow(Graphics2D g2, int x, int y, int connectX, int connectY) {
+import org.LYG.GUI.nodeEdit.controller.DrawArrow;;
+public class DrawArrowVPS implements DrawArrow {
+	public void doDrawArrow(Graphics2D g2, int x, int y, int connectX, int connectY) {
 		x+= 10;
 		connectX-= 10;
 		g2.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
@@ -9,7 +10,7 @@ public class DrawArrow{
 		DrawSinLine.drawHead(connectX- 8, connectY- 3, g2);
 	}
 
-	private void drawCurve(Graphics2D g2, int x, int y, int connectX, int connectY, double scale) {
+	public void drawCurve(Graphics2D g2, int x, int y, int connectX, int connectY, double scale) {
 		double distanceX= Math.abs(x- connectX);
 		double distanceY= Math.abs(y- connectY);		
 		double signOfPointX= (x - connectX < 0)? 1: -1;

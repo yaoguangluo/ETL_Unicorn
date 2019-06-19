@@ -1,5 +1,6 @@
 package org.LYG.GUI.nodeEdit;
-public class DynamicLineUpdater{
+import org.LYG.GUI.nodeEdit.controller.DynamicLineUpdater;
+public class DynamicLineUpdaterVPS implements DynamicLineUpdater{
 	public void exec(LinkNode first,LinkNode node){
 		LinkNode linkNode= first;
 		while(null!= linkNode) {
@@ -30,7 +31,5 @@ public class DynamicLineUpdater{
 			linkNode= linkNode.next; 
 		}
 		linkNode= null;
-	}
-	public DynamicLineUpdater() {
 	}
 }

@@ -12,7 +12,7 @@ import org.LYG.GUI.OSGI.*;
 import org.LYG.GUI.extOSGI.*;
 import org.LYG.GUI.platForm.UnicornTreeCellRenderer;
 public class NodeShow extends JScrollPane implements MouseListener, ItemListener, ActionListener {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID= 1L;
 	public JTree tree;
 	public NodeOSGI first;
 	public LinkOSGI link;

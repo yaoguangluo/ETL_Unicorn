@@ -1,6 +1,7 @@
 package org.LYG.GUI.nodeEdit;
-public class UpdateRelatedLine{
-	public UpdateRelatedLine(LinkNode first, String currentNodeName
+import org.LYG.GUI.nodeEdit.controller.UpdateRelatedLine;
+public class UpdateRelatedLineVPS implements UpdateRelatedLine{
+	public void doUpdateRelatedLine(LinkNode first, String currentNodeName
 			, int currentNodeID, String currentNodePrimaryKey){
 		first = Sort.sort(first);
 		while(null!= first) {

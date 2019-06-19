@@ -1,7 +1,8 @@
 package org.LYG.GUI.nodeEdit;
 import java.awt.event.MouseEvent;
-public class CheckRange{
-	public CheckRange(LinkNode first, LinkNode node, MouseEvent arg0) {
+import org.LYG.GUI.nodeEdit.controller.CheckRange;
+public class CheckRangeVPS implements CheckRange{
+	public void doCheckRange(LinkNode first, LinkNode node, MouseEvent arg0) {
 		LinkNode linkNode= first;
 		int x, y;
 		x= arg0.getX();
