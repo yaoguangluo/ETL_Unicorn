@@ -71,7 +71,7 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ##### 未完善功能 batch 批处理（不再做这CMD功能， 以后做 TinShell）
 ##### 未完善功能 最近100次节点配置记录流程进行 时间操作。
 ##### 未完善功能 集成更多的weka 和 R 
-##### 未完善功能 第5次 引擎清洗，全面用VPCS 替换 vpc 结构，需要时间。
+##### ![实例](http://progressed.io/bar/28?title=completed)正完善功能  第5次 引擎清洗，全面用VPCS 替换 vpc 结构，需要时间。
 ##### 未完善功能 删除功能进行美观化。
 ##### 未完善功能 多国语言。
 ##### 未完善功能 基于这个etl 软件 开发商业版，把我的照片去掉，换成开源无版权的独角兽图片。
