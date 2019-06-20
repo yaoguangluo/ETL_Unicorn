@@ -31,7 +31,9 @@ public class BootNeroDoc extends Thread implements Runnable{
 				System.out.println(StableData.ATTENSION_RECHOICE);
 				return;
 			}
+			Thread.sleep(2);
 			currentNode= LoadFile.Load(currentNode, nodeView, file, first);
+			Thread.sleep(2);
 			BootNeroCell.bootCell(currentNode, rightBotJTextPane);
 		}catch(Exception loadE) {
 			loadE.printStackTrace();
