@@ -27,8 +27,8 @@ public class BootNeroDoc extends Thread implements Runnable{
 	public void run() {
 		try {
 			System.out.println(fileCurrentpath);
-			if(null== fileCurrentpath|| fileCurrentpath.isEmpty()|| !fileCurrentpath.contains
-					(StableData.FILE_FORMAT_ETL)) {
+			if(null== fileCurrentpath|| fileCurrentpath.isEmpty()
+					|| !fileCurrentpath.contains(StableData.FILE_FORMAT_ETL)) {
 				System.out.println(StableData.ATTENSION_RECHOICE);
 				return;
 			}
