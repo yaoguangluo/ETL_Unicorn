@@ -24,7 +24,7 @@ public class arffTransferNodeInterface extends ObjectInterface{
 		memoryRecovery(jTextPane);//档案可以读
 		thisNodeConfig();
 		memoryRecord(jTextPane);//档案可以写
-		this.isConfiged= true;//这句话千万别删，这是档案神经流自动执行的重要观测关键字。
+		//this.isConfiged= true;//这句话千万别删，这是档案神经流自动执行的重要观测关键字。
 	}
 	//用户自定义功能配置函数。我这里把配置写在thisPanel.config();里面了
 	private void thisNodeConfig() throws IOException {

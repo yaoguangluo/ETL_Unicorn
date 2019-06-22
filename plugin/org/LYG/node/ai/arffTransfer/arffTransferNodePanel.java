@@ -27,6 +27,8 @@ public class arffTransferNodePanel extends ObjectPanel{
             	System.out.println(e.getSource());
                 	close=true;
                 	thisRun.value=1;
+                	//这个isConfiged最好写在这里，因为他是一键神经流执行的判断关键字，一般是配置成功才进行赋值。20190622                	
+                	//this.isConfiged= true;
             }
         });   
 		panel.add(button);
