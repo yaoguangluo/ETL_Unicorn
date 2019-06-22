@@ -67,6 +67,7 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ##### ![实例](http://progressed.io/bar/92?title=completed)正完善功能 一键档案执行功能.
 ##### ![实例](http://progressed.io/bar/72?title=completed)正完善功能 一键批处理档案集合执行功能. 这几天写下unit 测试包.
 ##### ![实例](http://progressed.io/bar/28?title=completed)正完善功能 所有代码进行文字描述，方便日后出版。作者要组织文字来描述当年为什么要这样写，写的时候遇到了什么困难， 是怎么解决的，写的时候怎么思考，将来需要怎么优化等。
+##### ![实例](http://progressed.io/bar/68?title=completed)正完善功能 软件执行可观测的状态map
 
 ##### 未完善功能 batch 批处理（不再做这CMD功能， 以后做 TinShell）
 ##### 未完善功能 最近100次节点配置记录流程进行 时间操作。
