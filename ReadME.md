@@ -65,13 +65,13 @@ https://github.com/yaoguangluo/Data_Processor/tree/master/DP/org/LYG/GUI/platFor
 ##### ![实例](http://progressed.io/bar/62?title=completed)正完善功能 全面过渡到 vpcs 催化结构和细化工作。已完成局部pcs注册工厂模式。
 ##### ![实例](http://progressed.io/bar/99?title=completed)正完善功能 一键执行功能.
 ##### ![实例](http://progressed.io/bar/92?title=completed)正完善功能 一键档案执行功能.
-##### ![实例](http://progressed.io/bar/71?title=completed)正完善功能 一键批处理档案集合执行功能.
+##### ![实例](http://progressed.io/bar/72?title=completed)正完善功能 一键批处理档案集合执行功能.这几天做unit函数测试
 ##### ![实例](http://progressed.io/bar/28?title=completed)正完善功能 所有代码进行文字描述，方便日后出版。作者要组织文字来描述当年为什么要这样写，写的时候遇到了什么困难， 是怎么解决的，写的时候怎么思考，将来需要怎么优化等。
 
 ##### 未完善功能 batch 批处理（不再做这CMD功能， 以后做 TinShell）
 ##### 未完善功能 最近100次节点配置记录流程进行 时间操作。
 ##### 未完善功能 集成更多的weka 和 R 
-##### 未完善功能 第5次 引擎清洗，全面用VPCS 替换 vpc 结构，需要时间。
+##### ![实例](http://progressed.io/bar/28?title=completed)正完善功能  第5次 引擎清洗，全面用VPCS 替换 vpc 结构，需要时间。
 ##### 未完善功能 删除功能进行美观化。
 ##### 未完善功能 多国语言。
 ##### 未完善功能 基于这个etl 软件 开发商业版，把我的照片去掉，换成开源无版权的独角兽图片。
