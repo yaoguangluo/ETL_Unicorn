@@ -7,6 +7,7 @@ import org.LYG.GUI.nodeEdit.LinkNode;
 import org.LYG.GUI.nodeView.NodeShow;
 import org.LYG.document.load.LoadFile;
 import org.LYG.sets.stable.StableData;
+import org.LYG.vpcs.skivvy.Skivvy;
 @SuppressWarnings("unused")
 public class BootNeroDoc extends Thread implements Runnable{
 	private String fileCurrentpath;
@@ -14,7 +15,7 @@ public class BootNeroDoc extends Thread implements Runnable{
 	private LinkNode currentNode;
 	private NodeShow nodeView;
 	private JTextPane rightBotJTextPane;
-	private Map<String, Object> map;
+	private Map<String, Object> pillow;
 	public BootNeroDoc(LinkList first, String fileCurrentpath, NodeShow nodeView
 			, JTextPane rightBotJTextPane) {
 		this.fileCurrentpath= fileCurrentpath;
@@ -22,7 +23,7 @@ public class BootNeroDoc extends Thread implements Runnable{
 		this.rightBotJTextPane= rightBotJTextPane;
 	}
 	public void setPillow(Map<String, Object> map) {
-		this.map= map;//map 提供运维，可控等数据
+		this.pillow= map;//map 提供运维，可控等数据
 	}
 	public void run() {
 		try {
@@ -42,6 +43,7 @@ public class BootNeroDoc extends Thread implements Runnable{
 			Thread.sleep(2);
 			BootNeroCell.bootCell(currentNode, rightBotJTextPane);
 		}catch(Exception loadE) {
+			Skivvy.working(this.getId(), loadE);//skivvy负责vision， pillow，sets，sleeper 全程管理和反馈。
 			loadE.printStackTrace();
 		}
 	}

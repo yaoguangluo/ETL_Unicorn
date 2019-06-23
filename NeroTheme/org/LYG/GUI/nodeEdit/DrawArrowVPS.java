@@ -19,29 +19,37 @@ public class DrawArrowVPS implements DrawArrow {
 		double signOfPointYWithaverageOfDistanceY= averageOfDistanceY* signOfPointY;
 		double oldRegisterY= 0;
 		boolean firstTime= true;
+		double signOfPointYWithaverageOfDistanceYKernel= signOfPointYWithaverageOfDistanceY* 8;
+		double averageOfDistanceYKernel= averageOfDistanceY* 8/ 6;
+		double signOfPointYWithaverageOfDistanceYCount= signOfPointYWithaverageOfDistanceYKernel;
+		double averageOfDistanceYCount= averageOfDistanceYKernel;
 		if(1== signOfPointX) {
 			double registerY = y;
 			int endX= x;
-			for(int c = 0, i = x; i < connectX- 16; c+= 8, i+= 8) {
-				registerY= y+ signOfPointYWithaverageOfDistanceY* c+ scale 
-						* Math.sin(averageOfDistanceY* c/ 6);
+			for(int i = x; i < connectX- 16; i+= 8) {
+				registerY= y+ signOfPointYWithaverageOfDistanceYCount+ scale 
+						* Math.sin(averageOfDistanceYCount);
 				graphics2D.drawLine(i, true== firstTime? (int)registerY: (int)oldRegisterY
 						, i+ 8, (int)registerY);
 				oldRegisterY= registerY;
 				endX= i+ 8;
 				firstTime= false;
+				signOfPointYWithaverageOfDistanceYCount+= signOfPointYWithaverageOfDistanceYKernel;
+				averageOfDistanceYCount+= averageOfDistanceYKernel;
 			}
 			graphics2D.drawLine(endX, (int)registerY, connectX-8, connectY);
 			return;
 		}	
 		if(-1== signOfPointX) {
-			for(int c= 0, i= x; i> connectX+ 2; c+= 8, i-= 8) {
-				double registerY= y+ signOfPointYWithaverageOfDistanceY* c+ scale 
-						* Math.sin(averageOfDistanceY* c/ 6 );
+			for(int i= x; i> connectX+ 2; i-= 8) {
+				double registerY= y+ signOfPointYWithaverageOfDistanceYCount+ scale 
+						* Math.sin(averageOfDistanceYCount);
 				graphics2D.drawLine(i, true== firstTime? (int)registerY: (int)oldRegisterY
 						, i- 8, (int)registerY);
 				oldRegisterY= registerY;
 				firstTime= false;
+				signOfPointYWithaverageOfDistanceYCount+= signOfPointYWithaverageOfDistanceYKernel;
+				averageOfDistanceYCount+= averageOfDistanceYKernel;
 			}
 		}
 	}
