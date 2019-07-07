@@ -5,21 +5,21 @@ public class DrawFlashSide{
 	public static void drawFlashSide(Graphics2D graphics2D, int x, int y, int flash) {	
 		if(0>= flash){
 			graphics2D.setColor(Color.blue);
-			DrawSinLine.drawCosLine(x, y , graphics2D);
+			DrawSinLineVPS.drawCosLine(x, y , graphics2D);
 			graphics2D.setColor(Color.pink);
-			DrawSinLine.drawSinLine(x, y , graphics2D);
+			DrawSinLineVPS.drawSinLine(x, y , graphics2D);
 		}
 		if(1== flash){
 			graphics2D.setColor(Color.ORANGE);
-			DrawSinLine.drawCosLine(x, y , graphics2D);
+			DrawSinLineVPS.drawCosLine(x, y , graphics2D);
 			graphics2D.setColor(Color.blue);
-			DrawSinLine.drawSinLine(x, y , graphics2D);
+			DrawSinLineVPS.drawSinLine(x, y , graphics2D);
 		}
 		if(2<= flash){
 			graphics2D.setColor(Color.ORANGE);
-			DrawSinLine.drawCosLine(x, y , graphics2D);
+			DrawSinLineVPS.drawCosLine(x, y , graphics2D);
 			graphics2D.setColor(Color.RED);
-			DrawSinLine.drawSinLine(x, y , graphics2D);
+			DrawSinLineVPS.drawSinLine(x, y , graphics2D);
 		}	
 		drawConnect(graphics2D, x, y);	
 	}

@@ -1,13 +1,13 @@
 package org.LYG.GUI.nodeEdit;
 import java.awt.*;
-import org.LYG.GUI.nodeEdit.controller.DrawArrow;;
+import org.LYG.GUI.nodeEdit.controller.DrawArrow;
 public class DrawArrowVPS implements DrawArrow {
 	public void doDrawArrow(Graphics2D graphics2D, int x, int y, int connectX, int connectY) {
 		x+= 10;
 		connectX-= 10;
 		graphics2D.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND));
 		drawCurve(graphics2D, x, y, connectX, connectY, 6);
-		DrawSinLine.drawHead(connectX- 8, connectY- 3, graphics2D);
+		DrawSinLineVPS.drawHead(connectX- 8, connectY- 3, graphics2D);
 	}
 
 	public void drawCurve(Graphics2D graphics2D, int x, int y, int connectX, int connectY, double scale) {

@@ -44,7 +44,7 @@ public class arffTransferNodePanel extends ObjectPanel{
 			});
 		panel.add(readfile);
 		scrollPane.add(panel);
-		close=false;
+		close= false;
  	}
 	public void config(){    
 		System.out.println("configued");      
