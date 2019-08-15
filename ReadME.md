@@ -1,6 +1,6 @@
 # 🔥 Deta ETL AI Workflow Tool Software For Data Mining Piple Line Operations /德塔人工智能数据分析ETL可重用节点工作流处理软件引擎系统。
 ## 这个工程用于节点数据工作流执行。该软件的亮点为：世界最轻的ETL批处理引擎（6KB）采用VPCS结构，启动快，效率高，操作简单，结构轻，网页嵌入，执行快，高并发，二次开发简易，自由修改源码实现各种风格。
-##### <<100%属于(首创)个人著作权 引擎系统 cn Pending 2019R11L803285>> 当前版本号 V1.0.2
+##### <<100%属于(首创)个人著作权 引擎系统 cn 2019R11L803285>> 当前版本号 V1.0.2  软著登字第4240558号
 ##### 说明书地址：
 https://github.com/yaoguangluo/AOPM_VPCS_Theroy/blob/master/%E5%BE%B7%E5%A1%94ETL%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%BC%95%E6%93%8E%E7%B3%BB%E7%BB%9FAPI%201.0.2%20%E8%AF%B4%E6%98%8E%E4%B9%A6%20final.docx
 
